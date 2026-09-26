@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>家電の電気代かんたん計算 | べんりちゃん、微力ながら</title>
+<meta name="description" content="家電の消費電力、使用時間、電力量料金、使用日数から電気代と使用電力量を計算します。">
+<meta name="robots" content="index,follow">
+<link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+<header>
+  <div class="header-inner">
+    <div class="site-title"><a href="../">べんりちゃん、微力ながら</a></div>
+    <nav aria-label="メインナビゲーション"><a href="../#tools">ツール一覧</a><a href="../public/">公共施設</a><a href="../privacy.html">プライバシー</a></nav>
+  </div>
+</header>
+<main><section class="card app-tool-card">
+
+<h1>家電の電気代かんたん計算</h1>
+<p>家電を何時間使うと電気代がいくらになるかを計算します。</p>
+<div class="app-input-grid two-col">
+  <label><span>消費電力（W）</span><input id="powerW" type="text" inputmode="decimal" placeholder="例: 1200"></label>
+  <label><span>1日の使用時間（時間）</span><input id="hoursPerDay" type="text" inputmode="decimal" placeholder="例: 2"></label>
+  <label><span>電力量料金（円/kWh）</span><input id="yenPerKwh" type="text" inputmode="decimal" value="31"></label>
+  <label><span>使用日数</span><input id="daysUsed" type="text" inputmode="decimal" value="30"></label>
+</div>
+<div class="buttons"><button type="button" id="electricCalc">計算する</button></div>
+<div class="app-result-panel">
+  <div class="app-result-row"><span>電気代</span><strong id="electricCost">—</strong></div>
+  <div class="app-result-row"><span>使用電力量</span><strong id="electricKwh">—</strong></div>
+  <div class="buttons"><button type="button" id="electricCopy">結果をコピー</button></div>
+</div>
+<p class="app-example">例：1200W × 2時間/日 × 30日 × 31円/kWh → 2,232円 / 72kWh</p>
+<div class="message" id="electricMessage" aria-live="polite"></div>
+
+  <p class="notice">計算はブラウザ内で行われます。入力内容は当サイトの独自サーバーへ送信しません。</p>
+  <a class="back" href="../">← TOPページへ戻る</a>
+</section></main>
+<footer><div class="footer-inner"><span>© <span data-current-year>2026</span> べんりちゃん、微力ながら</span><span><a href="../privacy.html">プライバシーポリシー</a></span></div></footer>
+<script src="../assets/js/site.js"></script>
+<script src="../assets/js/electricity-cost.js"></script>
+</body></html>
