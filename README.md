@@ -1,4 +1,4 @@
-# My Tools Site
+# べんりちゃん、微力ながら
 
 無料のブラウザツールを公開する GitHub Pages サイトです。
 
