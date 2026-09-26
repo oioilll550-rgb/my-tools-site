@@ -242,7 +242,8 @@ button.secondary:hover {
 }
 
 .tool-grid {
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 10px;
 }
 
 .stats {
@@ -253,9 +254,9 @@ button.secondary:hover {
 .tool-card,
 .stat {
   border: 1px solid var(--border);
-  border-radius: 11px;
+  border-radius: 10px;
   background: var(--surface-muted);
-  padding: 18px;
+  padding: 12px 14px;
 }
 
 a.tool-card {
@@ -270,13 +271,15 @@ a.tool-card:hover {
 }
 
 .tool-card h3 {
-  margin: 0 0 6px;
+  margin: 0 0 4px;
+  font-size: 16px;
 }
 
 .tool-card p {
   margin: 0;
   color: var(--muted);
-  font-size: 14px;
+  font-size: 12.5px;
+  line-height: 1.5;
 }
 
 .stat-label {
