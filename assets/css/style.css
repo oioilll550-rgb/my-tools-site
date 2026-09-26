@@ -445,10 +445,6 @@ footer {
   font-variant-numeric: tabular-nums;
 }
 
-.visitor-counter[hidden] {
-  display: none;
-}
-
 @media (max-width: 720px) {
   .visitor-counter {
     justify-content: center;
