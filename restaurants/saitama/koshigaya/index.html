@@ -4,55 +4,63 @@
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self' https://abacus.jasoncameron.dev; font-src 'self' data:; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
 <meta name="referrer" content="no-referrer">
-<title>越谷市で何食べたい？ | べんりちゃん、微力ながら</title>
-<meta name="description" content="越谷市で食べたいものや利用シーンを入力すると、近い飲食店カテゴリページを最大3件提案します。">
+<title>越谷市の飲食店 | べんりちゃん、微力ながら</title>
+<meta name="description" content="越谷市の飲食店を、食べたいものや利用シーン、カテゴリから探せます。新規OPEN情報も掲載しています。">
 <meta name="robots" content="index,follow">
 <link rel="stylesheet" href="../../../assets/css/style.css">
 </head>
 <body>
 <header><div class="header-inner"><div class="site-title"><a href="../../../">べんりちゃん、微力ながら</a></div>
 <nav aria-label="メインナビゲーション"><a href="../../../#tools">ツール</a><a href="../../../public/">公共施設</a><a href="../../../restaurants/">飲食店</a><a href="../../../privacy.html">プライバシー</a></nav></div></header>
-<main><section class="card">
-<p class="breadcrumb"><a href="../../../">TOP</a> / <a href="../../">飲食店</a> / <a href="../">埼玉県</a> / 越谷市</p>
-<h1>越谷市で何食べたい？</h1>
-<p>「こってりラーメン食べたい」「子連れでランチ」「安い焼肉」など、適当に入力してください。</p>
-<div class="food-search-box">
-  <input type="search" id="foodSearch" placeholder="例：こってりラーメン食べたい" aria-label="食べたいものを入力">
-  <button type="button" id="foodSearchButton">探す</button>
-</div>
-<div class="food-search-examples" aria-label="検索例">
-  <button type="button" data-food-query="ラーメン食べたい">ラーメン</button>
-  <button type="button" data-food-query="甘いもの食べたい">甘いもの</button>
-  <button type="button" data-food-query="子連れでランチ">子連れランチ</button>
-  <button type="button" data-food-query="安い焼肉">安い焼肉</button>
-  <button type="button" data-food-query="一人で軽く食べたい">一人で</button>
-</div>
-<div id="foodSearchResults" class="food-search-results" aria-live="polite"></div>
-</section>
-<section class="card restaurant-openings-card">
-<div class="tools-heading-row"><h2>新規OPEN</h2><span id="restaurantCount" class="tools-count">店舗情報を読込中</span></div>
-<p>最近オープンした店舗を、開店日の新しい順に5件表示します。</p>
-<div id="newOpenings" class="new-openings-list" data-data-url="../../../assets/data/restaurants-koshigaya.json"><p class="notice">新規OPEN情報を読み込んでいます…</p></div>
-</section>
+<main>
 <section class="card">
-<h2>ジャンル・目的から選ぶ</h2>
-<div class="restaurant-category-grid">
-<a class="restaurant-category-card" href="ramen.html"><strong>ラーメン</strong><span>ラーメン・つけ麺・中華そばを食べたいとき</span></a>
-<a class="restaurant-category-card" href="sushi.html"><strong>寿司・海鮮</strong><span>寿司・刺身・海鮮系を食べたいとき</span></a>
-<a class="restaurant-category-card" href="yakiniku.html"><strong>焼肉・肉料理</strong><span>焼肉・ホルモン・肉料理をしっかり食べたいとき</span></a>
-<a class="restaurant-category-card" href="japanese.html"><strong>和食・定食</strong><span>定食・そば・うどんなど落ち着いた和食を食べたいとき</span></a>
-<a class="restaurant-category-card" href="curry.html"><strong>カレー・スパイス料理</strong><span>カレーやスパイスの効いた料理を食べたいとき</span></a>
-<a class="restaurant-category-card" href="italian.html"><strong>イタリアン・ピザ・パスタ</strong><span>パスタ・ピザ・イタリアンを食べたいとき</span></a>
-<a class="restaurant-category-card" href="cafe.html"><strong>カフェ・スイーツ</strong><span>カフェ、コーヒー、ケーキや甘いものを探したいとき</span></a>
-<a class="restaurant-category-card" href="family.html"><strong>子連れ・家族向け</strong><span>子どもと一緒に入りやすい店を探したいとき</span></a>
-<a class="restaurant-category-card" href="solo.html"><strong>一人で入りやすい</strong><span>一人で気軽に食事したいとき</span></a>
-<a class="restaurant-category-card" href="cheap.html"><strong>安め・コスパ</strong><span>予算を抑えて食べたいとき</span></a>
-<a class="restaurant-category-card" href="lunch.html"><strong>ランチ</strong><span>昼ごはん・ランチを探したいとき</span></a>
-<a class="restaurant-category-card" href="late-night.html"><strong>夜遅く・夜食</strong><span>遅い時間や夜食を探したいとき</span></a>
-</div>
-<p class="notice">店舗情報は、公式サイト・公式SNS・Google Maps等で確認できる基本情報を基準に順次追加します。</p>
+  <p class="breadcrumb"><a href="../../../">TOP</a> / <a href="../../">飲食店</a> / <a href="../">埼玉県</a> / 越谷市</p>
+  <h1>越谷市の飲食店</h1>
+  <p>食べたいものや利用シーンを入力すると、近いカテゴリを最大3件表示します。</p>
+  <div class="food-search-box">
+    <input type="search" id="foodSearch" placeholder="例：こってりラーメン食べたい" aria-label="食べたいものを入力">
+    <button type="button" id="foodSearchButton">探す</button>
+  </div>
+  <div class="food-search-examples" aria-label="検索例">
+    <button type="button" data-food-query="ラーメン食べたい">ラーメン</button>
+    <button type="button" data-food-query="甘いもの食べたい">甘いもの</button>
+    <button type="button" data-food-query="子連れでランチ">子連れランチ</button>
+    <button type="button" data-food-query="安い焼肉">安い焼肉</button>
+    <button type="button" data-food-query="一人で軽く食べたい">一人で</button>
+  </div>
+  <div id="foodSearchResults" class="food-search-results" aria-live="polite"></div>
 </section>
-<script src="../../../assets/js/restaurant-search.js"></script><script src="../../../assets/js/restaurant-data.js"></script></main>
+
+<section class="card">
+  <div class="tools-heading-row"><h2>新規OPEN</h2><span id="restaurantCount" class="tools-count">26店舗掲載</span></div>
+  <p class="notice">最近オープンした店舗を、確認できた開店日の新しい順に5件表示します。来店前に最新情報をご確認ください。</p>
+  <div id="newOpenings" class="facility-list compact-facility-list" data-data-url="../../../assets/data/restaurants-koshigaya.json">
+    <p class="notice">新規OPEN情報を読み込んでいます…</p>
+  </div>
+</section>
+
+<section class="card">
+  <h2>ジャンル・目的から選ぶ</h2>
+  <p>公共施設ページと同じ形式で、カテゴリを選択してください。</p>
+  <div class="public-nav-grid">
+    <a class="public-nav-card" href="ramen.html" data-category-card="ramen"><strong>ラーメン（<span data-category-count="ramen">3</span>店舗）</strong><span>ラーメン・つけ麺・中華そばを食べたいとき</span></a>
+    <a class="public-nav-card" href="sushi.html" data-category-card="sushi"><strong>寿司・海鮮（<span data-category-count="sushi">3</span>店舗）</strong><span>寿司・刺身・海鮮系を食べたいとき</span></a>
+    <a class="public-nav-card" href="yakiniku.html" data-category-card="yakiniku"><strong>焼肉・肉料理（<span data-category-count="yakiniku">3</span>店舗）</strong><span>焼肉・ホルモン・肉料理をしっかり食べたいとき</span></a>
+    <a class="public-nav-card" href="japanese.html" data-category-card="japanese"><strong>和食・定食（<span data-category-count="japanese">8</span>店舗）</strong><span>定食・そば・うどんなど落ち着いた和食を食べたいとき</span></a>
+    <a class="public-nav-card" href="curry.html" data-category-card="curry"><strong>カレー・スパイス料理（<span data-category-count="curry">4</span>店舗）</strong><span>カレーやスパイスの効いた料理を食べたいとき</span></a>
+    <a class="public-nav-card" href="italian.html" data-category-card="italian"><strong>イタリアン・ピザ・パスタ（<span data-category-count="italian">2</span>店舗）</strong><span>パスタ・ピザ・イタリアンを食べたいとき</span></a>
+    <a class="public-nav-card" href="cafe.html" data-category-card="cafe"><strong>カフェ・スイーツ（<span data-category-count="cafe">4</span>店舗）</strong><span>カフェ、コーヒー、ケーキや甘いものを探したいとき</span></a>
+    <a class="public-nav-card" href="family.html" data-category-card="family"><strong>子連れ・家族向け（<span data-category-count="family">6</span>店舗）</strong><span>子どもと一緒に入りやすい店を探したいとき</span></a>
+    <a class="public-nav-card" href="solo.html" data-category-card="solo"><strong>一人で入りやすい（<span data-category-count="solo">10</span>店舗）</strong><span>一人で気軽に食事したいとき</span></a>
+    <a class="public-nav-card" href="cheap.html" data-category-card="cheap"><strong>安め・コスパ（<span data-category-count="cheap">9</span>店舗）</strong><span>予算を抑えて食べたいとき</span></a>
+    <a class="public-nav-card" href="lunch.html" data-category-card="lunch"><strong>ランチ（<span data-category-count="lunch">22</span>店舗）</strong><span>昼ごはん・ランチを探したいとき</span></a>
+    <a class="public-nav-card" href="late-night.html" data-category-card="late-night"><strong>夜遅く・夜食（<span data-category-count="late-night">5</span>店舗）</strong><span>遅い時間や夜食を探したいとき</span></a>
+  </div>
+</section>
+</main>
 <footer><div class="footer-inner"><span>© <span data-current-year>2026</span> べんりちゃん、微力ながら</span><span><a href="../../../privacy.html">プライバシーポリシー</a></span></div></footer>
 <script src="../../../assets/js/site.js"></script>
-</body></html>
+<script src="../../../assets/js/restaurant-search.js"></script>
+<script src="../../../assets/js/restaurant-data.js"></script>
+</body>
+</html>

@@ -2,75 +2,102 @@ document.addEventListener("DOMContentLoaded", async () => {
   const list = document.getElementById("restaurantList");
   const openings = document.getElementById("newOpenings");
   const count = document.getElementById("restaurantCount");
-  const holder = list || openings;
+  const holder = list || openings || document.querySelector("[data-category-count]");
   if (!holder) return;
 
   const url =
     (list && list.dataset.dataUrl) ||
-    (openings && openings.dataset.dataUrl);
-  if (!url) return;
+    (openings && openings.dataset.dataUrl) ||
+    "../../../assets/data/restaurants-koshigaya.json";
 
   const mapUrl = (value) =>
-    "https://www.google.com/maps/search/?api=1&query=" +
-    encodeURIComponent(value);
+    "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(value);
 
-  const fmtDate = (value) => {
-    if (!value) return "";
-    const parts = value.split("-");
-    return Number(parts[1]) + "/" + Number(parts[2]);
-  };
+  const fmtDate = (value) => value ? value.replace(/-/g, "/") : "";
+
+  function externalLink(href, text, className) {
+    const link = document.createElement("a");
+    link.href = href;
+    link.target = "_blank";
+    link.rel = "noopener noreferrer";
+    link.textContent = text;
+    if (className) link.className = className;
+    return link;
+  }
+
+  function addDlRow(dl, label, valueNode) {
+    const dt = document.createElement("dt");
+    dt.textContent = label;
+    const dd = document.createElement("dd");
+    if (valueNode instanceof Node) dd.appendChild(valueNode);
+    else dd.textContent = valueNode;
+    dl.append(dt, dd);
+  }
 
   function createRestaurantCard(restaurant) {
     const article = document.createElement("article");
-    article.className = "restaurant-card";
+    article.className = "facility-card restaurant-facility-card";
 
     const heading = document.createElement("h2");
     heading.textContent = restaurant.name;
 
-    const address = document.createElement("p");
-    address.className = "restaurant-address";
-    const addressLink = document.createElement("a");
-    addressLink.href = mapUrl(restaurant.address);
-    addressLink.target = "_blank";
-    addressLink.rel = "noopener noreferrer";
-    addressLink.textContent = restaurant.address;
-    address.appendChild(addressLink);
-
-    const meta = document.createElement("div");
-    meta.className = "restaurant-meta";
+    const dl = document.createElement("dl");
+    addDlRow(
+      dl,
+      "住所",
+      externalLink(mapUrl(restaurant.address), restaurant.address, "map-address-link")
+    );
 
     if (restaurant.openingDate) {
-      const opening = document.createElement("span");
-      opening.textContent = "OPEN " + fmtDate(restaurant.openingDate);
-      meta.appendChild(opening);
+      addDlRow(dl, "開店日", fmtDate(restaurant.openingDate));
     }
-
     if (restaurant.checkedAt) {
-      const checked = document.createElement("span");
-      checked.textContent = "確認 " + restaurant.checkedAt.replace(/-/g, "/");
-      meta.appendChild(checked);
+      addDlRow(dl, "情報確認", fmtDate(restaurant.checkedAt));
     }
 
-    const links = document.createElement("div");
-    links.className = "restaurant-links";
+    article.append(heading, dl);
 
-    const maps = document.createElement("a");
-    maps.href = mapUrl(restaurant.name + " " + restaurant.address);
-    maps.target = "_blank";
-    maps.rel = "noopener noreferrer";
-    maps.textContent = "Google Maps";
-    links.appendChild(maps);
+    const mapLine = document.createElement("p");
+    mapLine.className = "facility-url";
+    const mapLabel = document.createElement("span");
+    mapLabel.textContent = "地図";
+    mapLine.append(mapLabel, document.createTextNode(" "));
+    mapLine.appendChild(
+      externalLink(mapUrl(restaurant.name + " " + restaurant.address), "Google Maps")
+    );
+    article.appendChild(mapLine);
 
     if (restaurant.sourceUrl) {
-      const source = document.createElement("a");
-      source.href = restaurant.sourceUrl;
-      source.target = "_blank";
-      source.rel = "noopener noreferrer";
-      source.textContent = restaurant.sourceLabel || "情報元";
-      links.appendChild(source);
+      const sourceLine = document.createElement("p");
+      sourceLine.className = "facility-url restaurant-source-url";
+      const sourceLabel = document.createElement("span");
+      sourceLabel.textContent = restaurant.sourceLabel || "情報元";
+      sourceLine.append(sourceLabel, document.createTextNode(" "));
+      sourceLine.appendChild(
+        externalLink(restaurant.sourceUrl, restaurant.sourceUrl)
+      );
+      article.appendChild(sourceLine);
     }
 
-    article.append(heading, address, meta, links);
+    return article;
+  }
+
+  function createOpeningCard(restaurant) {
+    const article = document.createElement("article");
+    article.className = "facility-card";
+
+    const heading = document.createElement("h2");
+    heading.textContent = restaurant.name;
+
+    const dl = document.createElement("dl");
+    addDlRow(dl, "開店日", fmtDate(restaurant.openingDate));
+    addDlRow(
+      dl,
+      "住所",
+      externalLink(mapUrl(restaurant.address), restaurant.address, "map-address-link")
+    );
+
+    article.append(heading, dl);
     return article;
   }
 
@@ -81,9 +108,13 @@ document.addEventListener("DOMContentLoaded", async () => {
     const data = await response.json();
     const restaurants = Array.isArray(data.restaurants) ? data.restaurants : [];
 
-    if (count) {
-      count.textContent = restaurants.length + "店舗掲載";
-    }
+    if (count) count.textContent = restaurants.length + "店舗掲載";
+
+    document.querySelectorAll("[data-category-count]").forEach((node) => {
+      const tag = node.dataset.categoryCount;
+      const value = restaurants.filter((r) => (r.tags || []).includes(tag)).length;
+      node.textContent = String(value);
+    });
 
     if (openings) {
       const recent = restaurants
@@ -92,25 +123,11 @@ document.addEventListener("DOMContentLoaded", async () => {
         .slice(0, 5);
 
       openings.innerHTML = "";
+      recent.forEach((restaurant) => openings.appendChild(createOpeningCard(restaurant)));
 
-      recent.forEach((restaurant) => {
-        const row = document.createElement("article");
-        row.className = "new-opening-row";
-
-        const date = document.createElement("time");
-        date.dateTime = restaurant.openingDate;
-        date.textContent = restaurant.openingDate.replace(/-/g, "/");
-
-        const body = document.createElement("div");
-        const name = document.createElement("strong");
-        name.textContent = restaurant.name;
-        const address = document.createElement("span");
-        address.textContent = restaurant.address;
-
-        body.append(name, address);
-        row.append(date, body);
-        openings.appendChild(row);
-      });
+      if (!recent.length) {
+        openings.innerHTML = '<p class="notice">現在、新規OPEN情報を追加準備中です。</p>';
+      }
     }
 
     if (list) {
@@ -120,26 +137,15 @@ document.addEventListener("DOMContentLoaded", async () => {
         .sort((a, b) => a.name.localeCompare(b.name, "ja"));
 
       list.innerHTML = "";
-
       if (!matched.length) {
-        list.innerHTML =
-          '<p class="notice">現在、掲載店舗を追加準備中です。</p>';
+        list.innerHTML = '<p class="notice">現在、掲載店舗を追加準備中です。</p>';
       } else {
-        matched.forEach((restaurant) => {
-          list.appendChild(createRestaurantCard(restaurant));
-        });
+        matched.forEach((restaurant) => list.appendChild(createRestaurantCard(restaurant)));
       }
     }
   } catch (error) {
     console.warn("Restaurant data error:", error);
-
-    if (openings) {
-      openings.innerHTML =
-        '<p class="notice">新規OPEN情報を取得できませんでした。</p>';
-    }
-    if (list) {
-      list.innerHTML =
-        '<p class="notice">店舗情報を取得できませんでした。</p>';
-    }
+    if (openings) openings.innerHTML = '<p class="notice">新規OPEN情報を取得できませんでした。</p>';
+    if (list) list.innerHTML = '<p class="notice">店舗情報を取得できませんでした。</p>';
   }
 });

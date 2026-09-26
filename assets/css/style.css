@@ -1314,3 +1314,31 @@ a.compact-tool-card {
     min-height: 420px;
   }
 }
+
+/* restaurant pages follow public-facility layout */
+.restaurant-facility-card .restaurant-source-url {
+  margin-top: 8px;
+}
+
+.restaurant-openings-card .compact-facility-list {
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+
+.restaurant-openings-card .facility-card h2 {
+  font-size: 16px;
+}
+
+.restaurant-openings-card .facility-card dl {
+  margin-bottom: 0;
+}
+
+.public-nav-card [data-category-count] {
+  color: inherit;
+  font-size: inherit;
+}
+
+@media (max-width: 720px) {
+  .restaurant-openings-card .compact-facility-list {
+    grid-template-columns: 1fr;
+  }
+}
