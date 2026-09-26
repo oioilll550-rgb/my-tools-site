@@ -6,6 +6,9 @@ const G=s=>{s=String(s);if(typeof Intl!=="undefined"&&Intl.Segmenter){return Arr
 const ymd=s=>{const m=/^(\d{4})-(\d{2})-(\d{2})$/.exec(String(s));if(!m)return null;const y=+m[1],mo=+m[2],d=+m[3],ms=Date.UTC(y,mo-1,d),x=new Date(ms);return x.getUTCFullYear()===y&&x.getUTCMonth()===mo-1&&x.getUTCDate()===d?{y,mo,d,ms}:null};
 const moneyRound=(n,mode)=>mode==="切り捨て"?Math.floor(n):mode==="切り上げ"?Math.ceil(n):mode==="四捨五入"?Math.round(n):n;
 const fmtNum=n=>Number.isFinite(n)?String(Number(n.toFixed(10))):"入力内容を確認してください";
+const num=(v,label="値")=>{if(v===""||v===null||!Number.isFinite(Number(v)))throw new Error(label+"を数値で入力してください");return Number(v)};
+const intNum=(v,label="値")=>{const n=num(v,label);if(!Number.isInteger(n))throw new Error(label+"は整数で入力してください");return n};
+const utcDate=v=>{const d=ymd(v);if(!d)throw new Error("正しい日付を入力してください");return d.ms};
 const tools=[
 ["trim","前後空白削除",[["text","文章","textarea"]],v=>v.text.trim()],
 ["sort","行の並べ替え",[["text","行","textarea"],["order","順序","select",["昇順","降順"]]],v=>L(v.text).sort((a,b)=>a.localeCompare(b,"ja")*(v.order==="降順"?-1:1)).join("\n")],
@@ -27,7 +30,7 @@ const tools=[
 ["comma-lines","カンマ→改行",[["text","カンマ区切り","textarea"]],v=>v.text.split(",").map(x=>x.trim()).join("\n")],
 ["lines-comma","改行→カンマ",[["text","複数行","textarea"]],v=>L(v.text).map(x=>x.trim()).filter(Boolean).join(",")],
 ["frequency","単語出現回数",[["text","文章","textarea"]],v=>{let m=new Map;v.text.trim().split(/\s+/).filter(Boolean).forEach(w=>m.set(w,(m.get(w)||0)+1));return [...m].sort((a,b)=>b[1]-a[1]).map(x=>x[0]+"\t"+x[1]).join("\n")}],
-["sum","数値合計",[["text","数値","textarea"]],v=>{const a=N(v.text);return a===null?"数値以外が含まれています":String(a.reduce((x,y)=>x+y,0))}],
+["sum","数値合計",[["text","数値","textarea"]],v=>{const a=N(v.text);if(a===null)return"数値以外が含まれています";return a.length?fmtNum(a.reduce((x,y)=>x+y,0)):"数値を入力してください"}],
 ["avg","数値平均",[["text","数値","textarea"]],v=>{const a=N(v.text);if(a===null)return"数値以外が含まれています";return a.length?fmtNum(a.reduce((x,y)=>x+y,0)/a.length):"数値を入力してください"}],
 ["minmax","最小・最大値",[["text","数値","textarea"]],v=>{const a=N(v.text);if(a===null)return"数値以外が含まれています";return a.length?"最小: "+Math.min(...a)+"\n最大: "+Math.max(...a):"数値を入力してください"}],
 ["percent","割合計算",[["a","対象の数","number"],["b","全体","number"]],v=>{const a=num(v.a,"対象の数"),b=num(v.b,"全体");if(b===0)throw new Error("全体は0以外を入力してください");return (a/b*100).toFixed(2)+"%"}],
