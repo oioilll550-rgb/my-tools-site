@@ -172,7 +172,22 @@ document.addEventListener("DOMContentLoaded", async () => {
   let pagePath = location.pathname || "/";
   pagePath = pagePath.replace(/^\/my-tools-site(?=\/|$)/, "") || "/";
   if (pagePath.endsWith("/index.html")) pagePath = pagePath.slice(0, -"index.html".length);
-  const pageId = pagePath;
+  function pageCounterId(path) {
+    let hash = 2166136261;
+    for (let i = 0; i < path.length; i++) {
+      hash ^= path.charCodeAt(i);
+      hash = Math.imul(hash, 16777619);
+    }
+    const hashText = (hash >>> 0).toString(16).padStart(8, "0");
+    const readable = path
+      .replace(/^\/+|\/+$/g, "")
+      .replace(/[^A-Za-z0-9_.-]+/g, "-")
+      .replace(/^-+|-+$/g, "")
+      .slice(-36) || "home";
+    return "p-" + hashText + "-" + readable;
+  }
+
+  const pageId = pageCounterId(pagePath);
 
   const card = document.createElement("section");
   card.className = "card page-traffic-card";
