@@ -1,15 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://oioilll550-rgb.github.io/my-tools-site/</loc>
-  </url>
-  <url>
-    <loc>https://oioilll550-rgb.github.io/my-tools-site/tools/character-counter.html</loc>
-  </url>
-  <url>
-    <loc>https://oioilll550-rgb.github.io/my-tools-site/tools/zenkaku-hankaku.html</loc>
-  </url>
-  <url>
-    <loc>https://oioilll550-rgb.github.io/my-tools-site/privacy.html</loc>
-  </url>
+  <url><loc>https://oioilll550-rgb.github.io/my-tools-site/</loc></url>
+  <url><loc>https://oioilll550-rgb.github.io/my-tools-site/tools/character-counter.html</loc></url>
+  <url><loc>https://oioilll550-rgb.github.io/my-tools-site/tools/zenkaku-hankaku.html</loc></url>
+  <url><loc>https://oioilll550-rgb.github.io/my-tools-site/tools/remove-linebreaks.html</loc></url>
+  <url><loc>https://oioilll550-rgb.github.io/my-tools-site/tools/remove-duplicates.html</loc></url>
+  <url><loc>https://oioilll550-rgb.github.io/my-tools-site/tools/case-converter.html</loc></url>
+  <url><loc>https://oioilll550-rgb.github.io/my-tools-site/tools/space-remover.html</loc></url>
+  <url><loc>https://oioilll550-rgb.github.io/my-tools-site/privacy.html</loc></url>
 </urlset>
