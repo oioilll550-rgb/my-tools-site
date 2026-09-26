@@ -30,6 +30,11 @@
       loading="eager"
       decoding="async"
     >
+    <div class="visitor-counter hero-visitor-counter" id="visitorCounter" aria-label="アクセス数">
+      <span>今日 <strong id="visitorToday">--</strong></span>
+      <span>累計 <strong id="visitorTotal">--</strong></span>
+      <span>現在 <strong id="onlineViewers">--</strong> 人閲覧中</span>
+    </div>
     <div class="hero-overlay">
       <div class="hero-copy">
 <p class="lead">日常や仕事で使える、ちょっとした便利ツールを無料で置いています。</p>
@@ -48,84 +53,96 @@
     <span class="ad-slot-label">広告</span>
   </aside>
 
-  <section class="card" id="tools">
-    <h2>公開中のツール</h2>
-    <div class="tool-grid">
-      <a class="tool-card" href="tools/character-counter.html">
-        <h3>文字数カウンター</h3>
-        <p>文章の文字数、空白を除いた文字数、行数などをリアルタイムで確認します。</p>
-      </a>
+  <section class="card tools-section" id="tools">
+    <div class="tools-heading-row">
+      <h2>公開中のツール</h2>
+      <span class="tools-count">56 tools</span>
+    </div>
 
-      <a class="tool-card" href="tools/zenkaku-hankaku.html">
-        <h3>全角・半角変換</h3>
-        <p>英数字や記号を全角または半角へ変換します。</p>
-      </a>
-      <a class="tool-card" href="tools/remove-linebreaks.html">
-        <h3>改行削除</h3>
-        <p>文章内の改行を削除、またはスペースに置き換えます。</p>
-      </a>
-      <a class="tool-card" href="tools/remove-duplicates.html">
-        <h3>重複行削除</h3>
-        <p>同じ内容の行を1行だけ残して整理します。</p>
-      </a>
-      <a class="tool-card" href="tools/case-converter.html">
-        <h3>大文字・小文字変換</h3>
-        <p>英字を大文字または小文字へ一括変換します。</p>
-      </a>
-      <a class="tool-card" href="tools/space-remover.html">
-        <h3>空白削除</h3>
-        <p>半角・全角スペースをまとめて削除します。</p>
-      </a>
-      <a class="tool-card" href="tools/trim.html"><h3>前後空白削除</h3><p>文章全体の前後にある空白を削除します。</p></a>
-      <a class="tool-card" href="tools/sort.html"><h3>行の並べ替え</h3><p>行を昇順・降順に並べ替えます。</p></a>
-      <a class="tool-card" href="tools/reverse-lines.html"><h3>行順反転</h3><p>行の順番を上下反転します。</p></a>
-      <a class="tool-card" href="tools/number-lines.html"><h3>行番号追加</h3><p>各行の先頭に行番号を付けます。</p></a>
-      <a class="tool-card" href="tools/remove-empty.html"><h3>空行削除</h3><p>空の行をまとめて削除します。</p></a>
-      <a class="tool-card" href="tools/shuffle.html"><h3>行シャッフル</h3><p>行の順番をランダムに並べ替えます。</p></a>
-      <a class="tool-card" href="tools/emails.html"><h3>メールアドレス抽出</h3><p>文章からメールアドレスだけを抽出します。</p></a>
-      <a class="tool-card" href="tools/urls.html"><h3>URL抽出</h3><p>文章からURLだけを抽出します。</p></a>
-      <a class="tool-card" href="tools/reverse-text.html"><h3>文字列反転</h3><p>文字列を後ろから逆順にします。</p></a>
-      <a class="tool-card" href="tools/rot13.html"><h3>ROT13変換</h3><p>英字をROT13で変換します。</p></a>
-      <a class="tool-card" href="tools/escape.html"><h3>HTMLエスケープ</h3><p>HTML特殊文字を安全な文字参照へ変換します。</p></a>
-      <a class="tool-card" href="tools/unescape.html"><h3>HTMLアンエスケープ</h3><p>HTML文字参照を元の文字へ戻します。</p></a>
-      <a class="tool-card" href="tools/repeat.html"><h3>文字列繰り返し</h3><p>指定回数だけ文字列を繰り返します。</p></a>
-      <a class="tool-card" href="tools/prefix.html"><h3>行頭文字追加</h3><p>すべての行の先頭へ文字列を追加します。</p></a>
-      <a class="tool-card" href="tools/suffix.html"><h3>行末文字追加</h3><p>すべての行の末尾へ文字列を追加します。</p></a>
-      <a class="tool-card" href="tools/join.html"><h3>行結合</h3><p>複数行を指定した区切り文字で1行に結合します。</p></a>
-      <a class="tool-card" href="tools/split.html"><h3>区切り文字で分割</h3><p>指定した区切り文字を改行へ変換します。</p></a>
-      <a class="tool-card" href="tools/comma-lines.html"><h3>カンマ→改行</h3><p>カンマ区切りを1項目1行へ変換します。</p></a>
-      <a class="tool-card" href="tools/lines-comma.html"><h3>改行→カンマ</h3><p>複数行をカンマ区切りに変換します。</p></a>
-      <a class="tool-card" href="tools/frequency.html"><h3>単語出現回数</h3><p>空白区切りの単語の出現回数を集計します。</p></a>
-      <a class="tool-card" href="tools/sum.html"><h3>数値合計</h3><p>入力した数値の合計を計算します。</p></a>
-      <a class="tool-card" href="tools/avg.html"><h3>数値平均</h3><p>入力した数値の平均を計算します。</p></a>
-      <a class="tool-card" href="tools/minmax.html"><h3>最小・最大値</h3><p>入力した数値の最小値と最大値を求めます。</p></a>
-      <a class="tool-card" href="tools/percent.html"><h3>割合計算</h3><p>ある数が全体の何％かを計算します。</p></a>
-      <a class="tool-card" href="tools/discount.html"><h3>割引計算</h3><p>価格と割引率から割引後価格を計算します。</p></a>
-      <a class="tool-card" href="tools/tax.html"><h3>税込計算</h3><p>金額と税率から税込金額と税額を計算します。</p></a>
-      <a class="tool-card" href="tools/age.html"><h3>年齢計算</h3><p>生年月日から指定日時点の年齢を計算します。</p></a>
-      <a class="tool-card" href="tools/days.html"><h3>日数差計算</h3><p>2つの日付の間の日数を計算します。</p></a>
-      <a class="tool-card" href="tools/adddays.html"><h3>日付加算</h3><p>日付に指定日数を足し引きします。</p></a>
-      <a class="tool-card" href="tools/unix-date.html"><h3>Unix時刻→日時</h3><p>Unixタイムスタンプを日時へ変換します。</p></a>
-      <a class="tool-card" href="tools/date-unix.html"><h3>日時→Unix時刻</h3><p>日時をUnixタイムスタンプへ変換します。</p></a>
-      <a class="tool-card" href="tools/uuid.html"><h3>UUID生成</h3><p>UUIDを生成します。</p></a>
-      <a class="tool-card" href="tools/hex-dec.html"><h3>16進数→10進数</h3><p>16進数を10進数へ変換します。</p></a>
-      <a class="tool-card" href="tools/dec-hex.html"><h3>10進数→16進数</h3><p>10進数を16進数へ変換します。</p></a>
-      <a class="tool-card" href="tools/bin-dec.html"><h3>2進数→10進数</h3><p>2進数を10進数へ変換します。</p></a>
-      <a class="tool-card" href="tools/dec-bin.html"><h3>10進数→2進数</h3><p>10進数を2進数へ変換します。</p></a>
-      <a class="tool-card" href="tools/rgb-hex.html"><h3>RGB→HEX</h3><p>RGBカラー値をHEXカラーコードへ変換します。</p></a>
-      <a class="tool-card" href="tools/hex-rgb.html"><h3>HEX→RGB</h3><p>HEXカラーコードをRGBへ変換します。</p></a>
-      <a class="tool-card" href="tools/bytes.html"><h3>データ容量変換</h3><p>B・KB・MB・GB・TBを相互換算します。</p></a>
-      <a class="tool-card" href="tools/temp.html"><h3>温度変換</h3><p>摂氏・華氏・ケルビンを相互換算します。</p></a>
-      <a class="tool-card" href="tools/length.html"><h3>長さ変換</h3><p>mm・cm・m・km・inch・ftを換算します。</p></a>
-      <a class="tool-card" href="tools/area.html"><h3>面積変換</h3><p>㎡・㎢・坪・ha・acreを換算します。</p></a>
-      <a class="tool-card" href="tools/weight.html"><h3>重さ変換</h3><p>mg・g・kg・oz・lbを換算します。</p></a>
-      <a class="tool-card" href="tools/speed.html"><h3>速度変換</h3><p>m/s・km/h・mph・knotを換算します。</p></a>
-      <a class="tool-card" href="tools/upper.html"><h3>大文字化</h3><p>英字を大文字へ変換します。</p></a>
-      <a class="tool-card" href="tools/lower.html"><h3>小文字化</h3><p>英字を小文字へ変換します。</p></a>
-      <a class="tool-card" href="tools/char-count.html"><h3>文字数カウント</h3><p>入力した文章の文字数を数えます。</p></a>
-      <a class="tool-card" href="tools/line-count.html"><h3>行数カウント</h3><p>入力した文章の行数を数えます。</p></a>
-      <a class="tool-card" href="tools/space-count.html"><h3>空白数カウント</h3><p>文章内の半角・全角空白を数えます。</p></a>
-      <a class="tool-card" href="tools/random-number.html"><h3>乱数生成</h3><p>指定した範囲から整数の乱数を生成します。</p></a>
+    <div class="tool-group">
+      <h3 class="tool-group-title">文章・テキスト</h3>
+      <div class="tool-grid compact-tool-grid">
+        <a class="tool-card compact-tool-card" href="tools/character-counter.html">文字数カウンター</a>
+        <a class="tool-card compact-tool-card" href="tools/zenkaku-hankaku.html">全角・半角変換</a>
+        <a class="tool-card compact-tool-card" href="tools/remove-linebreaks.html">改行削除</a>
+        <a class="tool-card compact-tool-card" href="tools/remove-duplicates.html">重複行削除</a>
+        <a class="tool-card compact-tool-card" href="tools/case-converter.html">大文字・小文字変換</a>
+        <a class="tool-card compact-tool-card" href="tools/space-remover.html">空白削除</a>
+        <a class="tool-card compact-tool-card" href="tools/trim.html">前後空白削除</a>
+        <a class="tool-card compact-tool-card" href="tools/sort.html">行の並べ替え</a>
+        <a class="tool-card compact-tool-card" href="tools/reverse-lines.html">行順反転</a>
+        <a class="tool-card compact-tool-card" href="tools/number-lines.html">行番号追加</a>
+        <a class="tool-card compact-tool-card" href="tools/remove-empty.html">空行削除</a>
+        <a class="tool-card compact-tool-card" href="tools/shuffle.html">行シャッフル</a>
+        <a class="tool-card compact-tool-card" href="tools/reverse-text.html">文字列反転</a>
+        <a class="tool-card compact-tool-card" href="tools/repeat.html">文字列繰り返し</a>
+        <a class="tool-card compact-tool-card" href="tools/prefix.html">行頭文字追加</a>
+        <a class="tool-card compact-tool-card" href="tools/suffix.html">行末文字追加</a>
+        <a class="tool-card compact-tool-card" href="tools/join.html">行結合</a>
+        <a class="tool-card compact-tool-card" href="tools/split.html">区切り文字で分割</a>
+        <a class="tool-card compact-tool-card" href="tools/comma-lines.html">カンマ→改行</a>
+        <a class="tool-card compact-tool-card" href="tools/lines-comma.html">改行→カンマ</a>
+        <a class="tool-card compact-tool-card" href="tools/frequency.html">単語出現回数</a>
+        <a class="tool-card compact-tool-card" href="tools/upper.html">大文字化</a>
+        <a class="tool-card compact-tool-card" href="tools/lower.html">小文字化</a>
+        <a class="tool-card compact-tool-card" href="tools/char-count.html">文字数カウント</a>
+        <a class="tool-card compact-tool-card" href="tools/line-count.html">行数カウント</a>
+        <a class="tool-card compact-tool-card" href="tools/space-count.html">空白数カウント</a>
+      </div>
+    </div>
+
+    <div class="tool-group">
+      <h3 class="tool-group-title">抽出・エンコード</h3>
+      <div class="tool-grid compact-tool-grid">
+        <a class="tool-card compact-tool-card" href="tools/emails.html">メールアドレス抽出</a>
+        <a class="tool-card compact-tool-card" href="tools/urls.html">URL抽出</a>
+        <a class="tool-card compact-tool-card" href="tools/rot13.html">ROT13変換</a>
+        <a class="tool-card compact-tool-card" href="tools/escape.html">HTMLエスケープ</a>
+        <a class="tool-card compact-tool-card" href="tools/unescape.html">HTMLアンエスケープ</a>
+      </div>
+    </div>
+
+    <div class="tool-group">
+      <h3 class="tool-group-title">数値・お金</h3>
+      <div class="tool-grid compact-tool-grid">
+        <a class="tool-card compact-tool-card" href="tools/sum.html">数値合計</a>
+        <a class="tool-card compact-tool-card" href="tools/avg.html">数値平均</a>
+        <a class="tool-card compact-tool-card" href="tools/minmax.html">最小・最大値</a>
+        <a class="tool-card compact-tool-card" href="tools/percent.html">割合計算</a>
+        <a class="tool-card compact-tool-card" href="tools/discount.html">割引計算</a>
+        <a class="tool-card compact-tool-card" href="tools/tax.html">税込計算</a>
+        <a class="tool-card compact-tool-card" href="tools/random-number.html">乱数生成</a>
+      </div>
+    </div>
+
+    <div class="tool-group">
+      <h3 class="tool-group-title">日付・ID・進数</h3>
+      <div class="tool-grid compact-tool-grid">
+        <a class="tool-card compact-tool-card" href="tools/age.html">年齢計算</a>
+        <a class="tool-card compact-tool-card" href="tools/days.html">日数差計算</a>
+        <a class="tool-card compact-tool-card" href="tools/adddays.html">日付加算</a>
+        <a class="tool-card compact-tool-card" href="tools/unix-date.html">Unix時刻→日時</a>
+        <a class="tool-card compact-tool-card" href="tools/date-unix.html">日時→Unix時刻</a>
+        <a class="tool-card compact-tool-card" href="tools/uuid.html">UUID生成</a>
+        <a class="tool-card compact-tool-card" href="tools/hex-dec.html">16進数→10進数</a>
+        <a class="tool-card compact-tool-card" href="tools/dec-hex.html">10進数→16進数</a>
+        <a class="tool-card compact-tool-card" href="tools/bin-dec.html">2進数→10進数</a>
+        <a class="tool-card compact-tool-card" href="tools/dec-bin.html">10進数→2進数</a>
+      </div>
+    </div>
+
+    <div class="tool-group">
+      <h3 class="tool-group-title">色・単位変換</h3>
+      <div class="tool-grid compact-tool-grid">
+        <a class="tool-card compact-tool-card" href="tools/rgb-hex.html">RGB→HEX</a>
+        <a class="tool-card compact-tool-card" href="tools/hex-rgb.html">HEX→RGB</a>
+        <a class="tool-card compact-tool-card" href="tools/bytes.html">データ容量変換</a>
+        <a class="tool-card compact-tool-card" href="tools/temp.html">温度変換</a>
+        <a class="tool-card compact-tool-card" href="tools/length.html">長さ変換</a>
+        <a class="tool-card compact-tool-card" href="tools/area.html">面積変換</a>
+        <a class="tool-card compact-tool-card" href="tools/weight.html">重さ変換</a>
+        <a class="tool-card compact-tool-card" href="tools/speed.html">速度変換</a>
+      </div>
     </div>
   </section>
 
@@ -133,11 +150,6 @@
     <span class="ad-slot-label">広告</span>
   </aside>
 
-  <section class="visitor-counter" id="visitorCounter" aria-label="アクセス数">
-    <span>今日 <strong id="visitorToday">--</strong></span>
-    <span>累計 <strong id="visitorTotal">--</strong></span>
-    <span id="onlineViewerWrap">現在 <strong id="onlineViewers">--</strong> 人閲覧中</span>
-  </section>
 
   <section class="card" id="history">
     <h2>開発履歴</h2>
