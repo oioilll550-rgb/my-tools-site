@@ -1,0 +1,11 @@
+name = "benri-visitor-counter"
+main = "src/worker.js"
+compatibility_date = "2026-09-26"
+
+[vars]
+ALLOWED_ORIGINS = "https://oioilll550-rgb.github.io"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "benri-visitor-counter"
+database_id = "REPLACE_WITH_D1_DATABASE_ID"
