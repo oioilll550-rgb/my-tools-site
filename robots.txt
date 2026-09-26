@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://oioilll550-rgb.github.io/my-tools-site/sitemap.xml
