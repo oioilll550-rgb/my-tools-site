@@ -1342,3 +1342,33 @@ a.compact-tool-card {
     grid-template-columns: 1fr;
   }
 }
+
+
+.official-restaurant-search {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 18px 0 4px;
+}
+
+.official-restaurant-search input {
+  flex: 1;
+  min-width: 0;
+  padding: 11px 13px;
+  border: 1px solid #c8cdd3;
+  border-radius: 9px;
+  background: #fff;
+  font: inherit;
+}
+
+.restaurant-all-card {
+  border-style: dashed;
+}
+
+@media (max-width: 560px) {
+  .official-restaurant-search {
+    align-items: stretch;
+    flex-direction: column;
+    gap: 6px;
+  }
+}
