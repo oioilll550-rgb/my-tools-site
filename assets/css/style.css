@@ -429,3 +429,28 @@ footer {
     padding: 0;
   }
 }
+
+
+.visitor-counter {
+  display: flex;
+  justify-content: flex-end;
+  gap: 16px;
+  margin: -8px 2px 22px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.visitor-counter strong {
+  color: var(--text);
+  font-variant-numeric: tabular-nums;
+}
+
+.visitor-counter[hidden] {
+  display: none;
+}
+
+@media (max-width: 720px) {
+  .visitor-counter {
+    justify-content: center;
+  }
+}
