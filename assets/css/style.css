@@ -282,6 +282,31 @@ a.tool-card:hover {
   font-size: 14px;
 }
 
+
+/* 広告枠。AdSense等を導入するまでは hidden 属性で非表示にします。 */
+.ad-slot {
+  width: 100%;
+  min-height: 90px;
+  margin: 22px 0;
+  padding: 12px;
+  border: 1px dashed var(--border);
+  border-radius: 10px;
+  background: #fafbfc;
+  text-align: center;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.ad-slot[hidden] {
+  display: none;
+}
+
+.ad-slot-label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 11px;
+  letter-spacing: 0.04em;
+}
 footer {
   border-top: 1px solid var(--border);
   background: var(--surface);
