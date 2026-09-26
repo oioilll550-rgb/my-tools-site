@@ -61,35 +61,50 @@ function normalizeSearchText(value) {
   return String(value || "").trim().toLowerCase().replace(/[・\s]/g, "");
 }
 
-function searchTools() {
-  const input=document.getElementById("toolSearch");
+const SITE_CONTENT = [
+  ...SITE_TOOLS.map(tool => ({...tool, type:"ツール"})),
+  ...[{"name":"公共施設を探す","url":"public/","type":"公共施設","keywords":["公共施設","施設","埼玉県","越谷市"]},{"name":"埼玉県の公共施設","url":"public/saitama/","type":"公共施設","keywords":["埼玉県","市区町村","公共施設"]},{"name":"越谷市の公共施設","url":"public/saitama/koshigaya/","type":"公共施設","keywords":["越谷市","公共施設","施設一覧"]},{"name":"越谷市の図書館・図書室","url":"public/saitama/koshigaya/libraries.html","type":"公共施設","keywords":["図書館","図書室","越谷市立図書館","北部図書室","南部図書室","中央図書室"]},{"name":"越谷市の公園・植物園","url":"public/saitama/koshigaya/parks.html","type":"公共施設","keywords":["公園","植物園","大里第一公園","大里第二公園","大林公園","平方山谷公園","平方公園","沼田第一公園","沼田第二公園","千間台第一公園","間久里第一公園","間久里第二公園","間久里第三公園","間久里第四公園","間久里第五公園","弥十郎公園","弥十郎第二公園","大吉公園","大吉調節池公園","古利根堰公園","向畑公園","大杉公園","大杉第二公園","増林上一区公園","増林公園","記島河原公園","本田グランド","東越谷第一公園","東越谷第二公園","東越谷第三公園","東越谷第四公園","東越谷第六公園","東越谷第七公園","東越谷六丁目公園","東越谷七丁目しいの木公園","東越谷七丁目みどりの公園","東越谷八丁目けやき公園","東越谷八丁目いちょう公園","東越谷九丁目公園","東越谷十丁目2010公園","東越谷ボタン公園","越谷総合公園","花田第一公園","花田第二公園","花田第三公園","花田第四公園","花田第五公園","花田第六公園","恩間公園","恩間第二公園","恩間第三公園","西大袋第一公園","西大袋第三公園","西大袋第五公園","西大袋第七公園","西大袋第九公園","袋山せせらぎ公園","梅林公園","大房新生公園","大房第一公園","千間台第二公園","千間台第三公園","千間台第四公園","千間台第五公園","せんげん堀公園","しらこばと運動公園","最終処理場公園","出津第一公園","出津第二公園","フジバカマ公園","南荻島公園","宮本公園","神明町二丁目公園","わかば公園","七左第三公園","出羽公園","大間野町第一公園","大間野町第二公園","大間野町第三公園","四ケ村スポット公園","蒲生公園","タイヤ公園","蒲生寿町公園","蒲生旭町公園","南越谷第三公園","南部第一公園","南部第二公園","南部第三公園","南部第四公園","南部第五公園","川柳四丁目公園","川柳公園","レイクタウン第七公園","レイクタウン第八公園","レイクタウン湖畔の森公園","レイクタウンスポーツ公園","レイクタウン第一公園","レイクタウン第二公園","レイクタウン第三公園","レイクタウン第四公園","レイクタウン第五公園","レイクタウン第六公園","レイクタウン第九公園","みわの杜公園","辻公園","見田方遺跡公園","越谷流通公園","堂面第一公園","堂面第二公園","大沢公園","鷺高第一公園","鷺高第二公園","鷺高第三公園","鷺高第四公園","鷺高第五公園","鷺高第六公園","鷺高第七公園","定使野公園","鷲越公園","北越谷第一公園","北越谷第二公園","北越谷第三公園","北越谷第四公園","北越谷第五公園","緑の森公園","越ケ谷三丁目公園","赤山町一丁目わくわく公園","赤山第二公園","東越谷第五公園","七左第一公園","七左第二公園","七左第四公園","南越谷グランド","南越谷第一公園","南越谷第二公園","越谷駅西口公園","赤山公園","赤山町第三公園","植物園","しらこばと水上公園","越谷公園","県民健康福祉村"]},{"name":"越谷市の市役所・行政窓口","url":"public/saitama/koshigaya/city-offices.html","type":"公共施設","keywords":["市役所","行政窓口","越谷市役所","パスポートセンター","北部出張所","南部出張所"]},{"name":"越谷市のスポーツ施設","url":"public/saitama/koshigaya/sports.html","type":"公共施設","keywords":["スポーツ","体育館","競技場","球場","市民プール","総合体育館","しらこばと運動公園","越谷市民球場","庭球場","弓道場","洋弓場","サッカー場"]},{"name":"越谷市の児童館・児童発達","url":"public/saitama/koshigaya/children.html","type":"公共施設","keywords":["児童館","児童発達","ヒマワリ","コスモス","児童発達支援センター"]},{"name":"越谷市の市民会館・市民ホール","url":"public/saitama/koshigaya/culture.html","type":"公共施設","keywords":["市民会館","市民ホール","中央市民会館","北部市民会館","サンシティホール","越谷コミュニティセンター"]},{"name":"越谷市の保健医療施設","url":"public/saitama/koshigaya/health.html","type":"公共施設","keywords":["保健医療","保健センター","保健所","夜間急患診療所","市立病院","こころの健康支援室"]},{"name":"越谷市のごみ・リサイクル施設","url":"public/saitama/koshigaya/recycle.html","type":"公共施設","keywords":["ごみ","リサイクル","リサイクルプラザ","東埼玉資源環境組合"]},{"name":"越谷市の高齢者福祉施設","url":"public/saitama/koshigaya/senior.html","type":"公共施設","keywords":["高齢者","老人福祉センター","けやき荘","くすのき荘","ゆりのき荘","ひのき荘"]},{"name":"越谷市の障がい者福祉施設","url":"public/saitama/koshigaya/disability.html","type":"公共施設","keywords":["障がい者","障害者","福祉","しらこばと","こばと館","成年後見センター"]},{"name":"越谷市の斎場","url":"public/saitama/koshigaya/crematorium.html","type":"公共施設","keywords":["斎場","越谷市斎場","火葬"]},{"name":"越谷市の保育所・幼稚園","url":"public/saitama/koshigaya/nursery.html","type":"公共施設","keywords":["保育所","保育園","幼稚園","保育施設"]},{"name":"越谷市の伝統文化施設","url":"public/saitama/koshigaya/traditional.html","type":"公共施設","keywords":["伝統文化","能楽堂","こしがや能楽堂","中村家住宅"]},{"name":"越谷市の学校・教育施設","url":"public/saitama/koshigaya/education.html","type":"公共施設","keywords":["学校","教育","ミラクル","科学技術体験センター","大学","高校","養護学校"]},{"name":"越谷市の地区センター・公民館","url":"public/saitama/koshigaya/community-centers.html","type":"公共施設","keywords":["地区センター","公民館","大袋","南越谷","大沢","桜井","新方","増林","荻島","出羽","蒲生","川柳","大相模","越ヶ谷","北越谷","千間台記念会館","市民活動支援センター"]},{"name":"越谷市の交流館","url":"public/saitama/koshigaya/exchange-halls.html","type":"公共施設","keywords":["交流館","桜井交流館","南越谷交流館","赤山交流館","大沢北交流館","蒲生交流館","南部交流館","大袋北交流館"]},{"name":"越谷市の農業関連施設","url":"public/saitama/koshigaya/agriculture.html","type":"公共施設","keywords":["農業","農業技術センター","卸売市場","市民農園"]},{"name":"越谷市の自然・保養案内","url":"public/saitama/koshigaya/nature.html","type":"公共施設","keywords":["自然","保養","保養施設","両神荘"]},{"name":"越谷市の上下水道関連施設","url":"public/saitama/koshigaya/water.html","type":"公共施設","keywords":["上下水道","水道","越谷松伏水道企業団","江戸川河川事務所"]},{"name":"越谷市の仕事・就職施設","url":"public/saitama/koshigaya/jobs.html","type":"公共施設","keywords":["仕事","就職","ハローワーク","ハローワーク越谷"]},{"name":"越谷市の観光・物産施設","url":"public/saitama/koshigaya/tourism.html","type":"公共施設","keywords":["観光","物産"]},{"name":"越谷市のその他施設","url":"public/saitama/koshigaya/other.html","type":"公共施設","keywords":["消防署","消防局","男女共同参画","ほっと越谷","駐車場","葛西用水","国","県","その他"]}]
+];
+
+function searchSite() {
+  const input=document.getElementById("siteSearch");
   const results=document.getElementById("searchResults");
   if(!input||!results) return;
   const keyword=normalizeSearchText(input.value);
   results.innerHTML="";
   if(!keyword) return;
-  const matched=SITE_TOOLS.filter(tool=>{
-    const target=[tool.name,...(tool.keywords||[])].map(normalizeSearchText).join(" ");
+
+  const matched=SITE_CONTENT.filter(item=>{
+    const target=[item.name,...(item.keywords||[])].map(normalizeSearchText).join(" ");
     return target.includes(keyword);
-  });
+  }).slice(0,20);
+
   if(matched.length===0){
     const p=document.createElement("p");
-    p.textContent="該当するツールがありません。";
+    p.textContent="該当するページがありません。";
     results.appendChild(p);
     return;
   }
-  matched.forEach(tool=>{
+
+  matched.forEach(item=>{
     const link=document.createElement("a");
-    link.href=tool.url;
-    link.textContent=tool.name;
+    link.href=item.url;
     link.className="result-link";
+    const name=document.createElement("span");
+    name.textContent=item.name;
+    const type=document.createElement("small");
+    type.className="result-type";
+    type.textContent=item.type || "";
+    link.append(name,type);
     results.appendChild(link);
   });
 }
 
+function searchTools(){ searchSite(); }
+
 document.addEventListener("DOMContentLoaded",()=>{
-  const input=document.getElementById("toolSearch");
-  if(input) input.addEventListener("keydown",e=>{if(e.key==="Enter") searchTools();});
+  const input=document.getElementById("siteSearch");
+  if(input) input.addEventListener("keydown",e=>{if(e.key==="Enter") searchSite();});
   const year=document.querySelector("[data-current-year]");
   if(year) year.textContent=new Date().getFullYear();
 });
