@@ -45,3 +45,16 @@
 - 広告と操作ボタンが誤認される配置を避ける
 - TOPページはコンテンツ間、ツールページは操作結果の後ろを基本位置とする
 - モバイル表示でもツール利用を妨げない余白を確保する
+
+
+## アクセスカウンター
+
+将来性を考慮し、アクセス数は GitHub Pages 内で無理に保存せず、Cloudflare Worker + D1 に分離する構成です。
+
+- フロント: `assets/js/visitor-counter.js`
+- 設定: `assets/js/config.js`
+- バックエンド: `cloudflare-counter/`
+- 現時点では `counterApiUrl` が空のため、公開サイト上のカウンターは自動的に非表示です。
+- Cloudflare Worker公開後にURLを設定すると、TOPページに「累計 / 今日」の件数が表示されます。
+
+詳細は `cloudflare-counter/README.md` を参照してください。
