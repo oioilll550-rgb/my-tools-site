@@ -671,3 +671,17 @@ a.compact-tool-card {
 .facility-list .facility-card {
   box-shadow: 0 2px 10px rgba(31,35,40,.035);
 }
+
+
+.result-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.result-type {
+  flex: 0 0 auto;
+  color: var(--muted);
+  font-size: 11px;
+}
