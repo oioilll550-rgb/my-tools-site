@@ -60,7 +60,10 @@ const SITE_TOOLS = [
   { name:"Base64変換", url:"tools/base64.html", keywords:["Base64","エンコード","デコード","UTF-8"] },
   { name:"JSON整形", url:"tools/json-formatter.html", keywords:["JSON","整形","圧縮","検証"] },
   { name:"パスワード生成", url:"tools/password-generator.html", keywords:["パスワード","生成","ランダム","英数字","記号"] },
-  { name:"ランダム文字列生成", url:"tools/random-string.html", keywords:["ランダム","文字列","生成","英数字"] }
+  { name:"ランダム文字列生成", url:"tools/random-string.html", keywords:["ランダム","文字列","生成","英数字"] },
+  { name:"坪・平米かんたん換算", url:"tools/tsubo-heibei-app.html", keywords:["坪","平米","平方メートル","㎡","面積","換算","Toviax"] },
+  { name:"家電の電気代かんたん計算", url:"tools/electricity-cost-app.html", keywords:["電気代","家電","消費電力","W","kWh","料金","日数","Toviax"] },
+  { name:"割引・税込かんたん計算", url:"tools/discount-tax-app.html", keywords:["割引","税込","消費税","追加割引","実質割引率","節約額","Toviax"] }
 ];
 
 function normalizeSearchText(value) {
