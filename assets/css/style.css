@@ -638,3 +638,36 @@ a.compact-tool-card {
     margin-top: 8px;
   }
 }
+
+
+.facility-card {
+  position: relative;
+}
+
+.facility-card + .facility-card {
+  margin-top: 6px;
+}
+
+.facility-card h2 {
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border);
+}
+
+.facility-url {
+  margin: 16px 0 0;
+  padding-top: 12px;
+  border-top: 1px dashed var(--border);
+  overflow-wrap: anywhere;
+  font-size: 13px;
+}
+
+.facility-url span {
+  display: inline-block;
+  margin-right: 8px;
+  color: var(--muted);
+  font-weight: 700;
+}
+
+.facility-list .facility-card {
+  box-shadow: 0 2px 10px rgba(31,35,40,.035);
+}
