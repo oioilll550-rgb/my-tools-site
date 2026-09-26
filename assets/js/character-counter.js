@@ -6,10 +6,17 @@ document.addEventListener("DOMContentLoaded", () => {
   const wordCount = document.getElementById("wordCount");
   const message = document.getElementById("message");
 
+  function countGraphemes(value) {
+    if (typeof Intl !== "undefined" && Intl.Segmenter) {
+      return Array.from(new Intl.Segmenter("ja", { granularity: "grapheme" }).segment(value)).length;
+    }
+    return Array.from(value).length;
+  }
+
   function updateCount() {
     const value = text.value;
-    characterCount.textContent = value.length;
-    noSpaceCount.textContent = value.replace(/\s/g, "").length;
+    characterCount.textContent = countGraphemes(value);
+    noSpaceCount.textContent = countGraphemes(value.replace(/\s/g, ""));
     lineCount.textContent = value.length === 0 ? 0 : value.split(/\r\n|\r|\n/).length;
 
     const trimmed = value.trim();
