@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>空白削除 | べんりちゃん、微力ながら</title>
+  <meta name="description" content="文章内の半角・全角スペースをまとめて削除できる無料ツールです。">
+  <meta name="robots" content="index,follow">
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+<header>
+  <div class="header-inner">
+    <div class="site-title"><a href="../">べんりちゃん、微力ながら</a></div>
+    <nav aria-label="メインナビゲーション"><a href="../#tools">ツール一覧</a><a href="../privacy.html">プライバシー</a></nav>
+  </div>
+</header>
+<main>
+
+  <section class="card">
+    <h1>空白削除</h1>
+    <p>半角スペース・全角スペースをまとめて削除します。</p>
+    <textarea id="inputText" placeholder="ここに文章を入力してください" aria-label="空白を削除する文章"></textarea>
+    <div class="buttons">
+      <button type="button" id="allButton">すべての空白を削除</button>
+      <button type="button" id="trimButton">行頭・行末だけ削除</button>
+      <button type="button" class="secondary" id="clearButton">クリア</button>
+    </div>
+    <textarea id="outputText" placeholder="結果がここに表示されます" readonly aria-label="変換結果"></textarea>
+    <div class="buttons"><button type="button" id="copyButton">結果をコピー</button></div>
+    <div class="message" id="message" aria-live="polite"></div>
+    <aside class="ad-slot" aria-label="広告" hidden><span class="ad-slot-label">広告</span></aside>
+    <p class="notice">改行は維持されます。処理はブラウザ内で行われます。</p>
+    <a class="back" href="../">← TOPページへ戻る</a>
+  </section>
+</main>
+<footer>
+  <div class="footer-inner">
+    <span>© <span data-current-year>2026</span> べんりちゃん、微力ながら</span>
+    <span><a href="../privacy.html">プライバシーポリシー</a></span>
+  </div>
+</footer>
+<script src="../assets/js/site.js"></script>
+<script src="../assets/js/space-remover.js"></script>
+</body>
+</html>
