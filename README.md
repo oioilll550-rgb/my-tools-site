@@ -52,3 +52,17 @@
 現在は TOP ページに Hits の公開カウンターバッジを表示し、「今日 / 累計」のアクセス数を確認できます。
 
 将来は `cloudflare-counter/` に用意した Cloudflare Worker + D1 構成へ移行可能です。自前方式に切り替える場合は `assets/js/config.js` に Worker URL を設定し、必要に応じて `visitor-counter.js` を有効化します。
+
+
+## セキュリティ方針
+
+- GitHub Pages の HTTPS 配信を前提とする
+- ユーザー入力は原則ブラウザ内で処理し、独自サーバーへ送信しない
+- APIキー、秘密鍵、パスワード等をリポジトリへ保存しない
+- 主要ページに Content Security Policy (CSP) を設定する
+- 外部通信先を必要なドメインだけに制限する
+- 外部リンクは `noopener noreferrer` を付与する
+- Referrer Policy は `no-referrer` を使用する
+- 広告・解析サービスを追加する場合は CSP とプライバシーポリシーを同時に見直す
+
+GitHub Pages では任意のHTTPレスポンスヘッダーを細かく設定できないため、現状のCSPはHTMLの `meta http-equiv` で適用しています。
