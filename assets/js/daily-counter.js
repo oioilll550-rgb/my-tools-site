@@ -26,35 +26,36 @@ document.addEventListener("DOMContentLoaded", async () => {
   const todayCounterKey = "day-" + today;
   const yesterdayCounterKey = "day-" + yesterday;
 
-  async function api(path) {
+  async function request(path) {
     const res = await fetch(API + path, {
       method: "GET",
       mode: "cors",
       credentials: "omit",
       cache: "no-store"
     });
-    if (!res.ok) throw new Error("counter api failed");
+
+    if (res.status === 404) return null;
+    if (!res.ok) throw new Error("counter api failed: " + res.status);
+
     const data = await res.json();
-    return Number(data.value || 0);
+    const value = Number(data.value);
+    return Number.isFinite(value) ? value : 0;
   }
 
   async function hit(key) {
-    return api("/hit/" + encodeURIComponent(NS) + "/" + encodeURIComponent(key));
+    return request("/hit/" + encodeURIComponent(NS) + "/" + encodeURIComponent(key));
   }
 
   async function get(key) {
-    try {
-      return await api("/get/" + encodeURIComponent(NS) + "/" + encodeURIComponent(key));
-    } catch (_) {
-      return 0;
-    }
+    return request("/get/" + encodeURIComponent(NS) + "/" + encodeURIComponent(key));
   }
 
   try {
+    const alreadyCounted = localStorage.getItem(countedKey) === "1";
     let total;
     let todayValue;
 
-    if (!localStorage.getItem(countedKey)) {
+    if (!alreadyCounted) {
       [total, todayValue] = await Promise.all([
         hit(totalKey),
         hit(todayCounterKey)
@@ -65,14 +66,19 @@ document.addEventListener("DOMContentLoaded", async () => {
         get(totalKey),
         get(todayCounterKey)
       ]);
+
+      // Recover automatically if the external counter lost/expired a key.
+      if (total === null) total = await hit(totalKey);
+      if (todayValue === null) todayValue = await hit(todayCounterKey);
     }
 
-    const yesterdayValue = await get(yesterdayCounterKey);
+    const yesterdayValue = (await get(yesterdayCounterKey)) ?? 0;
 
-    totalEl.textContent = total.toLocaleString("ja-JP");
-    todayEl.textContent = todayValue.toLocaleString("ja-JP");
-    yesterdayEl.textContent = yesterdayValue.toLocaleString("ja-JP");
-  } catch (_) {
+    totalEl.textContent = Number(total || 0).toLocaleString("ja-JP");
+    todayEl.textContent = Number(todayValue || 0).toLocaleString("ja-JP");
+    yesterdayEl.textContent = Number(yesterdayValue || 0).toLocaleString("ja-JP");
+  } catch (error) {
+    console.warn("Access counter error:", error);
     totalEl.textContent = "-";
     todayEl.textContent = "-";
     yesterdayEl.textContent = "-";
