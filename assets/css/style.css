@@ -113,17 +113,16 @@ h2 {
   z-index: 1;
 }
 
-.hero-mascot {
-  position: absolute;
-  right: 24px;
-  bottom: -48px;
-  width: min(220px, 28vw);
+.hero-header-image {
+  display: block;
+  width: 100%;
   height: auto;
-  opacity: 0.18;
-  z-index: 0;
+  margin: 22px 0 0;
+  border-radius: 12px;
+  opacity: 0.55;
+  object-fit: cover;
   pointer-events: none;
   user-select: none;
-  filter: saturate(0.85);
 }
 
 .search-box {
@@ -363,11 +362,9 @@ footer {
     min-height: 340px;
   }
 
-  .hero-mascot {
-    right: -18px;
-    bottom: -36px;
-    width: 190px;
-    opacity: 0.12;
+  .hero-header-image {
+    margin-top: 18px;
+    opacity: 0.45;
   }
 
   .header-inner {
