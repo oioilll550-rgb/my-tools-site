@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded",function(){
-const sel=document.getElementById("utilitySelect"),app=document.getElementById("utilityApp");
+const sel=document.getElementById("utilitySelect"),app=document.getElementById("utilityApp");if(!app)return;
 const L=s=>String(s).split(/\r?\n/), N=s=>String(s).split(/[\s,、]+/).map(Number).filter(Number.isFinite);
 const tools=[
 ["trim","前後空白削除",[["text","文章","textarea"]],v=>v.text.trim()],
@@ -53,11 +53,11 @@ const tools=[
 ["space-count","空白数カウント",[["text","文章","textarea"]],v=>String((v.text.match(/[ \t　]/g)||[]).length)],
 ["random-number","乱数生成",[["a","最小","number",1],["b","最大","number",100]],v=>String(Math.floor(Math.random()*(+v.b-+v.a+1))+(+v.a))]
 ];
-tools.forEach((t,i)=>{let o=document.createElement("option");o.value=i;o.textContent=(i+1)+". "+t[1];sel.appendChild(o)});
-function render(){app.innerHTML="";let t=tools[+sel.value],refs={};t[2].forEach(s=>{let label=document.createElement("label");label.style.display="block";label.style.marginBottom="12px";let cap=document.createElement("span");cap.textContent=s[1];cap.style.display="block";cap.style.marginBottom="5px";label.appendChild(cap);let e;if(s[2]==="textarea"){e=document.createElement("textarea");e.style.minHeight="140px"}else if(s[2]==="select"){e=document.createElement("select");s[3].forEach(x=>{let o=document.createElement("option");o.value=o.textContent=x;e.appendChild(o)})}else{e=document.createElement("input");e.type=s[2]||"text";if(s[3]!==undefined)e.value=s[3]}e.style.width="100%";e.style.padding="10px";e.style.border="1px solid #c8cdd3";e.style.borderRadius="9px";refs[s[0]]=e;label.appendChild(e);app.appendChild(label)});
+if(sel){tools.forEach((t,i)=>{let o=document.createElement("option");o.value=i;o.textContent=(i+1)+". "+t[1];sel.appendChild(o)});}
+function render(){app.innerHTML="";let index=sel?+sel.value:tools.findIndex(t=>t[0]===app.dataset.tool);if(index<0)index=0;let t=tools[index],refs={};t[2].forEach(s=>{let label=document.createElement("label");label.style.display="block";label.style.marginBottom="12px";let cap=document.createElement("span");cap.textContent=s[1];cap.style.display="block";cap.style.marginBottom="5px";label.appendChild(cap);let e;if(s[2]==="textarea"){e=document.createElement("textarea");e.style.minHeight="140px"}else if(s[2]==="select"){e=document.createElement("select");s[3].forEach(x=>{let o=document.createElement("option");o.value=o.textContent=x;e.appendChild(o)})}else{e=document.createElement("input");e.type=s[2]||"text";if(s[3]!==undefined)e.value=s[3]}e.style.width="100%";e.style.padding="10px";e.style.border="1px solid #c8cdd3";e.style.borderRadius="9px";refs[s[0]]=e;label.appendChild(e);app.appendChild(label)});
 let b=document.createElement("div");b.className="buttons";let run=document.createElement("button");run.textContent="実行";let copy=document.createElement("button");copy.textContent="結果をコピー";copy.className="secondary";b.append(run,copy);let out=document.createElement("textarea");out.readOnly=true;out.placeholder="結果";out.style.marginTop="16px";let msg=document.createElement("div");msg.className="message";app.append(b,out,msg);
 run.onclick=()=>{try{let v={};Object.keys(refs).forEach(k=>v[k]=refs[k].value);out.value=t[3](v);msg.textContent="完了しました。"}catch(e){msg.textContent="入力内容を確認してください。"}};
 copy.onclick=async()=>{if(!out.value){msg.textContent="コピーする結果がありません。";return}try{await navigator.clipboard.writeText(out.value);msg.textContent="コピーしました。"}catch(e){msg.textContent="コピーできませんでした。"}};
 }
-sel.onchange=render;render();
+if(sel)sel.onchange=render;render();
 });
