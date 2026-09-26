@@ -4,269 +4,422 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>My Tools Site</title>
+  <title>My Tools Site | 無料便利ツール集</title>
+  <meta
+    name="description"
+    content="文字数カウンターや文章変換など、無料で使える便利ツールをまとめたサイトです。"
+  >
 
   <style>
-    body {
-      font-family: sans-serif;
-      max-width: 900px;
-      margin: 40px auto;
-      padding: 0 20px;
-      background: #f5f5f5;
-      color: #222;
+    * {
+      box-sizing: border-box;
     }
 
-    .container {
+    body {
+      margin: 0;
+      font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+      background: #f5f5f5;
+      color: #222;
+      line-height: 1.7;
+    }
+
+    header {
       background: white;
-      padding: 30px;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .header-inner {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    .site-title {
+      margin: 0;
+      font-size: 28px;
+    }
+
+    .site-title a {
+      color: #222;
+      text-decoration: none;
+    }
+
+    main {
+      max-width: 1000px;
+      margin: 30px auto;
+      padding: 0 20px;
+    }
+
+    .card {
+      background: white;
       border-radius: 12px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+      padding: 30px;
+      margin-bottom: 25px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.06);
     }
 
     h1 {
       margin-top: 0;
+      font-size: 32px;
+    }
+
+    h2 {
+      margin-top: 0;
+      font-size: 24px;
+    }
+
+    .lead {
+      font-size: 17px;
+      color: #444;
     }
 
     .search-box {
       display: flex;
       gap: 8px;
-      margin: 20px 0;
+      margin-top: 20px;
     }
 
     .search-box input {
       flex: 1;
-      padding: 12px;
+      padding: 13px;
       font-size: 16px;
       border: 1px solid #ccc;
       border-radius: 8px;
     }
 
     .search-box button {
-      padding: 12px 18px;
+      padding: 13px 20px;
       font-size: 16px;
-      cursor: pointer;
       border: none;
       border-radius: 8px;
       background: #222;
       color: white;
+      cursor: pointer;
+    }
+
+    .search-box button:hover {
+      opacity: 0.85;
     }
 
     #searchResults {
-      margin-bottom: 30px;
+      margin-top: 15px;
     }
 
     .result-link {
       display: block;
-      padding: 10px;
-      margin: 8px 0;
-      background: #f0f0f0;
+      padding: 12px;
+      margin-top: 8px;
+      background: #f3f3f3;
       border-radius: 8px;
-      text-decoration: none;
       color: #222;
+      text-decoration: none;
     }
 
     .result-link:hover {
-      background: #e5e5e5;
+      background: #e8e8e8;
     }
 
-    textarea {
-      width: 100%;
-      height: 250px;
-      box-sizing: border-box;
-      padding: 15px;
-      font-size: 16px;
-      resize: vertical;
-      border: 1px solid #ccc;
-      border-radius: 8px;
+    .tool-grid {
+      display: grid;
+      grid-template-columns:
+        repeat(auto-fit, minmax(220px, 1fr));
+      gap: 15px;
     }
 
-    .count {
-      margin-top: 20px;
-      font-size: 22px;
-      font-weight: bold;
-    }
-
-    .sub {
-      margin-top: 10px;
-      color: #555;
-    }
-
-    .tool-list {
-      margin-top: 40px;
-    }
-
-    .tool-list a {
+    .tool-card {
       display: block;
-      margin: 10px 0;
+      padding: 20px;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      color: #222;
+      text-decoration: none;
+      background: #fafafa;
+    }
+
+    .tool-card:hover {
+      background: #f0f0f0;
+    }
+
+    .tool-card h3 {
+      margin-top: 0;
+      margin-bottom: 5px;
+    }
+
+    .tool-card p {
+      margin: 0;
+      font-size: 14px;
+      color: #666;
+    }
+
+    .history-item {
+      border-left: 3px solid #222;
+      padding-left: 15px;
+      margin-bottom: 20px;
+    }
+
+    .history-date {
+      font-size: 14px;
+      color: #777;
+    }
+
+    .history-title {
+      font-weight: bold;
+      margin: 3px 0;
+    }
+
+    .status {
+      display: inline-block;
+      padding: 3px 9px;
+      border-radius: 20px;
+      font-size: 12px;
+      background: #eee;
+      margin-left: 5px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px 20px;
+      color: #777;
+      font-size: 14px;
+    }
+
+    @media (max-width: 600px) {
+      .search-box {
+        flex-direction: column;
+      }
+
+      .search-box button {
+        width: 100%;
+      }
+
+      h1 {
+        font-size: 27px;
+      }
     }
   </style>
 </head>
 
 <body>
 
-  <div class="container">
+<header>
+  <div class="header-inner">
+    <div class="site-title">
+      <a href="index.html">My Tools Site</a>
+    </div>
+  </div>
+</header>
 
-    <h1>My Tools Site</h1>
+<main>
+
+  <section class="card">
+    <h1>無料で使える便利ツール集</h1>
+
+    <p class="lead">
+      My Tools Site は、日常や仕事で使える
+      シンプルなWebツールを無料で公開するサイトです。
+    </p>
 
     <p>
-      無料で使える便利ツールをまとめています。
+      インストール不要で、ブラウザからすぐに利用できます。
+      今後も少しずつ機能を追加していく予定です。
     </p>
 
     <div class="search-box">
       <input
         type="text"
         id="toolSearch"
-        placeholder="ツールを検索..."
+        placeholder="ツール名を検索..."
       >
       <button onclick="searchTool()">検索</button>
     </div>
 
     <div id="searchResults"></div>
+  </section>
 
-    <hr>
 
-    <h2>文字数カウンター</h2>
+  <section class="card">
+    <h2>公開中のツール</h2>
+
+    <div class="tool-grid">
+
+      <a class="tool-card" href="tools/character-counter.html">
+        <h3>文字数カウンター</h3>
+        <p>
+          入力した文章の文字数をリアルタイムで計算します。
+        </p>
+      </a>
+
+    </div>
+  </section>
+
+
+  <section class="card">
+    <h2>開発予定</h2>
+
+    <div class="tool-grid">
+
+      <div class="tool-card">
+        <h3>
+          全角・半角変換
+          <span class="status">予定</span>
+        </h3>
+        <p>
+          全角文字と半角文字を簡単に変換します。
+        </p>
+      </div>
+
+      <div class="tool-card">
+        <h3>
+          改行削除
+          <span class="status">予定</span>
+        </h3>
+        <p>
+          文章内の不要な改行をまとめて削除します。
+        </p>
+      </div>
+
+      <div class="tool-card">
+        <h3>
+          重複行削除
+          <span class="status">予定</span>
+        </h3>
+        <p>
+          重複している行を自動で取り除きます。
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+
+  <section class="card">
+    <h2>開発履歴</h2>
+
+    <div class="history-item">
+      <div class="history-date">
+        2026年9月
+      </div>
+
+      <div class="history-title">
+        サイト公開
+      </div>
+
+      <div>
+        GitHub Pagesを利用して
+        My Tools Site を公開しました。
+      </div>
+    </div>
+
+    <div class="history-item">
+      <div class="history-date">
+        2026年9月
+      </div>
+
+      <div class="history-title">
+        文字数カウンターを開発
+      </div>
+
+      <div>
+        最初のツールとして
+        文字数カウンターを追加しました。
+      </div>
+    </div>
+
+  </section>
+
+
+  <section class="card">
+    <h2>このサイトについて</h2>
 
     <p>
-      下の入力欄に文章を入力すると、自動で文字数を計算します。
+      このサイトでは、できるだけ
+      シンプルで使いやすい無料ツールを公開します。
     </p>
 
-    <textarea
-      id="text"
-      placeholder="ここに文章を入力してください"
-    ></textarea>
+    <p>
+      機能は順次追加・改善していきます。
+    </p>
+  </section>
 
-    <div class="count">
-      文字数：
-      <span id="count">0</span>
-    </div>
-
-    <div class="sub">
-      空白を除いた文字数：
-      <span id="countNoSpace">0</span>
-    </div>
-
-    <div class="tool-list">
-      <h2>ツール一覧</h2>
-
-      <a href="index.html">
-        文字数カウンター
-      </a>
-
-      <a href="tools/zenkaku-hankaku.html">
-        全角半角変換
-      </a>
-
-      <a href="tools/remove-linebreaks.html">
-        改行削除
-      </a>
-
-      <a href="tools/remove-duplicates.html">
-        重複行削除
-      </a>
-    </div>
-
-  </div>
-
-  <script>
-
-    const text = document.getElementById("text");
-    const count = document.getElementById("count");
-    const countNoSpace = document.getElementById("countNoSpace");
-
-    text.addEventListener("input", function() {
-
-      const value = text.value;
-
-      count.textContent = value.length;
-
-      countNoSpace.textContent =
-        value.replace(/\s/g, "").length;
-
-    });
+</main>
 
 
-    const tools = [
-      {
-        name: "文字数カウンター",
-        url: "index.html"
-      },
-      {
-        name: "全角半角変換",
-        url: "tools/zenkaku-hankaku.html"
-      },
-      {
-        name: "改行削除",
-        url: "tools/remove-linebreaks.html"
-      },
-      {
-        name: "重複行削除",
-        url: "tools/remove-duplicates.html"
-      }
-    ];
+<footer>
+  © 2026 My Tools Site
+</footer>
 
 
-    function searchTool() {
+<script>
 
-      const keyword =
-        document
+  const tools = [
+    {
+      name: "文字数カウンター",
+      url: "tools/character-counter.html"
+    }
+  ];
+
+
+  function searchTool() {
+
+    const keyword =
+      document
         .getElementById("toolSearch")
         .value
         .trim()
         .toLowerCase();
 
-      const results =
-        document.getElementById("searchResults");
+    const results =
+      document.getElementById("searchResults");
 
-      results.innerHTML = "";
+    results.innerHTML = "";
 
-      if (!keyword) {
-        return;
-      }
-
-      const matched = tools.filter(tool =>
-        tool.name
-        .toLowerCase()
-        .includes(keyword)
-      );
-
-      if (matched.length === 0) {
-
-        results.innerHTML =
-          "<p>該当するツールがありません。</p>";
-
-        return;
-      }
-
-      matched.forEach(tool => {
-
-        const link =
-          document.createElement("a");
-
-        link.href = tool.url;
-
-        link.textContent = tool.name;
-
-        link.className = "result-link";
-
-        results.appendChild(link);
-
-      });
-
+    if (!keyword) {
+      return;
     }
 
+    const matched = tools.filter(tool =>
+      tool.name
+        .toLowerCase()
+        .includes(keyword)
+    );
 
-    document
-      .getElementById("toolSearch")
-      .addEventListener("keydown", function(event) {
+    if (matched.length === 0) {
+      results.innerHTML =
+        "<p>該当するツールがありません。</p>";
+      return;
+    }
 
-        if (event.key === "Enter") {
-          searchTool();
-        }
+    matched.forEach(tool => {
 
-      });
+      const link =
+        document.createElement("a");
 
-  </script>
+      link.href = tool.url;
+      link.textContent = tool.name;
+      link.className = "result-link";
+
+      results.appendChild(link);
+
+    });
+
+  }
+
+
+  document
+    .getElementById("toolSearch")
+    .addEventListener("keydown", function(event) {
+
+      if (event.key === "Enter") {
+        searchTool();
+      }
+
+    });
+
+</script>
 
 </body>
 </html>
