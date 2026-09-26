@@ -83,17 +83,9 @@
     <span class="ad-slot-label">広告</span>
   </aside>
 
-  <section class="visitor-counter" aria-label="アクセス数">
-    <span class="visitor-counter-label">アクセス数</span>
-    <span class="visitor-counter-text">今日</span>
-    <img
-      class="visitor-counter-badge"
-      src="https://hits.sh/oioilll550-rgb.github.io/my-tools-site.svg?view=today-total&label=&color=6b7280&labelColor=f3f4f6"
-      alt="今日と累計のアクセス数"
-      loading="lazy"
-      referrerpolicy="no-referrer"
-    >
-    <span class="visitor-counter-text">左が今日・右が累計</span>
+  <section class="visitor-counter" id="visitorCounter" aria-label="アクセス数">
+    <span>今日 <strong id="visitorToday">--</strong></span>
+    <span>累計 <strong id="visitorTotal">--</strong></span>
   </section>
 
   <section class="card" id="history">
@@ -154,5 +146,6 @@
 </footer>
 
 <script src="assets/js/site.js"></script>
+<script src="assets/js/daily-counter.js"></script>
 </body>
 </html>
