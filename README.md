@@ -49,12 +49,6 @@
 
 ## アクセスカウンター
 
-将来性を考慮し、アクセス数は GitHub Pages 内で無理に保存せず、Cloudflare Worker + D1 に分離する構成です。
+現在は TOP ページに Hits の公開カウンターバッジを表示し、「今日 / 累計」のアクセス数を確認できます。
 
-- フロント: `assets/js/visitor-counter.js`
-- 設定: `assets/js/config.js`
-- バックエンド: `cloudflare-counter/`
-- 現時点では `counterApiUrl` が空のため、公開サイト上のカウンターは自動的に非表示です。
-- Cloudflare Worker公開後にURLを設定すると、TOPページに「累計 / 今日」の件数が表示されます。
-
-詳細は `cloudflare-counter/README.md` を参照してください。
+将来は `cloudflare-counter/` に用意した Cloudflare Worker + D1 構成へ移行可能です。自前方式に切り替える場合は `assets/js/config.js` に Worker URL を設定し、必要に応じて `visitor-counter.js` を有効化します。
