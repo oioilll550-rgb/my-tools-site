@@ -15,7 +15,7 @@
   <div class="header-inner">
     <div class="site-title"><a href="./">べんりちゃん、微力ながら</a></div>
     <nav aria-label="メインナビゲーション">
-      <a href="#tools">ツール</a>
+      <a href="#purposes">目的から探す</a>
       <a href="public/">公共施設</a>
       <a href="restaurants/">飲食店</a>
       <a href="#history">開発履歴</a>
@@ -41,8 +41,8 @@
     </div>
     <div class="hero-overlay">
       <div class="hero-copy">
-<p class="lead">日常や仕事で使える、ちょっとした便利ツールを無料で置いています。</p>
-        <p>インストール不要。ブラウザですぐ使えます。微力ながら、機能は順次増やしていきます。</p>
+<p class="lead">やりたいことから、ツール・公共施設・飲食店を探せます。</p>
+        <p>サイト内検索か「目的から探す」から、必要なページへすぐ移動できます。</p>
 
         <div class="search-box">
           <input type="search" id="siteSearch" placeholder="サイト内を検索..." aria-label="サイト内を検索">
@@ -57,14 +57,30 @@
     <span class="ad-slot-label">広告</span>
   </aside>
 
-  <section class="card tools-section" id="tools">
+
+  <section class="card purpose-section" id="purposes">
+    <div class="tools-heading-row">
+      <h2>目的から探す</h2>
+      <span class="tools-count">ツール・地域情報</span>
+    </div>
+    <div class="purpose-grid">
+      <a class="purpose-card" href="#purpose-text"><strong>文章を整える</strong><span>文字数・空白・改行・並べ替え</span></a>
+      <a class="purpose-card" href="#purpose-calc"><strong>計算・換算する</strong><span>お金・日付・単位・色</span></a>
+      <a class="purpose-card" href="#purpose-data"><strong>変換・生成する</strong><span>URL・Base64・JSON・ID</span></a>
+      <a class="purpose-card" href="public/"><strong>公共施設を探す</strong><span>越谷市の施設情報</span></a>
+      <a class="purpose-card" href="restaurants/saitama/koshigaya/"><strong>飲食店を探す</strong><span>「何食べたい？」から検索</span></a>
+    </div>
+  </section>
+
+
+  <section class="card tools-section compact-purpose-tools" id="tools">
     <div class="tools-heading-row">
       <h2>公開中のツール</h2>
       <span class="tools-count">65 tools</span>
     </div>
 
-    <div class="tool-group">
-      <h3 class="tool-group-title">文章・テキスト</h3>
+    <details class="tool-purpose-details" id="purpose-text" open>
+      <summary><strong>文章を整える</strong><span>27</span></summary>
       <div class="tool-grid compact-tool-grid">
         <a class="tool-card compact-tool-card" href="tools/character-counter.html">文字数カウンター</a>
         <a class="tool-card compact-tool-card" href="tools/zenkaku-hankaku.html">全角・半角変換</a>
@@ -94,10 +110,10 @@
         <a class="tool-card compact-tool-card" href="tools/space-count.html">空白数カウント</a>
         <a class="tool-card compact-tool-card" href="tools/hiragana-katakana.html">ひらがな・カタカナ変換</a>
       </div>
-    </div>
+    </details>
 
-    <div class="tool-group">
-      <h3 class="tool-group-title">抽出・エンコード</h3>
+    <details class="tool-purpose-details" id="purpose-data">
+      <summary><strong>抽出・データ変換</strong><span>8</span></summary>
       <div class="tool-grid compact-tool-grid">
         <a class="tool-card compact-tool-card" href="tools/emails.html">メールアドレス抽出</a>
         <a class="tool-card compact-tool-card" href="tools/urls.html">URL抽出</a>
@@ -108,10 +124,10 @@
         <a class="tool-card compact-tool-card" href="tools/base64.html">Base64変換</a>
         <a class="tool-card compact-tool-card" href="tools/json-formatter.html">JSON整形</a>
       </div>
-    </div>
+    </details>
 
-    <div class="tool-group">
-      <h3 class="tool-group-title">数値・お金</h3>
+    <details class="tool-purpose-details" id="purpose-calc">
+      <summary><strong>計算・お金</strong><span>9</span></summary>
       <div class="tool-grid compact-tool-grid">
         <a class="tool-card compact-tool-card" href="tools/sum.html">数値合計</a>
         <a class="tool-card compact-tool-card" href="tools/avg.html">数値平均</a>
@@ -123,18 +139,18 @@
         <a class="tool-card compact-tool-card" href="tools/electricity-cost-app.html">家電の電気代かんたん計算</a>
         <a class="tool-card compact-tool-card" href="tools/discount-tax-app.html">割引・税込かんたん計算</a>
       </div>
-    </div>
+    </details>
 
-    <div class="tool-group">
-      <h3 class="tool-group-title">生成</h3>
+    <details class="tool-purpose-details">
+      <summary><strong>生成する</strong><span>2</span></summary>
       <div class="tool-grid compact-tool-grid">
         <a class="tool-card compact-tool-card" href="tools/password-generator.html">パスワード生成</a>
         <a class="tool-card compact-tool-card" href="tools/random-string.html">ランダム文字列生成</a>
       </div>
-    </div>
+    </details>
 
-    <div class="tool-group">
-      <h3 class="tool-group-title">日付・ID・進数</h3>
+    <details class="tool-purpose-details">
+      <summary><strong>日付・ID・進数</strong><span>10</span></summary>
       <div class="tool-grid compact-tool-grid">
         <a class="tool-card compact-tool-card" href="tools/age.html">年齢計算</a>
         <a class="tool-card compact-tool-card" href="tools/days.html">日数差計算</a>
@@ -147,10 +163,10 @@
         <a class="tool-card compact-tool-card" href="tools/bin-dec.html">2進数→10進数</a>
         <a class="tool-card compact-tool-card" href="tools/dec-bin.html">10進数→2進数</a>
       </div>
-    </div>
+    </details>
 
-    <div class="tool-group">
-      <h3 class="tool-group-title">色・単位変換</h3>
+    <details class="tool-purpose-details">
+      <summary><strong>色・単位を換算する</strong><span>9</span></summary>
       <div class="tool-grid compact-tool-grid">
         <a class="tool-card compact-tool-card" href="tools/rgb-hex.html">RGB→HEX</a>
         <a class="tool-card compact-tool-card" href="tools/hex-rgb.html">HEX→RGB</a>
@@ -162,25 +178,7 @@
         <a class="tool-card compact-tool-card" href="tools/speed.html">速度変換</a>
         <a class="tool-card compact-tool-card" href="tools/tsubo-heibei-app.html">坪・平米かんたん換算</a>
       </div>
-    </div>
-  </section>
-
-  <section class="card public-feature">
-    <div class="tools-heading-row">
-      <h2>公共施設を探す</h2>
-      <span class="tools-count">越谷市掲載中</span>
-    </div>
-    <p>都道府県 → 市区町村 → 施設カテゴリの順に探せます。現在は埼玉県越谷市の公共施設を掲載しています。</p>
-    <a class="button" href="public/">公共施設ページへ</a>
-  </section>
-
-  <section class="card public-feature">
-    <div class="tools-heading-row">
-      <h2>何食べたい？から飲食店を探す</h2>
-      <span class="tools-count">越谷市から開始</span>
-    </div>
-    <p>「ラーメン食べたい」「子連れでランチ」「安い焼肉」など、食べたい気分から探せます。</p>
-    <a class="button" href="restaurants/saitama/koshigaya/">「何食べたい？」検索へ</a>
+    </details>
   </section>
 
   <aside class="ad-slot" id="ad-middle" aria-label="広告" hidden>
@@ -189,7 +187,10 @@
 
 
   <section class="card" id="history">
-    <h2>開発履歴</h2>
+    <div class="tools-heading-row">
+      <h2>開発履歴</h2>
+      <span class="tools-count">直近5件</span>
+    </div>
     <div class="history-item">
       <div class="history-date">2026年9月27日</div>
       <div class="history-title">飲食店「何食べたい？」検索を追加</div>
@@ -214,51 +215,6 @@
       <div class="history-date">2026年9月26日</div>
       <div class="history-title">公共施設ページの試験版を追加</div>
       <div>埼玉県→越谷市→図書館・公園の階層で公共施設を探せる小規模版を追加しました。</div>
-    </div>
-    <div class="history-item">
-      <div class="history-date">2026年9月26日</div>
-      <div class="history-title">便利ツール50機能を個別ページ化</div>
-      <div>50種類の機能をそれぞれ独立したページに分け、TOP検索から直接開けるようにしました。</div>
-    </div>
-    <div class="history-item">
-      <div class="history-date">2026年9月26日</div>
-      <div class="history-title">アクセス数表示を公開</div>
-      <div>今日と累計のアクセス数をTOPページに表示するカウンターを追加しました。将来は自前集計基盤へ移行できる構成を残しています。</div>
-    </div>
-    <div class="history-item">
-      <div class="history-date">2026年9月26日</div>
-      <div class="history-title">文章系ツール4種を公開</div>
-      <div>改行削除、重複行削除、大文字・小文字変換、空白削除を追加しました。</div>
-    </div>
-    <div class="history-item">
-      <div class="history-date">2026年9月26日</div>
-      <div class="history-title">サイト名とヘッダーを更新</div>
-      <div>サイト名を「べんりちゃん、微力ながら」に変更し、イメージキャラクターを使ったヘッダー表示に整えました。</div>
-    </div>
-    <div class="history-item">
-      <div class="history-date">2026年9月26日</div>
-      <div class="history-title">トップページにイメージキャラクターを追加</div>
-      <div>サイトの雰囲気に合わせたメイドキャラクターを追加しました。</div>
-    </div>
-    <div class="history-item">
-      <div class="history-date">2026年9月26日</div>
-      <div class="history-title">サイト構成を整理</div>
-      <div>共通CSS・JavaScriptを分離し、今後ツールを追加しやすい構成に変更しました。</div>
-    </div>
-    <div class="history-item">
-      <div class="history-date">2026年9月26日</div>
-      <div class="history-title">全角・半角変換を追加</div>
-      <div>英数字や記号を全角・半角に変換できるツールを追加しました。</div>
-    </div>
-    <div class="history-item">
-      <div class="history-date">2026年9月26日</div>
-      <div class="history-title">文字数カウンターを追加</div>
-      <div>文章の文字数などを確認できるツールを追加しました。</div>
-    </div>
-    <div class="history-item">
-      <div class="history-date">2026年9月26日</div>
-      <div class="history-title">サイト公開</div>
-      <div>GitHub Pagesを利用してサイトを公開しました。</div>
     </div>
   </section>
 
