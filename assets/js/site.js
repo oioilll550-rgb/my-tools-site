@@ -77,7 +77,7 @@ function searchSite() {
   const matched=SITE_CONTENT.filter(item=>{
     const target=[item.name,...(item.keywords||[])].map(normalizeSearchText).join(" ");
     return target.includes(keyword);
-  }).slice(0,20);
+  }).slice(0,10);
 
   if(matched.length===0){
     const p=document.createElement("p");
@@ -104,7 +104,10 @@ function searchTools(){ searchSite(); }
 
 document.addEventListener("DOMContentLoaded",()=>{
   const input=document.getElementById("siteSearch");
-  if(input) input.addEventListener("keydown",e=>{if(e.key==="Enter") searchSite();});
+  if(input) {
+    input.addEventListener("input", searchSite);
+    input.addEventListener("keydown",e=>{if(e.key==="Enter") searchSite();});
+  }
   const year=document.querySelector("[data-current-year]");
   if(year) year.textContent=new Date().getFullYear();
 });
