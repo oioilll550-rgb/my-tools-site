@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>坪・平米かんたん換算 | べんりちゃん、微力ながら</title>
+<meta name="description" content="平方メートル（㎡）と坪を相互換算できる無料ツールです。">
+<meta name="robots" content="index,follow">
+<link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+<header>
+  <div class="header-inner">
+    <div class="site-title"><a href="../">べんりちゃん、微力ながら</a></div>
+    <nav aria-label="メインナビゲーション"><a href="../#tools">ツール一覧</a><a href="../public/">公共施設</a><a href="../privacy.html">プライバシー</a></nav>
+  </div>
+</header>
+<main><section class="card app-tool-card">
+
+<h1>坪・平米かんたん換算</h1>
+<p>㎡と坪をすぐ相互換算します。1坪 = 400/121㎡（約3.305785㎡）で計算します。</p>
+<div class="app-input-grid">
+  <label><span>数値</span><input id="areaValue" type="text" inputmode="decimal" placeholder="例: 100"></label>
+  <label><span>変換方向</span>
+    <select id="areaDirection">
+      <option value="sqm-to-tsubo">㎡ → 坪</option>
+      <option value="tsubo-to-sqm">坪 → ㎡</option>
+    </select>
+  </label>
+</div>
+<div class="buttons">
+  <button type="button" id="areaCalc">換算する</button>
+  <button type="button" class="secondary" id="areaSwap">方向を入れ替え</button>
+</div>
+<div class="app-result-panel">
+  <div class="app-result-label" id="areaResultLabel">結果</div>
+  <div class="app-result-main" id="areaResult">—</div>
+  <div class="buttons"><button type="button" id="areaCopy">結果をコピー</button></div>
+</div>
+<div class="message" id="areaMessage" aria-live="polite"></div>
+
+  <p class="notice">計算はブラウザ内で行われます。入力内容は当サイトの独自サーバーへ送信しません。</p>
+  <a class="back" href="../">← TOPページへ戻る</a>
+</section></main>
+<footer><div class="footer-inner"><span>© <span data-current-year>2026</span> べんりちゃん、微力ながら</span><span><a href="../privacy.html">プライバシーポリシー</a></span></div></footer>
+<script src="../assets/js/site.js"></script>
+<script src="../assets/js/tsubo-heibei.js"></script>
+</body></html>
