@@ -54,7 +54,13 @@ const SITE_TOOLS = [
   { name:"文字数カウント", url:"tools/char-count.html", keywords:["文字数カウント","入力した文章の文字数を数えます。"] },
   { name:"行数カウント", url:"tools/line-count.html", keywords:["行数カウント","入力した文章の行数を数えます。"] },
   { name:"空白数カウント", url:"tools/space-count.html", keywords:["空白数カウント","文章内の半角","全角空白を数えます。"] },
-  { name:"乱数生成", url:"tools/random-number.html", keywords:["乱数生成","指定した範囲から整数の乱数を生成します。"] }
+  { name:"乱数生成", url:"tools/random-number.html", keywords:["乱数生成","指定した範囲から整数の乱数を生成します。"] },
+  { name:"ひらがな・カタカナ変換", url:"tools/hiragana-katakana.html", keywords:["ひらがな","カタカナ","変換"] },
+  { name:"URLエンコード・デコード", url:"tools/url-codec.html", keywords:["URL","エンコード","デコード","パーセント"] },
+  { name:"Base64変換", url:"tools/base64.html", keywords:["Base64","エンコード","デコード","UTF-8"] },
+  { name:"JSON整形", url:"tools/json-formatter.html", keywords:["JSON","整形","圧縮","検証"] },
+  { name:"パスワード生成", url:"tools/password-generator.html", keywords:["パスワード","生成","ランダム","英数字","記号"] },
+  { name:"ランダム文字列生成", url:"tools/random-string.html", keywords:["ランダム","文字列","生成","英数字"] }
 ];
 
 function normalizeSearchText(value) {
