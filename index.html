@@ -5,9 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>My Tools Site | 無料便利ツール集</title>
+
   <meta
     name="description"
-    content="文字数カウンターや文章変換など、無料で使える便利ツールをまとめたサイトです。"
+    content="文字数カウンターや全角半角変換など、無料で使える便利なWebツールを公開しています。"
   >
 
   <style>
@@ -41,6 +42,7 @@
     .site-title {
       margin: 0;
       font-size: 28px;
+      font-weight: bold;
     }
 
     .site-title a {
@@ -155,6 +157,15 @@
       color: #666;
     }
 
+    .status {
+      display: inline-block;
+      padding: 3px 9px;
+      border-radius: 20px;
+      font-size: 12px;
+      background: #eee;
+      margin-left: 5px;
+    }
+
     .history-item {
       border-left: 3px solid #222;
       padding-left: 15px;
@@ -169,15 +180,6 @@
     .history-title {
       font-weight: bold;
       margin: 3px 0;
-    }
-
-    .status {
-      display: inline-block;
-      padding: 3px 9px;
-      border-radius: 20px;
-      font-size: 12px;
-      background: #eee;
-      margin-left: 5px;
     }
 
     footer {
@@ -216,6 +218,7 @@
 <main>
 
   <section class="card">
+
     <h1>無料で使える便利ツール集</h1>
 
     <p class="lead">
@@ -225,81 +228,140 @@
 
     <p>
       インストール不要で、ブラウザからすぐに利用できます。
-      今後も少しずつ機能を追加していく予定です。
+      今後も少しずつ機能を追加していきます。
     </p>
 
     <div class="search-box">
+
       <input
         type="text"
         id="toolSearch"
         placeholder="ツール名を検索..."
       >
-      <button onclick="searchTool()">検索</button>
+
+      <button onclick="searchTool()">
+        検索
+      </button>
+
     </div>
 
     <div id="searchResults"></div>
+
   </section>
 
 
   <section class="card">
+
     <h2>公開中のツール</h2>
 
     <div class="tool-grid">
 
-      <a class="tool-card" href="tools/character-counter.html">
+      <a
+        class="tool-card"
+        href="tools/character-counter.html"
+      >
         <h3>文字数カウンター</h3>
+
         <p>
-          入力した文章の文字数をリアルタイムで計算します。
+          入力した文章の文字数を
+          リアルタイムで計算します。
+        </p>
+      </a>
+
+
+      <a
+        class="tool-card"
+        href="tools/zenkaku-hankaku.html"
+      >
+        <h3>全角・半角変換</h3>
+
+        <p>
+          英数字や記号を
+          全角または半角に変換します。
         </p>
       </a>
 
     </div>
+
   </section>
 
 
   <section class="card">
+
     <h2>開発予定</h2>
 
     <div class="tool-grid">
 
       <div class="tool-card">
-        <h3>
-          全角・半角変換
-          <span class="status">予定</span>
-        </h3>
-        <p>
-          全角文字と半角文字を簡単に変換します。
-        </p>
-      </div>
 
-      <div class="tool-card">
         <h3>
           改行削除
           <span class="status">予定</span>
         </h3>
+
         <p>
-          文章内の不要な改行をまとめて削除します。
+          文章内の不要な改行を
+          まとめて削除します。
         </p>
+
       </div>
 
+
       <div class="tool-card">
+
         <h3>
           重複行削除
           <span class="status">予定</span>
         </h3>
+
         <p>
-          重複している行を自動で取り除きます。
+          重複している行を
+          自動で削除します。
         </p>
+
+      </div>
+
+
+      <div class="tool-card">
+
+        <h3>
+          大文字・小文字変換
+          <span class="status">予定</span>
+        </h3>
+
+        <p>
+          英字を大文字または
+          小文字に変換します。
+        </p>
+
+      </div>
+
+
+      <div class="tool-card">
+
+        <h3>
+          空白削除
+          <span class="status">予定</span>
+        </h3>
+
+        <p>
+          不要な空白を
+          簡単に削除します。
+        </p>
+
       </div>
 
     </div>
+
   </section>
 
 
   <section class="card">
+
     <h2>開発履歴</h2>
 
     <div class="history-item">
+
       <div class="history-date">
         2026年9月
       </div>
@@ -310,39 +372,65 @@
 
       <div>
         GitHub Pagesを利用して
-        My Tools Site を公開しました。
+        My Tools Siteを公開しました。
       </div>
+
     </div>
 
+
     <div class="history-item">
+
       <div class="history-date">
         2026年9月
       </div>
 
       <div class="history-title">
-        文字数カウンターを開発
+        文字数カウンターを追加
       </div>
 
       <div>
-        最初のツールとして
+        最初の便利ツールとして
         文字数カウンターを追加しました。
       </div>
+
+    </div>
+
+
+    <div class="history-item">
+
+      <div class="history-date">
+        2026年9月
+      </div>
+
+      <div class="history-title">
+        全角・半角変換を追加
+      </div>
+
+      <div>
+        英数字や記号を変換できる
+        全角・半角変換ツールを追加しました。
+      </div>
+
     </div>
 
   </section>
 
 
   <section class="card">
+
     <h2>このサイトについて</h2>
 
     <p>
-      このサイトでは、できるだけ
-      シンプルで使いやすい無料ツールを公開します。
+      My Tools Siteでは、
+      シンプルで使いやすい無料Webツールを
+      順次公開しています。
     </p>
 
     <p>
-      機能は順次追加・改善していきます。
+      基本的にブラウザ上で処理を行う
+      シンプルなツールを中心に追加していく予定です。
     </p>
+
   </section>
 
 </main>
@@ -359,6 +447,16 @@
     {
       name: "文字数カウンター",
       url: "tools/character-counter.html"
+    },
+
+    {
+      name: "全角半角変換",
+      url: "tools/zenkaku-hankaku.html"
+    },
+
+    {
+      name: "全角・半角変換",
+      url: "tools/zenkaku-hankaku.html"
     }
   ];
 
@@ -388,18 +486,30 @@
     );
 
     if (matched.length === 0) {
+
       results.innerHTML =
         "<p>該当するツールがありません。</p>";
+
       return;
     }
 
+    const displayedUrls = new Set();
+
     matched.forEach(tool => {
+
+      if (displayedUrls.has(tool.url)) {
+        return;
+      }
+
+      displayedUrls.add(tool.url);
 
       const link =
         document.createElement("a");
 
       link.href = tool.url;
+
       link.textContent = tool.name;
+
       link.className = "result-link";
 
       results.appendChild(link);
@@ -411,13 +521,16 @@
 
   document
     .getElementById("toolSearch")
-    .addEventListener("keydown", function(event) {
+    .addEventListener(
+      "keydown",
+      function(event) {
 
-      if (event.key === "Enter") {
-        searchTool();
+        if (event.key === "Enter") {
+          searchTool();
+        }
+
       }
-
-    });
+    );
 
 </script>
 
