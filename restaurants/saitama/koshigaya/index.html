@@ -29,6 +29,11 @@
 </div>
 <div id="foodSearchResults" class="food-search-results" aria-live="polite"></div>
 </section>
+<section class="card restaurant-openings-card">
+<div class="tools-heading-row"><h2>新規OPEN</h2><span id="restaurantCount" class="tools-count">店舗情報を読込中</span></div>
+<p>最近オープンした店舗を、開店日の新しい順に5件表示します。</p>
+<div id="newOpenings" class="new-openings-list" data-data-url="../../../assets/data/restaurants-koshigaya.json"><p class="notice">新規OPEN情報を読み込んでいます…</p></div>
+</section>
 <section class="card">
 <h2>ジャンル・目的から選ぶ</h2>
 <div class="restaurant-category-grid">
@@ -47,7 +52,7 @@
 </div>
 <p class="notice">店舗情報は、公式サイト・公式SNS・Google Maps等で確認できる基本情報を基準に順次追加します。</p>
 </section>
-<script src="../../../assets/js/restaurant-search.js"></script></main>
+<script src="../../../assets/js/restaurant-search.js"></script><script src="../../../assets/js/restaurant-data.js"></script></main>
 <footer><div class="footer-inner"><span>© <span data-current-year>2026</span> べんりちゃん、微力ながら</span><span><a href="../../../privacy.html">プライバシーポリシー</a></span></div></footer>
 <script src="../../../assets/js/site.js"></script>
 </body></html>

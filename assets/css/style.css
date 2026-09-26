@@ -1123,3 +1123,80 @@ a.compact-tool-card {
     grid-template-columns: 1fr;
   }
 }
+
+
+.new-openings-list,
+.restaurant-list {
+  display: grid;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.new-opening-row {
+  display: grid;
+  grid-template-columns: 104px minmax(0, 1fr);
+  gap: 12px;
+  align-items: start;
+  padding: 12px 14px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--surface-muted);
+}
+
+.new-opening-row time {
+  color: var(--muted);
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+}
+
+.new-opening-row strong,
+.new-opening-row span {
+  display: block;
+}
+
+.new-opening-row span {
+  margin-top: 2px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.restaurant-card {
+  padding: 16px;
+  border: 1px solid var(--border);
+  border-radius: 11px;
+  background: var(--surface-muted);
+}
+
+.restaurant-card h2 {
+  margin: 0 0 8px;
+  font-size: 17px;
+}
+
+.restaurant-address {
+  margin: 0;
+  font-size: 13px;
+}
+
+.restaurant-meta,
+.restaurant-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 12px;
+  margin-top: 9px;
+}
+
+.restaurant-meta {
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.restaurant-links {
+  font-size: 12px;
+}
+
+@media (max-width: 520px) {
+  .new-opening-row {
+    grid-template-columns: 1fr;
+    gap: 2px;
+  }
+}

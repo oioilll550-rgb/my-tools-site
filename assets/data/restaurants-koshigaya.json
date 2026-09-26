@@ -1,0 +1,315 @@
+{
+  "area": "越谷市",
+  "updatedAt": "2026-09-27",
+  "restaurants": [
+    {
+      "id": "mazemaze-kaiju",
+      "name": "油そば専門店 まぜまぜ怪獣 越谷駅前店",
+      "address": "埼玉県越谷市赤山本町3-21",
+      "tags": [
+        "ramen",
+        "solo",
+        "cheap",
+        "lunch",
+        "late-night"
+      ],
+      "checkedAt": "2026-09-27"
+    },
+    {
+      "id": "hamacho-sushi",
+      "name": "浜丁寿司",
+      "address": "埼玉県越谷市大房716-7",
+      "tags": [
+        "sushi",
+        "lunch"
+      ],
+      "checkedAt": "2026-09-27"
+    },
+    {
+      "id": "yakiniku-taizan",
+      "name": "焼肉 泰山",
+      "address": "埼玉県越谷市弥生町3-7 プリモ越谷 D.E",
+      "tags": [
+        "yakiniku",
+        "lunch"
+      ],
+      "checkedAt": "2026-09-27"
+    },
+    {
+      "id": "marusaka",
+      "name": "ごはん屋まるさか",
+      "address": "埼玉県越谷市花田5丁目1-6",
+      "tags": [
+        "japanese",
+        "lunch",
+        "cheap"
+      ],
+      "checkedAt": "2026-09-27"
+    },
+    {
+      "id": "jahan-higashikoshigaya",
+      "name": "ジャーハン東越谷店",
+      "address": "埼玉県越谷市東越谷9丁目6-4",
+      "tags": [
+        "curry",
+        "lunch",
+        "solo",
+        "cheap"
+      ],
+      "checkedAt": "2026-09-27"
+    },
+    {
+      "id": "bella-italia",
+      "name": "イタリア厨房ベッライタリア",
+      "address": "埼玉県越谷市新越谷2丁目13-18",
+      "tags": [
+        "italian",
+        "lunch",
+        "family"
+      ],
+      "checkedAt": "2026-09-27"
+    },
+    {
+      "id": "yone-cafe",
+      "name": "Yone cafe（ヨネカフェ）",
+      "address": "埼玉県越谷市増林543-1",
+      "tags": [
+        "cafe",
+        "lunch"
+      ],
+      "checkedAt": "2026-09-27"
+    },
+    {
+      "id": "la-honu",
+      "name": "ハワイアン カフェ ラ ホヌ",
+      "address": "埼玉県越谷市赤山町1丁目160-1",
+      "tags": [
+        "cafe",
+        "family",
+        "lunch"
+      ],
+      "checkedAt": "2026-09-27"
+    },
+    {
+      "id": "toriichizu-koshigaya",
+      "name": "大衆とり酒場 とりいちず 越谷店",
+      "address": "埼玉県越谷市弥生町3-41 越谷戸室ビル2F",
+      "tags": [
+        "japanese",
+        "cheap",
+        "late-night"
+      ],
+      "openingDate": "2026-05-09",
+      "checkedAt": "2026-09-27"
+    },
+    {
+      "id": "dining-yakayaka",
+      "name": "Dining やかやか",
+      "address": "埼玉県越谷市相模町1丁目231",
+      "tags": [
+        "japanese",
+        "lunch"
+      ],
+      "checkedAt": "2026-09-27"
+    },
+    {
+      "id": "tomoe-ya",
+      "name": "巴屋",
+      "address": "埼玉県越谷市北越谷4丁目4-1",
+      "tags": [
+        "japanese",
+        "solo",
+        "late-night"
+      ],
+      "checkedAt": "2026-09-27"
+    },
+    {
+      "id": "ramen-koshigaya",
+      "name": "ラー麺専門店 こしがや",
+      "address": "埼玉県越谷市越ヶ谷1丁目12-19",
+      "tags": [
+        "ramen",
+        "solo",
+        "lunch"
+      ],
+      "checkedAt": "2026-09-27"
+    },
+    {
+      "id": "sahei-sushi",
+      "name": "佐平寿司",
+      "address": "埼玉県越谷市東越谷4丁目29-24",
+      "tags": [
+        "sushi",
+        "lunch"
+      ],
+      "checkedAt": "2026-09-27"
+    },
+    {
+      "id": "yakiniku-hinata",
+      "name": "焼肉 ひなた",
+      "address": "埼玉県越谷市大成町1丁目2248-5",
+      "tags": [
+        "yakiniku",
+        "lunch",
+        "late-night"
+      ],
+      "checkedAt": "2026-09-27"
+    },
+    {
+      "id": "sukibara",
+      "name": "定食&和洋酒場すきばら",
+      "address": "埼玉県越谷市袋山98-3",
+      "tags": [
+        "japanese",
+        "lunch",
+        "solo",
+        "cheap"
+      ],
+      "checkedAt": "2026-09-27"
+    },
+    {
+      "id": "picky-theater",
+      "name": "PICKY THEATER THE DINER",
+      "address": "埼玉県越谷市南越谷4丁目1-13 誠友ビル第三3F",
+      "tags": [
+        "curry",
+        "lunch",
+        "solo"
+      ],
+      "checkedAt": "2026-09-27"
+    },
+    {
+      "id": "piccolino",
+      "name": "イタリア郷土料理ピッコリーノ",
+      "address": "埼玉県越谷市北越谷4丁目3-4 The Ritz 1F 101",
+      "tags": [
+        "italian",
+        "lunch"
+      ],
+      "checkedAt": "2026-09-27"
+    },
+    {
+      "id": "cafe-eight",
+      "name": "ベビーカステラのお店 cafe∞（eight）",
+      "address": "埼玉県越谷市大里378-1",
+      "tags": [
+        "cafe",
+        "family",
+        "cheap"
+      ],
+      "checkedAt": "2026-09-27"
+    },
+    {
+      "id": "apron-mark",
+      "name": "越谷レイクサイドエプロンマーク APRON MARK",
+      "address": "埼玉県越谷市レイクタウン2丁目201番地",
+      "tags": [
+        "cafe",
+        "family",
+        "lunch"
+      ],
+      "checkedAt": "2026-09-27"
+    },
+    {
+      "id": "kanryu-chii",
+      "name": "韓流肉酒場 ちぃ",
+      "address": "埼玉県越谷市南越谷1-12-2 千曲ビル1F",
+      "tags": [
+        "yakiniku",
+        "late-night"
+      ],
+      "openingDate": "2026-07-07",
+      "checkedAt": "2026-09-27",
+      "sourceUrl": "https://tabelog.com/saitama/A1102/A110203/11067959/dtlmap/",
+      "sourceLabel": "店舗情報"
+    },
+    {
+      "id": "kamukura-laketown",
+      "name": "どうとんぼり神座 イオンレイクタウンkaze店",
+      "address": "埼玉県越谷市レイクタウン4-2-2 イオンレイクタウンkaze 1F",
+      "tags": [
+        "ramen",
+        "family",
+        "lunch"
+      ],
+      "openingDate": "2026-07-30",
+      "checkedAt": "2026-09-27",
+      "sourceUrl": "https://tabelog.com/saitama/C11222/rstLst/cond16-00-00/ramen/",
+      "sourceLabel": "開店情報"
+    },
+    {
+      "id": "everest-flavours",
+      "name": "EVEREST FLAVOURS 越谷店",
+      "address": "埼玉県越谷市宮本町1-148-1 越谷スカイマンション1F",
+      "tags": [
+        "curry",
+        "lunch",
+        "solo",
+        "cheap"
+      ],
+      "openingDate": "2026-08-01",
+      "checkedAt": "2026-09-27",
+      "sourceUrl": "https://tabelog.com/saitama/A1102/A110203/11068403/dtlmap/",
+      "sourceLabel": "店舗情報"
+    },
+    {
+      "id": "mangosteen",
+      "name": "マンゴスチン",
+      "address": "埼玉県越谷市越ヶ谷1-5-17 パパネッツ越谷ビル2F",
+      "tags": [
+        "curry",
+        "lunch",
+        "solo"
+      ],
+      "openingDate": "2026-08-03",
+      "checkedAt": "2026-09-27",
+      "sourceUrl": "https://tabelog.com/saitama/C11222/C31355/rstLst/cond16-00-00/",
+      "sourceLabel": "開店情報"
+    },
+    {
+      "id": "yoshinoya-kitakoshigaya",
+      "name": "吉野家 北越谷駅前店",
+      "address": "埼玉県越谷市北越谷4-2-9",
+      "tags": [
+        "japanese",
+        "solo",
+        "cheap",
+        "lunch"
+      ],
+      "openingDate": "2026-08-03",
+      "checkedAt": "2026-09-27",
+      "sourceUrl": "https://tabelog.com/saitama/C11222/C31355/rstLst/cond16-00-00/",
+      "sourceLabel": "開店情報"
+    },
+    {
+      "id": "shirokujichu-varie",
+      "name": "おひつごはん四六時中 新越谷ヴァリエ店",
+      "address": "埼玉県越谷市南越谷1-11-4 新越谷ヴァリエ5F",
+      "tags": [
+        "sushi",
+        "japanese",
+        "family",
+        "lunch"
+      ],
+      "openingDate": "2026-08-06",
+      "checkedAt": "2026-09-27",
+      "sourceUrl": "https://tabelog.com/saitama/C11222/C31303/rstLst/cond16-00-00/",
+      "sourceLabel": "開店情報"
+    },
+    {
+      "id": "yudetaro-gamo",
+      "name": "ゆで太郎 もつ次郎 越谷蒲生店",
+      "address": "埼玉県越谷市蒲生西町1-5-16",
+      "tags": [
+        "japanese",
+        "solo",
+        "cheap",
+        "lunch"
+      ],
+      "openingDate": "2026-09-18",
+      "checkedAt": "2026-09-27",
+      "sourceUrl": "https://yudetaro.jp/area/koshigaya/",
+      "sourceLabel": "公式店舗情報"
+    }
+  ]
+}
