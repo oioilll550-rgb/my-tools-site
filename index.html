@@ -83,17 +83,23 @@
     <span class="ad-slot-label">広告</span>
   </aside>
 
-  <section class="visitor-counter" id="visitorCounter" aria-label="アクセス数" hidden>
-    <span>累計 <strong id="visitorTotal">--</strong></span>
-    <span>今日 <strong id="visitorToday">--</strong></span>
+  <section class="visitor-counter" aria-label="アクセス数">
+    <span class="visitor-counter-label">アクセス数</span>
+    <img
+      class="visitor-counter-badge"
+      src="https://hits.sh/oioilll550-rgb.github.io/my-tools-site.svg?view=today-total&label=&color=6b7280&labelColor=f3f4f6"
+      alt="今日と累計のアクセス数"
+      loading="lazy"
+      referrerpolicy="no-referrer"
+    >
   </section>
 
   <section class="card" id="history">
     <h2>開発履歴</h2>
     <div class="history-item">
       <div class="history-date">2026年9月26日</div>
-      <div class="history-title">アクセスカウンター基盤を追加</div>
-      <div>将来のアクセス数表示に備え、Cloudflare Worker + D1方式のカウンター機能を実装しました。</div>
+      <div class="history-title">アクセス数表示を公開</div>
+      <div>今日と累計のアクセス数をTOPページに表示するカウンターを追加しました。将来は自前集計基盤へ移行できる構成を残しています。</div>
     </div>
     <div class="history-item">
       <div class="history-date">2026年9月26日</div>
@@ -145,8 +151,6 @@
   </div>
 </footer>
 
-<script src="assets/js/config.js"></script>
 <script src="assets/js/site.js"></script>
-<script src="assets/js/visitor-counter.js"></script>
 </body>
 </html>
