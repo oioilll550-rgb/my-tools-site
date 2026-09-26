@@ -137,3 +137,135 @@ document.addEventListener("DOMContentLoaded", () => {
     link.setAttribute("rel", Array.from(rel).join(" "));
   });
 });
+
+
+/* page-level 7-day visitor chart */
+document.addEventListener("DOMContentLoaded", async () => {
+  const main = document.querySelector("main");
+  if (!main || document.getElementById("pageTrafficCard")) return;
+
+  const API = "https://abacus.jasoncameron.dev";
+  const NS = "benri-chan-biryoku-8f6c2e";
+  const dateFmt = new Intl.DateTimeFormat("en-CA", {
+    timeZone: "Asia/Tokyo",
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit"
+  });
+
+  const todayText = dateFmt.format(new Date());
+  const [ty, tm, td] = todayText.split("-").map(Number);
+  const todayUtc = Date.UTC(ty, tm - 1, td);
+
+  function dateKey(offset) {
+    const d = new Date(todayUtc - offset * 86400000);
+    return d.getUTCFullYear() + "-" +
+      String(d.getUTCMonth() + 1).padStart(2, "0") + "-" +
+      String(d.getUTCDate()).padStart(2, "0");
+  }
+
+  function shortDate(iso) {
+    const [, m, d] = iso.split("-");
+    return Number(m) + "/" + Number(d);
+  }
+
+  let pagePath = location.pathname || "/";
+  pagePath = pagePath.replace(/^\/my-tools-site(?=\/|$)/, "") || "/";
+  if (pagePath.endsWith("/index.html")) pagePath = pagePath.slice(0, -"index.html".length);
+  const pageId = pagePath;
+
+  const card = document.createElement("section");
+  card.className = "card page-traffic-card";
+  card.id = "pageTrafficCard";
+  card.innerHTML = '<div class="page-traffic-heading"><h2>このページの来訪者</h2><span>直近7日</span></div>' +
+    '<div class="page-traffic-chart" id="pageTrafficChart" aria-label="このページの直近7日間の来訪人数"></div>' +
+    '<p class="page-traffic-note">同じブラウザから同じページへのアクセスは、1日1回を目安に集計しています。</p>';
+  main.appendChild(card);
+
+  const chart = document.getElementById("pageTrafficChart");
+
+  async function api(path) {
+    const res = await fetch(API + path, {
+      method: "GET",
+      mode: "cors",
+      credentials: "omit",
+      cache: "no-store"
+    });
+    if (!res.ok) throw new Error("counter api failed");
+    const data = await res.json();
+    return Number(data.value || 0);
+  }
+
+  async function hit(key) {
+    return api("/hit/" + encodeURIComponent(NS) + "/" + encodeURIComponent(key));
+  }
+
+  async function get(key) {
+    try {
+      return await api("/get/" + encodeURIComponent(NS) + "/" + encodeURIComponent(key));
+    } catch (_) {
+      return 0;
+    }
+  }
+
+  const days = Array.from({ length: 7 }, (_, i) => dateKey(6 - i));
+
+  try {
+    const values = [];
+    for (const day of days) {
+      const counterKey = "page-" + pageId + "-day-" + day;
+      const isToday = day === todayText;
+
+      if (isToday) {
+        const localKey = "benri-page-counted-v1-" + pageId + "-" + day;
+        let value;
+        if (!localStorage.getItem(localKey)) {
+          value = await hit(counterKey);
+          localStorage.setItem(localKey, "1");
+        } else {
+          value = await get(counterKey);
+        }
+        values.push(value);
+      } else {
+        const cacheKey = "benri-page-history-v1-" + pageId + "-" + day;
+        const cached = localStorage.getItem(cacheKey);
+        if (cached !== null) {
+          values.push(Number(cached) || 0);
+        } else {
+          const value = await get(counterKey);
+          localStorage.setItem(cacheKey, String(value));
+          values.push(value);
+        }
+      }
+    }
+
+    const max = Math.max(1, ...values);
+    chart.innerHTML = "";
+    values.forEach((value, index) => {
+      const item = document.createElement("div");
+      item.className = "page-traffic-bar-item";
+
+      const count = document.createElement("div");
+      count.className = "page-traffic-count";
+      count.textContent = value.toLocaleString("ja-JP");
+
+      const track = document.createElement("div");
+      track.className = "page-traffic-bar-track";
+
+      const bar = document.createElement("div");
+      bar.className = "page-traffic-bar";
+      bar.style.height = (value === 0 ? 0 : Math.max(6, value / max * 100)) + "%";
+      bar.setAttribute("aria-hidden", "true");
+      track.appendChild(bar);
+
+      const label = document.createElement("div");
+      label.className = "page-traffic-date";
+      label.textContent = shortDate(days[index]);
+
+      item.append(count, track, label);
+      chart.appendChild(item);
+    });
+  } catch (_) {
+    chart.innerHTML = '<p class="page-traffic-error">来訪者数を取得できませんでした。</p>';
+  }
+});
