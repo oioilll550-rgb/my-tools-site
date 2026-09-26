@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>割引・税込かんたん計算 | べんりちゃん、微力ながら</title>
+<meta name="description" content="元価格、割引率、追加割引、消費税、端数処理から支払額や節約額を計算します。">
+<meta name="robots" content="index,follow">
+<link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+<header>
+  <div class="header-inner">
+    <div class="site-title"><a href="../">べんりちゃん、微力ながら</a></div>
+    <nav aria-label="メインナビゲーション"><a href="../#tools">ツール一覧</a><a href="../public/">公共施設</a><a href="../privacy.html">プライバシー</a></nav>
+  </div>
+</header>
+<main><section class="card app-tool-card">
+
+<h1>割引・税込かんたん計算</h1>
+<p>値札の割引と消費税をまとめて計算します。追加割引や自由税率にも対応します。</p>
+
+<div class="app-input-grid two-col">
+  <label><span>元価格（円・税抜）</span><input id="originalPrice" type="text" inputmode="decimal" placeholder="例: 1000"></label>
+  <label><span>割引率（%）</span><input id="discountRate" type="text" inputmode="decimal" placeholder="例: 20"></label>
+</div>
+
+<div class="quick-rate-row" aria-label="割引率クイック入力">
+  <button type="button" class="quick-rate" data-rate="10">10%</button>
+  <button type="button" class="quick-rate" data-rate="20">20%</button>
+  <button type="button" class="quick-rate" data-rate="30">30%</button>
+  <button type="button" class="quick-rate" data-rate="40">40%</button>
+  <button type="button" class="quick-rate" data-rate="50">50%</button>
+</div>
+
+<button type="button" class="text-toggle-button" id="extraDiscountToggle">＋ さらに割引を追加</button>
+<div id="extraDiscountWrap" hidden>
+  <label><span>追加割引率（%）</span><input id="extraDiscountRate" type="text" inputmode="decimal" placeholder="例: 10"></label>
+  <p class="field-help">例：20%引き後にさらに10%引き → 実質28%引き</p>
+</div>
+
+<div class="app-input-grid two-col">
+  <label><span>消費税</span>
+    <select id="taxMode">
+      <option value="0">なし</option>
+      <option value="8">8%</option>
+      <option value="10" selected>10%</option>
+      <option value="custom">自由入力</option>
+    </select>
+  </label>
+  <label id="customTaxWrap" hidden><span>自由税率（%）</span><input id="customTaxRate" type="text" inputmode="decimal" placeholder="0〜100"></label>
+</div>
+
+<details class="app-details">
+  <summary>端数・詳細設定</summary>
+  <label><span>1円未満の処理</span>
+    <select id="roundMode">
+      <option value="floor">切り捨て</option>
+      <option value="round" selected>四捨五入</option>
+      <option value="ceil">切り上げ</option>
+    </select>
+  </label>
+</details>
+
+<div class="buttons"><button type="button" id="discountCalc">計算する</button></div>
+
+<div class="app-result-panel sticky-result">
+  <div class="app-result-row app-result-primary"><span>支払額</span><strong id="payAmount">—</strong></div>
+  <div class="app-result-row"><span>割引後（税前）</span><strong id="preTaxAmount">—</strong></div>
+  <div class="app-result-row"><span>税額</span><strong id="taxAmount">—</strong></div>
+  <div class="app-result-row"><span>節約額</span><strong id="savingAmount">—</strong></div>
+  <div class="app-result-row"><span>実質割引率</span><strong id="effectiveDiscount">—</strong></div>
+  <div class="buttons"><button type="button" id="discountCopy">結果をコピー</button></div>
+</div>
+
+<details class="app-details">
+  <summary>計算の意味</summary>
+  <p>消費税は税抜価格に加算します。税込価格をそのまま入力する場合は「消費税なし」を選んでください。</p>
+  <p>節約額は、同じ税率で割引なしの場合の支払額と、割引後の支払額との差です。実質割引率は追加割引を含む税前価格で計算します。</p>
+</details>
+
+<div class="message" id="discountMessage" aria-live="polite"></div>
+
+  <p class="notice">計算はブラウザ内で行われます。入力内容は当サイトの独自サーバーへ送信しません。</p>
+  <a class="back" href="../">← TOPページへ戻る</a>
+</section></main>
+<footer><div class="footer-inner"><span>© <span data-current-year>2026</span> べんりちゃん、微力ながら</span><span><a href="../privacy.html">プライバシーポリシー</a></span></div></footer>
+<script src="../assets/js/site.js"></script>
+<script src="../assets/js/discount-tax-app.js"></script>
+</body></html>
