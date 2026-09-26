@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>全角・半角変換 | My Tools Site</title>
+  <meta
+    name="description"
+    content="全角文字と半角文字を無料で変換できるシンプルなWebツールです。"
+  >
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+      background: #f5f5f5;
+      color: #222;
+      line-height: 1.7;
+    }
+
+    header {
+      background: white;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .header-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    .site-title a {
+      color: #222;
+      text-decoration: none;
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    main {
+      max-width: 900px;
+      margin: 30px auto;
+      padding: 0 20px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 12px;
+      padding: 30px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+    }
+
+    h1 {
+      margin-top: 0;
+    }
+
+    textarea {
+      width: 100%;
+      min-height: 200px;
+      padding: 15px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      resize: vertical;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin: 20px 0;
+    }
+
+    button {
+      padding: 12px 18px;
+      font-size: 15px;
+      border: none;
+      border-radius: 8px;
+      background: #222;
+      color: white;
+      cursor: pointer;
+    }
+
+    button:hover {
+      opacity: 0.85;
+    }
+
+    .secondary {
+      background: #666;
+    }
+
+    .back {
+      display: inline-block;
+      margin-top: 25px;
+      color: #222;
+      text-decoration: none;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="site-title">
+      <a href="../index.html">My Tools Site</a>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <div class="card">
+
+    <h1>全角・半角変換</h1>
+
+    <p>
+      入力した英数字や記号を、全角または半角に変換します。
+    </p>
+
+    <textarea
+      id="inputText"
+      placeholder="ここに変換したい文字を入力してください"
+    ></textarea>
+
+    <div class="buttons">
+      <button onclick="toHalfWidth()">
+        半角に変換
+      </button>
+
+      <button onclick="toFullWidth()">
+        全角に変換
+      </button>
+
+      <button
+        class="secondary"
+        onclick="clearText()"
+      >
+        クリア
+      </button>
+    </div>
+
+    <textarea
+      id="outputText"
+      placeholder="変換結果がここに表示されます"
+      readonly
+    ></textarea>
+
+    <div class="buttons">
+      <button onclick="copyResult()">
+        結果をコピー
+      </button>
+    </div>
+
+    <a
+      class="back"
+      href="../index.html"
+    >
+      ← TOPページへ戻る
+    </a>
+
+  </div>
+
+</main>
+
+<script>
+
+  function toHalfWidth() {
+    const text =
+      document.getElementById("inputText").value;
+
+    const result =
+      text.replace(/[！-～]/g, function(char) {
+        return String.fromCharCode(
+          char.charCodeAt(0) - 0xFEE0
+        );
+      })
+      .replace(/　/g, " ");
+
+    document.getElementById("outputText").value =
+      result;
+  }
+
+
+  function toFullWidth() {
+    const text =
+      document.getElementById("inputText").value;
+
+    const result =
+      text.replace(/[!-~]/g, function(char) {
+        return String.fromCharCode(
+          char.charCodeAt(0) + 0xFEE0
+        );
+      })
+      .replace(/ /g, "　");
+
+    document.getElementById("outputText").value =
+      result;
+  }
+
+
+  function clearText() {
+    document.getElementById("inputText").value = "";
+    document.getElementById("outputText").value = "";
+  }
+
+
+  function copyResult() {
+    const output =
+      document.getElementById("outputText");
+
+    navigator.clipboard.writeText(output.value);
+  }
+
+</script>
+
+</body>
+</html>
