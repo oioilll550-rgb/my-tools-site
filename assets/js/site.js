@@ -93,3 +93,20 @@ document.addEventListener("DOMContentLoaded",()=>{
   const year=document.querySelector("[data-current-year]");
   if(year) year.textContent=new Date().getFullYear();
 });
+
+/* security hardening */
+document.addEventListener("DOMContentLoaded", () => {
+  if (!document.querySelector('meta[name="referrer"]')) {
+    const meta = document.createElement("meta");
+    meta.name = "referrer";
+    meta.content = "no-referrer";
+    document.head.appendChild(meta);
+  }
+
+  document.querySelectorAll('a[target="_blank"]').forEach((link) => {
+    const rel = new Set((link.getAttribute("rel") || "").split(/\s+/).filter(Boolean));
+    rel.add("noopener");
+    rel.add("noreferrer");
+    link.setAttribute("rel", Array.from(rel).join(" "));
+  });
+});
