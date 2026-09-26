@@ -4,7 +4,8 @@ const SITE_TOOLS = [
   { name:"改行削除", url:"tools/remove-linebreaks.html", keywords:["改行","削除","文章","整形","スペース"] },
   { name:"重複行削除", url:"tools/remove-duplicates.html", keywords:["重複","行","削除","整理","リスト"] },
   { name:"大文字・小文字変換", url:"tools/case-converter.html", keywords:["大文字","小文字","英字","uppercase","lowercase"] },
-  { name:"空白削除", url:"tools/space-remover.html", keywords:["空白","スペース","削除","全角","半角"] }
+  { name:"空白削除", url:"tools/space-remover.html", keywords:["空白","スペース","削除","全角","半角"] },
+  { name:"便利ツール50", url:"tools/utility-box.html", keywords:["50","文章整形","数値計算","日付","変換","単位","色","乱数","UUID","割引","税"] }
 ];
 
 function normalizeSearchText(value) {
