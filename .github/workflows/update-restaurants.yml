@@ -12,6 +12,7 @@ on:
       - "scripts/update_koshigaya_restaurants.py"
       - "scripts/classify_koshigaya_restaurants.py"
       - "scripts/build_facility_dataset.py"
+      - "scripts/audit_restaurant_classification.py"
       - ".github/workflows/update-restaurants.yml"
 
 permissions:
@@ -37,6 +38,8 @@ jobs:
         run: python scripts/update_koshigaya_restaurants.py
       - name: Classify likely public-facing restaurants
         run: python scripts/classify_koshigaya_restaurants.py
+      - name: Audit public restaurant classification
+        run: python scripts/audit_restaurant_classification.py
       - name: Build nationwide facility-model dataset
         run: python scripts/build_facility_dataset.py
       - name: Commit data when changed
