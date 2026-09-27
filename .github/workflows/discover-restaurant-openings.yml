@@ -2,6 +2,12 @@ name: Discover Koshigaya restaurant openings
 
 on:
   workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - "scripts/discover_koshigaya_openings.py"
+      - "scripts/restaurant_opening_sources.json"
+      - ".github/workflows/discover-restaurant-openings.yml"
   schedule:
     # 19:37 UTC = 04:37 JST. Once daily is sufficient for opening information.
     # Minute 37 avoids the busy start-of-hour window.
