@@ -1,13 +1,20 @@
 {
   "area": "越谷市",
-  "generatedAt": "2026-09-27T18:10:04+09:00",
+  "generatedAt": "2026-09-27T19:01:14+09:00",
   "officialPermitCount": 2525,
-  "count": 2365,
+  "count": 2358,
   "countsByConfidence": {
-    "confirmed": 35,
+    "confirmed": 34,
     "high": 1270,
-    "medium": 1060,
-    "excluded": 185
+    "medium": 1054,
+    "excluded": 192
+  },
+  "excludedByReason": {
+    "convenience": 111,
+    "education": 27,
+    "internal-foodservice": 20,
+    "medical": 12,
+    "care-welfare": 22
   },
   "basis": "越谷市公式の飲食店営業許可データから、保育・学校・病院・福祉施設・社員食堂・厨房等の明らかな非一般利用施設とコンビニを除外し、一般利用可能性のある飲食店・飲食提供施設を自動分類。手動確認済み店舗はconfirmedとして優先。",
   "caution": "自動分類のため一般客向けでない施設が残る場合、また営業中の店舗を除外する場合があります。営業許可情報は現在営業中であることを保証しません。来店前に最新情報をご確認ください。",
@@ -309,21 +316,6 @@
       ],
       "curated": true,
       "openingDate": ""
-    },
-    {
-      "id": "official-78c1950b61f812",
-      "name": "イタリア厨房 ベッラ・イタリア",
-      "address": "埼玉県越谷市新越谷２－１３－１８",
-      "permitDate": "2022-01-07",
-      "sourceUrl": "https://www.city.koshigaya.saitama.jp/kurashi_shisei/fukushi/hokenjo/shokuhin/files/r8.3.31koukai.xls",
-      "confidence": "confirmed",
-      "classificationReason": "curated",
-      "tags": [
-        "family",
-        "italian",
-        "lunch"
-      ],
-      "curated": true
     },
     {
       "id": "bella-italia",
@@ -966,7 +958,9 @@
       "sourceUrl": "https://www.city.koshigaya.saitama.jp/kurashi_shisei/fukushi/hokenjo/shokuhin/files/r8.3.31koukai.xls",
       "confidence": "high",
       "classificationReason": "name-cue",
-      "tags": [],
+      "tags": [
+        "ramen"
+      ],
       "curated": false
     },
     {
@@ -2291,7 +2285,9 @@
       "sourceUrl": "https://www.city.koshigaya.saitama.jp/kurashi_shisei/fukushi/hokenjo/shokuhin/files/r8.3.31koukai.xls",
       "confidence": "high",
       "classificationReason": "name-cue",
-      "tags": [],
+      "tags": [
+        "japanese"
+      ],
       "curated": false
     },
     {
@@ -2708,7 +2704,9 @@
       "sourceUrl": "https://www.city.koshigaya.saitama.jp/kurashi_shisei/fukushi/hokenjo/shokuhin/files/r8.3.31koukai.xls",
       "confidence": "high",
       "classificationReason": "name-cue",
-      "tags": [],
+      "tags": [
+        "cafe"
+      ],
       "curated": false
     },
     {
@@ -3456,7 +3454,9 @@
       "sourceUrl": "https://www.city.koshigaya.saitama.jp/kurashi_shisei/fukushi/hokenjo/shokuhin/files/r8.3.31koukai.xls",
       "confidence": "high",
       "classificationReason": "name-cue",
-      "tags": [],
+      "tags": [
+        "cafe"
+      ],
       "curated": false
     },
     {
@@ -4992,7 +4992,9 @@
       "sourceUrl": "https://www.city.koshigaya.saitama.jp/kurashi_shisei/fukushi/hokenjo/shokuhin/files/r8.3.31koukai.xls",
       "confidence": "high",
       "classificationReason": "name-cue",
-      "tags": [],
+      "tags": [
+        "japanese"
+      ],
       "curated": false
     },
     {
@@ -5998,7 +6000,9 @@
       "sourceUrl": "https://www.city.koshigaya.saitama.jp/kurashi_shisei/fukushi/hokenjo/shokuhin/files/r8.3.31koukai.xls",
       "confidence": "high",
       "classificationReason": "name-cue",
-      "tags": [],
+      "tags": [
+        "cafe"
+      ],
       "curated": false
     },
     {
@@ -7505,7 +7509,9 @@
       "sourceUrl": "https://www.city.koshigaya.saitama.jp/kurashi_shisei/fukushi/hokenjo/shokuhin/files/r8.3.31koukai.xls",
       "confidence": "high",
       "classificationReason": "name-cue",
-      "tags": [],
+      "tags": [
+        "cafe"
+      ],
       "curated": false
     },
     {
@@ -9554,7 +9560,8 @@
       "confidence": "high",
       "classificationReason": "name-cue",
       "tags": [
-        "sushi"
+        "sushi",
+        "japanese"
       ],
       "curated": false
     },
@@ -11082,7 +11089,9 @@
       "sourceUrl": "https://www.city.koshigaya.saitama.jp/kurashi_shisei/fukushi/hokenjo/shokuhin/files/r8.3.31koukai.xls",
       "confidence": "high",
       "classificationReason": "name-cue",
-      "tags": [],
+      "tags": [
+        "ramen"
+      ],
       "curated": false
     },
     {
@@ -11161,7 +11170,9 @@
       "sourceUrl": "https://www.city.koshigaya.saitama.jp/kurashi_shisei/fukushi/hokenjo/shokuhin/files/r8.3.31koukai.xls",
       "confidence": "high",
       "classificationReason": "name-cue",
-      "tags": [],
+      "tags": [
+        "cafe"
+      ],
       "curated": false
     },
     {
@@ -11262,7 +11273,9 @@
       "sourceUrl": "https://www.city.koshigaya.saitama.jp/kurashi_shisei/fukushi/hokenjo/shokuhin/files/r8.3.31koukai.xls",
       "confidence": "high",
       "classificationReason": "name-cue",
-      "tags": [],
+      "tags": [
+        "japanese"
+      ],
       "curated": false
     },
     {
@@ -11888,7 +11901,9 @@
       "sourceUrl": "https://www.city.koshigaya.saitama.jp/kurashi_shisei/fukushi/hokenjo/shokuhin/files/r8.3.31koukai.xls",
       "confidence": "high",
       "classificationReason": "name-cue",
-      "tags": [],
+      "tags": [
+        "japanese"
+      ],
       "curated": false
     },
     {
@@ -11922,7 +11937,8 @@
       "confidence": "high",
       "classificationReason": "name-cue",
       "tags": [
-        "sushi"
+        "sushi",
+        "japanese"
       ],
       "curated": false
     },
@@ -12374,7 +12390,9 @@
       "sourceUrl": "https://www.city.koshigaya.saitama.jp/kurashi_shisei/fukushi/hokenjo/shokuhin/files/r8.3.31koukai.xls",
       "confidence": "high",
       "classificationReason": "name-cue",
-      "tags": [],
+      "tags": [
+        "cafe"
+      ],
       "curated": false
     },
     {
@@ -12689,7 +12707,9 @@
       "sourceUrl": "https://www.city.koshigaya.saitama.jp/kurashi_shisei/fukushi/hokenjo/shokuhin/files/r8.3.31koukai.xls",
       "confidence": "high",
       "classificationReason": "name-cue",
-      "tags": [],
+      "tags": [
+        "cafe"
+      ],
       "curated": false
     },
     {
@@ -12726,7 +12746,9 @@
       "sourceUrl": "https://www.city.koshigaya.saitama.jp/kurashi_shisei/fukushi/hokenjo/shokuhin/files/r8.3.31koukai.xls",
       "confidence": "high",
       "classificationReason": "name-cue",
-      "tags": [],
+      "tags": [
+        "cafe"
+      ],
       "curated": false
     },
     {
@@ -13498,7 +13520,9 @@
       "sourceUrl": "https://www.city.koshigaya.saitama.jp/kurashi_shisei/fukushi/hokenjo/shokuhin/files/r8.3.31koukai.xls",
       "confidence": "high",
       "classificationReason": "name-cue",
-      "tags": [],
+      "tags": [
+        "cafe"
+      ],
       "curated": false
     },
     {
@@ -13798,7 +13822,9 @@
       "sourceUrl": "https://www.city.koshigaya.saitama.jp/kurashi_shisei/fukushi/hokenjo/shokuhin/files/r8.3.31koukai.xls",
       "confidence": "high",
       "classificationReason": "name-cue",
-      "tags": [],
+      "tags": [
+        "cafe"
+      ],
       "curated": false
     },
     {
@@ -16073,7 +16099,9 @@
       "sourceUrl": "https://www.city.koshigaya.saitama.jp/kurashi_shisei/fukushi/hokenjo/shokuhin/files/r8.3.31koukai.xls",
       "confidence": "medium",
       "classificationReason": "permit-only",
-      "tags": [],
+      "tags": [
+        "japanese"
+      ],
       "curated": false
     },
     {
@@ -16150,7 +16178,9 @@
       "sourceUrl": "https://www.city.koshigaya.saitama.jp/kurashi_shisei/fukushi/hokenjo/shokuhin/files/r8.3.31koukai.xls",
       "confidence": "medium",
       "classificationReason": "permit-only",
-      "tags": [],
+      "tags": [
+        "yakiniku"
+      ],
       "curated": false
     },
     {
@@ -17052,7 +17082,9 @@
       "sourceUrl": "https://www.city.koshigaya.saitama.jp/kurashi_shisei/fukushi/hokenjo/shokuhin/files/r8.3.31koukai.xls",
       "confidence": "medium",
       "classificationReason": "permit-only",
-      "tags": [],
+      "tags": [
+        "japanese"
+      ],
       "curated": false
     },
     {
@@ -17208,7 +17240,9 @@
       "sourceUrl": "https://www.city.koshigaya.saitama.jp/kurashi_shisei/fukushi/hokenjo/shokuhin/files/r8.3.31koukai.xls",
       "confidence": "medium",
       "classificationReason": "permit-only",
-      "tags": [],
+      "tags": [
+        "japanese"
+      ],
       "curated": false
     },
     {
@@ -18880,7 +18914,9 @@
       "sourceUrl": "https://www.city.koshigaya.saitama.jp/kurashi_shisei/fukushi/hokenjo/shokuhin/files/r8.3.31koukai.xls",
       "confidence": "medium",
       "classificationReason": "permit-only",
-      "tags": [],
+      "tags": [
+        "japanese"
+      ],
       "curated": false
     },
     {
@@ -18921,17 +18957,6 @@
       "name": "第一楼",
       "address": "埼玉県越谷市大字大道５６４ カスミＦＳ越谷大袋店",
       "permitDate": "2024-04-01",
-      "sourceUrl": "https://www.city.koshigaya.saitama.jp/kurashi_shisei/fukushi/hokenjo/shokuhin/files/r8.3.31koukai.xls",
-      "confidence": "medium",
-      "classificationReason": "permit-only",
-      "tags": [],
-      "curated": false
-    },
-    {
-      "id": "official-1669a40176adf3",
-      "name": "サービス付き高齢者向け住宅 わらい",
-      "address": "埼玉県越谷市大字大里１７３－１",
-      "permitDate": "2022-09-27",
       "sourceUrl": "https://www.city.koshigaya.saitama.jp/kurashi_shisei/fukushi/hokenjo/shokuhin/files/r8.3.31koukai.xls",
       "confidence": "medium",
       "classificationReason": "permit-only",
@@ -19166,7 +19191,9 @@
       "sourceUrl": "https://www.city.koshigaya.saitama.jp/kurashi_shisei/fukushi/hokenjo/shokuhin/files/r8.3.31koukai.xls",
       "confidence": "medium",
       "classificationReason": "permit-only",
-      "tags": [],
+      "tags": [
+        "japanese"
+      ],
       "curated": false
     },
     {
@@ -19342,7 +19369,9 @@
       "sourceUrl": "https://www.city.koshigaya.saitama.jp/kurashi_shisei/fukushi/hokenjo/shokuhin/files/r8.3.31koukai.xls",
       "confidence": "medium",
       "classificationReason": "permit-only",
-      "tags": [],
+      "tags": [
+        "italian"
+      ],
       "curated": false
     },
     {
@@ -19397,7 +19426,9 @@
       "sourceUrl": "https://www.city.koshigaya.saitama.jp/kurashi_shisei/fukushi/hokenjo/shokuhin/files/r8.3.31koukai.xls",
       "confidence": "medium",
       "classificationReason": "permit-only",
-      "tags": [],
+      "tags": [
+        "japanese"
+      ],
       "curated": false
     },
     {
@@ -20057,7 +20088,9 @@
       "sourceUrl": "https://www.city.koshigaya.saitama.jp/kurashi_shisei/fukushi/hokenjo/shokuhin/files/r8.3.31koukai.xls",
       "confidence": "medium",
       "classificationReason": "permit-only",
-      "tags": [],
+      "tags": [
+        "japanese"
+      ],
       "curated": false
     },
     {
@@ -20248,17 +20281,6 @@
       "curated": false
     },
     {
-      "id": "official-2698eac9158455",
-      "name": "ケアハウス リバティーガーデン",
-      "address": "埼玉県越谷市大字西新井１０１６－１",
-      "permitDate": "2026-02-02",
-      "sourceUrl": "https://www.city.koshigaya.saitama.jp/kurashi_shisei/fukushi/hokenjo/shokuhin/files/r8.3.31koukai.xls",
-      "confidence": "medium",
-      "classificationReason": "permit-only",
-      "tags": [],
-      "curated": false
-    },
-    {
       "id": "official-34b996a46ae69b",
       "name": "福寿庵",
       "address": "埼玉県越谷市大字西新井１８８６－７",
@@ -20274,17 +20296,6 @@
       "name": "団十屋",
       "address": "埼玉県越谷市大字西新井５８２",
       "permitDate": "2023-04-25",
-      "sourceUrl": "https://www.city.koshigaya.saitama.jp/kurashi_shisei/fukushi/hokenjo/shokuhin/files/r8.3.31koukai.xls",
-      "confidence": "medium",
-      "classificationReason": "permit-only",
-      "tags": [],
-      "curated": false
-    },
-    {
-      "id": "official-3c60b1b9533b95",
-      "name": "埼玉県立越谷西特別支援学校",
-      "address": "埼玉県越谷市大字西新井８５０－１",
-      "permitDate": "2021-05-26",
       "sourceUrl": "https://www.city.koshigaya.saitama.jp/kurashi_shisei/fukushi/hokenjo/shokuhin/files/r8.3.31koukai.xls",
       "confidence": "medium",
       "classificationReason": "permit-only",
@@ -20343,7 +20354,9 @@
       "sourceUrl": "https://www.city.koshigaya.saitama.jp/kurashi_shisei/fukushi/hokenjo/shokuhin/files/r8.3.31koukai.xls",
       "confidence": "medium",
       "classificationReason": "permit-only",
-      "tags": [],
+      "tags": [
+        "japanese"
+      ],
       "curated": false
     },
     {
@@ -20463,17 +20476,6 @@
       "name": "ひだまり",
       "address": "埼玉県越谷市大沢２－８－２９",
       "permitDate": "2020-08-17",
-      "sourceUrl": "https://www.city.koshigaya.saitama.jp/kurashi_shisei/fukushi/hokenjo/shokuhin/files/r8.3.31koukai.xls",
-      "confidence": "medium",
-      "classificationReason": "permit-only",
-      "tags": [],
-      "curated": false
-    },
-    {
-      "id": "official-8f8c193060b498",
-      "name": "就労継続支援Ｂ型事業所Ｃｕｄｄｌｅ",
-      "address": "埼玉県越谷市大沢３－１０－４８",
-      "permitDate": "2022-05-31",
       "sourceUrl": "https://www.city.koshigaya.saitama.jp/kurashi_shisei/fukushi/hokenjo/shokuhin/files/r8.3.31koukai.xls",
       "confidence": "medium",
       "classificationReason": "permit-only",
@@ -20906,7 +20908,9 @@
       "sourceUrl": "https://www.city.koshigaya.saitama.jp/kurashi_shisei/fukushi/hokenjo/shokuhin/files/r8.3.31koukai.xls",
       "confidence": "medium",
       "classificationReason": "permit-only",
-      "tags": [],
+      "tags": [
+        "japanese"
+      ],
       "curated": false
     },
     {
@@ -21029,7 +21033,9 @@
       "sourceUrl": "https://www.city.koshigaya.saitama.jp/kurashi_shisei/fukushi/hokenjo/shokuhin/files/r8.june.syokuhin.xls",
       "confidence": "medium",
       "classificationReason": "permit-only",
-      "tags": [],
+      "tags": [
+        "japanese"
+      ],
       "curated": false
     },
     {
@@ -21323,17 +21329,6 @@
       "name": "カスミ南越谷",
       "address": "埼玉県越谷市新越谷１－３１－２",
       "permitDate": "2020-02-18",
-      "sourceUrl": "https://www.city.koshigaya.saitama.jp/kurashi_shisei/fukushi/hokenjo/shokuhin/files/r8.3.31koukai.xls",
-      "confidence": "medium",
-      "classificationReason": "permit-only",
-      "tags": [],
-      "curated": false
-    },
-    {
-      "id": "official-54ac787fe98177",
-      "name": "株式会社マンマグラッチェ 佐藤産婦人科",
-      "address": "埼玉県越谷市新越谷１－３４－４",
-      "permitDate": "2021-08-23",
       "sourceUrl": "https://www.city.koshigaya.saitama.jp/kurashi_shisei/fukushi/hokenjo/shokuhin/files/r8.3.31koukai.xls",
       "confidence": "medium",
       "classificationReason": "permit-only",
@@ -21689,7 +21684,9 @@
       "sourceUrl": "https://www.city.koshigaya.saitama.jp/kurashi_shisei/fukushi/hokenjo/shokuhin/files/r8.3.31koukai.xls",
       "confidence": "medium",
       "classificationReason": "permit-only",
-      "tags": [],
+      "tags": [
+        "japanese"
+      ],
       "curated": false
     },
     {
@@ -21766,7 +21763,9 @@
       "sourceUrl": "https://www.city.koshigaya.saitama.jp/kurashi_shisei/fukushi/hokenjo/shokuhin/files/r8.3.31koukai.xls",
       "confidence": "medium",
       "classificationReason": "permit-only",
-      "tags": [],
+      "tags": [
+        "japanese"
+      ],
       "curated": false
     },
     {
@@ -21955,7 +21954,9 @@
       "sourceUrl": "https://www.city.koshigaya.saitama.jp/kurashi_shisei/fukushi/hokenjo/shokuhin/files/r8.3.31koukai.xls",
       "confidence": "medium",
       "classificationReason": "permit-only",
-      "tags": [],
+      "tags": [
+        "japanese"
+      ],
       "curated": false
     },
     {
@@ -22502,17 +22503,6 @@
       "name": "くるり",
       "address": "埼玉県越谷市蒲生寿町１４－４４ 荻島店舗１階A（南）",
       "permitDate": "2020-11-02",
-      "sourceUrl": "https://www.city.koshigaya.saitama.jp/kurashi_shisei/fukushi/hokenjo/shokuhin/files/r8.3.31koukai.xls",
-      "confidence": "medium",
-      "classificationReason": "permit-only",
-      "tags": [],
-      "curated": false
-    },
-    {
-      "id": "official-156fbbc4ebafbb",
-      "name": "就労継続支援Ｂ型事業所 ＋ｍｏｔｓｕ．",
-      "address": "埼玉県越谷市蒲生寿町１５－３７ Ｒ＆Ｙ ＢＵＩＬＤＩＮＧ ２階",
-      "permitDate": "2023-07-11",
       "sourceUrl": "https://www.city.koshigaya.saitama.jp/kurashi_shisei/fukushi/hokenjo/shokuhin/files/r8.3.31koukai.xls",
       "confidence": "medium",
       "classificationReason": "permit-only",
@@ -23781,7 +23771,9 @@
       "sourceUrl": "https://www.city.koshigaya.saitama.jp/kurashi_shisei/fukushi/hokenjo/shokuhin/files/r8.3.31koukai.xls",
       "confidence": "medium",
       "classificationReason": "permit-only",
-      "tags": [],
+      "tags": [
+        "japanese"
+      ],
       "curated": false
     },
     {
@@ -24628,7 +24620,9 @@
       "sourceUrl": "https://www.city.koshigaya.saitama.jp/kurashi_shisei/fukushi/hokenjo/shokuhin/files/r8.3.31koukai.xls",
       "confidence": "medium",
       "classificationReason": "permit-only",
-      "tags": [],
+      "tags": [
+        "japanese"
+      ],
       "curated": false
     },
     {
@@ -24914,7 +24908,9 @@
       "sourceUrl": "https://www.city.koshigaya.saitama.jp/kurashi_shisei/fukushi/hokenjo/shokuhin/files/r8.3.31koukai.xls",
       "confidence": "medium",
       "classificationReason": "permit-only",
-      "tags": [],
+      "tags": [
+        "japanese"
+      ],
       "curated": false
     },
     {
