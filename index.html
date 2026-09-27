@@ -44,11 +44,13 @@
 <p class="lead">やりたいことから、ツール・公共施設・飲食店を探せます。</p>
         <p>サイト内検索か「目的から探す」から、必要なページへすぐ移動できます。</p>
 
-        <div class="search-box">
-          <input type="search" id="siteSearch" placeholder="サイト内を検索..." aria-label="サイト内を検索">
-          <button type="button" onclick="searchSite()">検索</button>
+        <div class="site-search-wrap">
+          <div class="search-box">
+            <input type="search" id="siteSearch" placeholder="サイト内を検索..." aria-label="サイト内を検索">
+            <button type="button" onclick="searchSite()">検索</button>
+          </div>
+          <div id="searchResults" aria-live="polite"></div>
         </div>
-        <div id="searchResults" aria-live="polite"></div>
       </div>
     </div>
   </section>
