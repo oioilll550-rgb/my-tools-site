@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self' https://abacus.jasoncameron.dev; font-src 'self' data:; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self' https://abacus.jasoncameron.dev https://benri-facility-api.chatgpt-notion-sync-piocho.workers.dev; font-src 'self' data:; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
 <meta name="referrer" content="no-referrer">
 <title>越谷市の飲食店 | べんりちゃん、微力ながら</title>
 <meta name="description" content="越谷市の飲食店を、食べたいものや利用シーン、カテゴリから探せます。新規OPEN情報も掲載しています。">
@@ -32,9 +32,9 @@
 </section>
 
 <section class="card">
-  <div class="tools-heading-row"><h2>新規OPEN</h2><span id="restaurantCount" class="tools-count">26店舗掲載</span></div>
+  <div class="tools-heading-row"><h2>新規OPEN</h2><span id="restaurantCount" class="tools-count">件数確認中</span></div>
   <p class="notice">最近オープンした店舗を、確認できた開店日の新しい順に5件表示します。来店前に最新情報をご確認ください。</p>
-  <div id="newOpenings" class="facility-list compact-facility-list" data-data-url="../../../assets/data/restaurants-koshigaya.json">
+  <div id="newOpenings" class="home-compact-list restaurant-openings-list" data-data-url="../../../assets/data/restaurants-koshigaya.json">
     <p class="notice">新規OPEN情報を読み込んでいます…</p>
   </div>
 </section>
@@ -45,22 +45,24 @@
   <div class="public-nav-grid">
     <a class="public-nav-card" href="shops.html"><strong>飲食店一覧</strong><span>市公式の営業許可データから一般利用向け候補を自動分類・検索</span></a>
     <a class="public-nav-card restaurant-all-card" href="all.html"><strong>営業許可ベース一覧</strong><span>越谷市公式の食品関係営業施設一覧から自動更新</span></a>
-    <a class="public-nav-card" href="ramen.html" data-category-card="ramen"><strong>ラーメン（<span data-category-count="ramen">3</span>店舗）</strong><span>ラーメン・つけ麺・中華そばを食べたいとき</span></a>
-    <a class="public-nav-card" href="sushi.html" data-category-card="sushi"><strong>寿司・海鮮（<span data-category-count="sushi">3</span>店舗）</strong><span>寿司・刺身・海鮮系を食べたいとき</span></a>
-    <a class="public-nav-card" href="yakiniku.html" data-category-card="yakiniku"><strong>焼肉・肉料理（<span data-category-count="yakiniku">3</span>店舗）</strong><span>焼肉・ホルモン・肉料理をしっかり食べたいとき</span></a>
-    <a class="public-nav-card" href="japanese.html" data-category-card="japanese"><strong>和食・定食（<span data-category-count="japanese">8</span>店舗）</strong><span>定食・そば・うどんなど落ち着いた和食を食べたいとき</span></a>
-    <a class="public-nav-card" href="curry.html" data-category-card="curry"><strong>カレー・スパイス料理（<span data-category-count="curry">4</span>店舗）</strong><span>カレーやスパイスの効いた料理を食べたいとき</span></a>
-    <a class="public-nav-card" href="italian.html" data-category-card="italian"><strong>イタリアン・ピザ・パスタ（<span data-category-count="italian">2</span>店舗）</strong><span>パスタ・ピザ・イタリアンを食べたいとき</span></a>
-    <a class="public-nav-card" href="cafe.html" data-category-card="cafe"><strong>カフェ・スイーツ（<span data-category-count="cafe">4</span>店舗）</strong><span>カフェ、コーヒー、ケーキや甘いものを探したいとき</span></a>
-    <a class="public-nav-card" href="family.html" data-category-card="family"><strong>子連れ・家族向け（<span data-category-count="family">6</span>店舗）</strong><span>子どもと一緒に入りやすい店を探したいとき</span></a>
-    <a class="public-nav-card" href="solo.html" data-category-card="solo"><strong>一人で入りやすい（<span data-category-count="solo">10</span>店舗）</strong><span>一人で気軽に食事したいとき</span></a>
-    <a class="public-nav-card" href="cheap.html" data-category-card="cheap"><strong>安め・コスパ（<span data-category-count="cheap">9</span>店舗）</strong><span>予算を抑えて食べたいとき</span></a>
-    <a class="public-nav-card" href="lunch.html" data-category-card="lunch"><strong>ランチ（<span data-category-count="lunch">22</span>店舗）</strong><span>昼ごはん・ランチを探したいとき</span></a>
-    <a class="public-nav-card" href="late-night.html" data-category-card="late-night"><strong>夜遅く・夜食（<span data-category-count="late-night">5</span>店舗）</strong><span>遅い時間や夜食を探したいとき</span></a>
+    <a class="public-nav-card" href="ramen.html" data-category-card="ramen"><strong>ラーメン（<span data-category-count="ramen">--</span>店舗）</strong><span>ラーメン・つけ麺・中華そばを食べたいとき</span></a>
+    <a class="public-nav-card" href="sushi.html" data-category-card="sushi"><strong>寿司・海鮮（<span data-category-count="sushi">--</span>店舗）</strong><span>寿司・刺身・海鮮系を食べたいとき</span></a>
+    <a class="public-nav-card" href="yakiniku.html" data-category-card="yakiniku"><strong>焼肉・肉料理（<span data-category-count="yakiniku">--</span>店舗）</strong><span>焼肉・ホルモン・肉料理をしっかり食べたいとき</span></a>
+    <a class="public-nav-card" href="japanese.html" data-category-card="japanese"><strong>和食・定食（<span data-category-count="japanese">--</span>店舗）</strong><span>定食・そば・うどんなど落ち着いた和食を食べたいとき</span></a>
+    <a class="public-nav-card" href="curry.html" data-category-card="curry"><strong>カレー・スパイス料理（<span data-category-count="curry">--</span>店舗）</strong><span>カレーやスパイスの効いた料理を食べたいとき</span></a>
+    <a class="public-nav-card" href="italian.html" data-category-card="italian"><strong>イタリアン・ピザ・パスタ（<span data-category-count="italian">--</span>店舗）</strong><span>パスタ・ピザ・イタリアンを食べたいとき</span></a>
+    <a class="public-nav-card" href="cafe.html" data-category-card="cafe"><strong>カフェ・スイーツ（<span data-category-count="cafe">--</span>店舗）</strong><span>カフェ、コーヒー、ケーキや甘いものを探したいとき</span></a>
+    <a class="public-nav-card" href="family.html" data-category-card="family"><strong>子連れ・家族向け（<span data-category-count="family">--</span>店舗）</strong><span>子どもと一緒に入りやすい店を探したいとき</span></a>
+    <a class="public-nav-card" href="solo.html" data-category-card="solo"><strong>一人で入りやすい（<span data-category-count="solo">--</span>店舗）</strong><span>一人で気軽に食事したいとき</span></a>
+    <a class="public-nav-card" href="cheap.html" data-category-card="cheap"><strong>安め・コスパ（<span data-category-count="cheap">--</span>店舗）</strong><span>予算を抑えて食べたいとき</span></a>
+    <a class="public-nav-card" href="lunch.html" data-category-card="lunch"><strong>ランチ（<span data-category-count="lunch">--</span>店舗）</strong><span>昼ごはん・ランチを探したいとき</span></a>
+    <a class="public-nav-card" href="late-night.html" data-category-card="late-night"><strong>夜遅く・夜食（<span data-category-count="late-night">--</span>店舗）</strong><span>遅い時間や夜食を探したいとき</span></a>
+    <a class="public-nav-card restaurant-all-card" href="shops.html?uncategorized=1"><strong>その他・未分類（<span data-uncategorized-count>--</span>店舗）</strong><span>現在の自動分類にまだ当てはまらない飲食店</span></a>
   </div>
 </section>
 </main>
 <footer><div class="footer-inner"><span>© <span data-current-year>2026</span> べんりちゃん、微力ながら</span><span><a href="../../../privacy.html">プライバシーポリシー</a></span></div></footer>
+<script src="../../../assets/js/config.js"></script>
 <script src="../../../assets/js/site.js"></script>
 <script src="../../../assets/js/restaurant-search.js"></script>
 <script src="../../../assets/js/restaurant-data.js"></script>

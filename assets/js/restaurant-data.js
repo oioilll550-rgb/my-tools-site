@@ -5,6 +5,8 @@ document.addEventListener("DOMContentLoaded", async () => {
   const holder = list || openings || document.querySelector("[data-category-count]");
   if (!holder) return;
 
+  const config = window.BENRI_CONFIG || {};
+  const apiBase = String(config.facilityApiUrl || "").replace(/\/$/, "");
   const url =
     (list && list.dataset.dataUrl) ||
     (openings && openings.dataset.dataUrl) ||
@@ -45,15 +47,12 @@ document.addEventListener("DOMContentLoaded", async () => {
     addDlRow(
       dl,
       "住所",
-      externalLink(mapUrl(restaurant.address), restaurant.address, "map-address-link")
+      externalLink(mapUrl(restaurant.name + " " + restaurant.address), restaurant.address, "map-address-link")
     );
 
-    if (restaurant.openingDate) {
-      addDlRow(dl, "開店日", fmtDate(restaurant.openingDate));
-    }
-    if (restaurant.checkedAt) {
-      addDlRow(dl, "情報確認", fmtDate(restaurant.checkedAt));
-    }
+    if (restaurant.permitDate) addDlRow(dl, "許可・届出", fmtDate(restaurant.permitDate));
+    if (restaurant.openingDate) addDlRow(dl, "開店日", fmtDate(restaurant.openingDate));
+    if (restaurant.checkedAt) addDlRow(dl, "情報確認", fmtDate(restaurant.checkedAt));
 
     article.append(heading, dl);
 
@@ -73,48 +72,118 @@ document.addEventListener("DOMContentLoaded", async () => {
       const sourceLabel = document.createElement("span");
       sourceLabel.textContent = restaurant.sourceLabel || "情報元";
       sourceLine.append(sourceLabel, document.createTextNode(" "));
-      sourceLine.appendChild(
-        externalLink(restaurant.sourceUrl, restaurant.sourceUrl)
-      );
+      sourceLine.appendChild(externalLink(restaurant.sourceUrl, restaurant.sourceUrl));
       article.appendChild(sourceLine);
     }
 
     return article;
   }
 
-  function createOpeningCard(restaurant) {
-    const article = document.createElement("article");
-    article.className = "facility-card";
+  function createOpeningRow(restaurant) {
+    const a = document.createElement("a");
+    a.className = "home-info-row home-opening-row";
+    a.href = mapUrl(restaurant.name + " " + restaurant.address);
+    a.target = "_blank";
+    a.rel = "noopener noreferrer";
+    a.title = restaurant.name + "｜" + restaurant.address;
 
-    const heading = document.createElement("h2");
-    heading.textContent = restaurant.name;
+    const date = document.createElement("time");
+    date.className = "home-info-date";
+    date.dateTime = restaurant.openingDate;
+    date.textContent = fmtDate(restaurant.openingDate);
 
-    const dl = document.createElement("dl");
-    addDlRow(dl, "開店日", fmtDate(restaurant.openingDate));
-    addDlRow(
-      dl,
-      "住所",
-      externalLink(mapUrl(restaurant.address), restaurant.address, "map-address-link")
-    );
+    const title = document.createElement("span");
+    title.className = "home-info-title";
+    title.textContent = restaurant.name + "｜" + restaurant.address;
 
-    article.append(heading, dl);
-    return article;
+    a.append(date, title);
+    return a;
+  }
+
+  async function loadDbStats() {
+    if (!apiBase) return false;
+    try {
+      const res = await fetch(
+        apiBase + "/api/stats?municipality_code=112224&type=restaurant&group=category",
+        {cache: "no-store"}
+      );
+      if (!res.ok) return false;
+      const data = await res.json();
+
+      if (count) count.textContent = Number(data.total || 0).toLocaleString("ja-JP") + "店舗DB収録";
+      document.querySelectorAll("[data-category-count]").forEach((node) => {
+        const tag = node.dataset.categoryCount;
+        node.textContent = Number((data.counts || {})[tag] || 0).toLocaleString("ja-JP");
+      });
+      document.querySelectorAll("[data-uncategorized-count]").forEach((node) => {
+        node.textContent = Number(data.uncategorized || 0).toLocaleString("ja-JP");
+      });
+      return true;
+    } catch (_) {
+      return false;
+    }
+  }
+
+  async function loadCategoryFromDb(tag) {
+    if (!apiBase || !list || !tag) return false;
+    let offset = 0;
+    const limit = 100;
+    let moreButton = null;
+
+    async function loadNext() {
+      const params = new URLSearchParams({
+        municipality_code: "112224",
+        type: "restaurant",
+        category: tag,
+        sort: "name_asc",
+        limit: String(limit),
+        offset: String(offset),
+      });
+      const res = await fetch(apiBase + "/api/facilities?" + params.toString(), {cache: "no-store"});
+      if (!res.ok) throw new Error("category api");
+      const data = await res.json();
+      const items = Array.isArray(data.items) ? data.items : [];
+      items.forEach((restaurant) => list.appendChild(createRestaurantCard(restaurant)));
+      offset += items.length;
+
+      if (moreButton) moreButton.remove();
+      moreButton = null;
+      if (data.hasMore) {
+        moreButton = document.createElement("button");
+        moreButton.type = "button";
+        moreButton.textContent = "さらに100件表示";
+        moreButton.addEventListener("click", loadNext);
+        const wrap = document.createElement("div");
+        wrap.className = "buttons restaurant-category-more";
+        wrap.appendChild(moreButton);
+        list.after(wrap);
+        moreButton.addEventListener("click", () => wrap.remove(), {once:true});
+      }
+    }
+
+    list.innerHTML = "";
+    await loadNext();
+    if (!list.children.length) {
+      list.innerHTML = '<p class="notice">現在、この分類に該当する店舗はありません。</p>';
+    }
+    return true;
   }
 
   try {
     const response = await fetch(url, { cache: "no-store" });
     if (!response.ok) throw new Error("restaurant data request failed");
-
     const data = await response.json();
     const restaurants = Array.isArray(data.restaurants) ? data.restaurants : [];
 
-    if (count) count.textContent = restaurants.length + "店舗掲載";
+    const dbStatsLoaded = await loadDbStats();
+    if (count && !dbStatsLoaded) count.textContent = restaurants.length + "店舗掲載";
 
-    document.querySelectorAll("[data-category-count]").forEach((node) => {
-      const tag = node.dataset.categoryCount;
-      const value = restaurants.filter((r) => (r.tags || []).includes(tag)).length;
-      node.textContent = String(value);
-    });
+    if (!dbStatsLoaded) {
+      document.querySelectorAll("[data-category-count]").forEach((node) => {
+        const tag = node.dataset.categoryCount;
+        node.textContent = String(restaurants.filter((r) => (r.tags || []).includes(tag)).length);
+      });
+    }
 
     if (openings) {
       const recent = restaurants
@@ -123,8 +192,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         .slice(0, 5);
 
       openings.innerHTML = "";
-      recent.forEach((restaurant) => openings.appendChild(createOpeningCard(restaurant)));
-
+      recent.forEach((restaurant) => openings.appendChild(createOpeningRow(restaurant)));
       if (!recent.length) {
         openings.innerHTML = '<p class="notice">現在、新規OPEN情報を追加準備中です。</p>';
       }
@@ -132,6 +200,8 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     if (list) {
       const tag = list.dataset.category;
+      if (await loadCategoryFromDb(tag)) return;
+
       const matched = restaurants
         .filter((restaurant) => (restaurant.tags || []).includes(tag))
         .sort((a, b) => a.name.localeCompare(b.name, "ja"));

@@ -58,6 +58,7 @@ async function listFacilities(request, env, url) {
   let category = (url.searchParams.get("category") || "").trim().slice(0, 80);
   const confidence = (url.searchParams.get("confidence") || "").trim().slice(0, 20);
   const status = (url.searchParams.get("status") || "").trim().slice(0, 24);
+  const uncategorized = url.searchParams.get("uncategorized") === "1";
   const sort = (url.searchParams.get("sort") || "permit_date_desc").trim();
   const limit = clampInt(url.searchParams.get("limit"), 50, 1, 100);
   const offset = clampInt(url.searchParams.get("offset"), 0, 0, 10000000);
@@ -100,6 +101,9 @@ async function listFacilities(request, env, url) {
   if (category) {
     where.push("EXISTS (SELECT 1 FROM facility_categories fc WHERE fc.facility_id = f.id AND fc.category_id = ?)");
     params.push(category);
+  }
+  if (uncategorized) {
+    where.push("NOT EXISTS (SELECT 1 FROM facility_categories fc0 WHERE fc0.facility_id = f.id)");
   }
 
   const sortSql = {
@@ -195,23 +199,58 @@ async function facilityDetail(request, env, id) {
 async function stats(request, env, url) {
   const municipality = (url.searchParams.get("municipality_code") || "").trim().slice(0, 12);
   const type = (url.searchParams.get("type") || "").trim().slice(0, 40);
+  const group = (url.searchParams.get("group") || "").trim();
   const where = [];
   const params = [];
   if (municipality) {
-    where.push("municipality_code = ?");
+    where.push("f.municipality_code = ?");
     params.push(municipality);
   }
   if (type) {
-    where.push("facility_type = ?");
+    where.push("f.facility_type = ?");
     params.push(type);
   }
 
-  const sql = `
+  const whereSql = where.length ? "WHERE " + where.join(" AND ") : "";
+
+  if (group === "category") {
+    const [totalRow, categorizedRow, grouped] = await env.DB.batch([
+      env.DB.prepare(`SELECT COUNT(*) AS count FROM facilities f ${whereSql}`).bind(...params),
+      env.DB.prepare(`
+        SELECT COUNT(DISTINCT f.id) AS count
+        FROM facilities f
+        JOIN facility_categories fc ON fc.facility_id = f.id
+        ${whereSql}
+      `).bind(...params),
+      env.DB.prepare(`
+        SELECT c.slug, c.id, c.name, COUNT(DISTINCT f.id) AS count
+        FROM facilities f
+        JOIN facility_categories fc ON fc.facility_id = f.id
+        JOIN categories c ON c.id = fc.category_id
+        ${whereSql}
+        GROUP BY c.id, c.slug, c.name
+        ORDER BY c.sort_order, c.name
+      `).bind(...params),
+    ]);
+
+    const total = Number(totalRow.results?.[0]?.count || 0);
+    const categorized = Number(categorizedRow.results?.[0]?.count || 0);
+    const counts = {};
+    for (const row of grouped.results || []) counts[row.slug] = Number(row.count || 0);
+
+    return json({
+      total,
+      categorized,
+      uncategorized: Math.max(0, total - categorized),
+      counts,
+    }, 200, request, env, 300);
+  }
+
+  const row = await env.DB.prepare(`
     SELECT COUNT(*) AS count
-    FROM facilities
-    ${where.length ? "WHERE " + where.join(" AND ") : ""}
-  `;
-  const row = await env.DB.prepare(sql).bind(...params).first();
+    FROM facilities f
+    ${whereSql}
+  `).bind(...params).first();
   return json({count: Number(row?.count || 0)}, 200, request, env, 3600);
 }
 

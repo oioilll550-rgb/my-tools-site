@@ -19,6 +19,19 @@ document.addEventListener("DOMContentLoaded", async () => {
   let nextOffset = 0;
   let loading = false;
   let debounceTimer = 0;
+  const initialParams = new URLSearchParams(location.search);
+  const uncategorizedOnly = initialParams.get("uncategorized") === "1";
+
+  if (initialParams.get("q")) search.value = initialParams.get("q");
+  if (initialParams.get("category") && category.querySelector(`option[value="${CSS.escape(initialParams.get("category"))}"]`)) {
+    category.value = initialParams.get("category");
+  }
+  if (initialParams.get("confidence") && confidence.querySelector(`option[value="${CSS.escape(initialParams.get("confidence"))}"]`)) {
+    confidence.value = initialParams.get("confidence");
+  }
+  if (initialParams.get("sort") && sort.querySelector(`option[value="${CSS.escape(initialParams.get("sort"))}"]`)) {
+    sort.value = initialParams.get("sort");
+  }
 
   const normalize = (value) =>
     String(value || "").toLowerCase().replace(/[\s　・･,，.。()（）]/g, "");
@@ -108,6 +121,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       if (q) params.set("q", q);
       if (category.value) params.set("category", category.value);
       if (confidence.value) params.set("confidence", confidence.value);
+      if (uncategorizedOnly) params.set("uncategorized", "1");
 
       const res = await fetch(apiBase + "/api/facilities?" + params.toString());
       if (!res.ok) throw new Error("api request failed");
@@ -151,6 +165,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       if (q && !normalize(r.name + " " + r.address).includes(q)) return false;
       if (cat && !(r.tags || []).includes(cat)) return false;
       if (conf && r.confidence !== conf) return false;
+      if (uncategorizedOnly && (r.tags || []).length) return false;
       return true;
     });
 
