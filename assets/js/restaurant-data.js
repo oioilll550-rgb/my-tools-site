@@ -110,13 +110,21 @@ document.addEventListener("DOMContentLoaded", async () => {
       if (!res.ok) return false;
       const data = await res.json();
 
-      if (count) count.textContent = Number(data.total || 0).toLocaleString("ja-JP") + "店舗DB収録";
+      const totalText = Number(data.total || 0).toLocaleString("ja-JP");
+      if (count) count.textContent = totalText + "店舗DB収録";
+      document.querySelectorAll("[data-total-restaurant-count]").forEach((node) => {
+        node.textContent = totalText;
+      });
       document.querySelectorAll("[data-category-count]").forEach((node) => {
         const tag = node.dataset.categoryCount;
         node.textContent = Number((data.counts || {})[tag] || 0).toLocaleString("ja-JP");
       });
+      const uncategorized = Number(data.uncategorized || 0);
       document.querySelectorAll("[data-uncategorized-count]").forEach((node) => {
-        node.textContent = Number(data.uncategorized || 0).toLocaleString("ja-JP");
+        node.textContent = uncategorized.toLocaleString("ja-JP");
+      });
+      document.querySelectorAll(".restaurant-uncategorized-row").forEach((row) => {
+        row.hidden = uncategorized === 0;
       });
       return true;
     } catch (_) {
@@ -177,11 +185,20 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     const dbStatsLoaded = await loadDbStats();
     if (count && !dbStatsLoaded) count.textContent = restaurants.length + "店舗掲載";
-
     if (!dbStatsLoaded) {
+      document.querySelectorAll("[data-total-restaurant-count]").forEach((node) => {
+        node.textContent = String(restaurants.length);
+      });
       document.querySelectorAll("[data-category-count]").forEach((node) => {
         const tag = node.dataset.categoryCount;
         node.textContent = String(restaurants.filter((r) => (r.tags || []).includes(tag)).length);
+      });
+      const uncategorized = restaurants.filter((r) => !(r.tags || []).length).length;
+      document.querySelectorAll("[data-uncategorized-count]").forEach((node) => {
+        node.textContent = String(uncategorized);
+      });
+      document.querySelectorAll(".restaurant-uncategorized-row").forEach((row) => {
+        row.hidden = uncategorized === 0;
       });
     }
 

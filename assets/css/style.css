@@ -1706,3 +1706,212 @@ a.compact-tool-card {
     grid-template-columns: 1fr;
   }
 }
+
+
+/* Koshigaya restaurant landing hierarchy */
+.restaurant-search-card .restaurant-db-entry {
+  margin-top: 22px;
+}
+
+.restaurant-db-entry {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 15px 17px;
+  border: 1px solid var(--border);
+  border-radius: 11px;
+  background: #f7f9fb;
+  color: var(--text);
+  text-decoration: none;
+}
+
+.restaurant-db-entry:hover {
+  border-color: #b9c1ca;
+  background: #f0f3f6;
+}
+
+.restaurant-db-entry strong,
+.restaurant-db-entry small {
+  display: block;
+}
+
+.restaurant-db-entry strong {
+  font-size: 15px;
+}
+
+.restaurant-db-entry small {
+  margin-top: 3px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.restaurant-db-entry-count {
+  flex: 0 0 auto;
+  color: var(--accent);
+  font-size: 13px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.restaurant-section-heading {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 18px;
+  margin-bottom: 15px;
+}
+
+.restaurant-section-heading h2,
+.restaurant-data-note h2 {
+  margin: 0;
+}
+
+.restaurant-section-heading p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.restaurant-category-links {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 9px;
+}
+
+.restaurant-category-link {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-areas:
+    "name count"
+    "desc desc";
+  gap: 4px 10px;
+  min-width: 0;
+  padding: 13px 14px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--surface-muted);
+  color: var(--text);
+  text-decoration: none;
+}
+
+.restaurant-category-link:hover {
+  border-color: #bbc2ca;
+  background: #eef1f4;
+}
+
+.restaurant-category-link strong {
+  grid-area: name;
+  min-width: 0;
+  font-size: 14px;
+  line-height: 1.45;
+}
+
+.restaurant-category-link small {
+  grid-area: desc;
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.45;
+}
+
+.restaurant-count-badge {
+  grid-area: count;
+  align-self: start;
+  min-width: 30px;
+  padding: 2px 7px;
+  border-radius: 999px;
+  background: #e8edf3;
+  color: #4e5966;
+  font-size: 11px;
+  font-weight: 700;
+  text-align: center;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+
+.restaurant-uncategorized-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  margin-top: 14px;
+  padding: 12px 14px;
+  border: 1px dashed var(--border);
+  border-radius: 10px;
+  background: #fafbfc;
+  color: var(--text);
+  text-decoration: none;
+}
+
+.restaurant-uncategorized-row:hover {
+  background: #f3f5f7;
+}
+
+.restaurant-uncategorized-row strong,
+.restaurant-uncategorized-row small {
+  display: block;
+}
+
+.restaurant-uncategorized-row strong {
+  font-size: 13px;
+}
+
+.restaurant-uncategorized-row small {
+  margin-top: 2px;
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.restaurant-uncategorized-row .restaurant-count-badge {
+  flex: 0 0 auto;
+}
+
+.restaurant-data-note {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.restaurant-data-note p {
+  max-width: 720px;
+  margin: 6px 0 0;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.restaurant-data-note > a {
+  flex: 0 0 auto;
+  font-size: 13px;
+  white-space: nowrap;
+}
+
+@media (max-width: 900px) {
+  .restaurant-category-links {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .restaurant-section-heading,
+  .restaurant-data-note {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 8px;
+  }
+}
+
+@media (max-width: 560px) {
+  .restaurant-db-entry,
+  .restaurant-uncategorized-row {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .restaurant-category-links {
+    grid-template-columns: 1fr;
+  }
+
+  .restaurant-data-note > a {
+    white-space: normal;
+  }
+}

@@ -5,7 +5,7 @@
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self' https://abacus.jasoncameron.dev https://benri-facility-api.chatgpt-notion-sync-piocho.workers.dev; font-src 'self' data:; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
 <meta name="referrer" content="no-referrer">
 <title>越谷市の飲食店 | べんりちゃん、微力ながら</title>
-<meta name="description" content="越谷市の飲食店を、食べたいものや利用シーン、カテゴリから探せます。新規OPEN情報も掲載しています。">
+<meta name="description" content="越谷市の飲食店を、食べたいものや利用シーン、カテゴリ、店名・住所から探せます。新規OPEN情報も掲載しています。">
 <meta name="robots" content="index,follow">
 <link rel="stylesheet" href="../../../assets/css/style.css">
 </head>
@@ -13,7 +13,7 @@
 <header><div class="header-inner"><div class="site-title"><a href="../../../">べんりちゃん、微力ながら</a></div>
 <nav aria-label="メインナビゲーション"><a href="../../../#tools">ツール</a><a href="../../../public/">公共施設</a><a href="../../../restaurants/">飲食店</a><a href="../../../privacy.html">プライバシー</a></nav></div></header>
 <main>
-<section class="card">
+<section class="card restaurant-search-card">
   <p class="breadcrumb"><a href="../../../">TOP</a> / <a href="../../">飲食店</a> / <a href="../">埼玉県</a> / 越谷市</p>
   <h1>越谷市の飲食店</h1>
   <p>食べたいものや利用シーンを入力すると、近いカテゴリを最大3件表示します。</p>
@@ -29,6 +29,14 @@
     <button type="button" data-food-query="一人で軽く食べたい">一人で</button>
   </div>
   <div id="foodSearchResults" class="food-search-results" aria-live="polite"></div>
+
+  <a class="restaurant-db-entry" href="shops.html">
+    <span>
+      <strong>全店舗から店名・住所で探す</strong>
+      <small>ジャンルが分からないときも、DB全体を検索できます。</small>
+    </span>
+    <span class="restaurant-db-entry-count"><span data-total-restaurant-count>--</span>店舗</span>
+  </a>
 </section>
 
 <section class="card">
@@ -39,26 +47,83 @@
   </div>
 </section>
 
-<section class="card">
-  <h2>ジャンル・目的から選ぶ</h2>
-  <p>公共施設ページと同じ形式で、カテゴリを選択してください。</p>
-  <div class="public-nav-grid">
-    <a class="public-nav-card" href="shops.html"><strong>飲食店一覧</strong><span>市公式の営業許可データから一般利用向け候補を自動分類・検索</span></a>
-    <a class="public-nav-card restaurant-all-card" href="all.html"><strong>営業許可ベース一覧</strong><span>越谷市公式の食品関係営業施設一覧から自動更新</span></a>
-    <a class="public-nav-card" href="ramen.html" data-category-card="ramen"><strong>ラーメン（<span data-category-count="ramen">--</span>店舗）</strong><span>ラーメン・つけ麺・中華そばを食べたいとき</span></a>
-    <a class="public-nav-card" href="sushi.html" data-category-card="sushi"><strong>寿司・海鮮（<span data-category-count="sushi">--</span>店舗）</strong><span>寿司・刺身・海鮮系を食べたいとき</span></a>
-    <a class="public-nav-card" href="yakiniku.html" data-category-card="yakiniku"><strong>焼肉・肉料理（<span data-category-count="yakiniku">--</span>店舗）</strong><span>焼肉・ホルモン・肉料理をしっかり食べたいとき</span></a>
-    <a class="public-nav-card" href="japanese.html" data-category-card="japanese"><strong>和食・定食（<span data-category-count="japanese">--</span>店舗）</strong><span>定食・そば・うどんなど落ち着いた和食を食べたいとき</span></a>
-    <a class="public-nav-card" href="curry.html" data-category-card="curry"><strong>カレー・スパイス料理（<span data-category-count="curry">--</span>店舗）</strong><span>カレーやスパイスの効いた料理を食べたいとき</span></a>
-    <a class="public-nav-card" href="italian.html" data-category-card="italian"><strong>イタリアン・ピザ・パスタ（<span data-category-count="italian">--</span>店舗）</strong><span>パスタ・ピザ・イタリアンを食べたいとき</span></a>
-    <a class="public-nav-card" href="cafe.html" data-category-card="cafe"><strong>カフェ・スイーツ（<span data-category-count="cafe">--</span>店舗）</strong><span>カフェ、コーヒー、ケーキや甘いものを探したいとき</span></a>
-    <a class="public-nav-card" href="family.html" data-category-card="family"><strong>子連れ・家族向け（<span data-category-count="family">--</span>店舗）</strong><span>子どもと一緒に入りやすい店を探したいとき</span></a>
-    <a class="public-nav-card" href="solo.html" data-category-card="solo"><strong>一人で入りやすい（<span data-category-count="solo">--</span>店舗）</strong><span>一人で気軽に食事したいとき</span></a>
-    <a class="public-nav-card" href="cheap.html" data-category-card="cheap"><strong>安め・コスパ（<span data-category-count="cheap">--</span>店舗）</strong><span>予算を抑えて食べたいとき</span></a>
-    <a class="public-nav-card" href="lunch.html" data-category-card="lunch"><strong>ランチ（<span data-category-count="lunch">--</span>店舗）</strong><span>昼ごはん・ランチを探したいとき</span></a>
-    <a class="public-nav-card" href="late-night.html" data-category-card="late-night"><strong>夜遅く・夜食（<span data-category-count="late-night">--</span>店舗）</strong><span>遅い時間や夜食を探したいとき</span></a>
-    <a class="public-nav-card restaurant-all-card" href="shops.html?uncategorized=1"><strong>その他・未分類（<span data-uncategorized-count>--</span>店舗）</strong><span>現在の自動分類にまだ当てはまらない飲食店</span></a>
+<section class="card restaurant-category-section">
+  <div class="restaurant-section-heading">
+    <h2>料理ジャンルから探す</h2>
+    <p>食べたい料理が決まっているときはこちら。</p>
   </div>
+  <div class="restaurant-category-links">
+    <a class="restaurant-category-link" href="ramen.html" data-category-card="ramen">
+      <strong>ラーメン</strong><span class="restaurant-count-badge" data-category-count="ramen">--</span>
+      <small>ラーメン・つけ麺・中華そば</small>
+    </a>
+    <a class="restaurant-category-link" href="sushi.html" data-category-card="sushi">
+      <strong>寿司・海鮮</strong><span class="restaurant-count-badge" data-category-count="sushi">--</span>
+      <small>寿司・刺身・海鮮系</small>
+    </a>
+    <a class="restaurant-category-link" href="yakiniku.html" data-category-card="yakiniku">
+      <strong>焼肉・肉料理</strong><span class="restaurant-count-badge" data-category-count="yakiniku">--</span>
+      <small>焼肉・ホルモン・肉料理</small>
+    </a>
+    <a class="restaurant-category-link" href="japanese.html" data-category-card="japanese">
+      <strong>和食・定食</strong><span class="restaurant-count-badge" data-category-count="japanese">--</span>
+      <small>定食・そば・うどんなど</small>
+    </a>
+    <a class="restaurant-category-link" href="curry.html" data-category-card="curry">
+      <strong>カレー・スパイス</strong><span class="restaurant-count-badge" data-category-count="curry">--</span>
+      <small>カレー・スパイス料理</small>
+    </a>
+    <a class="restaurant-category-link" href="italian.html" data-category-card="italian">
+      <strong>イタリアン</strong><span class="restaurant-count-badge" data-category-count="italian">--</span>
+      <small>パスタ・ピザ・イタリアン</small>
+    </a>
+    <a class="restaurant-category-link" href="cafe.html" data-category-card="cafe">
+      <strong>カフェ・スイーツ</strong><span class="restaurant-count-badge" data-category-count="cafe">--</span>
+      <small>カフェ・コーヒー・甘いもの</small>
+    </a>
+  </div>
+</section>
+
+<section class="card restaurant-category-section">
+  <div class="restaurant-section-heading">
+    <h2>目的・シーンから探す</h2>
+    <p>利用シーンや予算、時間帯から探したいときはこちら。</p>
+  </div>
+  <div class="restaurant-category-links">
+    <a class="restaurant-category-link" href="family.html" data-category-card="family">
+      <strong>子連れ・家族向け</strong><span class="restaurant-count-badge" data-category-count="family">--</span>
+      <small>子どもと一緒に入りやすい店</small>
+    </a>
+    <a class="restaurant-category-link" href="solo.html" data-category-card="solo">
+      <strong>一人で入りやすい</strong><span class="restaurant-count-badge" data-category-count="solo">--</span>
+      <small>一人で気軽に食事したいとき</small>
+    </a>
+    <a class="restaurant-category-link" href="cheap.html" data-category-card="cheap">
+      <strong>安め・コスパ</strong><span class="restaurant-count-badge" data-category-count="cheap">--</span>
+      <small>予算を抑えて食べたいとき</small>
+    </a>
+    <a class="restaurant-category-link" href="lunch.html" data-category-card="lunch">
+      <strong>ランチ</strong><span class="restaurant-count-badge" data-category-count="lunch">--</span>
+      <small>昼ごはん・ランチ</small>
+    </a>
+    <a class="restaurant-category-link" href="late-night.html" data-category-card="late-night">
+      <strong>夜遅く・夜食</strong><span class="restaurant-count-badge" data-category-count="late-night">--</span>
+      <small>遅い時間や夜食を探したいとき</small>
+    </a>
+  </div>
+
+  <a class="restaurant-uncategorized-row" href="shops.html?uncategorized=1">
+    <span><strong>まだ分類されていない店舗</strong><small>現在の自動分類に当てはまらない店舗を一覧で確認</small></span>
+    <span class="restaurant-count-badge"><span data-uncategorized-count>--</span>件</span>
+  </a>
+</section>
+
+<section class="card restaurant-data-note">
+  <div>
+    <h2>データについて</h2>
+    <p>越谷市が公開する食品関係営業施設一覧をもとに、一般利用向け候補を自動分類し、確認済み情報を加えて更新しています。</p>
+  </div>
+  <a href="all.html">データの出典・営業許可ベース一覧を見る →</a>
 </section>
 </main>
 <footer><div class="footer-inner"><span>© <span data-current-year>2026</span> べんりちゃん、微力ながら</span><span><a href="../../../privacy.html">プライバシーポリシー</a></span></div></footer>
