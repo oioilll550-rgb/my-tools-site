@@ -1,0 +1,10 @@
+{
+  "area": "越谷市",
+  "generatedAt": null,
+  "officialPermitCount": 0,
+  "count": 0,
+  "countsByConfidence": {"confirmed":0,"high":0,"medium":0,"excluded":0},
+  "basis": "自動分類処理の初回実行待ち",
+  "caution": "初回同期完了後に表示されます。",
+  "restaurants": []
+}

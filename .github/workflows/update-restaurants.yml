@@ -10,6 +10,7 @@ on:
     branches: [main]
     paths:
       - "scripts/update_koshigaya_restaurants.py"
+      - "scripts/classify_koshigaya_restaurants.py"
       - ".github/workflows/update-restaurants.yml"
 
 permissions:
@@ -32,15 +33,17 @@ jobs:
         run: pip install --disable-pip-version-check pandas==2.2.3 xlrd==2.0.1 requests==2.32.3 beautifulsoup4==4.12.3
       - name: Build official restaurant permit list
         run: python scripts/update_koshigaya_restaurants.py
+      - name: Classify likely public-facing restaurants
+        run: python scripts/classify_koshigaya_restaurants.py
       - name: Commit data when changed
         run: |
-          if git diff --quiet -- assets/data/restaurants-koshigaya-official.json; then
+          if git diff --quiet -- assets/data/restaurants-koshigaya-official.json assets/data/restaurants-koshigaya-public.json; then
             echo "No data changes"
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add assets/data/restaurants-koshigaya-official.json
-          git commit -m "Update Koshigaya restaurant permit data"
+          git add assets/data/restaurants-koshigaya-official.json assets/data/restaurants-koshigaya-public.json
+          git commit -m "Update and classify Koshigaya restaurant data"
           git pull --rebase origin main
           git push

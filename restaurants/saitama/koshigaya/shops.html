@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self' https://abacus.jasoncameron.dev; font-src 'self' data:; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
+<meta name="referrer" content="no-referrer">
+<title>越谷市の飲食店一覧 | べんりちゃん、微力ながら</title>
+<meta name="description" content="越谷市公式の飲食店営業許可データをもとに、一般利用可能性のある飲食店を自動分類して検索できます。">
+<meta name="robots" content="index,follow">
+<link rel="stylesheet" href="../../../assets/css/style.css">
+</head>
+<body>
+<header><div class="header-inner"><div class="site-title"><a href="../../../">べんりちゃん、微力ながら</a></div>
+<nav aria-label="メインナビゲーション"><a href="../../../#tools">ツール</a><a href="../../../public/">公共施設</a><a href="../../../restaurants/">飲食店</a><a href="../../../feedback.html">ご意見・情報提供</a><a href="../../../privacy.html">プライバシー</a></nav></div></header>
+<main>
+<section class="card">
+<p class="breadcrumb"><a href="../../../">TOP</a> / <a href="../../">飲食店</a> / <a href="../">埼玉県</a> / <a href="./">越谷市</a> / 飲食店一覧</p>
+<div class="tools-heading-row"><h1>越谷市の飲食店一覧</h1><span id="publicRestaurantCount" class="tools-count">更新待ち</span></div>
+<p class="notice">越谷市公式の「飲食店営業」許可データから、保育・学校・病院・福祉施設・社員食堂・厨房など明らかな非一般利用施設とコンビニを除外して自動分類しています。完全な営業中判定ではありません。来店前に最新情報をご確認ください。</p>
+
+<div class="restaurant-filter-grid">
+  <label><span>店名・住所</span><input type="search" id="publicRestaurantSearch" placeholder="例：越谷駅、ラーメン、店名"></label>
+  <label><span>ジャンル</span>
+    <select id="publicRestaurantCategory">
+      <option value="">すべて</option>
+      <option value="ramen">ラーメン</option>
+      <option value="sushi">寿司・海鮮</option>
+      <option value="yakiniku">焼肉</option>
+      <option value="japanese">和食・定食</option>
+      <option value="curry">カレー</option>
+      <option value="italian">イタリアン</option>
+      <option value="cafe">カフェ・スイーツ</option>
+    </select>
+  </label>
+  <label><span>判定</span>
+    <select id="publicRestaurantConfidence">
+      <option value="">すべて</option>
+      <option value="confirmed">確認済み</option>
+      <option value="high">自動判定・高</option>
+      <option value="medium">自動判定</option>
+    </select>
+  </label>
+</div>
+
+<div class="restaurant-list-status" id="publicRestaurantStatus"></div>
+<div id="publicRestaurantList" class="facility-list" data-data-url="../../../assets/data/restaurants-koshigaya-public.json">
+  <p class="notice">自動分類データを読み込んでいます…</p>
+</div>
+<div class="buttons"><button type="button" id="publicRestaurantMore">さらに50件表示</button></div>
+<p class="feedback-note">誤分類・閉店・移転などを見つけた場合は <a href="../../../feedback.html">ご意見・情報提供</a> からお知らせください。</p>
+<a class="back" href="./">← 越谷市の飲食店へ戻る</a>
+</section>
+</main>
+<footer><div class="footer-inner"><span>© <span data-current-year>2026</span> べんりちゃん、微力ながら</span></div></footer>
+<script src="../../../assets/js/site.js"></script>
+<script src="../../../assets/js/restaurant-shops.js"></script>
+</body>
+</html>
