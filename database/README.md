@@ -34,3 +34,18 @@
 
 通常のB-treeインデックスに加えて `facilities_fts` を用意しています。
 日本語の店名・住所に対する部分文字列検索を想定し、FTS5のtrigram tokenizerを利用します。
+
+
+## Cloudflare連携の自動化
+
+`.github/workflows/sync-facility-d1.yml` は、GitHub Secrets に次の2項目が存在する場合だけ動作します。
+
+- `CLOUDFLARE_ACCOUNT_ID`
+- `CLOUDFLARE_API_TOKEN`
+
+APIトークンには最低限、D1の読み書きとWorkers Scriptsの書き込み権限が必要です。
+初回実行時に `benri-facilities` D1 が無ければAPACヒントで作成し、マイグレーション、
+施設データ同期、`benri-facility-api` Workerデプロイまで行います。
+
+デプロイ後、WorkflowがWorkers.dev URLを取得して `assets/js/config.js` の
+`facilityApiUrl` を自動更新します。未設定時はサイトが従来JSONへフォールバックします。
