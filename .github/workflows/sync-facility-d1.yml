@@ -3,6 +3,9 @@ name: Sync facility database to Cloudflare D1
 
 on:
   workflow_dispatch:
+  schedule:
+    # 00:20 UTC = 09:20 JST. A hash state prevents no-op daily imports.
+    - cron: "20 0 * * *"
   push:
     branches: [main]
     paths:
@@ -32,7 +35,22 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Check sync state
+        id: syncstate
+        shell: bash
+        run: |
+          HASH="$(sha256sum assets/data/facilities-koshigaya.json | awk '{print $1}')"
+          OLD="$(cat .github/d1-sync-state.txt 2>/dev/null || true)"
+          if [ "${{ github.event_name }}" = "schedule" ] && [ "$HASH" = "$OLD" ]; then
+            echo "needed=false" >> "$GITHUB_OUTPUT"
+            echo "D1 is already synchronized; scheduled run is a no-op."
+          else
+            echo "needed=true" >> "$GITHUB_OUTPUT"
+          fi
+          echo "hash=$HASH" >> "$GITHUB_OUTPUT"
+
       - name: Check Cloudflare credentials
+        if: steps.syncstate.outputs.needed == 'true'
         id: auth
         shell: bash
         run: |
@@ -44,17 +62,17 @@ jobs:
           fi
 
       - uses: actions/setup-node@v4
-        if: steps.auth.outputs.ready == 'true'
+        if: steps.syncstate.outputs.needed == 'true' && steps.auth.outputs.ready == 'true'
         with:
           node-version: "22"
 
       - uses: actions/setup-python@v5
-        if: steps.auth.outputs.ready == 'true'
+        if: steps.syncstate.outputs.needed == 'true' && steps.auth.outputs.ready == 'true'
         with:
           python-version: "3.12"
 
       - name: Find or create D1 database
-        if: steps.auth.outputs.ready == 'true'
+        if: steps.syncstate.outputs.needed == 'true' && steps.auth.outputs.ready == 'true'
         id: d1
         shell: bash
         run: |
@@ -72,7 +90,7 @@ jobs:
           echo "database_id=$DB_ID" >> "$GITHUB_OUTPUT"
 
       - name: Generate Wrangler configuration
-        if: steps.auth.outputs.ready == 'true'
+        if: steps.syncstate.outputs.needed == 'true' && steps.auth.outputs.ready == 'true'
         shell: bash
         env:
           DB_ID: ${{ steps.d1.outputs.database_id }}
@@ -98,15 +116,15 @@ jobs:
           EOF
 
       - name: Apply D1 migrations
-        if: steps.auth.outputs.ready == 'true'
+        if: steps.syncstate.outputs.needed == 'true' && steps.auth.outputs.ready == 'true'
         run: npx --yes wrangler@latest d1 migrations apply "$DATABASE_NAME" --remote --config .wrangler.facility.jsonc
 
       - name: Build D1 seed chunks
-        if: steps.auth.outputs.ready == 'true'
+        if: steps.syncstate.outputs.needed == 'true' && steps.auth.outputs.ready == 'true'
         run: python scripts/build_d1_seed.py
 
       - name: Sync facility rows
-        if: steps.auth.outputs.ready == 'true'
+        if: steps.syncstate.outputs.needed == 'true' && steps.auth.outputs.ready == 'true'
         shell: bash
         run: |
           set -euo pipefail
@@ -116,11 +134,11 @@ jobs:
           done
 
       - name: Deploy facility API Worker
-        if: steps.auth.outputs.ready == 'true'
+        if: steps.syncstate.outputs.needed == 'true' && steps.auth.outputs.ready == 'true'
         run: npx --yes wrangler@latest deploy --config .wrangler.facility.jsonc
 
       - name: Resolve Worker URL and verify
-        if: steps.auth.outputs.ready == 'true'
+        if: steps.syncstate.outputs.needed == 'true' && steps.auth.outputs.ready == 'true'
         id: worker
         shell: bash
         run: |
@@ -134,7 +152,7 @@ jobs:
           echo "api_url=$API_URL" >> "$GITHUB_OUTPUT"
 
       - name: Switch site to D1 API
-        if: steps.auth.outputs.ready == 'true'
+        if: steps.syncstate.outputs.needed == 'true' && steps.auth.outputs.ready == 'true'
         shell: bash
         env:
           API_URL: ${{ steps.worker.outputs.api_url }}
@@ -159,5 +177,20 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add assets/js/config.js
           git commit -m "Switch facility search to Cloudflare D1"
+          git pull --rebase origin main
+          git push
+
+      - name: Record successful D1 sync state
+        if: steps.syncstate.outputs.needed == 'true' && steps.auth.outputs.ready == 'true' && success()
+        shell: bash
+        run: |
+          printf '%s\n' "${{ steps.syncstate.outputs.hash }}" > .github/d1-sync-state.txt
+          if git diff --quiet -- .github/d1-sync-state.txt; then
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add .github/d1-sync-state.txt
+          git commit -m "Record D1 sync state"
           git pull --rebase origin main
           git push

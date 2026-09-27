@@ -7,8 +7,9 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   const config = window.BENRI_CONFIG || {};
   const apiBase = String(config.facilityApiUrl || "").replace(/\/$/, "");
+  const publicDataUrl = "../../../assets/data/restaurants-koshigaya-public.json";
   const url =
-    (list && list.dataset.dataUrl) ||
+    (list && publicDataUrl) ||
     (openings && openings.dataset.dataUrl) ||
     "../../../assets/data/restaurants-koshigaya.json";
 
@@ -101,25 +102,50 @@ document.addEventListener("DOMContentLoaded", async () => {
   }
 
   async function loadDbStats() {
-    if (!apiBase) return false;
     try {
-      const res = await fetch(
-        apiBase + "/api/stats?municipality_code=112224&type=restaurant&group=category",
-        {cache: "no-store"}
-      );
-      if (!res.ok) return false;
-      const data = await res.json();
+      if (apiBase) {
+        const res = await fetch(
+          apiBase + "/api/stats?municipality_code=112224&type=restaurant&group=category",
+          {cache: "no-store"}
+        );
+        if (!res.ok) throw new Error("stats api");
+        const data = await res.json();
 
-      const totalText = Number(data.total || 0).toLocaleString("ja-JP");
+        const totalText = Number(data.total || 0).toLocaleString("ja-JP");
+        if (count) count.textContent = totalText + "店舗DB収録";
+        document.querySelectorAll("[data-total-restaurant-count]").forEach((node) => {
+          node.textContent = totalText;
+        });
+        document.querySelectorAll("[data-category-count]").forEach((node) => {
+          const tag = node.dataset.categoryCount;
+          node.textContent = Number((data.counts || {})[tag] || 0).toLocaleString("ja-JP");
+        });
+        const uncategorized = Number(data.uncategorized || 0);
+        document.querySelectorAll("[data-uncategorized-count]").forEach((node) => {
+          node.textContent = uncategorized.toLocaleString("ja-JP");
+        });
+        document.querySelectorAll(".restaurant-uncategorized-row").forEach((row) => {
+          row.hidden = uncategorized === 0;
+        });
+        return true;
+      }
+
+      const res = await fetch(publicDataUrl, {cache: "no-store"});
+      if (!res.ok) throw new Error("public json stats");
+      const data = await res.json();
+      const restaurants = Array.isArray(data.restaurants) ? data.restaurants : [];
+      const totalText = restaurants.length.toLocaleString("ja-JP");
+
       if (count) count.textContent = totalText + "店舗DB収録";
       document.querySelectorAll("[data-total-restaurant-count]").forEach((node) => {
         node.textContent = totalText;
       });
       document.querySelectorAll("[data-category-count]").forEach((node) => {
         const tag = node.dataset.categoryCount;
-        node.textContent = Number((data.counts || {})[tag] || 0).toLocaleString("ja-JP");
+        const n = restaurants.filter((r) => (r.tags || []).includes(tag)).length;
+        node.textContent = n.toLocaleString("ja-JP");
       });
-      const uncategorized = Number(data.uncategorized || 0);
+      const uncategorized = restaurants.filter((r) => !(r.tags || []).length).length;
       document.querySelectorAll("[data-uncategorized-count]").forEach((node) => {
         node.textContent = uncategorized.toLocaleString("ja-JP");
       });
