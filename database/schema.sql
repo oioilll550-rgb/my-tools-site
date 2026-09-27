@@ -119,6 +119,7 @@ CREATE TABLE IF NOT EXISTS facility_sources (
   source_url TEXT,
   raw_name TEXT,
   raw_address TEXT,
+  permit_date TEXT,
   observed_at TEXT,
   is_primary INTEGER NOT NULL DEFAULT 0,
   PRIMARY KEY (facility_id, source_id, source_entity_id),
@@ -128,6 +129,9 @@ CREATE TABLE IF NOT EXISTS facility_sources (
 
 CREATE INDEX IF NOT EXISTS idx_facility_sources_source_entity
   ON facility_sources(source_id, source_entity_id);
+
+CREATE INDEX IF NOT EXISTS idx_facility_sources_permit_date
+  ON facility_sources(permit_date DESC, facility_id);
 
 CREATE TABLE IF NOT EXISTS facility_changes (
   id INTEGER PRIMARY KEY AUTOINCREMENT,

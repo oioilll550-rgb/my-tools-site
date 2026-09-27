@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self' https://abacus.jasoncameron.dev; font-src 'self' data:; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self' https://abacus.jasoncameron.dev https://benri-facility-api.chatgpt-notion-sync-piocho.workers.dev; font-src 'self' data:; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
 <meta name="referrer" content="no-referrer">
 <title>越谷市の飲食店一覧 | べんりちゃん、微力ながら</title>
 <meta name="description" content="越谷市公式の飲食店営業許可データをもとに、一般利用可能性のある飲食店を自動分類して検索できます。">
@@ -38,6 +38,14 @@
       <option value="confirmed">確認済み</option>
       <option value="high">自動判定・高</option>
       <option value="medium">自動判定</option>
+    </select>
+  </label>
+  <label><span>並び順</span>
+    <select id="publicRestaurantSort">
+      <option value="permit_date_desc">許可・届出日（新しい順）</option>
+      <option value="permit_date_asc">許可・届出日（古い順）</option>
+      <option value="name_asc">施設名（昇順）</option>
+      <option value="name_desc">施設名（降順）</option>
     </select>
   </label>
 </div>

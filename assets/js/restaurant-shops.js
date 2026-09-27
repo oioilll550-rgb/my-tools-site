@@ -3,10 +3,11 @@ document.addEventListener("DOMContentLoaded", async () => {
   const search = document.getElementById("publicRestaurantSearch");
   const category = document.getElementById("publicRestaurantCategory");
   const confidence = document.getElementById("publicRestaurantConfidence");
+  const sort = document.getElementById("publicRestaurantSort");
   const more = document.getElementById("publicRestaurantMore");
   const count = document.getElementById("publicRestaurantCount");
   const status = document.getElementById("publicRestaurantStatus");
-  if (!list || !search || !category || !confidence || !more) return;
+  if (!list || !search || !category || !confidence || !sort || !more) return;
 
   const PAGE = 50;
   const config = window.BENRI_CONFIG || {};
@@ -59,12 +60,20 @@ document.addEventListener("DOMContentLoaded", async () => {
     ddAddr.appendChild(a);
     dl.append(dtAddr, ddAddr);
 
-    if (r.permitDate || r.openingDate) {
+    if (r.permitDate) {
       const dtPermit = document.createElement("dt");
-      dtPermit.textContent = r.openingDate ? "日付" : "許可・届出";
+      dtPermit.textContent = "許可・届出";
       const ddPermit = document.createElement("dd");
-      ddPermit.textContent = r.openingDate || r.permitDate;
+      ddPermit.textContent = r.permitDate;
       dl.append(dtPermit, ddPermit);
+    }
+
+    if (r.openingDate) {
+      const dtOpening = document.createElement("dt");
+      dtOpening.textContent = "開店日";
+      const ddOpening = document.createElement("dd");
+      ddOpening.textContent = r.openingDate;
+      dl.append(dtOpening, ddOpening);
     }
 
     if ((r.tags || []).length) {
@@ -93,6 +102,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         type: "restaurant",
         limit: String(PAGE),
         offset: String(nextOffset),
+        sort: sort.value,
       });
       const q = search.value.trim();
       if (q) params.set("q", q);
@@ -143,6 +153,22 @@ document.addEventListener("DOMContentLoaded", async () => {
       if (conf && r.confidence !== conf) return false;
       return true;
     });
+
+    const byName = (a, b) => String(a.name || "").localeCompare(String(b.name || ""), "ja");
+    const byDate = (a, b) => {
+      const ad = String(a.permitDate || "");
+      const bd = String(b.permitDate || "");
+      if (!ad && !bd) return byName(a, b);
+      if (!ad) return 1;
+      if (!bd) return -1;
+      return ad.localeCompare(bd) || byName(a, b);
+    };
+
+    if (sort.value === "permit_date_asc") filtered.sort(byDate);
+    else if (sort.value === "name_asc") filtered.sort(byName);
+    else if (sort.value === "name_desc") filtered.sort((a, b) => -byName(a, b));
+    else filtered.sort((a, b) => -byDate(a, b));
+
     list.innerHTML = "";
     shown = 0;
     renderJsonMore();
@@ -200,6 +226,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   });
   category.addEventListener("change", refresh);
   confidence.addEventListener("change", refresh);
+  sort.addEventListener("change", refresh);
   more.addEventListener("click", () => {
     if (apiBase) loadApiPage(false);
     else renderJsonMore();

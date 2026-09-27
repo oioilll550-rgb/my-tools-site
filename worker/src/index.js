@@ -58,6 +58,7 @@ async function listFacilities(request, env, url) {
   let category = (url.searchParams.get("category") || "").trim().slice(0, 80);
   const confidence = (url.searchParams.get("confidence") || "").trim().slice(0, 20);
   const status = (url.searchParams.get("status") || "").trim().slice(0, 24);
+  const sort = (url.searchParams.get("sort") || "permit_date_desc").trim();
   const limit = clampInt(url.searchParams.get("limit"), 50, 1, 100);
   const offset = clampInt(url.searchParams.get("offset"), 0, 0, 10000000);
 
@@ -101,6 +102,13 @@ async function listFacilities(request, env, url) {
     params.push(category);
   }
 
+  const sortSql = {
+    permit_date_desc: "p.permit_date IS NULL, p.permit_date DESC, f.name ASC",
+    permit_date_asc: "p.permit_date IS NULL, p.permit_date ASC, f.name ASC",
+    name_asc: "f.name ASC, p.permit_date DESC",
+    name_desc: "f.name DESC, p.permit_date DESC",
+  }[sort] || "p.permit_date IS NULL, p.permit_date DESC, f.name ASC";
+
   const sql = `
     SELECT
       f.id, f.name, f.facility_type AS facilityType,
@@ -109,13 +117,20 @@ async function listFacilities(request, env, url) {
       f.address, f.latitude, f.longitude, f.status,
       f.opening_date AS openingDate,
       f.closing_date AS closingDate,
+      p.permit_date AS permitDate,
       f.official_url AS officialUrl,
       f.confidence,
       f.last_verified_at AS lastVerifiedAt
     FROM facilities f
     ${join}
+    LEFT JOIN (
+      SELECT facility_id, MAX(permit_date) AS permit_date
+      FROM facility_sources
+      WHERE permit_date IS NOT NULL AND permit_date <> ''
+      GROUP BY facility_id
+    ) p ON p.facility_id = f.id
     ${where.length ? "WHERE " + where.join(" AND ") : ""}
-    ORDER BY ${confidenceOrderSql()}, f.name
+    ORDER BY ${sortSql}
     LIMIT ? OFFSET ?
   `;
 
@@ -145,6 +160,7 @@ async function facilityDetail(request, env, id) {
         prefecture_code AS prefectureCode, municipality_code AS municipalityCode,
         postal_code AS postalCode, address, latitude, longitude, status,
         opening_date AS openingDate, closing_date AS closingDate,
+        (SELECT MAX(fs.permit_date) FROM facility_sources fs WHERE fs.facility_id = facilities.id) AS permitDate,
         official_url AS officialUrl, confidence, last_verified_at AS lastVerifiedAt,
         created_at AS createdAt, updated_at AS updatedAt
       FROM facilities WHERE id = ?

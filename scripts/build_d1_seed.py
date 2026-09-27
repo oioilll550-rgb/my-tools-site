@@ -109,11 +109,11 @@ def main():
                 source_entity_id = ref.get("sourceEntityId") or fid
                 statements.append(
                     "INSERT OR REPLACE INTO facility_sources("
-                    "facility_id,source_id,source_entity_id,source_url,raw_name,raw_address,observed_at,is_primary"
+                    "facility_id,source_id,source_entity_id,source_url,raw_name,raw_address,permit_date,observed_at,is_primary"
                     ") VALUES ("
                     f"{q(fid)},{q(ref.get('sourceId'))},{q(source_entity_id)},{q(ref.get('sourceUrl'))},"
-                    f"{q(ref.get('rawName'))},{q(ref.get('rawAddress'))},{q(ref.get('observedAt'))},"
-                    f"{1 if ref.get('primary') else 0});"
+                    f"{q(ref.get('rawName'))},{q(ref.get('rawAddress'))},{q(ref.get('permitDate'))},"
+                    f"{q(ref.get('observedAt'))},{1 if ref.get('primary') else 0});"
                 )
 
         write_chunk(out_dir, chunk_index, statements)
