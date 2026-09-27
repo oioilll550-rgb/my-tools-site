@@ -1937,3 +1937,227 @@ a.compact-tool-card {
     white-space: normal;
   }
 }
+
+
+/* revenue mini launch */
+.home-business-notice,
+.restaurant-sponsor-recruit,
+.advertise-hero {
+  border-color: #d5c99b;
+  background: linear-gradient(135deg, #fffdf5 0%, #ffffff 72%);
+}
+
+.home-business-notice {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 22px;
+}
+
+.home-business-notice h2 {
+  margin: 4px 0 6px;
+  font-size: 21px;
+}
+
+.home-business-notice p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.business-notice-label,
+.pr-label {
+  display: inline-block;
+  width: fit-content;
+  padding: 3px 8px;
+  border: 1px solid #d9ca91;
+  border-radius: 999px;
+  background: #fff8dc;
+  color: #705d19;
+  font-size: 10px;
+  font-weight: 750;
+  letter-spacing: .04em;
+}
+
+.restaurant-sponsor-list {
+  display: grid;
+  gap: 10px;
+}
+
+.restaurant-sponsor-card,
+.restaurant-sponsor-recruit {
+  padding: 16px 17px;
+  border: 1px solid var(--border);
+  border-radius: 11px;
+}
+
+.restaurant-sponsor-card {
+  background: #fffdf7;
+}
+
+.restaurant-sponsor-card strong,
+.restaurant-sponsor-card small {
+  display: block;
+}
+
+.restaurant-sponsor-card strong {
+  margin-top: 7px;
+  font-size: 16px;
+}
+
+.restaurant-sponsor-card p {
+  margin: 5px 0 0;
+  font-size: 13px;
+}
+
+.restaurant-sponsor-card small {
+  margin-top: 4px;
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.restaurant-sponsor-card a {
+  display: inline-block;
+  margin-top: 10px;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.restaurant-sponsor-recruit {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+}
+
+.restaurant-sponsor-recruit strong,
+.restaurant-sponsor-recruit small {
+  display: block;
+}
+
+.restaurant-sponsor-recruit strong {
+  font-size: 15px;
+}
+
+.restaurant-sponsor-recruit small {
+  margin-top: 4px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.advertise-page {
+  max-width: 820px;
+  margin-inline: auto;
+}
+
+.advertise-price {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin: 18px 0 8px;
+}
+
+.advertise-price strong {
+  font-size: clamp(32px, 6vw, 46px);
+  line-height: 1;
+}
+
+.advertise-price span {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.advertise-points {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0,1fr));
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.advertise-point {
+  padding: 14px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--surface-muted);
+}
+
+.advertise-point strong,
+.advertise-point span {
+  display: block;
+}
+
+.advertise-point span {
+  margin-top: 4px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.advertise-flow {
+  counter-reset: adstep;
+  display: grid;
+  gap: 10px;
+  margin: 18px 0 0;
+}
+
+.advertise-flow > div {
+  position: relative;
+  padding: 13px 14px 13px 48px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: #fafbfc;
+}
+
+.advertise-flow > div::before {
+  counter-increment: adstep;
+  content: counter(adstep);
+  position: absolute;
+  left: 14px;
+  top: 13px;
+  display: grid;
+  place-items: center;
+  width: 23px;
+  height: 23px;
+  border-radius: 999px;
+  background: #e9eef5;
+  font-size: 11px;
+  font-weight: 750;
+}
+
+.advertise-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.advertise-actions small {
+  color: var(--muted);
+  font-size: 11px;
+}
+
+@media (max-width: 700px) {
+  .home-business-notice,
+  .restaurant-sponsor-recruit {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .advertise-points {
+    grid-template-columns: 1fr;
+  }
+
+  .home-business-notice .button,
+  .restaurant-sponsor-recruit .button {
+    width: 100%;
+    text-align: center;
+  }
+
+  .advertise-actions {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .advertise-actions .button {
+    text-align: center;
+  }
+}

@@ -1,0 +1,45 @@
+name: PR掲載相談
+description: 越谷市の飲食店向けPR掲載について相談する
+title: "[PR掲載相談] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        このIssueは公開されます。氏名・電話番号・メールアドレスなどの非公開情報は入力しないでください。
+        店舗の公式サイト・公式SNSなど、すでに公開されている情報のみ記載してください。
+  - type: input
+    id: shop_name
+    attributes:
+      label: 店名
+      placeholder: 例）○○食堂
+    validations:
+      required: true
+  - type: input
+    id: area
+    attributes:
+      label: 所在地
+      description: 市区町村・町名程度で構いません。
+      placeholder: 例）越谷市南越谷
+    validations:
+      required: true
+  - type: input
+    id: official_url
+    attributes:
+      label: 公式サイト・公式SNS
+      placeholder: https://...
+    validations:
+      required: true
+  - type: textarea
+    id: message
+    attributes:
+      label: 掲載したい内容
+      description: お店の特徴やPRしたい内容を簡潔に記載してください。
+    validations:
+      required: true
+  - type: checkboxes
+    id: confirm
+    attributes:
+      label: 確認
+      options:
+        - label: このIssueが公開されることを理解し、非公開の個人情報を記載していません。
+          required: true

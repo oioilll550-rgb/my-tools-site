@@ -8,5 +8,9 @@ window.BENRI_CONFIG = {
   facilityApiUrl: "",
 
   // Googleフォーム作成後、公開URLを設定します。
-  feedbackFormUrl: ""
+  feedbackFormUrl: "",
+
+  // PR掲載相談の受付先。現在はGitHub Issueを暫定窓口として使用します。
+  // Googleフォーム等へ切り替える場合は、このURLだけ変更してください。
+  advertisingContactUrl: "https://github.com/oioilll550-rgb/my-tools-site/issues/new?template=pr-listing.yml"
 };
