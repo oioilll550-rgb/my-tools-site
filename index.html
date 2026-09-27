@@ -41,8 +41,8 @@
     >
     <div class="hero-overlay">
       <div class="hero-copy">
-<p class="lead">やりたいことから、ツール・公共施設・飲食店を探せます。</p>
-        <p>サイト内検索か「目的から探す」から、必要なページへすぐ移動できます。</p>
+<p class="lead">越谷の施設・飲食店と、日常で使う便利ツールをまとめて探せます。</p>
+        <p>新しくできたお店や、今すぐ使いたい情報へすぐ移動できます。</p>
 
         <div class="site-search-wrap">
           <div class="search-box">
@@ -73,13 +73,50 @@
   </section>
 
 
+  <section class="card home-openings-section">
+    <div class="tools-heading-row">
+      <h2>越谷の新規OPEN</h2>
+      <a class="section-more-link" href="restaurants/saitama/koshigaya/">飲食店をもっと見る</a>
+    </div>
+    <div id="homeNewOpenings" class="home-compact-list" data-data-url="assets/data/restaurants-koshigaya.json">
+      <p class="notice">新規OPEN情報を読み込んでいます…</p>
+    </div>
+  </section>
+
+  <section class="card home-popular-section">
+    <div class="tools-heading-row">
+      <h2>今日よく見られているページ</h2>
+      <span class="tools-count">主要ページから集計</span>
+    </div>
+    <div id="homePopularPages" class="home-compact-list">
+      <p class="notice">アクセス状況を読み込んでいます…</p>
+    </div>
+  </section>
+
+  <section class="card home-tools-section">
+    <div class="tools-heading-row">
+      <h2>よく使う便利ツール</h2>
+      <a class="section-more-link" href="#tools">65ツールを見る</a>
+    </div>
+    <div class="tool-grid compact-tool-grid home-tool-grid">
+      <a class="tool-card compact-tool-card" href="tools/character-counter.html">文字数カウンター</a>
+      <a class="tool-card compact-tool-card" href="tools/discount-tax-app.html">割引・税込計算</a>
+      <a class="tool-card compact-tool-card" href="tools/electricity-cost-app.html">電気代計算</a>
+      <a class="tool-card compact-tool-card" href="tools/tsubo-heibei-app.html">坪・平米換算</a>
+      <a class="tool-card compact-tool-card" href="tools/days.html">日数差計算</a>
+      <a class="tool-card compact-tool-card" href="tools/zenkaku-hankaku.html">全角・半角変換</a>
+      <a class="tool-card compact-tool-card" href="tools/json-formatter.html">JSON整形</a>
+      <a class="tool-card compact-tool-card" href="tools/password-generator.html">パスワード生成</a>
+    </div>
+  </section>
+
   <section class="card tools-section compact-purpose-tools" id="tools">
     <div class="tools-heading-row">
       <h2>公開中のツール</h2>
       <span class="tools-count">65 tools</span>
     </div>
 
-    <details class="tool-purpose-details" id="purpose-text" open>
+    <details class="tool-purpose-details" id="purpose-text">
       <summary><strong>文章を整える</strong><span>27</span></summary>
       <div class="tool-grid compact-tool-grid">
         <a class="tool-card compact-tool-card" href="tools/character-counter.html">文字数カウンター</a>
@@ -232,6 +269,7 @@
 </footer>
 
 <script src="assets/js/site.js"></script>
+<script src="assets/js/home-dashboard.js"></script>
 <script src="assets/js/daily-counter.js"></script>
 </body>
 </html>
