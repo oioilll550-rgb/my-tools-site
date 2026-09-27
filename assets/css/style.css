@@ -1499,43 +1499,47 @@ a.compact-tool-card {
 
 .home-info-row {
   display: grid;
-  grid-template-columns: 92px minmax(0, 1fr);
-  gap: 12px;
-  align-items: start;
-  padding: 11px 13px;
+  width: 100%;
+  min-width: 0;
+  gap: 10px;
+  align-items: center;
+  padding: 10px 12px;
   border: 1px solid var(--border);
   border-radius: 9px;
   background: var(--surface-muted);
   color: var(--text);
   text-decoration: none;
+  overflow: hidden;
 }
 
 .home-info-row:hover {
   background: #eef1f4;
 }
 
-.home-info-row time,
+.home-opening-row {
+  grid-template-columns: 92px minmax(0, 1fr);
+}
+
+.home-info-date,
 .home-info-meta {
   color: var(--muted);
   font-size: 11px;
   font-variant-numeric: tabular-nums;
+  white-space: nowrap;
 }
 
-.home-info-row strong,
-.home-info-row small {
+.home-info-title {
   display: block;
   min-width: 0;
-}
-
-.home-info-row small {
-  margin-top: 2px;
-  color: var(--muted);
-  font-size: 11px;
-  overflow-wrap: anywhere;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 14px;
+  font-weight: 700;
 }
 
 .home-popular-row {
-  grid-template-columns: 34px minmax(0, 1fr) auto;
+  grid-template-columns: 28px minmax(0, 1fr) auto;
   align-items: center;
 }
 
@@ -1544,6 +1548,7 @@ a.compact-tool-card {
   font-size: 12px;
   font-weight: 700;
   text-align: center;
+  white-space: nowrap;
 }
 
 .home-tool-grid {
@@ -1551,14 +1556,17 @@ a.compact-tool-card {
 }
 
 @media (max-width: 720px) {
-  .home-info-row {
-    grid-template-columns: 1fr;
-    gap: 2px;
+  .home-opening-row {
+    grid-template-columns: 82px minmax(0, 1fr);
   }
 
   .home-popular-row {
-    grid-template-columns: 28px minmax(0, 1fr) auto;
+    grid-template-columns: 24px minmax(0, 1fr) auto;
     gap: 8px;
+  }
+
+  .home-info-title {
+    font-size: 13px;
   }
 
   .home-tool-grid {
