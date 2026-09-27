@@ -1372,3 +1372,62 @@ a.compact-tool-card {
     gap: 6px;
   }
 }
+
+
+/* Keep TOP search field fixed while suggestions open below it. */
+.site-search-wrap {
+  position: relative;
+  margin-top: 20px;
+}
+
+.site-search-wrap .search-box {
+  margin-top: 0;
+}
+
+.hero-card {
+  z-index: 5;
+  overflow: visible;
+}
+
+.hero-header-image,
+.hero-overlay {
+  border-radius: inherit;
+}
+
+.site-search-wrap #searchResults {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  right: 0;
+  z-index: 30;
+  max-height: 300px;
+  margin: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+.site-search-wrap #searchResults:not(:empty) {
+  padding: 6px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: rgba(255,255,255,.98);
+  box-shadow: 0 10px 24px rgba(31,35,40,.14);
+}
+
+.site-search-wrap #searchResults .result-link {
+  margin-top: 0;
+}
+
+.site-search-wrap #searchResults .result-link + .result-link {
+  margin-top: 6px;
+}
+
+.site-search-wrap #searchResults > p {
+  margin: 4px 6px;
+}
+
+@media (max-width: 720px) {
+  .site-search-wrap #searchResults {
+    max-height: 260px;
+  }
+}
