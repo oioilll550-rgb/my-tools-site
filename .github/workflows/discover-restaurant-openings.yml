@@ -40,4 +40,5 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add assets/data/restaurant-opening-candidates.json
           git commit -m "Discover Koshigaya restaurant opening candidates"
+          git pull --rebase origin main
           git push
