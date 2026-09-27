@@ -1,18 +1,18 @@
 {
   "area": "越谷市",
-  "generatedAt": "2026-09-27T19:01:14+09:00",
+  "generatedAt": "2026-09-27T19:08:59+09:00",
   "officialPermitCount": 2525,
-  "count": 2358,
+  "count": 2367,
   "countsByConfidence": {
-    "confirmed": 34,
-    "high": 1270,
-    "medium": 1054,
-    "excluded": 192
+    "confirmed": 35,
+    "high": 1274,
+    "medium": 1058,
+    "excluded": 183
   },
   "excludedByReason": {
     "convenience": 111,
     "education": 27,
-    "internal-foodservice": 20,
+    "internal-foodservice": 11,
     "medical": 12,
     "care-welfare": 22
   },
@@ -316,6 +316,21 @@
       ],
       "curated": true,
       "openingDate": ""
+    },
+    {
+      "id": "official-78c1950b61f812",
+      "name": "イタリア厨房 ベッラ・イタリア",
+      "address": "埼玉県越谷市新越谷２－１３－１８",
+      "permitDate": "2022-01-07",
+      "sourceUrl": "https://www.city.koshigaya.saitama.jp/kurashi_shisei/fukushi/hokenjo/shokuhin/files/r8.3.31koukai.xls",
+      "confidence": "confirmed",
+      "classificationReason": "curated",
+      "tags": [
+        "family",
+        "italian",
+        "lunch"
+      ],
+      "curated": true
     },
     {
       "id": "bella-italia",
@@ -6109,6 +6124,17 @@
       "curated": false
     },
     {
+      "id": "official-80f7b9f93097a7",
+      "name": "中華厨房 楊福記",
+      "address": "埼玉県越谷市南越谷２－１３－４９",
+      "permitDate": "2025-04-25",
+      "sourceUrl": "https://www.city.koshigaya.saitama.jp/kurashi_shisei/fukushi/hokenjo/shokuhin/files/r8.3.31koukai.xls",
+      "confidence": "high",
+      "classificationReason": "name-cue",
+      "tags": [],
+      "curated": false
+    },
+    {
       "id": "official-9a8fadfed171e7",
       "name": "むさしの森珈琲 南越谷駅前店",
       "address": "埼玉県越谷市南越谷２－２－１２ コアーズビル１階",
@@ -6436,6 +6462,17 @@
       "tags": [
         "italian"
       ],
+      "curated": false
+    },
+    {
+      "id": "official-d0d2dac6b2501b",
+      "name": "食彩厨房 いちげん 南越谷店",
+      "address": "埼玉県越谷市南越谷４－３－１",
+      "permitDate": "2020-10-27",
+      "sourceUrl": "https://www.city.koshigaya.saitama.jp/kurashi_shisei/fukushi/hokenjo/shokuhin/files/r8.3.31koukai.xls",
+      "confidence": "high",
+      "classificationReason": "name-cue",
+      "tags": [],
       "curated": false
     },
     {
@@ -7623,6 +7660,17 @@
       "id": "official-847adfef687ffa",
       "name": "ロピア 越谷大里店（鮮魚）",
       "address": "埼玉県越谷市大字大里５５－１",
+      "permitDate": "2022-12-20",
+      "sourceUrl": "https://www.city.koshigaya.saitama.jp/kurashi_shisei/fukushi/hokenjo/shokuhin/files/r8.3.31koukai.xls",
+      "confidence": "high",
+      "classificationReason": "name-cue",
+      "tags": [],
+      "curated": false
+    },
+    {
+      "id": "official-2f67bae81ca920",
+      "name": "中華惣菜「上海厨房」",
+      "address": "埼玉県越谷市大字大里５５－１ ロピア越谷大里店内",
       "permitDate": "2022-12-20",
       "sourceUrl": "https://www.city.koshigaya.saitama.jp/kurashi_shisei/fukushi/hokenjo/shokuhin/files/r8.3.31koukai.xls",
       "confidence": "high",
@@ -12749,6 +12797,17 @@
       "tags": [
         "cafe"
       ],
+      "curated": false
+    },
+    {
+      "id": "official-d61583853a1036",
+      "name": "ヤオコー 越谷蒲生店（惣菜厨房）",
+      "address": "埼玉県越谷市蒲生茜町２５－１０",
+      "permitDate": "2022-08-08",
+      "sourceUrl": "https://www.city.koshigaya.saitama.jp/kurashi_shisei/fukushi/hokenjo/shokuhin/files/r8.3.31koukai.xls",
+      "confidence": "high",
+      "classificationReason": "name-cue",
+      "tags": [],
       "curated": false
     },
     {
@@ -18942,6 +19001,17 @@
       "curated": false
     },
     {
+      "id": "official-dfd295cda7193f",
+      "name": "ケヤキ倶楽部越谷 厨房",
+      "address": "埼玉県越谷市大字大道１１１",
+      "permitDate": "2024-07-31",
+      "sourceUrl": "https://www.city.koshigaya.saitama.jp/kurashi_shisei/fukushi/hokenjo/shokuhin/files/r8.3.31koukai.xls",
+      "confidence": "medium",
+      "classificationReason": "permit-only",
+      "tags": [],
+      "curated": false
+    },
+    {
       "id": "official-8c6daa2c744b70",
       "name": "イリーゼ北越谷",
       "address": "埼玉県越谷市大字大道５３－１",
@@ -18957,6 +19027,17 @@
       "name": "第一楼",
       "address": "埼玉県越谷市大字大道５６４ カスミＦＳ越谷大袋店",
       "permitDate": "2024-04-01",
+      "sourceUrl": "https://www.city.koshigaya.saitama.jp/kurashi_shisei/fukushi/hokenjo/shokuhin/files/r8.3.31koukai.xls",
+      "confidence": "medium",
+      "classificationReason": "permit-only",
+      "tags": [],
+      "curated": false
+    },
+    {
+      "id": "official-3ff09fa8d45d04",
+      "name": "ゆとり庵北越谷 厨房",
+      "address": "埼玉県越谷市大字大道６４３",
+      "permitDate": "2021-02-19",
       "sourceUrl": "https://www.city.koshigaya.saitama.jp/kurashi_shisei/fukushi/hokenjo/shokuhin/files/r8.3.31koukai.xls",
       "confidence": "medium",
       "classificationReason": "permit-only",
@@ -20568,6 +20649,19 @@
       "confidence": "medium",
       "classificationReason": "permit-only",
       "tags": [],
+      "curated": false
+    },
+    {
+      "id": "official-840877f7b44dd5",
+      "name": "イタリア厨房 ヴェスタ",
+      "address": "埼玉県越谷市大沢３－２８－７ ラグドール１０２",
+      "permitDate": "2026-04-22",
+      "sourceUrl": "https://www.city.koshigaya.saitama.jp/kurashi_shisei/fukushi/hokenjo/shokuhin/files/r8.apr.syokuhin.xls",
+      "confidence": "medium",
+      "classificationReason": "permit-only",
+      "tags": [
+        "italian"
+      ],
       "curated": false
     },
     {
@@ -24408,6 +24502,17 @@
       "name": "ドラム缶",
       "address": "埼玉県越谷市越ヶ谷１－１３－１ 秋山ビル１－Ｂ",
       "permitDate": "2021-09-24",
+      "sourceUrl": "https://www.city.koshigaya.saitama.jp/kurashi_shisei/fukushi/hokenjo/shokuhin/files/r8.3.31koukai.xls",
+      "confidence": "medium",
+      "classificationReason": "permit-only",
+      "tags": [],
+      "curated": false
+    },
+    {
+      "id": "official-1bf265fd1b81a8",
+      "name": "厨房「島人」",
+      "address": "埼玉県越谷市越ヶ谷１－１４－８ サテライト３ビル１階",
+      "permitDate": "2023-06-13",
       "sourceUrl": "https://www.city.koshigaya.saitama.jp/kurashi_shisei/fukushi/hokenjo/shokuhin/files/r8.3.31koukai.xls",
       "confidence": "medium",
       "classificationReason": "permit-only",
