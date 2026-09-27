@@ -1,4 +1,5 @@
 name: Sync facility database to Cloudflare D1
+# Cloudflare credentials configured; this comment also triggers the first authenticated sync.
 
 on:
   workflow_dispatch:
