@@ -53,7 +53,7 @@ def parse_date(v):
 
     # Gregorian forms: 2026-04-21, 2026/4/21, 2026年4月21日, etc.
     m = re.search(
-        r"(?<!\\d)(\\d{4})\\s*[./年\\-]\\s*(\\d{1,2})\\s*[./月\\-]\\s*(\\d{1,2})\\s*日?",
+        r"(?<!\d)(\d{4})\s*[./年\-]\s*(\d{1,2})\s*[./月\-]\s*(\d{1,2})\s*日?",
         s,
     )
     if m:
@@ -63,10 +63,10 @@ def parse_date(v):
         except ValueError:
             return ""
 
-    # Japanese era forms, including whitespace such as "R5. 1.24".
+    # Japanese era forms, including whitespace such as "R5. 1.24" and "R 3. 3.29".
     m = re.search(
-        r"(令和|平成|昭和|R|H|S)\\s*(元|\\d{1,2})\\s*[./年\\-]\\s*"
-        r"(\\d{1,2})\\s*[./月\\-]\\s*(\\d{1,2})\\s*日?",
+        r"(令和|平成|昭和|R|H|S)\s*(元|\d{1,2})\s*[./年\-]\s*"
+        r"(\d{1,2})\s*[./月\-]\s*(\d{1,2})\s*日?",
         s,
         re.I,
     )
@@ -74,8 +74,7 @@ def parse_date(v):
         era, era_year, mo, d = m.groups()
         era_key = era.upper() if len(era) == 1 else era
         offsets = {"令和": 2018, "平成": 1988, "昭和": 1925, "R": 2018, "H": 1988, "S": 1925}
-        y = 1 if era_year == "元" else int(era_year)
-        year = offsets[era_key] + y
+        year = offsets[era_key] + (1 if era_year == "元" else int(era_year))
         try:
             return datetime(year, int(mo), int(d)).date().isoformat()
         except ValueError:
@@ -83,7 +82,6 @@ def parse_date(v):
 
     return ""
 
-def detect_header(df):
 def detect_header(df):
     limit = min(len(df), 30)
     for r in range(limit):
