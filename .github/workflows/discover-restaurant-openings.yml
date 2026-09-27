@@ -1,0 +1,37 @@
+name: Discover Koshigaya restaurant openings
+
+on:
+  workflow_dispatch:
+  schedule:
+    # 19:37 UTC = 04:37 JST. Once daily is sufficient for opening information.
+    # Minute 37 avoids the busy start-of-hour window.
+    - cron: "37 19 * * *"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: koshigaya-opening-discovery
+  cancel-in-progress: false
+
+jobs:
+  discover:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Discover new-opening candidates
+        run: python3 scripts/discover_koshigaya_openings.py
+
+      - name: Commit only when new candidates are found
+        run: |
+          if git diff --quiet -- assets/data/restaurant-opening-candidates.json; then
+            echo "No new candidates"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/data/restaurant-opening-candidates.json
+          git commit -m "Discover Koshigaya restaurant opening candidates"
+          git push

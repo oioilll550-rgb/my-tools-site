@@ -1,0 +1,20 @@
+[
+  {
+    "id": "goguynet-koshigaya-openclose",
+    "name": "号外NET 越谷市 開店/閉店",
+    "type": "rss",
+    "url": "https://koshigaya.goguynet.jp/category/cat_openclose/feed/"
+  },
+  {
+    "id": "shinkoshigaya-varie-news",
+    "name": "新越谷VARIE お知らせ",
+    "type": "html-links",
+    "url": "https://www.tobu-varie.com/shinkoshi/news/"
+  },
+  {
+    "id": "aeon-laketown-mori-newshop",
+    "name": "イオンレイクタウンmori NEW SHOP",
+    "type": "html-open-blocks",
+    "url": "https://www.aeon-laketown.jp/mori/special/newshop/"
+  }
+]

@@ -3,6 +3,8 @@ name: Update Koshigaya restaurant permits
 on:
   workflow_dispatch:
   schedule:
+    # The city source is updated monthly, so daily polling would add load without benefit.
+    # 23:25 UTC on the 15th = 08:25 JST on the 16th.
     - cron: "25 23 15 * *"
   push:
     branches: [main]
@@ -13,9 +15,14 @@ on:
 permissions:
   contents: write
 
+concurrency:
+  group: koshigaya-permit-sync
+  cancel-in-progress: false
+
 jobs:
   update:
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
