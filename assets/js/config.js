@@ -5,7 +5,7 @@ window.BENRI_CONFIG = {
 
   // 全国施設DB API。Cloudflare Worker 初回デプロイ時に自動設定されます。
   // 未設定時は従来のGitHub JSONを利用します。
-  facilityApiUrl: "",
+  facilityApiUrl: "https://benri-facility-api.chatgpt-notion-sync-piocho.workers.dev",
 
   // Googleフォーム作成後、公開URLを設定します。
   feedbackFormUrl: ""
