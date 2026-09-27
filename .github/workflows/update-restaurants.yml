@@ -11,6 +11,7 @@ on:
     paths:
       - "scripts/update_koshigaya_restaurants.py"
       - "scripts/classify_koshigaya_restaurants.py"
+      - "scripts/build_facility_dataset.py"
       - ".github/workflows/update-restaurants.yml"
 
 permissions:
@@ -35,15 +36,17 @@ jobs:
         run: python scripts/update_koshigaya_restaurants.py
       - name: Classify likely public-facing restaurants
         run: python scripts/classify_koshigaya_restaurants.py
+      - name: Build nationwide facility-model dataset
+        run: python scripts/build_facility_dataset.py
       - name: Commit data when changed
         run: |
-          if git diff --quiet -- assets/data/restaurants-koshigaya-official.json assets/data/restaurants-koshigaya-public.json; then
+          if git diff --quiet -- assets/data/restaurants-koshigaya-official.json assets/data/restaurants-koshigaya-public.json assets/data/facilities-koshigaya.json; then
             echo "No data changes"
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add assets/data/restaurants-koshigaya-official.json assets/data/restaurants-koshigaya-public.json
+          git add assets/data/restaurants-koshigaya-official.json assets/data/restaurants-koshigaya-public.json assets/data/facilities-koshigaya.json
           git commit -m "Update and classify Koshigaya restaurant data"
           git pull --rebase origin main
           git push
