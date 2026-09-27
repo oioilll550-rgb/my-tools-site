@@ -1,6 +1,174 @@
 {
   "area": "越谷市",
-  "updatedAt": null,
+  "updatedAt": "2026-09-27",
   "purpose": "新規OPEN候補の軽量自動探索。候補は確認前のため、そのまま本番店舗一覧には掲載しない。",
-  "candidates": []
+  "candidateCount": 15,
+  "sourceCount": 3,
+  "candidates": [
+    {
+      "id": "1ffa8a1487b7acae",
+      "name": "袋山に",
+      "headline": "【越谷市】いつ見ても行列のラーメン山岡家が新店舗。袋山に10月16日オープンへ",
+      "openingDateHint": "2026-10-16",
+      "sourceId": "goguynet-koshigaya-openclose",
+      "sourceName": "号外NET 越谷市 開店/閉店",
+      "sourceUrl": "https://koshigaya.goguynet.jp/2026/09/14/yamaokaya-koshigayafukuroyama-3/",
+      "discoveredAt": "2026-09-27",
+      "status": "candidate"
+    },
+    {
+      "id": "6ffa3765c8609166",
+      "name": "カンナムキンパ",
+      "headline": "1Fフロアに「カンナムキンパ」がOPEN！！【10/8～】",
+      "openingDateHint": "2026-10-08",
+      "sourceId": "shinkoshigaya-varie-news",
+      "sourceName": "新越谷VARIE お知らせ",
+      "sourceUrl": "https://www.tobu-varie.com/shinkoshi/news/2416/",
+      "discoveredAt": "2026-09-27",
+      "status": "candidate"
+    },
+    {
+      "id": "84635f27c2b91d3e",
+      "name": "!】 1F | マシンピラティススタジオ Rintosull",
+      "headline": "【 2026年10月1日(木) OPEN!!】 1F | マシンピラティススタジオ Rintosull",
+      "openingDateHint": "2026-10-01",
+      "sourceId": "aeon-laketown-mori-newshop",
+      "sourceName": "イオンレイクタウンmori NEW SHOP",
+      "sourceUrl": "https://www.aeon-laketown.jp/mori/special/newshop/",
+      "discoveredAt": "2026-09-27",
+      "status": "candidate"
+    },
+    {
+      "id": "4c5ab5e2a05a3efb",
+      "name": "生パスタ専門店スパラ＆ワンスライスピザ",
+      "headline": "【越谷市】レイクタウンkazeに「生パスタ専門店スパラ＆ワンスライスピザ」が9月29日オープンへ",
+      "openingDateHint": "2026-09-29",
+      "sourceId": "goguynet-koshigaya-openclose",
+      "sourceName": "号外NET 越谷市 開店/閉店",
+      "sourceUrl": "https://koshigaya.goguynet.jp/2026/09/23/spalaoneslicepizza-2/",
+      "discoveredAt": "2026-09-27",
+      "status": "candidate"
+    },
+    {
+      "id": "246669cf5af7bfd4",
+      "name": "!】 3F | 電車のお店 ポポンデッタ",
+      "headline": "【 2026年9月17日(木) OPEN!!】 3F | 電車のお店 ポポンデッタ",
+      "openingDateHint": "2026-09-17",
+      "sourceId": "aeon-laketown-mori-newshop",
+      "sourceName": "イオンレイクタウンmori NEW SHOP",
+      "sourceUrl": "https://www.aeon-laketown.jp/mori/special/newshop/",
+      "discoveredAt": "2026-09-27",
+      "status": "candidate"
+    },
+    {
+      "id": "f1493dc2d6e5c395",
+      "name": "こびと はくぶつかん",
+      "headline": "店舗からのお知らせ 2026年8月12日(水) 展示エリアオープン! ※展示エリアについては事前予約制となっておりますので、詳細については「こびと はくぶつかん」Xアカウントをご確認下さい。",
+      "openingDateHint": "2026-08-12",
+      "sourceId": "aeon-laketown-mori-newshop",
+      "sourceName": "イオンレイクタウンmori NEW SHOP",
+      "sourceUrl": "https://www.aeon-laketown.jp/mori/special/newshop/",
+      "discoveredAt": "2026-09-27",
+      "status": "candidate"
+    },
+    {
+      "id": "53afd0416f20e4ba",
+      "name": "!】 3F | こびと はくぶつかん",
+      "headline": "【 2026年7月17日(金) OPEN!!】 3F | こびと はくぶつかん",
+      "openingDateHint": "2026-07-17",
+      "sourceId": "aeon-laketown-mori-newshop",
+      "sourceName": "イオンレイクタウンmori NEW SHOP",
+      "sourceUrl": "https://www.aeon-laketown.jp/mori/special/newshop/",
+      "discoveredAt": "2026-09-27",
+      "status": "candidate"
+    },
+    {
+      "id": "a5fe0bfec9e23314",
+      "name": "!】 3F | ちいかわらんど",
+      "headline": "【 2026年6月19日(金) OPEN!!】 3F | ちいかわらんど",
+      "openingDateHint": "2026-06-19",
+      "sourceId": "aeon-laketown-mori-newshop",
+      "sourceName": "イオンレイクタウンmori NEW SHOP",
+      "sourceUrl": "https://www.aeon-laketown.jp/mori/special/newshop/",
+      "discoveredAt": "2026-09-27",
+      "status": "candidate"
+    },
+    {
+      "id": "1753b435552c7909",
+      "name": "!】 1F | 横濱元町ドリア",
+      "headline": "【 2026年5月18日(月) OPEN!!】 1F | 横濱元町ドリア",
+      "openingDateHint": "2026-05-18",
+      "sourceId": "aeon-laketown-mori-newshop",
+      "sourceName": "イオンレイクタウンmori NEW SHOP",
+      "sourceUrl": "https://www.aeon-laketown.jp/mori/special/newshop/",
+      "discoveredAt": "2026-09-27",
+      "status": "candidate"
+    },
+    {
+      "id": "1495617fcb951022",
+      "name": "!】 2F | おかねのいろは",
+      "headline": "【 2026年5月1日(金) OPEN!!】 2F | おかねのいろは",
+      "openingDateHint": "2026-05-01",
+      "sourceId": "aeon-laketown-mori-newshop",
+      "sourceName": "イオンレイクタウンmori NEW SHOP",
+      "sourceUrl": "https://www.aeon-laketown.jp/mori/special/newshop/",
+      "discoveredAt": "2026-09-27",
+      "status": "candidate"
+    },
+    {
+      "id": "19711dce7055a176",
+      "name": "!】 3F | 大阪王将",
+      "headline": "【 2026年4月9日(木) OPEN!!】 3F | 大阪王将",
+      "openingDateHint": "2026-04-09",
+      "sourceId": "aeon-laketown-mori-newshop",
+      "sourceName": "イオンレイクタウンmori NEW SHOP",
+      "sourceUrl": "https://www.aeon-laketown.jp/mori/special/newshop/",
+      "discoveredAt": "2026-09-27",
+      "status": "candidate"
+    },
+    {
+      "id": "8df476ea0e2541bb",
+      "name": "屋台屋 博多劇場",
+      "headline": "【越谷市】100個餃子チャレンジ！歳の数だけ餃子プレゼント！「屋台屋 博多劇場」が南越谷にオープンしました",
+      "openingDateHint": "",
+      "sourceId": "goguynet-koshigaya-openclose",
+      "sourceName": "号外NET 越谷市 開店/閉店",
+      "sourceUrl": "https://koshigaya.goguynet.jp/2026/09/18/hakatagekizyou-2/",
+      "discoveredAt": "2026-09-27",
+      "status": "candidate"
+    },
+    {
+      "id": "b8e804bff239f88d",
+      "name": "マンゴスチン",
+      "headline": "【越谷市】あのタイ料理の名店「マンゴスチン」が越谷に帰ってきた！以前の店舗のすぐ近くで再オープンしています",
+      "openingDateHint": "",
+      "sourceId": "goguynet-koshigaya-openclose",
+      "sourceName": "号外NET 越谷市 開店/閉店",
+      "sourceUrl": "https://koshigaya.goguynet.jp/2026/09/07/mangosteen-2/",
+      "discoveredAt": "2026-09-27",
+      "status": "candidate"
+    },
+    {
+      "id": "6e5ab427a628f404",
+      "name": "オトナリマート",
+      "headline": "【越谷市】せんげん台駅近くに新スーパー！ ベイシアの新業態「オトナリマート」がオープンへ",
+      "openingDateHint": "",
+      "sourceId": "goguynet-koshigaya-openclose",
+      "sourceName": "号外NET 越谷市 開店/閉店",
+      "sourceUrl": "https://koshigaya.goguynet.jp/2026/09/11/otonarimart/",
+      "discoveredAt": "2026-09-27",
+      "status": "candidate"
+    },
+    {
+      "id": "dfc24bb86c4d228b",
+      "name": "おだしバー",
+      "headline": "【越谷市】ヴァリエにオープンした「おひつごはん四六時中」で「おだしバー」を堪能してきました。",
+      "openingDateHint": "",
+      "sourceId": "goguynet-koshigaya-openclose",
+      "sourceName": "号外NET 越谷市 開店/閉店",
+      "sourceUrl": "https://koshigaya.goguynet.jp/2026/09/23/shirokuzityu-2/",
+      "discoveredAt": "2026-09-27",
+      "status": "candidate"
+    }
+  ]
 }
