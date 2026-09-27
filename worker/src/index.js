@@ -77,8 +77,8 @@ async function listFacilities(request, env, url) {
     where.push("facilities_fts MATCH ?");
     params.push(ftsQuery(q));
   } else if (q) {
-    const like = "%" + escapeLike(q) + "%";
-    where.push("(f.name LIKE ? ESCAPE '\\' OR f.address LIKE ? ESCAPE '\\' OR f.search_text LIKE ? ESCAPE '\\')");
+    const like = "%" + q.replace(/[%_]/g, "") + "%";
+    where.push("(f.name LIKE ? OR f.address LIKE ? OR f.search_text LIKE ?)");
     params.push(like, like, like);
   }
 

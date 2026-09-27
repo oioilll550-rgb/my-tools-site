@@ -119,6 +119,29 @@ def main():
         write_chunk(out_dir, chunk_index, statements)
         chunk_index += 1
 
+    # Exact-sync cleanup. Rows that disappeared from the canonical staging dataset
+    # must also disappear from D1; otherwise previously misclassified facilities linger.
+    source_ids = [s.get("id") for s in data.get("sources", []) if s.get("id")]
+    if source_ids:
+        cleanup = ["PRAGMA foreign_keys = ON;"]
+        for source_id in source_ids:
+            cleanup.append(
+                "DELETE FROM facility_sources "
+                f"WHERE source_id={q(source_id)} "
+                f"AND (observed_at IS NULL OR observed_at <> {q(data.get('sources', [{}])[0].get('retrievedAt'))});"
+            )
+        municipalities = sorted({f.get("municipalityCode") for f in facilities if f.get("municipalityCode")})
+        facility_types = sorted({f.get("facilityType") for f in facilities if f.get("facilityType")})
+        for municipality in municipalities:
+            for facility_type in facility_types:
+                cleanup.append(
+                    "DELETE FROM facilities "
+                    f"WHERE municipality_code={q(municipality)} AND facility_type={q(facility_type)} "
+                    "AND NOT EXISTS (SELECT 1 FROM facility_sources fs WHERE fs.facility_id=facilities.id);"
+                )
+        (out_dir / "9999_cleanup.sql").write_text("\n".join(cleanup) + "\n", encoding="utf-8")
+        print(out_dir / "9999_cleanup.sql")
+
     print(f"Generated {chunk_index - 1} SQL chunks for {len(facilities)} facilities")
 
 if __name__ == "__main__":
