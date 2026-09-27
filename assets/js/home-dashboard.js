@@ -20,23 +20,22 @@ document.addEventListener("DOMContentLoaded", async () => {
       openingsRoot.innerHTML = "";
       items.forEach((r) => {
         const a = document.createElement("a");
-        a.className = "home-info-row";
+        a.className = "home-info-row home-opening-row";
         a.href = externalMapUrl(r.name, r.address);
         a.target = "_blank";
         a.rel = "noopener noreferrer";
+        a.title = r.name + "｜" + r.address;
 
         const date = document.createElement("time");
+        date.className = "home-info-date";
         date.dateTime = r.openingDate;
         date.textContent = r.openingDate.replace(/-/g, "/");
 
-        const body = document.createElement("span");
-        const name = document.createElement("strong");
-        name.textContent = r.name;
-        const address = document.createElement("small");
-        address.textContent = r.address;
-        body.append(name, address);
+        const title = document.createElement("span");
+        title.className = "home-info-title";
+        title.textContent = r.name + "｜" + r.address;
 
-        a.append(date, body);
+        a.append(date, title);
         openingsRoot.appendChild(a);
       });
 
@@ -123,7 +122,9 @@ document.addEventListener("DOMContentLoaded", async () => {
         rank.textContent = String(index + 1);
 
         const name = document.createElement("strong");
+        name.className = "home-info-title";
         name.textContent = item.name;
+        a.title = item.name;
 
         const count = document.createElement("span");
         count.className = "home-info-meta";
