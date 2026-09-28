@@ -2161,3 +2161,353 @@ a.compact-tool-card {
     text-align: center;
   }
 }
+
+
+/* hobby and horse racing analysis */
+.purpose-grid-four {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.hobby-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.hobby-card {
+  display: block;
+  padding: 18px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--surface-muted);
+  color: var(--text);
+  text-decoration: none;
+}
+
+.hobby-card:hover {
+  border-color: #b6c0cc;
+  background: #eef2f6;
+}
+
+.hobby-card strong,
+.hobby-card span {
+  display: block;
+}
+
+.hobby-card strong {
+  font-size: 17px;
+}
+
+.hobby-card span {
+  margin-top: 5px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.race-analysis-page {
+  max-width: 1100px;
+}
+
+.race-hero {
+  border-color: #cfd9e5;
+  background: linear-gradient(135deg, #f6f9fd 0%, #fff 72%);
+}
+
+.race-kicker {
+  display: inline-block;
+  padding: 4px 9px;
+  border-radius: 999px;
+  background: #e9f1fb;
+  color: #315f92;
+  font-size: 11px;
+  font-weight: 750;
+}
+
+.race-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin-top: 14px;
+}
+
+.race-meta span {
+  padding: 5px 9px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: #fff;
+  color: #536171;
+  font-size: 11px;
+}
+
+.race-source-line {
+  margin: 14px 0 0;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.race-source-line a {
+  font-weight: 650;
+}
+
+.race-method-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 9px;
+  margin-top: 16px;
+}
+
+.race-method-item {
+  padding: 13px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--surface-muted);
+}
+
+.race-method-item strong,
+.race-method-item span {
+  display: block;
+}
+
+.race-method-item strong {
+  font-size: 14px;
+}
+
+.race-method-item span {
+  margin-top: 3px;
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.race-analysis-toolbar {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 14px 0;
+}
+
+.race-analysis-toolbar label > span {
+  display: block;
+  margin-bottom: 4px;
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 650;
+}
+
+.race-analysis-toolbar select {
+  min-width: 210px;
+  padding: 9px 10px;
+  border: 1px solid #c8cdd3;
+  border-radius: 9px;
+  background: #fff;
+  font: inherit;
+}
+
+.race-table-wrap {
+  overflow-x: auto;
+  border: 1px solid var(--border);
+  border-radius: 11px;
+}
+
+.race-table {
+  width: 100%;
+  min-width: 820px;
+  border-collapse: collapse;
+  background: #fff;
+  font-size: 12px;
+}
+
+.race-table th,
+.race-table td {
+  padding: 10px 9px;
+  border-bottom: 1px solid var(--border);
+  text-align: right;
+  white-space: nowrap;
+}
+
+.race-table th {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background: #f4f6f8;
+  color: #52606f;
+  font-size: 11px;
+}
+
+.race-table th:nth-child(2),
+.race-table td:nth-child(2) {
+  text-align: left;
+}
+
+.race-table tr:last-child td {
+  border-bottom: 0;
+}
+
+.race-horse-name {
+  font-weight: 750;
+  color: var(--text);
+}
+
+.race-horse-sub {
+  display: block;
+  margin-top: 2px;
+  color: var(--muted);
+  font-size: 10px;
+}
+
+.race-score {
+  font-size: 15px;
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+}
+
+.race-rank {
+  display: inline-grid;
+  place-items: center;
+  min-width: 25px;
+  height: 25px;
+  border-radius: 999px;
+  background: #edf1f5;
+  color: #4c5967;
+  font-weight: 750;
+}
+
+.race-compare-check {
+  width: 17px;
+  height: 17px;
+  vertical-align: middle;
+}
+
+.race-compare-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 15px;
+}
+
+.race-compare-card {
+  padding: 16px;
+  border: 1px solid var(--border);
+  border-radius: 11px;
+  background: #fafbfc;
+}
+
+.race-compare-card h3 {
+  margin: 0 0 4px;
+  font-size: 17px;
+}
+
+.race-compare-card > p {
+  margin: 0 0 12px;
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.race-metric-row {
+  display: grid;
+  grid-template-columns: 72px minmax(0, 1fr) 36px;
+  gap: 8px;
+  align-items: center;
+  margin: 8px 0;
+  font-size: 11px;
+}
+
+.race-metric-track {
+  height: 7px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: #e5e9ee;
+}
+
+.race-metric-bar {
+  height: 100%;
+  border-radius: inherit;
+  background: var(--accent);
+}
+
+.race-notes {
+  display: grid;
+  gap: 5px;
+  margin-top: 12px;
+  padding-top: 11px;
+  border-top: 1px dashed var(--border);
+}
+
+.race-note {
+  color: #536171;
+  font-size: 11px;
+}
+
+.race-top-summary {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.race-summary-card {
+  padding: 14px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--surface-muted);
+}
+
+.race-summary-card span,
+.race-summary-card strong,
+.race-summary-card small {
+  display: block;
+}
+
+.race-summary-card span {
+  color: var(--muted);
+  font-size: 10px;
+}
+
+.race-summary-card strong {
+  margin-top: 2px;
+  font-size: 16px;
+}
+
+.race-summary-card small {
+  margin-top: 4px;
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.race-disclaimer {
+  margin-top: 14px;
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.65;
+}
+
+@media (max-width: 800px) {
+  .purpose-grid-four,
+  .hobby-grid,
+  .race-method-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .race-compare-grid,
+  .race-top-summary {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 560px) {
+  .hobby-grid,
+  .race-method-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .race-analysis-toolbar {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .race-analysis-toolbar select {
+    width: 100%;
+    min-width: 0;
+  }
+}
