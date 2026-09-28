@@ -8,7 +8,11 @@
     "surface": "芝",
     "distance": 1200,
     "direction": "右 外",
-    "sourceUrl": "https://jra.jp/JRADB/accessD.html?CNAME=pw01dde1006202604091120260927/39"
+    "sourceUrl": "https://jra.jp/JRADB/accessD.html?CNAME=pw01dde1006202604091120260927/39",
+    "going": "稍重",
+    "weather": "曇",
+    "analysisVersion": "2.0",
+    "analysisNote": "レース結果の着順・タイムは指数に使用せず、出馬表の近4走・血統・騎手継続性と当日の馬場状態を使用。"
   },
   "horses": [
     {
@@ -52,7 +56,18 @@
           "grade": "L",
           "rating": 107
         }
-      ]
+      ],
+      "pedigree": {
+        "sire": "ロードカナロア",
+        "damsire": "ディープインパクト"
+      },
+      "sameJockeyRunIndexes": [
+        0,
+        1,
+        3
+      ],
+      "courseEvidence": [],
+      "goingEvidence": []
     },
     {
       "number": 2,
@@ -95,7 +110,18 @@
           "grade": "3勝",
           "rating": null
         }
-      ]
+      ],
+      "pedigree": {
+        "sire": "キズナ",
+        "damsire": "シンボリクリスエス"
+      },
+      "sameJockeyRunIndexes": [
+        0,
+        1,
+        2
+      ],
+      "courseEvidence": [],
+      "goingEvidence": []
     },
     {
       "number": 3,
@@ -138,7 +164,17 @@
           "grade": "GⅠ",
           "rating": 99
         }
-      ]
+      ],
+      "pedigree": {
+        "sire": "クロフネ",
+        "damsire": "キングカメハメハ"
+      },
+      "sameJockeyRunIndexes": [
+        0,
+        1
+      ],
+      "courseEvidence": [],
+      "goingEvidence": []
     },
     {
       "number": 4,
@@ -181,7 +217,19 @@
           "grade": "GⅢ",
           "rating": 106
         }
-      ]
+      ],
+      "pedigree": {
+        "sire": "American Pharoah",
+        "damsire": "Galileo"
+      },
+      "sameJockeyRunIndexes": [],
+      "courseEvidence": [
+        {
+          "finish": 2,
+          "field": 16
+        }
+      ],
+      "goingEvidence": []
     },
     {
       "number": 5,
@@ -223,6 +271,25 @@
           "surface": "芝",
           "grade": "3勝",
           "rating": null
+        }
+      ],
+      "pedigree": {
+        "sire": "ミッキーアイル",
+        "damsire": "ケイムホーム"
+      },
+      "sameJockeyRunIndexes": [
+        2
+      ],
+      "courseEvidence": [
+        {
+          "finish": 1,
+          "field": 15
+        }
+      ],
+      "goingEvidence": [
+        {
+          "finish": 6,
+          "field": 13
         }
       ]
     },
@@ -267,7 +334,17 @@
           "grade": "GⅡ",
           "rating": 109
         }
-      ]
+      ],
+      "pedigree": {
+        "sire": "ロードカナロア",
+        "damsire": "ゼンノロブロイ"
+      },
+      "sameJockeyRunIndexes": [
+        0,
+        1
+      ],
+      "courseEvidence": [],
+      "goingEvidence": []
     },
     {
       "number": 7,
@@ -310,7 +387,26 @@
           "grade": "GⅠ",
           "rating": 103
         }
-      ]
+      ],
+      "pedigree": {
+        "sire": "キンシャサノキセキ",
+        "damsire": "ディープインパクト"
+      },
+      "sameJockeyRunIndexes": [
+        0,
+        1
+      ],
+      "courseEvidence": [
+        {
+          "finish": 1,
+          "field": 16
+        },
+        {
+          "finish": 13,
+          "field": 16
+        }
+      ],
+      "goingEvidence": []
     },
     {
       "number": 8,
@@ -352,6 +448,23 @@
           "surface": "芝",
           "grade": "GⅢ",
           "rating": 105
+        }
+      ],
+      "pedigree": {
+        "sire": "マクフィ",
+        "damsire": "ハーツクライ"
+      },
+      "sameJockeyRunIndexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "courseEvidence": [],
+      "goingEvidence": [
+        {
+          "finish": 2,
+          "field": 12
         }
       ]
     },
@@ -396,7 +509,14 @@
           "grade": "GⅢ",
           "rating": 108
         }
-      ]
+      ],
+      "pedigree": {
+        "sire": "ドレフォン",
+        "damsire": "ダイワメジャー"
+      },
+      "sameJockeyRunIndexes": [],
+      "courseEvidence": [],
+      "goingEvidence": []
     },
     {
       "number": 10,
@@ -438,6 +558,26 @@
           "surface": "芝",
           "grade": "GⅢ",
           "rating": 111
+        }
+      ],
+      "pedigree": {
+        "sire": "タワーオブロンドン",
+        "damsire": "エンパイアメーカー"
+      },
+      "sameJockeyRunIndexes": [
+        0,
+        1
+      ],
+      "courseEvidence": [
+        {
+          "finish": 2,
+          "field": 16
+        }
+      ],
+      "goingEvidence": [
+        {
+          "finish": 3,
+          "field": 12
         }
       ]
     },
@@ -482,7 +622,24 @@
           "grade": "GⅡ",
           "rating": 114
         }
-      ]
+      ],
+      "pedigree": {
+        "sire": "ドゥラメンテ",
+        "damsire": "New Approach"
+      },
+      "sameJockeyRunIndexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "courseEvidence": [
+        {
+          "finish": 3,
+          "field": 16
+        }
+      ],
+      "goingEvidence": []
     },
     {
       "number": 12,
@@ -524,6 +681,18 @@
           "surface": "芝",
           "grade": "GⅢ",
           "rating": 105
+        }
+      ],
+      "pedigree": {
+        "sire": "キタサンブラック",
+        "damsire": "トゥザワールド"
+      },
+      "sameJockeyRunIndexes": [],
+      "courseEvidence": [],
+      "goingEvidence": [
+        {
+          "finish": 1,
+          "field": 14
         }
       ]
     },
@@ -568,7 +737,18 @@
           "grade": "GⅡ",
           "rating": 107
         }
-      ]
+      ],
+      "pedigree": {
+        "sire": "タワーオブロンドン",
+        "damsire": "ヴィクトワールピサ"
+      },
+      "sameJockeyRunIndexes": [
+        0,
+        1,
+        2
+      ],
+      "courseEvidence": [],
+      "goingEvidence": []
     },
     {
       "number": 14,
@@ -611,7 +791,24 @@
           "grade": "GⅠ",
           "rating": 116
         }
-      ]
+      ],
+      "pedigree": {
+        "sire": "スクリーンヒーロー",
+        "damsire": "マイネルラヴ"
+      },
+      "sameJockeyRunIndexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "courseEvidence": [
+        {
+          "finish": 1,
+          "field": 16
+        }
+      ],
+      "goingEvidence": []
     },
     {
       "number": 15,
@@ -653,6 +850,23 @@
           "surface": "芝",
           "grade": "GⅢ",
           "rating": 107
+        }
+      ],
+      "pedigree": {
+        "sire": "サートゥルナーリア",
+        "damsire": "サクラバクシンオー"
+      },
+      "sameJockeyRunIndexes": [],
+      "courseEvidence": [
+        {
+          "finish": 6,
+          "field": 16
+        }
+      ],
+      "goingEvidence": [
+        {
+          "finish": 1,
+          "field": 13
         }
       ]
     },
@@ -696,6 +910,20 @@
           "surface": "芝",
           "grade": "GⅠ",
           "rating": 93
+        }
+      ],
+      "pedigree": {
+        "sire": "アジアエクスプレス",
+        "damsire": "ディープインパクト"
+      },
+      "sameJockeyRunIndexes": [
+        0
+      ],
+      "courseEvidence": [],
+      "goingEvidence": [
+        {
+          "finish": 1,
+          "field": 12
         }
       ]
     }

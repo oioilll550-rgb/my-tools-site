@@ -5,9 +5,9 @@
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self' https://abacus.jasoncameron.dev; font-src 'self' data:; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
 <meta name="referrer" content="no-referrer">
 <title>競馬・出走馬実力比較 | べんりちゃん、微力ながら</title>
-<meta name="description" content="JRA出馬表のレーティングと近4走をもとに、出走馬の実力・近走・短距離適性・格を同じ基準で比較します。">
+<meta name="description" content="JRA出馬表のレーティング・近4走・騎手継続性・血統・コース・馬場適性から、出走馬を同じ基準で比較します。">
 <meta name="robots" content="index,follow">
-<link rel="stylesheet" href="../../assets/css/style.css?v=20260928-1">
+<link rel="stylesheet" href="../../assets/css/style.css?v=20260928-2">
 </head>
 <body>
 <header><div class="header-inner"><div class="site-title"><a href="../../">べんりちゃん、微力ながら</a></div>
@@ -24,13 +24,18 @@
 
 <section class="card">
 <h2>比較指数の計算方法</h2>
-<p>オッズ・人気は指数に入れず、出馬表で確認できる実績だけを使います。100点満点の相対比較です。</p>
-<div class="race-method-grid">
-<div class="race-method-item"><strong>基礎能力 40%</strong><span>プレレーティングを中心に評価。未掲載時は近走レーティングで補完。</span></div>
-<div class="race-method-item"><strong>近走内容 30%</strong><span>近4走の着順を出走頭数で補正し、直近ほど重く評価。</span></div>
-<div class="race-method-item"><strong>短距離適性 20%</strong><span>芝1000〜1200mの近走成績を抽出して評価。</span></div>
-<div class="race-method-item"><strong>格 10%</strong><span>近4走で走ったGⅠ・GⅡ・GⅢなどの競走レベルを反映。</span></div>
+<p>オッズ・人気とレース結果は指数に入れません。JRA出馬表にあるプレレーティング・近4走・騎手・血統を中心に、当日のコースと馬場条件への適合を加えます。</p>
+<div class="race-method-grid race-method-grid-eight">
+<div class="race-method-item"><strong>基礎能力 25%</strong><span>プレレーティング中心。未掲載時は近走レーティングで補完。</span></div>
+<div class="race-method-item"><strong>近走内容 20%</strong><span>近4走の着順を頭数補正し、直近ほど重く評価。</span></div>
+<div class="race-method-item"><strong>短距離適性 15%</strong><span>芝1000〜1200mの近走成績。</span></div>
+<div class="race-method-item"><strong>コース適性 10%</strong><span>近4走にある中山芝1200mの実績。未経験は中立値。</span></div>
+<div class="race-method-item"><strong>馬場適性 10%</strong><span>稍重・重の芝実績。該当実績がない場合は中立値。</span></div>
+<div class="race-method-item"><strong>騎手相性 10%</strong><span>現在の騎手が近4走で騎乗した回数と、その時の着順内容。</span></div>
+<div class="race-method-item"><strong>血統 5%</strong><span>父・母父を簡易距離タイプ辞書で評価する試験指標。</span></div>
+<div class="race-method-item"><strong>格 5%</strong><span>近4走で経験したGⅠ・GⅡ・GⅢ等のレベル。</span></div>
 </div>
+<p class="race-disclaimer">血統指数は産駒統計ではなく、父・母父の一般的な距離タイプを当サイト独自の簡易辞書にした試験値です。今後、正規の種牡馬成績データを利用できる場合は置き換えます。</p>
 </section>
 
 <section class="card">
@@ -47,13 +52,17 @@
 <option value="rating">基礎能力が高い順</option>
 <option value="form">近走内容が高い順</option>
 <option value="sprint">短距離適性が高い順</option>
+<option value="course">コース適性が高い順</option>
+<option value="going">馬場適性が高い順</option>
+<option value="jockey">騎手相性が高い順</option>
+<option value="pedigree">血統指数が高い順</option>
 <option value="number">馬番順</option>
 </select></label>
 <span class="tools-count">比較したい馬を最大3頭選択できます</span>
 </div>
 <div class="race-table-wrap">
 <table class="race-table">
-<thead><tr><th>順位</th><th>馬</th><th>総合</th><th>基礎能力</th><th>近走</th><th>短距離</th><th>格</th><th>人気/オッズ</th><th>比較</th></tr></thead>
+<thead><tr><th>順位</th><th>馬</th><th>総合</th><th>能力</th><th>近走</th><th>短距離</th><th>コース</th><th>馬場</th><th>騎手</th><th>血統</th><th>格</th><th>人気/オッズ</th><th>比較</th></tr></thead>
 <tbody id="raceTableBody"></tbody>
 </table>
 </div>
@@ -68,7 +77,7 @@
 
 <section class="card">
 <h2>このページについて</h2>
-<p>2026年9月27日・中山11R「第60回スプリンターズステークス」のJRA公式出馬表を参考データとして使った試作版です。レース結果は計算に使っていません。</p>
+<p>2026年9月27日・中山11R「第60回スプリンターズステークス」のJRA公式出馬表を参考データとして使った試作版です。父・母父、騎手、近4走も出馬表から参照しています。当日の芝は稍重として馬場適性を計算しています。レース結果の着順・タイムは指数に使っていません。</p>
 <p class="race-disclaimer">表示する指数は当サイト独自の比較計算であり、JRAの公式評価・予想ではありません。指数が高い馬の好走や的中を保証しません。馬券購入は20歳以上が対象です。</p>
 </section>
 </main>
