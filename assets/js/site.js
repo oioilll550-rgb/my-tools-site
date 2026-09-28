@@ -296,70 +296,67 @@ document.addEventListener("DOMContentLoaded", async () => {
   }
 });
 
-/* global feedback link */
-document.addEventListener("DOMContentLoaded", () => {
-  const footer = document.querySelector(".footer-inner");
-  if (!footer || footer.querySelector(".feedback-footer-link")) return;
-
-  const base = location.pathname.startsWith("/my-tools-site/") ? "/my-tools-site/" : "/";
-  const link = document.createElement("a");
-  link.className = "feedback-footer-link";
-  link.href = base + "feedback.html";
-  link.textContent = "ご意見・情報提供";
-
-  const holder = document.createElement("span");
-  holder.appendChild(link);
-  footer.appendChild(holder);
-
-  if (!footer.querySelector(".advertise-footer-link")) {
-    const adLink = document.createElement("a");
-    adLink.className = "advertise-footer-link";
-    adLink.href = base + "advertise.html";
-    adLink.textContent = "PR掲載について";
-    const adHolder = document.createElement("span");
-    adHolder.appendChild(adLink);
-    footer.appendChild(adHolder);
-  }
-});
-
-
-/* common footer: copyright + archive link */
-function ensureCommonFooter() {
+/* common site-map footer */
+function renderCommonFooter() {
   let footer = document.querySelector("footer");
   if (!footer) {
     footer = document.createElement("footer");
     document.body.appendChild(footer);
   }
 
-  let inner = footer.querySelector(".footer-inner");
-  if (!inner) {
-    inner = document.createElement("div");
-    inner.className = "footer-inner";
-    footer.appendChild(inner);
-  }
+  const base = location.pathname.startsWith("/my-tools-site/") ? "/my-tools-site/" : "/";
+  const year = new Date().getFullYear();
 
-  let copyright = Array.from(inner.querySelectorAll("span")).find((el) =>
-    /©|copyright/i.test(el.textContent || "")
-  );
-  if (!copyright) {
-    copyright = document.createElement("span");
-    copyright.innerHTML = '© <span data-current-year></span> べんりちゃん、微力ながら';
-    inner.prepend(copyright);
-  }
+  footer.className = "site-footer";
+  footer.innerHTML = `
+    <div class="site-footer-shell">
+      <div class="site-footer-head">
+        <a class="site-footer-brand" href="${base}">べんりちゃん、微力ながら</a>
+        <a class="site-footer-page-top" href="#" aria-label="ページ上部へ戻る">PAGE TOP <span aria-hidden="true">↑</span></a>
+      </div>
 
-  const year = copyright.querySelector("[data-current-year]") || document.querySelector("[data-current-year]");
-  if (year) year.textContent = new Date().getFullYear();
+      <div class="site-footer-nav">
+        <section class="site-footer-column">
+          <h2>便利ツール</h2>
+          <a href="${base}#tools">ツール一覧</a>
+          <a href="${base}tools/character-counter.html">文字数カウンター</a>
+          <a href="${base}tools/discount-tax-app.html">割引・税込計算</a>
+          <a href="${base}tools/electricity-cost-app.html">電気代計算</a>
+        </section>
 
-  const hasLibraryLink = Array.from(inner.querySelectorAll("a")).some((a) =>
-    /\/library\/?$/.test(new URL(a.href, location.href).pathname)
-  );
-  if (!hasLibraryLink) {
-    const holder = document.createElement("span");
-    const link = document.createElement("a");
-    link.href = "/my-tools-site/library/";
-    link.textContent = "べんりちゃん資料室";
-    holder.appendChild(link);
-    inner.appendChild(holder);
-  }
+        <section class="site-footer-column">
+          <h2>地域情報</h2>
+          <a href="${base}public/">公共施設</a>
+          <a href="${base}public/saitama/koshigaya/">越谷市の公共施設</a>
+          <a href="${base}restaurants/">飲食店</a>
+          <a href="${base}restaurants/saitama/koshigaya/">越谷市の飲食店</a>
+        </section>
+
+        <section class="site-footer-column">
+          <h2>趣味・おまけ</h2>
+          <a href="${base}hobby/">趣味</a>
+          <a href="${base}hobby/horse-racing/">競馬</a>
+          <a href="${base}hobby/horse-racing/comparison.html">競馬・実力比較</a>
+          <a href="${base}library/">べんりちゃん資料室</a>
+        </section>
+
+        <section class="site-footer-column">
+          <h2>サイト案内</h2>
+          <a href="${base}feedback.html">ご意見・情報提供</a>
+          <a href="${base}advertise.html">PR掲載について</a>
+          <a href="${base}privacy.html">プライバシーポリシー</a>
+        </section>
+      </div>
+
+      <div class="site-footer-meta">
+        <nav class="site-footer-policy" aria-label="フッターナビゲーション">
+          <a href="${base}privacy.html">プライバシーポリシー</a>
+          <a href="${base}feedback.html">ご意見・情報提供</a>
+          <a href="${base}library/">べんりちゃん資料室</a>
+        </nav>
+        <p class="site-footer-copyright">© ${year} べんりちゃん、微力ながら. All rights reserved.</p>
+      </div>
+    </div>
+  `;
 }
-document.addEventListener("DOMContentLoaded", ensureCommonFooter);
+document.addEventListener("DOMContentLoaded", renderCommonFooter);
