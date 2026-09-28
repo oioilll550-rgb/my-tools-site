@@ -1,0 +1,35 @@
+name: Import horse racing hero
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - ".github/workflows/import-horse-racing-hero.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  import-image:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Download hero image
+        env:
+          HERO_URL: "https://d2jqrm6oza8nb6.cloudfront.net/datasets/72528711-df37-4da3-ab27-394268e018ce.jpg?_jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJrZXlIYXNoIjoiYjZjOWQzNTBhZWYyYWIyYSIsImJ1Y2tldCI6InJ1bndheS1kYXRhc2V0cyIsInN0YWdlIjoicHJvZCIsImV4cCI6MTc5MDcyNDk0NH0.1BKzeW2b5o95qeBNB5ad72VOY5v35WGwSAHSKfJj21A"
+        run: |
+          mkdir -p assets/images
+          curl -L --fail --retry 3 "$HERO_URL" -o assets/images/horse-racing-hero.jpg
+          test -s assets/images/horse-racing-hero.jpg
+          file assets/images/horse-racing-hero.jpg
+
+      - name: Commit image
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/images/horse-racing-hero.jpg
+          git diff --cached --quiet && exit 0
+          git commit -m "Import high-quality horse racing hero image"
+          git push
