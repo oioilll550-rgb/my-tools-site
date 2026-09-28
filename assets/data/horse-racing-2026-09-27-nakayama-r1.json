@@ -1,0 +1,472 @@
+{
+  "race": {
+    "title": "2歳未勝利（牝）",
+    "date": "2026-09-27",
+    "venue": "中山",
+    "raceNo": 1,
+    "grade": "未勝利",
+    "surface": "ダ",
+    "distance": 1200,
+    "direction": "右",
+    "postTime": "10:00",
+    "sourceUrl": "https://www.jra.go.jp/JRADB/accessD.html?CNAME=pw01dde0106202604090120260927/08",
+    "sourceLabel": "JRA公式 出馬表",
+    "going": null,
+    "weather": null,
+    "kicker": "過去分析｜結果未使用",
+    "analysisNote": "対象レース自身の着順・タイム・オッズ・人気・払戻は使用していません。前走以前の情報だけで再構成し、出走取消となった6番ニシノドリーマーは比較対象から除外しています。"
+  },
+  "horses": [
+    {
+      "number": 1,
+      "name": "ドナチャージ",
+      "sexAge": "牝2",
+      "jockey": "杉原 誠人",
+      "preRating": null,
+      "runs": [
+        {
+          "finish": 5,
+          "field": 16,
+          "distance": 1200,
+          "surface": "芝",
+          "grade": "新馬",
+          "rating": null
+        }
+      ],
+      "pedigree": {
+        "sire": "ウィルテイクチャージ",
+        "damsire": "Malibu Moon"
+      },
+      "sameJockeyRunIndexes": [
+        0
+      ],
+      "courseEvidence": [],
+      "goingEvidence": []
+    },
+    {
+      "number": 2,
+      "name": "エコロブラン",
+      "sexAge": "牝2",
+      "jockey": "津村 明秀",
+      "preRating": null,
+      "runs": [
+        {
+          "finish": 5,
+          "field": 15,
+          "distance": 1400,
+          "surface": "芝",
+          "grade": "新馬",
+          "rating": null
+        }
+      ],
+      "pedigree": {
+        "sire": "ミスチヴィアスアレックス",
+        "damsire": "ゴールドアリュール"
+      },
+      "sameJockeyRunIndexes": [
+        0
+      ],
+      "courseEvidence": [],
+      "goingEvidence": []
+    },
+    {
+      "number": 3,
+      "name": "リングスター",
+      "sexAge": "牝2",
+      "jockey": "石田 拓郎",
+      "preRating": null,
+      "runs": [
+        {
+          "finish": 10,
+          "field": 10,
+          "distance": 1200,
+          "surface": "ダ",
+          "grade": "新馬",
+          "rating": null
+        }
+      ],
+      "pedigree": {
+        "sire": "カリフォルニアクローム",
+        "damsire": "パイロ"
+      },
+      "sameJockeyRunIndexes": [],
+      "courseEvidence": [],
+      "goingEvidence": []
+    },
+    {
+      "number": 4,
+      "name": "ノーブルミント",
+      "sexAge": "牝2",
+      "jockey": "木幡 初也",
+      "preRating": null,
+      "runs": [
+        {
+          "finish": 6,
+          "field": 14,
+          "distance": 1200,
+          "surface": "芝",
+          "grade": "未勝利",
+          "rating": null
+        },
+        {
+          "finish": 11,
+          "field": 13,
+          "distance": 1600,
+          "surface": "芝",
+          "grade": "新馬",
+          "rating": null
+        }
+      ],
+      "pedigree": {
+        "sire": "デクラレーションオブウォー",
+        "damsire": "ハーツクライ"
+      },
+      "sameJockeyRunIndexes": [
+        0,
+        1
+      ],
+      "courseEvidence": [],
+      "goingEvidence": []
+    },
+    {
+      "number": 5,
+      "name": "プリンセスロッティ",
+      "sexAge": "牝2",
+      "jockey": "佐藤 翔馬",
+      "preRating": null,
+      "runs": [
+        {
+          "finish": 10,
+          "field": 12,
+          "distance": 1200,
+          "surface": "芝",
+          "grade": "未勝利",
+          "rating": null
+        },
+        {
+          "finish": 6,
+          "field": 14,
+          "distance": 1200,
+          "surface": "芝",
+          "grade": "新馬",
+          "rating": null
+        }
+      ],
+      "pedigree": {
+        "sire": "タワーオブロンドン",
+        "damsire": "Discreet Cat"
+      },
+      "sameJockeyRunIndexes": [],
+      "courseEvidence": [],
+      "goingEvidence": []
+    },
+    {
+      "number": 7,
+      "name": "マリノエスプレッソ",
+      "sexAge": "牝2",
+      "jockey": "田辺 裕信",
+      "preRating": null,
+      "runs": [
+        {
+          "finish": 3,
+          "field": 15,
+          "distance": 1200,
+          "surface": "ダ",
+          "grade": "未勝利",
+          "rating": null
+        },
+        {
+          "finish": 4,
+          "field": 10,
+          "distance": 1150,
+          "surface": "ダ",
+          "grade": "新馬",
+          "rating": null
+        }
+      ],
+      "pedigree": {
+        "sire": "マテラスカイ",
+        "damsire": "フリオーソ"
+      },
+      "sameJockeyRunIndexes": [
+        0
+      ],
+      "courseEvidence": [],
+      "goingEvidence": []
+    },
+    {
+      "number": 8,
+      "name": "ベアベルヴォワ",
+      "sexAge": "牝2",
+      "jockey": "遠藤 汰月",
+      "preRating": null,
+      "runs": [
+        {
+          "finish": 9,
+          "field": 10,
+          "distance": 1200,
+          "surface": "ダ",
+          "grade": "新馬",
+          "rating": null
+        }
+      ],
+      "pedigree": {
+        "sire": "ニューイヤーズデイ",
+        "damsire": "ディープインパクト"
+      },
+      "sameJockeyRunIndexes": [],
+      "courseEvidence": [],
+      "goingEvidence": []
+    },
+    {
+      "number": 9,
+      "name": "ノヴァフォルス",
+      "sexAge": "牝2",
+      "jockey": "上里 直汰",
+      "preRating": null,
+      "runs": [
+        {
+          "finish": 10,
+          "field": 11,
+          "distance": 1000,
+          "surface": "ダ",
+          "grade": "新馬",
+          "rating": null
+        }
+      ],
+      "pedigree": {
+        "sire": "スマートファルコン",
+        "damsire": "ルーラーシップ"
+      },
+      "sameJockeyRunIndexes": [],
+      "courseEvidence": [],
+      "goingEvidence": []
+    },
+    {
+      "number": 10,
+      "name": "アオイスミレ",
+      "sexAge": "牝2",
+      "jockey": "鮫島 克駿",
+      "preRating": null,
+      "runs": [
+        {
+          "finish": 11,
+          "field": 12,
+          "distance": 1200,
+          "surface": "芝",
+          "grade": "新馬",
+          "rating": null
+        }
+      ],
+      "pedigree": {
+        "sire": "アルバート",
+        "damsire": "ダイワメジャー"
+      },
+      "sameJockeyRunIndexes": [],
+      "courseEvidence": [],
+      "goingEvidence": []
+    },
+    {
+      "number": 11,
+      "name": "ジェミニディウ",
+      "sexAge": "牝2",
+      "jockey": "丹内 祐次",
+      "preRating": null,
+      "runs": [
+        {
+          "finish": 2,
+          "field": 12,
+          "distance": 1200,
+          "surface": "ダ",
+          "grade": "新馬",
+          "rating": null
+        }
+      ],
+      "pedigree": {
+        "sire": "マジェスティックウォリアー",
+        "damsire": "ゴールドアリュール"
+      },
+      "sameJockeyRunIndexes": [
+        0
+      ],
+      "courseEvidence": [
+        {
+          "finish": 2,
+          "field": 12
+        }
+      ],
+      "goingEvidence": []
+    },
+    {
+      "number": 12,
+      "name": "ノーブルパラス",
+      "sexAge": "牝2",
+      "jockey": "菊沢 一樹",
+      "preRating": null,
+      "runs": [
+        {
+          "finish": 6,
+          "field": 12,
+          "distance": 1200,
+          "surface": "ダ",
+          "grade": "新馬",
+          "rating": null
+        }
+      ],
+      "pedigree": {
+        "sire": "ルーラーシップ",
+        "damsire": "ディープブリランテ"
+      },
+      "sameJockeyRunIndexes": [],
+      "courseEvidence": [
+        {
+          "finish": 6,
+          "field": 12
+        }
+      ],
+      "goingEvidence": []
+    },
+    {
+      "number": 13,
+      "name": "ワレモコウ",
+      "sexAge": "牝2",
+      "jockey": "岩田 望来",
+      "preRating": null,
+      "runs": [
+        {
+          "finish": 2,
+          "field": 11,
+          "distance": 1400,
+          "surface": "芝",
+          "grade": "未勝利",
+          "rating": null
+        },
+        {
+          "finish": 3,
+          "field": 10,
+          "distance": 1200,
+          "surface": "芝",
+          "grade": "新馬",
+          "rating": null
+        }
+      ],
+      "pedigree": {
+        "sire": "タワーオブロンドン",
+        "damsire": "エンパイアメーカー"
+      },
+      "sameJockeyRunIndexes": [],
+      "courseEvidence": [],
+      "goingEvidence": []
+    },
+    {
+      "number": 14,
+      "name": "ウマッター",
+      "sexAge": "牝2",
+      "jockey": "水沼 元輝",
+      "preRating": null,
+      "runs": [
+        {
+          "finish": 6,
+          "field": 14,
+          "distance": 1200,
+          "surface": "ダ",
+          "grade": "新馬",
+          "rating": null
+        }
+      ],
+      "pedigree": {
+        "sire": "カレンブラックヒル",
+        "damsire": "タイムパラドックス"
+      },
+      "sameJockeyRunIndexes": [
+        0
+      ],
+      "courseEvidence": [
+        {
+          "finish": 6,
+          "field": 14
+        }
+      ],
+      "goingEvidence": []
+    },
+    {
+      "number": 15,
+      "name": "シュネルアステリア",
+      "sexAge": "牝2",
+      "jockey": "木幡 巧也",
+      "preRating": null,
+      "runs": [
+        {
+          "finish": 7,
+          "field": 16,
+          "distance": 1200,
+          "surface": "ダ",
+          "grade": "未勝利",
+          "rating": null
+        },
+        {
+          "finish": 11,
+          "field": 14,
+          "distance": 1400,
+          "surface": "ダ",
+          "grade": "新馬",
+          "rating": null
+        }
+      ],
+      "pedigree": {
+        "sire": "アメリカンペイトリオット",
+        "damsire": "シンボリクリスエス"
+      },
+      "sameJockeyRunIndexes": [
+        0
+      ],
+      "courseEvidence": [
+        {
+          "finish": 7,
+          "field": 16
+        }
+      ],
+      "goingEvidence": []
+    },
+    {
+      "number": 16,
+      "name": "パルセノスミハ",
+      "sexAge": "牝2",
+      "jockey": "佐々木 大輔",
+      "preRating": null,
+      "runs": [
+        {
+          "finish": 6,
+          "field": 10,
+          "distance": 1800,
+          "surface": "ダ",
+          "grade": "未勝利",
+          "rating": null
+        },
+        {
+          "finish": 6,
+          "field": 15,
+          "distance": 1200,
+          "surface": "ダ",
+          "grade": "未勝利",
+          "rating": null
+        },
+        {
+          "finish": 9,
+          "field": 11,
+          "distance": 1200,
+          "surface": "芝",
+          "grade": "新馬",
+          "rating": null
+        }
+      ],
+      "pedigree": {
+        "sire": "ヘニーヒューズ",
+        "damsire": "Bernardini"
+      },
+      "sameJockeyRunIndexes": [],
+      "courseEvidence": [],
+      "goingEvidence": []
+    }
+  ]
+}
