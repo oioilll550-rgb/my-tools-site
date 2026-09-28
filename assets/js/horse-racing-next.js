@@ -1,6 +1,5 @@
 document.addEventListener("DOMContentLoaded", async () => {
   const scheduleUrl = "../../assets/data/horse-racing-next-schedule.json";
-  const nav = document.getElementById("raceVenueNav");
   const panels = document.getElementById("raceVenuePanels");
 
   function venueId(name, index) {
@@ -68,19 +67,13 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     document.getElementById("nextRaceDateTitle").textContent =
       data.label + "｜全レース";
-    document.getElementById("nextRaceScheduleNote").textContent = data.note || "";
+    const source = document.getElementById("nextRaceSource");
+    source.href = data.sourceUrl;
+    source.textContent = data.sourceUrl;
 
-    nav.innerHTML = "";
     panels.innerHTML = "";
 
     (data.venues || []).forEach((venue, index) => {
-      const id = venueId(venue.name, index);
-
-      const link = document.createElement("a");
-      link.href = "#" + id;
-      link.textContent = venue.name;
-      nav.appendChild(link);
-
       panels.appendChild(venuePanel(venue, index));
     });
 
@@ -88,7 +81,6 @@ document.addEventListener("DOMContentLoaded", async () => {
       panels.innerHTML = '<section class="card"><p class="notice">開催予定がありません。</p></section>';
     }
   } catch (error) {
-    nav.innerHTML = "";
     panels.innerHTML =
       '<section class="card"><p class="notice">開催予定を読み込めませんでした。</p></section>';
   }
