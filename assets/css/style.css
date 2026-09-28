@@ -3181,3 +3181,67 @@ body.horse-racing-theme .card {
     align-self: flex-end;
   }
 }
+
+
+/* horse racing detail page: compact user-facing header */
+.race-detail-hero {
+  min-height: 250px;
+}
+
+.race-detail-hero .race-page-hero-overlay {
+  padding-top: 24px;
+  padding-bottom: 24px;
+}
+
+.race-detail-back-nav {
+  margin-bottom: 14px;
+}
+
+.race-detail-back {
+  display: inline-block;
+  padding: 6px 10px;
+  border: 1px solid rgba(130,145,165,.35);
+  border-radius: 999px;
+  background: rgba(255,255,255,.72);
+  color: #435268;
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.race-detail-back:hover {
+  background: rgba(255,255,255,.92);
+  color: var(--text);
+}
+
+.race-detail-hero h1 {
+  margin: 0 0 14px;
+  font-size: clamp(30px, 4vw, 43px);
+}
+
+.race-meta-compact {
+  margin-top: 0;
+}
+
+.race-meta-compact span {
+  background: rgba(255,255,255,.78);
+}
+
+.race-detail-hero .race-source-line {
+  margin: 13px 0 0;
+  font-size: 11px;
+}
+
+@media (max-width: 720px) {
+  .race-detail-hero {
+    min-height: 390px;
+  }
+
+  .race-detail-hero .race-page-hero-overlay {
+    padding-bottom: 24px;
+  }
+
+  .race-detail-hero h1 {
+    font-size: clamp(28px, 9vw, 38px);
+  }
+}
