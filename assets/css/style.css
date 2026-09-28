@@ -3294,3 +3294,21 @@ body.horse-racing-theme .card {
     font-size: 18px;
   }
 }
+
+
+/* library reference materials */
+.library-reference-grid {
+  grid-template-columns: minmax(0, 380px);
+}
+
+.library-reference-item img {
+  aspect-ratio: 2 / 3;
+  object-fit: contain;
+  background: #f8f7f4;
+}
+
+@media (max-width: 560px) {
+  .library-reference-grid {
+    grid-template-columns: 1fr;
+  }
+}
