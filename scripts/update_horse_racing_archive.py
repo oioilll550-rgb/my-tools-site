@@ -225,7 +225,10 @@ def result_races_for_day(target: date) -> list[dict]:
             if race_no not in by_race or "sde100" in cname:
                 by_race[race_no] = cname
         if not by_race:
-            raise RuntimeError(f"No result races found for {target} {venue}")
+            raise RuntimeError(
+                f"No result races found for {target} {venue}; "
+                f"raw candidates={race_cnames[:8]}"
+            )
         selected.append({
             "date": target.isoformat(),
             "venue_code": venue_code,
