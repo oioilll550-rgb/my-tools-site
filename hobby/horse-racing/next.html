@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self' https://abacus.jasoncameron.dev; font-src 'self' data:; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
+<meta name="referrer" content="no-referrer">
+<title>次回開催日の全レース分析 | べんりちゃん、微力ながら</title>
+<meta name="description" content="次回開催日の東京・京都・その他競馬場の全レースを一覧表示し、各レースの実力比較へ進めます。">
+<meta name="robots" content="index,follow">
+<link rel="stylesheet" href="../../assets/css/style.css?v=20260928-5">
+</head>
+<body>
+<header><div class="header-inner"><div class="site-title"><a href="../../">べんりちゃん、微力ながら</a></div>
+<nav aria-label="メインナビゲーション"><a href="../../#purposes">目的から探す</a><a href="../../public/">公共施設</a><a href="../../restaurants/">飲食店</a><a href="../../privacy.html">プライバシー</a></nav></div></header>
+<main class="race-analysis-page">
+<section class="card race-hero">
+<p class="breadcrumb"><a href="../../">TOP</a> / <a href="../">趣味</a> / <a href="./">競馬</a> / <a href="comparison.html">実力比較</a> / 次回開催日</p>
+<span class="race-kicker">次回開催日の全レース</span>
+<h1 id="nextRaceDateTitle">次回開催日の全レース</h1>
+<p class="lead">東京・京都・その他競馬場を分けて、開催予定の全レースを表示します。</p>
+<nav class="race-venue-nav" aria-label="競馬場">
+<a href="#venue-tokyo">東京</a>
+<a href="#venue-kyoto">京都</a>
+<a href="#venue-other">その他競馬場</a>
+</nav>
+<p id="nextRaceScheduleNote" class="race-disclaimer"></p>
+</section>
+
+<section class="card race-venue-section" id="venue-tokyo">
+<div class="tools-heading-row"><h2>東京</h2><span id="tokyoRaceCount" class="tools-count">--レース</span></div>
+<div id="tokyoRaceGrid" class="race-schedule-grid"><p class="notice">読み込んでいます…</p></div>
+</section>
+
+<section class="card race-venue-section" id="venue-kyoto">
+<div class="tools-heading-row"><h2>京都</h2><span id="kyotoRaceCount" class="tools-count">--レース</span></div>
+<div id="kyotoRaceGrid" class="race-schedule-grid"><p class="notice">読み込んでいます…</p></div>
+</section>
+
+<section class="card race-venue-section" id="venue-other">
+<div class="tools-heading-row"><h2>その他競馬場</h2><span id="otherRaceCount" class="tools-count">--</span></div>
+<div id="otherRaceGrid" class="race-schedule-grid"><p class="notice">読み込んでいます…</p></div>
+</section>
+
+<section class="card">
+<h2>分析データについて</h2>
+<p>各レースを選ぶと個別の実力比較ページへ移動します。出馬表公開前はレース条件のみを表示し、公開後は出走馬の近走・騎手・血統・コース適性などを読み込む構成です。</p>
+<p class="race-disclaimer">対象レース自身の結果・オッズ・人気は分析対象にしません。</p>
+</section>
+</main>
+<footer><div class="footer-inner"><span>© <span data-current-year>2026</span> べんりちゃん、微力ながら</span><span><a href="../../privacy.html">プライバシーポリシー</a></span></div></footer>
+<script src="../../assets/js/site.js"></script>
+<script src="../../assets/js/horse-racing-next.js?v=20260928-5"></script>
+</body>
+</html>
