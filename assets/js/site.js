@@ -360,3 +360,9 @@ function renderCommonFooter() {
   `;
 }
 document.addEventListener("DOMContentLoaded", renderCommonFooter);
+
+
+/* horse racing background theme */
+if (/\/hobby\/horse-racing(?:\/|$)/.test(location.pathname)) {
+  document.body.classList.add("horse-racing-theme");
+}
