@@ -193,7 +193,7 @@ def parse_meeting_cname(cname: str) -> dict | None:
 def parse_result_cname(cname: str) -> dict | None:
     # Both 010 and 100 variants exist.
     m = re.search(
-        r"pw01sde(?P<variant>010|100)(?P<venue>\d{2})(?P<year>\d{4})(?P<meeting>\d{2})(?P<day>\d{2})(?P<race>\d{2})(?P<date>\d{8})/(?P<cd>[0-9A-Fa-f]{2})$",
+        r"pw01sde(?P<variant>01|10)(?P<venue>\d{2})(?P<year>\d{4})(?P<meeting>\d{2})(?P<day>\d{2})(?P<race>\d{2})(?P<date>\d{8})/(?P<cd>[0-9A-Fa-f]{2})$",
         cname,
     )
     if not m:
@@ -221,8 +221,8 @@ def result_races_for_day(target: date) -> list[dict]:
             if not ri or ri["date"] != date_key or ri["venue"] != venue_code:
                 continue
             race_no = int(ri["race"])
-            # Prefer the 100 detail variant if both are present.
-            if race_no not in by_race or "sde100" in cname:
+            # Prefer the "10" detail variant if both are present.
+            if race_no not in by_race or "sde10" in cname:
                 by_race[race_no] = cname
         if not by_race:
             raise RuntimeError(
@@ -259,7 +259,7 @@ def related_entry_cname(result_soup: BeautifulSoup, result_cname: str) -> str:
     )
 
     entry_pat = re.compile(
-        r"(pw01dde(?:010|100)(\d{2})(\d{4})(\d{2})(\d{2})(\d{2})(\d{8})/[0-9A-Fa-f]{2})"
+        r"(pw01dde(?:01|10)(\d{2})(\d{4})(\d{2})(\d{2})(\d{2})(\d{8})/[0-9A-Fa-f]{2})"
     )
     for match in entry_pat.findall(str(result_soup)):
         full, venue, year, meeting, day, race, date8 = match
