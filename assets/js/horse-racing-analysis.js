@@ -440,20 +440,19 @@ document.addEventListener("DOMContentLoaded", async () => {
 
       if (!selectedRace || !selectedDay) throw new Error("past race not found");
 
-      if (selectedRace.dataUrl) {
-        const detailRes = await fetch(selectedRace.dataUrl, {cache: "no-store"});
-        if (!detailRes.ok) throw new Error("past race detail");
-        data = await detailRes.json();
-      } else {
-        data = {
-          race: {
-            ...selectedRace,
-            date: selectedDay.date,
-            sourceUrl: selectedRace.sourceUrl || selectedDay.sourceUrl
-          },
-          horses: []
-        };
-      }
+      const archiveDataUrl =
+        "../../assets/data/horse-racing-past-analysis-" + selectedDay.date + ".json";
+      const detailRes = await fetch(archiveDataUrl, {cache: "no-store"});
+      if (!detailRes.ok) throw new Error("past race detail");
+      const archiveData = await detailRes.json();
+      data = archiveData.analyses?.[raceKey] || {
+        race: {
+          ...selectedRace,
+          date: selectedDay.date,
+          sourceUrl: selectedRace.sourceUrl || selectedDay.sourceUrl
+        },
+        horses: []
+      };
     } else {
       throw new Error("race data");
     }
