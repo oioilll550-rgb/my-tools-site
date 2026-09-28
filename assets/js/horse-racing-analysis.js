@@ -4,13 +4,18 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   const requestedRaceKey = new URLSearchParams(location.search).get("race") || "2026-10-03-tokyo-1";
   const nextRacePattern = /^2026-10-03-(tokyo|kyoto)-([1-9]|1[0-2])$/;
-  const isNextRace = requestedRaceKey === "next" || nextRacePattern.test(requestedRaceKey);
-  const raceKey = requestedRaceKey === "next" ? "2026-10-03-tokyo-1" : requestedRaceKey;
-  const raceDataMap = {
-    "2026-09-27": "../../assets/data/horse-racing-2026-09-27-nakayama-r1.json",
-    "2026-09-26": "../../assets/data/horse-racing-2026-09-26-nakayama-r1.json"
+  const archiveRacePattern = /^2026-09-(26|27)-(nakayama|hanshin)-([1-9]|1[0-2])$/;
+  const legacyArchiveMap = {
+    "2026-09-27": "2026-09-27-nakayama-1",
+    "2026-09-26": "2026-09-26-nakayama-1"
   };
-  const isArchive = !isNextRace;
+  const normalizedRaceKey =
+    requestedRaceKey === "next"
+      ? "2026-10-03-tokyo-1"
+      : (legacyArchiveMap[requestedRaceKey] || requestedRaceKey);
+  const isNextRace = nextRacePattern.test(normalizedRaceKey);
+  const isArchive = archiveRacePattern.test(normalizedRaceKey);
+  const raceKey = normalizedRaceKey;
   const gradeScore = {
     "GⅠ": 100, "JpnⅠ": 95, "GⅡ": 85, "JpnⅡ": 82,
     "GⅢ": 75, "JpnⅢ": 72, "L": 65, "OP": 60, "3勝": 50
@@ -202,7 +207,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     const backLink = document.getElementById("raceBackLink");
     if (backLink) {
       backLink.href = isArchive ? "archive.html" : "next.html";
-      backLink.textContent = isArchive ? "← 過去2開催日分の分析" : "← 次回開催日の全レース";
+      backLink.textContent = isArchive ? "← 過去レース一覧" : "← 次回開催日の全レース";
     }
 
     const source = document.getElementById("raceSource");
@@ -414,12 +419,43 @@ document.addEventListener("DOMContentLoaded", async () => {
           horses: []
         };
       }
+    } else if (isArchive) {
+      const scheduleRes = await fetch("../../assets/data/horse-racing-past-schedule.json", {cache: "no-store"});
+      if (!scheduleRes.ok) throw new Error("past schedule");
+      const schedule = await scheduleRes.json();
+
+      let selectedRace = null;
+      let selectedDay = null;
+
+      for (const day of schedule.days || []) {
+        const found = (day.venues || [])
+          .flatMap((venue) => venue.races || [])
+          .find((item) => item.key === raceKey);
+        if (found) {
+          selectedRace = found;
+          selectedDay = day;
+          break;
+        }
+      }
+
+      if (!selectedRace || !selectedDay) throw new Error("past race not found");
+
+      if (selectedRace.dataUrl) {
+        const detailRes = await fetch(selectedRace.dataUrl, {cache: "no-store"});
+        if (!detailRes.ok) throw new Error("past race detail");
+        data = await detailRes.json();
+      } else {
+        data = {
+          race: {
+            ...selectedRace,
+            date: selectedDay.date,
+            sourceUrl: selectedRace.sourceUrl || selectedDay.sourceUrl
+          },
+          horses: []
+        };
+      }
     } else {
-      const dataUrl = raceDataMap[raceKey];
-      if (!dataUrl) throw new Error("race data");
-      const res = await fetch(dataUrl, {cache: "no-store"});
-      if (!res.ok) throw new Error("race data");
-      data = await res.json();
+      throw new Error("race data");
     }
 
     race = data.race;
