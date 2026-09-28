@@ -180,8 +180,9 @@ def result_meetings_for_month(year: int, month: int) -> list[str]:
 
 def parse_meeting_cname(cname: str) -> dict | None:
     # Example: pw01srl10092023020420230402/F2
+    # "10" / "00" is the JRA navigation variant, followed by the 2-digit venue.
     m = re.search(
-        r"pw01srl\d(?P<venue>\d{2})(?P<year>\d{4})(?P<meeting>\d{2})(?P<day>\d{2})(?P<date>\d{8})/[0-9A-Fa-f]{2}$",
+        r"pw01srl(?:10|00)(?P<venue>\d{2})(?P<year>\d{4})(?P<meeting>\d{2})(?P<day>\d{2})(?P<date>\d{8})/[0-9A-Fa-f]{2}$",
         cname,
     )
     if not m:
