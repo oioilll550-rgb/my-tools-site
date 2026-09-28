@@ -2729,3 +2729,126 @@ a.compact-tool-card {
     padding: 13px;
   }
 }
+
+
+/* horse racing v5: compact venue schedule */
+.race-next-page {
+  max-width: 1180px;
+}
+
+.race-next-hero {
+  padding-bottom: 14px;
+}
+
+.race-next-hero h1 {
+  margin-bottom: 6px;
+}
+
+.race-next-hero .race-disclaimer {
+  margin: 8px 0 0;
+}
+
+.race-venue-nav {
+  margin-top: 10px;
+}
+
+.race-venue-panels {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.race-compact-venue {
+  margin-top: 0;
+  padding: 14px;
+}
+
+.race-compact-venue-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 7px;
+}
+
+.race-compact-venue-head h2 {
+  margin: 0;
+  font-size: 19px;
+}
+
+.race-compact-list {
+  border: 1px solid var(--border);
+  border-radius: 9px;
+  overflow: hidden;
+  background: #fff;
+}
+
+.race-compact-row {
+  display: grid;
+  grid-template-columns: 34px minmax(0, 1fr) 78px;
+  align-items: center;
+  gap: 8px;
+  min-height: 31px;
+  padding: 4px 8px;
+  border-bottom: 1px solid var(--border);
+  color: var(--text);
+  text-decoration: none;
+  font-size: 12px;
+  line-height: 1.2;
+}
+
+.race-compact-row:last-child {
+  border-bottom: 0;
+}
+
+.race-compact-row:hover {
+  background: #f4f7fa;
+}
+
+.race-compact-no {
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+}
+
+.race-compact-title {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.race-compact-course {
+  color: var(--muted);
+  text-align: right;
+  white-space: nowrap;
+  font-size: 11px;
+  font-variant-numeric: tabular-nums;
+}
+
+.race-next-note {
+  margin-top: 12px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+
+.race-next-note p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 11px;
+}
+
+@media (max-width: 760px) {
+  .race-venue-panels {
+    grid-template-columns: 1fr;
+  }
+
+  .race-compact-venue {
+    padding: 11px;
+  }
+
+  .race-compact-row {
+    grid-template-columns: 32px minmax(0, 1fr) 74px;
+    min-height: 30px;
+    padding: 4px 7px;
+  }
+}
