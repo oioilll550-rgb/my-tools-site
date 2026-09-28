@@ -3126,15 +3126,16 @@ body.horse-racing-theme .card {
 }
 
 .race-page-hero-content {
-  width: min(680px, 66%);
+  width: min(740px, 72%);
 }
 
 .race-page-hero-content-wide {
-  width: min(790px, 74%);
+  width: min(840px, 78%);
 }
 
 .race-page-hero h1 {
   margin-bottom: 10px;
+  font-size: clamp(30px, 4.2vw, 44px);
 }
 
 .race-page-hero .breadcrumb {
