@@ -1,0 +1,22 @@
+{
+  "race": {
+    "title": "2歳未勝利",
+    "date": "2026-10-03",
+    "venue": "東京",
+    "raceNo": 1,
+    "grade": "未勝利",
+    "surface": "ダ",
+    "distance": 1600,
+    "direction": "左",
+    "postTime": "10:05",
+    "sourceUrl": "https://www.jra.go.jp/keiba/calendar2026/2026/10/1003.html",
+    "sourceLabel": "JRA公式 開催日程",
+    "going": null,
+    "weather": null,
+    "status": "entries_pending",
+    "kicker": "次回開催日の1R分析",
+    "statusMessage": "JRA出馬表の公開前です。出走馬確定後に馬別指数を表示します。",
+    "analysisNote": "2026/10/03の東京1Rは2歳未勝利・ダ1600mの予定です。JRA出馬表は通常木曜16時ごろに公開されるため、現時点では馬名や騎手を推測していません。"
+  },
+  "horses": []
+}
