@@ -3069,3 +3069,53 @@ a.compact-tool-card {
     border-bottom: 0;
   }
 }
+
+
+/* horse racing background image */
+body.horse-racing-theme {
+  position: relative;
+  isolation: isolate;
+  background: #f5f7fa;
+}
+
+body.horse-racing-theme::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image: url("../images/horse-racing-bg.jpg");
+  background-repeat: no-repeat;
+  background-position: center 16%;
+  background-size: cover;
+  opacity: 0.085;
+}
+
+body.horse-racing-theme > header,
+body.horse-racing-theme > main,
+body.horse-racing-theme > footer {
+  position: relative;
+  z-index: 1;
+}
+
+body.horse-racing-theme .card {
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(0.4px);
+}
+
+body.horse-racing-theme .race-hero {
+  background:
+    linear-gradient(135deg, rgba(246,249,253,.92) 0%, rgba(255,255,255,.90) 72%);
+}
+
+@media (max-width: 720px) {
+  body.horse-racing-theme::before {
+    background-position: center 10%;
+    background-size: auto 100vh;
+    opacity: 0.065;
+  }
+
+  body.horse-racing-theme .card {
+    background: rgba(255, 255, 255, 0.94);
+  }
+}
