@@ -2620,3 +2620,112 @@ a.compact-tool-card {
     text-overflow: ellipsis;
   }
 }
+
+
+/* horse racing v4: all-race schedule */
+.race-venue-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.race-venue-nav a {
+  padding: 8px 12px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: #fff;
+  color: var(--text);
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.race-venue-nav a:hover {
+  border-color: #b6c0cc;
+  background: #f3f6f9;
+}
+
+.race-schedule-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.race-schedule-card {
+  display: block;
+  min-width: 0;
+  padding: 14px;
+  border: 1px solid var(--border);
+  border-radius: 11px;
+  background: #fff;
+  color: var(--text);
+  text-decoration: none;
+  transition: border-color .15s ease, background .15s ease;
+}
+
+.race-schedule-card:hover {
+  border-color: #aebac7;
+  background: #f7f9fb;
+}
+
+.race-schedule-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.race-schedule-no {
+  font-size: 17px;
+  font-variant-numeric: tabular-nums;
+}
+
+.race-schedule-time {
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.race-schedule-title,
+.race-schedule-meta {
+  display: block;
+}
+
+.race-schedule-title {
+  margin-top: 8px;
+  font-size: 14px;
+  font-weight: 750;
+  line-height: 1.45;
+}
+
+.race-schedule-meta {
+  margin-top: 5px;
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+.race-other-venue-heading {
+  grid-column: 1 / -1;
+  margin: 8px 0 0;
+  font-size: 15px;
+}
+
+@media (max-width: 800px) {
+  .race-schedule-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 560px) {
+  .race-schedule-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .race-schedule-card {
+    padding: 13px;
+  }
+}
