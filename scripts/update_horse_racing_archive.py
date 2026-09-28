@@ -133,11 +133,29 @@ def target_as_of() -> date:
 
 def month_check_digit(year: int, month: int) -> str:
     root = jra_post(RESULT_ENDPOINT, RESULT_SEARCH_ROOT)
-    html = str(root)
-    pairs = dict(re.findall(r'objParam\["(\d{4})"\]\s*=\s*"([0-9A-Fa-f]{2})"', html))
+    # JRA includes multiple objParam arrays for different navigation widgets.
+    # The past-result month selector is the first script block containing objParam.
+    script_text = ""
+    for script in root.find_all("script"):
+        raw = str(script)
+        if "objParam" in raw:
+            script_text = raw
+            break
+    if not script_text:
+        raise RuntimeError("JRA result-search month parameter script not found")
+
+    pairs = dict(
+        re.findall(
+            r'objParam\["(\d{4})"\]\s*=\s*"([0-9A-Fa-f]{2})"',
+            script_text,
+        )
+    )
     key = f"{year % 100:02d}{month:02d}"
     if key not in pairs:
-        raise RuntimeError(f"JRA result-search month key not found: {key}")
+        raise RuntimeError(
+            f"JRA result-search month key not found: {key}; "
+            f"available tail={list(pairs.keys())[-6:]}"
+        )
     return pairs[key].upper()
 
 
