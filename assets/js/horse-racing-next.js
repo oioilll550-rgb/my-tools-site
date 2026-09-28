@@ -1,68 +1,64 @@
 document.addEventListener("DOMContentLoaded", async () => {
   const scheduleUrl = "../../assets/data/horse-racing-next-schedule.json";
+  const nav = document.getElementById("raceVenueNav");
+  const panels = document.getElementById("raceVenuePanels");
 
-  function raceCard(race) {
+  function venueId(name, index) {
+    const known = {
+      "東京": "tokyo", "京都": "kyoto", "中山": "nakayama", "阪神": "hanshin",
+      "中京": "chukyo", "新潟": "niigata", "福島": "fukushima",
+      "小倉": "kokura", "札幌": "sapporo", "函館": "hakodate"
+    };
+    return "venue-" + (known[name] || ("v" + index));
+  }
+
+  function raceRow(race) {
     const a = document.createElement("a");
-    a.className = "race-schedule-card";
+    a.className = "race-compact-row";
     a.href = "analysis.html?race=" + encodeURIComponent(race.key);
-
-    const top = document.createElement("div");
-    top.className = "race-schedule-card-top";
+    a.setAttribute("aria-label", race.raceNo + "R " + race.title + " " + race.surface + race.distance + "m");
 
     const no = document.createElement("strong");
-    no.className = "race-schedule-no";
+    no.className = "race-compact-no";
     no.textContent = race.raceNo + "R";
 
-    const time = document.createElement("span");
-    time.className = "race-schedule-time";
-    time.textContent = race.postTime || "--:--";
-
-    top.append(no, time);
-
     const title = document.createElement("span");
-    title.className = "race-schedule-title";
+    title.className = "race-compact-title";
     title.textContent = race.title;
 
-    const meta = document.createElement("span");
-    meta.className = "race-schedule-meta";
-    meta.textContent =
-      (race.subtitle ? race.subtitle + "｜" : "") +
+    const course = document.createElement("span");
+    course.className = "race-compact-course";
+    course.textContent =
       race.surface + race.distance + "m" +
       (race.courseDetail ? " " + race.courseDetail : "");
 
-    a.append(top, title, meta);
+    a.append(no, title, course);
     return a;
   }
 
-  function renderVenue(containerId, countId, venues, emptyText) {
-    const holder = document.getElementById(containerId);
-    const count = document.getElementById(countId);
-    holder.innerHTML = "";
+  function venuePanel(venue, index) {
+    const section = document.createElement("section");
+    section.className = "card race-compact-venue";
+    section.id = venueId(venue.name, index);
 
-    const races = venues.flatMap((venue) =>
-      (venue.races || []).map((race) => ({...race, venueName: venue.name}))
-    );
+    const heading = document.createElement("div");
+    heading.className = "race-compact-venue-head";
 
-    if (!races.length) {
-      const p = document.createElement("p");
-      p.className = "notice";
-      p.textContent = emptyText;
-      holder.appendChild(p);
-      count.textContent = "開催なし";
-      return;
-    }
+    const h2 = document.createElement("h2");
+    h2.textContent = venue.name;
 
-    count.textContent = races.length + "レース";
+    const count = document.createElement("span");
+    count.className = "tools-count";
+    count.textContent = (venue.races || []).length + "レース";
 
-    venues.forEach((venue) => {
-      if (venues.length > 1) {
-        const heading = document.createElement("h3");
-        heading.className = "race-other-venue-heading";
-        heading.textContent = venue.name;
-        holder.appendChild(heading);
-      }
-      (venue.races || []).forEach((race) => holder.appendChild(raceCard(race)));
-    });
+    heading.append(h2, count);
+
+    const list = document.createElement("div");
+    list.className = "race-compact-list";
+    (venue.races || []).forEach((race) => list.appendChild(raceRow(race)));
+
+    section.append(heading, list);
+    return section;
   }
 
   try {
@@ -74,22 +70,26 @@ document.addEventListener("DOMContentLoaded", async () => {
       data.label + "｜全レース";
     document.getElementById("nextRaceScheduleNote").textContent = data.note || "";
 
-    const tokyo = data.venues.filter((v) => v.name === "東京");
-    const kyoto = data.venues.filter((v) => v.name === "京都");
-    const other = data.venues.filter((v) => !["東京", "京都"].includes(v.name));
+    nav.innerHTML = "";
+    panels.innerHTML = "";
 
-    renderVenue("tokyoRaceGrid", "tokyoRaceCount", tokyo, "東京開催はありません。");
-    renderVenue("kyotoRaceGrid", "kyotoRaceCount", kyoto, "京都開催はありません。");
-    renderVenue(
-      "otherRaceGrid",
-      "otherRaceCount",
-      other,
-      "この日のJRA開催は東京・京都のみで、その他競馬場の開催はありません。"
-    );
-  } catch (error) {
-    ["tokyoRaceGrid", "kyotoRaceGrid", "otherRaceGrid"].forEach((id) => {
-      document.getElementById(id).innerHTML =
-        '<p class="notice">開催予定を読み込めませんでした。</p>';
+    (data.venues || []).forEach((venue, index) => {
+      const id = venueId(venue.name, index);
+
+      const link = document.createElement("a");
+      link.href = "#" + id;
+      link.textContent = venue.name;
+      nav.appendChild(link);
+
+      panels.appendChild(venuePanel(venue, index));
     });
+
+    if (!data.venues || !data.venues.length) {
+      panels.innerHTML = '<section class="card"><p class="notice">開催予定がありません。</p></section>';
+    }
+  } catch (error) {
+    nav.innerHTML = "";
+    panels.innerHTML =
+      '<section class="card"><p class="notice">開催予定を読み込めませんでした。</p></section>';
   }
 });
