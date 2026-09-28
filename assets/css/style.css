@@ -2566,3 +2566,57 @@ a.compact-tool-card {
     grid-template-columns: 1fr;
   }
 }
+
+
+/* horse racing v3: race-condition adaptive layout */
+.race-table {
+  min-width: 900px;
+}
+
+.race-table th:first-child,
+.race-table td:first-child,
+.race-table th:nth-child(2),
+.race-table td:nth-child(2) {
+  position: sticky;
+  z-index: 2;
+  background: #fff;
+}
+
+.race-table th:first-child,
+.race-table td:first-child {
+  left: 0;
+}
+
+.race-table th:nth-child(2),
+.race-table td:nth-child(2) {
+  left: 46px;
+  box-shadow: 8px 0 10px -12px rgba(31,35,40,.65);
+}
+
+.race-table th:first-child,
+.race-table th:nth-child(2) {
+  z-index: 3;
+  background: #f4f6f8;
+}
+
+.race-condition-hint {
+  color: var(--muted);
+  font-size: 11px;
+}
+
+@media (max-width: 720px) {
+  .race-table {
+    min-width: 860px;
+  }
+
+  .race-table th,
+  .race-table td {
+    padding: 9px 8px;
+  }
+
+  .race-horse-sub {
+    max-width: 220px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}

@@ -12,7 +12,14 @@
     "going": "稍重",
     "weather": "曇",
     "analysisVersion": "2.0",
-    "analysisNote": "レース結果の着順・タイムは指数に使用せず、出馬表の近4走・血統・騎手継続性と当日の馬場状態を使用。"
+    "analysisNote": "レース結果の着順・タイムは指数に使用せず、出馬表の近4走・血統・騎手継続性と当日の馬場状態を使用。",
+    "targetCondition": {
+      "venue": "中山",
+      "surface": "芝",
+      "distance": 1200,
+      "direction": "右 外",
+      "going": "稍重"
+    }
   },
   "horses": [
     {
@@ -21,8 +28,6 @@
       "sexAge": "牡7",
       "jockey": "酒井 学",
       "preRating": 114,
-      "odds": 52.3,
-      "popularity": 14,
       "runs": [
         {
           "finish": 16,
@@ -75,8 +80,6 @@
       "sexAge": "牝4",
       "jockey": "幸 英明",
       "preRating": 106,
-      "odds": 56.1,
-      "popularity": 15,
       "runs": [
         {
           "finish": 13,
@@ -129,8 +132,6 @@
       "sexAge": "牝7",
       "jockey": "武 豊",
       "preRating": 108,
-      "odds": 16.1,
-      "popularity": 7,
       "runs": [
         {
           "finish": 3,
@@ -182,8 +183,6 @@
       "sexAge": "牝5",
       "jockey": "坂井 瑠星",
       "preRating": null,
-      "odds": 28.3,
-      "popularity": 12,
       "runs": [
         {
           "finish": 17,
@@ -237,8 +236,6 @@
       "sexAge": "牝4",
       "jockey": "吉田 隼人",
       "preRating": 110,
-      "odds": 27,
-      "popularity": 11,
       "runs": [
         {
           "finish": 1,
@@ -299,8 +296,6 @@
       "sexAge": "牡5",
       "jockey": "津村 明秀",
       "preRating": 117,
-      "odds": 10.7,
-      "popularity": 5,
       "runs": [
         {
           "finish": 2,
@@ -352,8 +347,6 @@
       "sexAge": "牡5",
       "jockey": "岩田 康誠",
       "preRating": 112,
-      "odds": 36.7,
-      "popularity": 13,
       "runs": [
         {
           "finish": 10,
@@ -414,8 +407,6 @@
       "sexAge": "牡7",
       "jockey": "富田 暁",
       "preRating": 109,
-      "odds": 21.9,
-      "popularity": 8,
       "runs": [
         {
           "finish": 4,
@@ -474,8 +465,6 @@
       "sexAge": "牝3",
       "jockey": "C.ルメール",
       "preRating": 116,
-      "odds": 3.7,
-      "popularity": 1,
       "runs": [
         {
           "finish": 12,
@@ -524,8 +513,6 @@
       "sexAge": "牡4",
       "jockey": "横山 武史",
       "preRating": 111,
-      "odds": 25.2,
-      "popularity": 10,
       "runs": [
         {
           "finish": 2,
@@ -587,8 +574,6 @@
       "sexAge": "牡6",
       "jockey": "鮫島 克駿",
       "preRating": 114,
-      "odds": 9.6,
-      "popularity": 4,
       "runs": [
         {
           "finish": 8,
@@ -647,8 +632,6 @@
       "sexAge": "牝3",
       "jockey": "浜中 俊",
       "preRating": 105,
-      "odds": 113.6,
-      "popularity": 16,
       "runs": [
         {
           "finish": 6,
@@ -702,8 +685,6 @@
       "sexAge": "牡4",
       "jockey": "松山 弘平",
       "preRating": 116,
-      "odds": 3.9,
-      "popularity": 2,
       "runs": [
         {
           "finish": 2,
@@ -756,8 +737,6 @@
       "sexAge": "牡9",
       "jockey": "三浦 皇成",
       "preRating": 113,
-      "odds": 13.9,
-      "popularity": 6,
       "runs": [
         {
           "finish": 3,
@@ -816,8 +795,6 @@
       "sexAge": "牡4",
       "jockey": "西村 淳也",
       "preRating": 114,
-      "odds": 7.7,
-      "popularity": 3,
       "runs": [
         {
           "finish": 1,
@@ -876,8 +853,6 @@
       "sexAge": "牝5",
       "jockey": "岩田 望来",
       "preRating": 109,
-      "odds": 24.5,
-      "popularity": 9,
       "runs": [
         {
           "finish": 2,
