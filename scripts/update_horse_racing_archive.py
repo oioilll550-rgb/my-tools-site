@@ -356,7 +356,7 @@ def race_title(soup: BeautifulSoup) -> str:
 
 def race_course(soup: BeautifulSoup, title: str) -> dict:
     text = soup.get_text(" ", strip=True)
-    m = re.search(r"コース[:：]\s*([\d,]+)メートル（([^）]+)）", text)
+    m = re.search(r"コース\s*[:：]\s*([\d,]+)\s*メートル\s*（\s*([^）]+?)\s*）", text)
     if not m:
         raise RuntimeError(f"Course not found: {title}")
     distance = int(m.group(1).replace(",", ""))
