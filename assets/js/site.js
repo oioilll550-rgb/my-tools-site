@@ -79,6 +79,7 @@ const SITE_CONTENT = [
   ...SITE_RESTAURANTS,
   {name:"ご意見・情報提供",url:"feedback.html",type:"案内",keywords:["意見","要望","問い合わせ","情報提供","新規OPEN","閉店","移転","修正","誤り","店舗"]},
   {name:"PR掲載について",url:"advertise.html",type:"案内",keywords:["広告","PR","スポンサー","店舗掲載","越谷","掲載料金","広告掲載"]},
+  {name:"べんりちゃん資料室",url:"library/",type:"おまけ",keywords:["資料室","画像","画像保管庫","アルバム","サイト素材","おまけ"]},
   {name:"趣味",url:"hobby/",type:"趣味",keywords:["趣味","競馬","データ分析"]},
   {name:"競馬",url:"hobby/horse-racing/",type:"趣味",keywords:["競馬","出走表","馬","レース","分析"]},
   {name:"競馬・出走馬実力比較",url:"hobby/horse-racing/analysis.html",type:"趣味",keywords:["競馬","出走表","実力比較","レーティング","近走","距離適性","スプリンターズステークス"]},
@@ -320,3 +321,45 @@ document.addEventListener("DOMContentLoaded", () => {
     footer.appendChild(adHolder);
   }
 });
+
+
+/* common footer: copyright + archive link */
+function ensureCommonFooter() {
+  let footer = document.querySelector("footer");
+  if (!footer) {
+    footer = document.createElement("footer");
+    document.body.appendChild(footer);
+  }
+
+  let inner = footer.querySelector(".footer-inner");
+  if (!inner) {
+    inner = document.createElement("div");
+    inner.className = "footer-inner";
+    footer.appendChild(inner);
+  }
+
+  let copyright = Array.from(inner.querySelectorAll("span")).find((el) =>
+    /©|copyright/i.test(el.textContent || "")
+  );
+  if (!copyright) {
+    copyright = document.createElement("span");
+    copyright.innerHTML = '© <span data-current-year></span> べんりちゃん、微力ながら';
+    inner.prepend(copyright);
+  }
+
+  const year = copyright.querySelector("[data-current-year]") || document.querySelector("[data-current-year]");
+  if (year) year.textContent = new Date().getFullYear();
+
+  const hasLibraryLink = Array.from(inner.querySelectorAll("a")).some((a) =>
+    /\/library\/?$/.test(new URL(a.href, location.href).pathname)
+  );
+  if (!hasLibraryLink) {
+    const holder = document.createElement("span");
+    const link = document.createElement("a");
+    link.href = "/my-tools-site/library/";
+    link.textContent = "べんりちゃん資料室";
+    holder.appendChild(link);
+    inner.appendChild(holder);
+  }
+}
+document.addEventListener("DOMContentLoaded", ensureCommonFooter);
