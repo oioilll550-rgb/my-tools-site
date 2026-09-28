@@ -2,7 +2,14 @@ document.addEventListener("DOMContentLoaded", async () => {
   const tableBody = document.getElementById("raceTableBody");
   if (!tableBody) return;
 
-  const DATA_URL = "../../assets/data/horse-racing-sprinters-2026.json";
+  const raceKey = new URLSearchParams(location.search).get("race") || "next";
+  const raceDataMap = {
+    next: "../../assets/data/horse-racing-next-2026-10-03-tokyo-r1.json",
+    "2026-09-27": "../../assets/data/horse-racing-2026-09-27-nakayama-r1.json",
+    "2026-09-26": "../../assets/data/horse-racing-2026-09-26-nakayama-r1.json"
+  };
+  const DATA_URL = raceDataMap[raceKey] || raceDataMap.next;
+  const isArchive = raceKey !== "next";
   const gradeScore = {
     "GⅠ": 100, "JpnⅠ": 95, "GⅡ": 85, "JpnⅡ": 82,
     "GⅢ": 75, "JpnⅢ": 72, "L": 65, "OP": 60, "3勝": 50
@@ -106,8 +113,10 @@ document.addEventListener("DOMContentLoaded", async () => {
     const recentRatings = horse.runs.map((r) => r.rating).filter(Number.isFinite);
     const baseRating = Number.isFinite(horse.preRating)
       ? horse.preRating
-      : (recentRatings.length ? Math.max(...recentRatings) : 100);
-    const ability = clamp((baseRating - 90) / 30 * 100, 0, 100);
+      : (recentRatings.length ? Math.max(...recentRatings) : null);
+    const ability = Number.isFinite(baseRating)
+      ? clamp((baseRating - 90) / 30 * 100, 0, 100)
+      : 50;
 
     const weights = [4, 3, 2, 1];
     const form = weightedAverage(horse.runs.map((run, i) => ({
@@ -181,6 +190,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       currentRace.grade,
       currentRace.surface + currentRace.distance + "m",
       currentRace.direction,
+      currentRace.postTime ? "発走 " + currentRace.postTime : "",
       "馬場 " + (currentRace.going || "未設定")
     ].filter(Boolean).forEach((text) => {
       const span = document.createElement("span");
@@ -188,7 +198,17 @@ document.addEventListener("DOMContentLoaded", async () => {
       meta.appendChild(span);
     });
 
-    document.getElementById("raceSource").href = currentRace.sourceUrl;
+    const kicker = document.getElementById("raceKicker");
+    if (kicker) kicker.textContent = currentRace.kicker || (isArchive ? "過去分析" : "次回開催日の分析");
+    const breadcrumbTail = document.getElementById("raceBreadcrumbTail");
+    if (breadcrumbTail) breadcrumbTail.textContent = isArchive ? currentRace.date.replaceAll("-", "/") + " の分析" : "次回開催日の分析";
+    const source = document.getElementById("raceSource");
+    source.href = currentRace.sourceUrl;
+    const sourceLabel = document.getElementById("raceSourceLabel");
+    if (sourceLabel) sourceLabel.textContent = currentRace.sourceLabel || "JRA公式 出馬表";
+    const policyNote = document.getElementById("racePolicyNote");
+    if (policyNote) policyNote.textContent = currentRace.analysisNote || "";
+
     document.getElementById("distanceMethodText").textContent =
       currentRace.surface + currentRace.distance + "mに近い近走ほど重く評価します。";
     document.getElementById("courseMethodText").textContent =
@@ -197,11 +217,17 @@ document.addEventListener("DOMContentLoaded", async () => {
       (currentRace.going || "今回の馬場") + "での実績を評価します。該当実績なしは中立値です。";
     document.getElementById("pedigreeMethodText").textContent =
       "父・母父の簡易距離タイプを" + currentRace.distance + "mへの近さで評価します。";
-    document.getElementById("raceAboutText").textContent =
-      currentRace.date.replaceAll("-", "/") + "・" + currentRace.venue + currentRace.raceNo +
-      "R「" + currentRace.title + "」のJRA公式出馬表を参考にした試作版です。" +
-      "レース条件（" + targetLabel(currentRace) + "・" + (currentRace.going || "馬場未設定") +
-      "）に合わせて距離・コース・馬場・血統の評価を切り替えます。レース結果は指数に使いません。";
+    if (currentRace.status === "entries_pending") {
+      document.getElementById("raceAboutText").textContent =
+        currentRace.date.replaceAll("-", "/") + "・" + currentRace.venue + currentRace.raceNo +
+        "R「" + currentRace.title + "」の開催予定を表示しています。出馬表公開後に、出走馬・近走・騎手・血統を読み込んで指数を表示します。";
+    } else {
+      document.getElementById("raceAboutText").textContent =
+        currentRace.date.replaceAll("-", "/") + "・" + currentRace.venue + currentRace.raceNo +
+        "R「" + currentRace.title + "」のJRA公式出馬表を参考にした分析です。" +
+        "レース条件（" + targetLabel(currentRace) + "・" + (currentRace.going || "馬場未設定") +
+        "）に合わせて距離・コース・馬場・血統の評価を切り替えます。対象レース自身の結果・オッズ・人気は指数に使いません。";
+    }
   }
 
   function sortRows(mode) {
@@ -388,8 +414,17 @@ document.addEventListener("DOMContentLoaded", async () => {
     const data = await res.json();
     race = data.race;
     renderMeta(race);
-    scored = data.horses.map((horse) => calculate(horse, race));
+    scored = Array.isArray(data.horses) ? data.horses.map((horse) => calculate(horse, race)) : [];
     document.getElementById("raceHorseCount").textContent = scored.length + "頭";
+
+    if (!scored.length) {
+      const message = race.statusMessage || "出走馬データはまだ公開されていません。";
+      document.getElementById("raceTopSummary").innerHTML = '<p class="notice">' + message + '</p>';
+      tableBody.innerHTML = '<tr><td colspan="12">' + message + '</td></tr>';
+      document.getElementById("raceSort").disabled = true;
+      return;
+    }
+
     renderTop();
     renderTable();
     document.getElementById("raceSort").addEventListener("change", (e) => renderTable(e.target.value));
