@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "items": [
+    {
+      "sha256": "b154a7debf362e1286776b5e3b8c02048a363860a478fae47001cf4320e8e6ac",
+      "source": "assets/images/horse-racing-hero.jpg",
+      "archive": "library/assets/header-images/horse-racing-hero--b154a7debf36.jpg",
+      "title": "競馬 ヘッダー画像",
+      "savedDate": "2026-09-28",
+      "usedOn": [
+        "hobby/horse-racing/archive.html",
+        "hobby/horse-racing/comparison.html",
+        "hobby/horse-racing/index.html",
+        "hobby/horse-racing/next.html"
+      ],
+      "current": true
+    },
+    {
+      "sha256": "5b966cfb80e0160869a3c2594aaad04facf55aa97ee6abc10ab00f6a78a1cd1e",
+      "source": "assets/images/horse-racing-detail-hero.png",
+      "archive": "library/assets/header-images/horse-racing-detail-hero--5b966cfb80e0.png",
+      "title": "競馬・個別レース ヘッダー画像",
+      "savedDate": "2026-09-28",
+      "usedOn": [
+        "hobby/horse-racing/analysis.html"
+      ],
+      "current": true
+    },
+    {
+      "sha256": "62fce776d9bb594ae10bea3d4cfdcf8f98f60c0cfd272873ad485c191175711d",
+      "source": "assets/images/header-maid.png",
+      "archive": "library/assets/header-images/header-maid--62fce776d9bb.png",
+      "title": "TOP ヘッダー画像",
+      "savedDate": "2026-09-26",
+      "usedOn": [
+        "index.html"
+      ],
+      "current": true
+    }
+  ]
+}
