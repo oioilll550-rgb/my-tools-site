@@ -3078,21 +3078,21 @@ body.horse-racing-theme {
   background: #f5f7fa;
 }
 
-/* Layer 1: artwork */
+/* Layer 1: artwork — clearly visible */
 body.horse-racing-theme::before {
   content: "";
   position: fixed;
   inset: 0;
   z-index: 0;
   pointer-events: none;
-  background-image: url("../images/horse-racing-bg.jpg?v=20260928-12");
+  background-image: url("../images/horse-racing-bg.jpg?v=20260928-13");
   background-repeat: no-repeat;
-  background-position: center 48px;
-  background-size: min(1100px, 100vw) auto;
-  opacity: 0.18;
+  background-position: center 40px;
+  background-size: min(1180px, 104vw) auto;
+  opacity: 0.28;
 }
 
-/* Layer 2: soft white veil */
+/* Layer 2: much lighter white veil */
 body.horse-racing-theme::after {
   content: "";
   position: fixed;
@@ -3101,8 +3101,8 @@ body.horse-racing-theme::after {
   pointer-events: none;
   background: linear-gradient(
     to bottom,
-    rgba(255,255,255,0.42),
-    rgba(255,255,255,0.50)
+    rgba(255,255,255,0.18),
+    rgba(255,255,255,0.24)
   );
 }
 
@@ -3113,65 +3113,75 @@ body.horse-racing-theme > footer {
   z-index: 1;
 }
 
-/* Layer 3/4: readable content cards */
+/* Layer 3: cards — translucent enough to reveal artwork */
 body.horse-racing-theme .card {
-  background: rgba(255,255,255,0.84);
-  backdrop-filter: blur(0.6px);
+  background: rgba(255,255,255,0.76);
+  backdrop-filter: blur(0.45px);
 }
 
 body.horse-racing-theme .race-hero {
-  background: rgba(255,255,255,0.90);
+  background: rgba(255,255,255,0.82);
 }
 
+/* Layer 4: lists/tables use their own readable surfaces */
 body.horse-racing-theme .race-compact-list,
 body.horse-racing-theme .race-table-wrap,
 body.horse-racing-theme .race-schedule-grid {
-  background: rgba(255,255,255,0.74);
+  background: rgba(255,255,255,0.56);
 }
 
 body.horse-racing-theme .race-compact-row,
 body.horse-racing-theme .race-schedule-card {
-  background: rgba(255,255,255,0.64);
+  background: rgba(255,255,255,0.46);
 }
 
 body.horse-racing-theme .race-compact-row:hover,
 body.horse-racing-theme .race-schedule-card:hover {
-  background: rgba(255,255,255,0.82);
+  background: rgba(255,255,255,0.72);
 }
 
-/* Tables need a slightly stronger surface for numbers */
+body.horse-racing-theme .race-compact-venue {
+  background: rgba(255,255,255,0.72);
+}
+
+/* Dense analysis tables remain slightly stronger */
 body.horse-racing-theme .race-table {
-  background: rgba(255,255,255,0.88);
+  background: rgba(255,255,255,0.78);
 }
 
 body.horse-racing-theme .race-table th,
 body.horse-racing-theme .race-table td:first-child,
 body.horse-racing-theme .race-table td:nth-child(2) {
-  background-color: rgba(255,255,255,0.92);
+  background-color: rgba(255,255,255,0.88);
 }
 
-/* Visitor graph stays the most readable */
+/* Charts retain strong readability but no longer fully hide the background */
 body.horse-racing-theme .page-traffic-card {
-  background: rgba(255,255,255,0.90);
+  background: rgba(255,255,255,0.82);
 }
 
 @media (max-width: 720px) {
   body.horse-racing-theme::before {
-    background-position: center 72px;
-    background-size: 100vw auto;
-    opacity: 0.14;
+    background-position: center 64px;
+    background-size: 112vw auto;
+    opacity: 0.22;
   }
 
   body.horse-racing-theme::after {
-    background: rgba(255,255,255,0.50);
+    background: rgba(255,255,255,0.28);
   }
 
   body.horse-racing-theme .card {
-    background: rgba(255,255,255,0.88);
+    background: rgba(255,255,255,0.82);
   }
 
   body.horse-racing-theme .race-hero,
   body.horse-racing-theme .page-traffic-card {
-    background: rgba(255,255,255,0.92);
+    background: rgba(255,255,255,0.86);
+  }
+
+  body.horse-racing-theme .race-compact-list,
+  body.horse-racing-theme .race-table-wrap {
+    background: rgba(255,255,255,0.66);
   }
 }
