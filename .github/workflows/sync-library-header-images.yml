@@ -1,0 +1,50 @@
+name: Archive header images to library
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - "assets/images/**"
+      - "assets/css/**"
+      - "**/*.html"
+      - "scripts/sync_library_header_images.py"
+      - ".github/workflows/sync-library-header-images.yml"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: library-header-image-archive
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Archive header images
+        run: python scripts/sync_library_header_images.py
+
+      - name: Commit library copies when changed
+        run: |
+          git add -A -- library/assets/header-images
+
+          if git diff --cached --quiet; then
+            echo "No new header image versions"
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Archive header images to library"
+          git pull --rebase origin main
+          git push
