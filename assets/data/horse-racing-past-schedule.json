@@ -11,9 +11,10 @@
           "races": [
             {
               "key": "2026-09-27-nakayama-1",
+              "title": "2歳未勝利",
+              "date": "2026-09-27",
               "venue": "中山",
               "raceNo": 1,
-              "title": "2歳未勝利",
               "grade": "未勝利",
               "surface": "ダ",
               "distance": 1200,
@@ -25,13 +26,15 @@
               "status": "archive",
               "kicker": "過去レース",
               "sourceUrl": "https://www.jra.go.jp/JRADB/accessD.html?CNAME=pw01dde1006202604090120260927/E7",
-              "sourceLabel": "JRA公式 出馬表"
+              "sourceLabel": "JRA公式 出馬表",
+              "statusMessage": ""
             },
             {
               "key": "2026-09-27-nakayama-2",
+              "title": "2歳未勝利",
+              "date": "2026-09-27",
               "venue": "中山",
               "raceNo": 2,
-              "title": "2歳未勝利",
               "grade": "未勝利",
               "surface": "芝",
               "distance": 2000,
@@ -43,13 +46,15 @@
               "status": "archive",
               "kicker": "過去レース",
               "sourceUrl": "https://www.jra.go.jp/JRADB/accessD.html?CNAME=pw01dde1006202604090220260927/9C",
-              "sourceLabel": "JRA公式 出馬表"
+              "sourceLabel": "JRA公式 出馬表",
+              "statusMessage": ""
             },
             {
               "key": "2026-09-27-nakayama-3",
+              "title": "2歳未勝利",
+              "date": "2026-09-27",
               "venue": "中山",
               "raceNo": 3,
-              "title": "2歳未勝利",
               "grade": "未勝利",
               "surface": "ダ",
               "distance": 1800,
@@ -61,13 +66,15 @@
               "status": "archive",
               "kicker": "過去レース",
               "sourceUrl": "https://www.jra.go.jp/JRADB/accessD.html?CNAME=pw01dde1006202604090320260927/51",
-              "sourceLabel": "JRA公式 出馬表"
+              "sourceLabel": "JRA公式 出馬表",
+              "statusMessage": ""
             },
             {
               "key": "2026-09-27-nakayama-4",
+              "title": "メイクデビュー中山",
+              "date": "2026-09-27",
               "venue": "中山",
               "raceNo": 4,
-              "title": "メイクデビュー中山",
               "grade": "新馬",
               "surface": "芝",
               "distance": 1200,
@@ -79,13 +86,15 @@
               "status": "archive",
               "kicker": "過去レース",
               "sourceUrl": "https://www.jra.go.jp/JRADB/accessD.html?CNAME=pw01dde1006202604090420260927/06",
-              "sourceLabel": "JRA公式 出馬表"
+              "sourceLabel": "JRA公式 出馬表",
+              "statusMessage": ""
             },
             {
               "key": "2026-09-27-nakayama-5",
+              "title": "メイクデビュー中山",
+              "date": "2026-09-27",
               "venue": "中山",
               "raceNo": 5,
-              "title": "メイクデビュー中山",
               "grade": "新馬",
               "surface": "芝",
               "distance": 2000,
@@ -97,13 +106,15 @@
               "status": "archive",
               "kicker": "過去レース",
               "sourceUrl": "https://www.jra.go.jp/JRADB/accessD.html?CNAME=pw01dde1006202604090520260927/BB",
-              "sourceLabel": "JRA公式 出馬表"
+              "sourceLabel": "JRA公式 出馬表",
+              "statusMessage": ""
             },
             {
               "key": "2026-09-27-nakayama-6",
+              "title": "3歳以上1勝クラス",
+              "date": "2026-09-27",
               "venue": "中山",
               "raceNo": 6,
-              "title": "3歳以上1勝クラス",
               "grade": "1勝",
               "surface": "ダ",
               "distance": 1800,
@@ -115,13 +126,15 @@
               "status": "archive",
               "kicker": "過去レース",
               "sourceUrl": "https://www.jra.go.jp/JRADB/accessD.html?CNAME=pw01dde1006202604090620260927/70",
-              "sourceLabel": "JRA公式 出馬表"
+              "sourceLabel": "JRA公式 出馬表",
+              "statusMessage": ""
             },
             {
               "key": "2026-09-27-nakayama-7",
+              "title": "3歳以上1勝クラス",
+              "date": "2026-09-27",
               "venue": "中山",
               "raceNo": 7,
-              "title": "3歳以上1勝クラス",
               "grade": "1勝",
               "surface": "芝",
               "distance": 1600,
@@ -133,13 +146,15 @@
               "status": "archive",
               "kicker": "過去レース",
               "sourceUrl": "https://www.jra.go.jp/JRADB/accessD.html?CNAME=pw01dde1006202604090720260927/25",
-              "sourceLabel": "JRA公式 出馬表"
+              "sourceLabel": "JRA公式 出馬表",
+              "statusMessage": ""
             },
             {
               "key": "2026-09-27-nakayama-8",
+              "title": "3歳以上2勝クラス",
+              "date": "2026-09-27",
               "venue": "中山",
               "raceNo": 8,
-              "title": "3歳以上2勝クラス",
               "grade": "2勝",
               "surface": "ダ",
               "distance": 1800,
@@ -151,13 +166,15 @@
               "status": "archive",
               "kicker": "過去レース",
               "sourceUrl": "https://www.jra.go.jp/JRADB/accessD.html?CNAME=pw01dde1006202604090820260927/DA",
-              "sourceLabel": "JRA公式 出馬表"
+              "sourceLabel": "JRA公式 出馬表",
+              "statusMessage": ""
             },
             {
               "key": "2026-09-27-nakayama-9",
+              "title": "サフラン賞",
+              "date": "2026-09-27",
               "venue": "中山",
               "raceNo": 9,
-              "title": "サフラン賞",
               "grade": "1勝",
               "surface": "芝",
               "distance": 1600,
@@ -169,13 +186,15 @@
               "status": "archive",
               "kicker": "過去レース",
               "sourceUrl": "https://www.jra.go.jp/JRADB/accessD.html?CNAME=pw01dde1006202604090920260927/8F",
-              "sourceLabel": "JRA公式 出馬表"
+              "sourceLabel": "JRA公式 出馬表",
+              "statusMessage": ""
             },
             {
               "key": "2026-09-27-nakayama-10",
+              "title": "茨城新聞杯",
+              "date": "2026-09-27",
               "venue": "中山",
               "raceNo": 10,
-              "title": "茨城新聞杯",
               "grade": "2勝",
               "surface": "芝",
               "distance": 2000,
@@ -187,14 +206,16 @@
               "status": "archive",
               "kicker": "過去レース",
               "sourceUrl": "https://www.jra.go.jp/JRADB/accessD.html?CNAME=pw01dde1006202604091020260927/84",
-              "sourceLabel": "JRA公式 出馬表"
+              "sourceLabel": "JRA公式 出馬表",
+              "statusMessage": ""
             },
             {
               "key": "2026-09-27-nakayama-11",
+              "title": "第60回スプリンターズステークス",
+              "date": "2026-09-27",
               "venue": "中山",
               "raceNo": 11,
-              "title": "第60回スプリンターズステークス",
-              "grade": "OP",
+              "grade": "GⅠ",
               "surface": "芝",
               "distance": 1200,
               "direction": "右",
@@ -205,13 +226,15 @@
               "status": "archive",
               "kicker": "過去レース",
               "sourceUrl": "https://www.jra.go.jp/JRADB/accessD.html?CNAME=pw01dde1006202604091120260927/39",
-              "sourceLabel": "JRA公式 出馬表"
+              "sourceLabel": "JRA公式 出馬表",
+              "statusMessage": ""
             },
             {
               "key": "2026-09-27-nakayama-12",
+              "title": "外房ステークス",
+              "date": "2026-09-27",
               "venue": "中山",
               "raceNo": 12,
-              "title": "外房ステークス",
               "grade": "3勝",
               "surface": "ダ",
               "distance": 1200,
@@ -223,7 +246,8 @@
               "status": "archive",
               "kicker": "過去レース",
               "sourceUrl": "https://www.jra.go.jp/JRADB/accessD.html?CNAME=pw01dde1006202604091220260927/EE",
-              "sourceLabel": "JRA公式 出馬表"
+              "sourceLabel": "JRA公式 出馬表",
+              "statusMessage": ""
             }
           ]
         },
@@ -233,9 +257,10 @@
           "races": [
             {
               "key": "2026-09-27-hanshin-1",
+              "title": "障害3歳以上未勝利",
+              "date": "2026-09-27",
               "venue": "阪神",
               "raceNo": 1,
-              "title": "障害3歳以上未勝利",
               "grade": "未勝利",
               "surface": "障",
               "distance": 2970,
@@ -247,13 +272,15 @@
               "status": "archive",
               "kicker": "過去レース",
               "sourceUrl": "https://www.jra.go.jp/JRADB/accessD.html?CNAME=pw01dde1009202604090120260927/C5",
-              "sourceLabel": "JRA公式 出馬表"
+              "sourceLabel": "JRA公式 出馬表",
+              "statusMessage": ""
             },
             {
               "key": "2026-09-27-hanshin-2",
+              "title": "2歳未勝利",
+              "date": "2026-09-27",
               "venue": "阪神",
               "raceNo": 2,
-              "title": "2歳未勝利",
               "grade": "未勝利",
               "surface": "芝",
               "distance": 1600,
@@ -265,13 +292,15 @@
               "status": "archive",
               "kicker": "過去レース",
               "sourceUrl": "https://www.jra.go.jp/JRADB/accessD.html?CNAME=pw01dde1009202604090220260927/7A",
-              "sourceLabel": "JRA公式 出馬表"
+              "sourceLabel": "JRA公式 出馬表",
+              "statusMessage": ""
             },
             {
               "key": "2026-09-27-hanshin-3",
+              "title": "2歳未勝利",
+              "date": "2026-09-27",
               "venue": "阪神",
               "raceNo": 3,
-              "title": "2歳未勝利",
               "grade": "未勝利",
               "surface": "ダ",
               "distance": 1800,
@@ -283,13 +312,15 @@
               "status": "archive",
               "kicker": "過去レース",
               "sourceUrl": "https://www.jra.go.jp/JRADB/accessD.html?CNAME=pw01dde1009202604090320260927/2F",
-              "sourceLabel": "JRA公式 出馬表"
+              "sourceLabel": "JRA公式 出馬表",
+              "statusMessage": ""
             },
             {
               "key": "2026-09-27-hanshin-4",
+              "title": "2歳未勝利",
+              "date": "2026-09-27",
               "venue": "阪神",
               "raceNo": 4,
-              "title": "2歳未勝利",
               "grade": "未勝利",
               "surface": "芝",
               "distance": 2000,
@@ -301,13 +332,15 @@
               "status": "archive",
               "kicker": "過去レース",
               "sourceUrl": "https://www.jra.go.jp/JRADB/accessD.html?CNAME=pw01dde1009202604090420260927/E4",
-              "sourceLabel": "JRA公式 出馬表"
+              "sourceLabel": "JRA公式 出馬表",
+              "statusMessage": ""
             },
             {
               "key": "2026-09-27-hanshin-5",
+              "title": "メイクデビュー阪神",
+              "date": "2026-09-27",
               "venue": "阪神",
               "raceNo": 5,
-              "title": "メイクデビュー阪神",
               "grade": "新馬",
               "surface": "芝",
               "distance": 1400,
@@ -319,13 +352,15 @@
               "status": "archive",
               "kicker": "過去レース",
               "sourceUrl": "https://www.jra.go.jp/JRADB/accessD.html?CNAME=pw01dde1009202604090520260927/99",
-              "sourceLabel": "JRA公式 出馬表"
+              "sourceLabel": "JRA公式 出馬表",
+              "statusMessage": ""
             },
             {
               "key": "2026-09-27-hanshin-6",
+              "title": "メイクデビュー阪神",
+              "date": "2026-09-27",
               "venue": "阪神",
               "raceNo": 6,
-              "title": "メイクデビュー阪神",
               "grade": "新馬",
               "surface": "ダ",
               "distance": 1800,
@@ -337,13 +372,15 @@
               "status": "archive",
               "kicker": "過去レース",
               "sourceUrl": "https://www.jra.go.jp/JRADB/accessD.html?CNAME=pw01dde1009202604090620260927/4E",
-              "sourceLabel": "JRA公式 出馬表"
+              "sourceLabel": "JRA公式 出馬表",
+              "statusMessage": ""
             },
             {
               "key": "2026-09-27-hanshin-7",
+              "title": "3歳以上1勝クラス",
+              "date": "2026-09-27",
               "venue": "阪神",
               "raceNo": 7,
-              "title": "3歳以上1勝クラス",
               "grade": "1勝",
               "surface": "ダ",
               "distance": 1400,
@@ -355,13 +392,15 @@
               "status": "archive",
               "kicker": "過去レース",
               "sourceUrl": "https://www.jra.go.jp/JRADB/accessD.html?CNAME=pw01dde1009202604090720260927/03",
-              "sourceLabel": "JRA公式 出馬表"
+              "sourceLabel": "JRA公式 出馬表",
+              "statusMessage": ""
             },
             {
               "key": "2026-09-27-hanshin-8",
+              "title": "3歳以上1勝クラス",
+              "date": "2026-09-27",
               "venue": "阪神",
               "raceNo": 8,
-              "title": "3歳以上1勝クラス",
               "grade": "1勝",
               "surface": "芝",
               "distance": 1800,
@@ -373,13 +412,15 @@
               "status": "archive",
               "kicker": "過去レース",
               "sourceUrl": "https://www.jra.go.jp/JRADB/accessD.html?CNAME=pw01dde1009202604090820260927/B8",
-              "sourceLabel": "JRA公式 出馬表"
+              "sourceLabel": "JRA公式 出馬表",
+              "statusMessage": ""
             },
             {
               "key": "2026-09-27-hanshin-9",
+              "title": "兵庫特別",
+              "date": "2026-09-27",
               "venue": "阪神",
               "raceNo": 9,
-              "title": "兵庫特別",
               "grade": "2勝",
               "surface": "芝",
               "distance": 2400,
@@ -391,13 +432,15 @@
               "status": "archive",
               "kicker": "過去レース",
               "sourceUrl": "https://www.jra.go.jp/JRADB/accessD.html?CNAME=pw01dde1009202604090920260927/6D",
-              "sourceLabel": "JRA公式 出馬表"
+              "sourceLabel": "JRA公式 出馬表",
+              "statusMessage": ""
             },
             {
               "key": "2026-09-27-hanshin-10",
+              "title": "堺ステークス",
+              "date": "2026-09-27",
               "venue": "阪神",
               "raceNo": 10,
-              "title": "堺ステークス",
               "grade": "3勝",
               "surface": "ダ",
               "distance": 1800,
@@ -409,14 +452,16 @@
               "status": "archive",
               "kicker": "過去レース",
               "sourceUrl": "https://www.jra.go.jp/JRADB/accessD.html?CNAME=pw01dde1009202604091020260927/62",
-              "sourceLabel": "JRA公式 出馬表"
+              "sourceLabel": "JRA公式 出馬表",
+              "statusMessage": ""
             },
             {
               "key": "2026-09-27-hanshin-11",
+              "title": "ポートアイランドステークス",
+              "date": "2026-09-27",
               "venue": "阪神",
               "raceNo": 11,
-              "title": "ポートアイランドステークス",
-              "grade": "OP",
+              "grade": "L",
               "surface": "芝",
               "distance": 1600,
               "direction": "右",
@@ -427,13 +472,15 @@
               "status": "archive",
               "kicker": "過去レース",
               "sourceUrl": "https://www.jra.go.jp/JRADB/accessD.html?CNAME=pw01dde1009202604091120260927/17",
-              "sourceLabel": "JRA公式 出馬表"
+              "sourceLabel": "JRA公式 出馬表",
+              "statusMessage": ""
             },
             {
               "key": "2026-09-27-hanshin-12",
+              "title": "3歳以上2勝クラス",
+              "date": "2026-09-27",
               "venue": "阪神",
               "raceNo": 12,
-              "title": "3歳以上2勝クラス",
               "grade": "2勝",
               "surface": "ダ",
               "distance": 2000,
@@ -445,7 +492,8 @@
               "status": "archive",
               "kicker": "過去レース",
               "sourceUrl": "https://www.jra.go.jp/JRADB/accessD.html?CNAME=pw01dde1009202604091220260927/CC",
-              "sourceLabel": "JRA公式 出馬表"
+              "sourceLabel": "JRA公式 出馬表",
+              "statusMessage": ""
             }
           ]
         }
@@ -462,9 +510,10 @@
           "races": [
             {
               "key": "2026-09-26-nakayama-1",
+              "title": "2歳未勝利",
+              "date": "2026-09-26",
               "venue": "中山",
               "raceNo": 1,
-              "title": "2歳未勝利",
               "grade": "未勝利",
               "surface": "ダ",
               "distance": 1200,
@@ -476,13 +525,15 @@
               "status": "archive",
               "kicker": "過去レース",
               "sourceUrl": "https://www.jra.go.jp/JRADB/accessD.html?CNAME=pw01dde1006202604080120260926/B7",
-              "sourceLabel": "JRA公式 出馬表"
+              "sourceLabel": "JRA公式 出馬表",
+              "statusMessage": ""
             },
             {
               "key": "2026-09-26-nakayama-2",
+              "title": "2歳未勝利",
+              "date": "2026-09-26",
               "venue": "中山",
               "raceNo": 2,
-              "title": "2歳未勝利",
               "grade": "未勝利",
               "surface": "芝",
               "distance": 1600,
@@ -494,13 +545,15 @@
               "status": "archive",
               "kicker": "過去レース",
               "sourceUrl": "https://www.jra.go.jp/JRADB/accessD.html?CNAME=pw01dde1006202604080220260926/6C",
-              "sourceLabel": "JRA公式 出馬表"
+              "sourceLabel": "JRA公式 出馬表",
+              "statusMessage": ""
             },
             {
               "key": "2026-09-26-nakayama-3",
+              "title": "メイクデビュー中山",
+              "date": "2026-09-26",
               "venue": "中山",
               "raceNo": 3,
-              "title": "メイクデビュー中山",
               "grade": "新馬",
               "surface": "ダ",
               "distance": 1800,
@@ -512,15 +565,17 @@
               "status": "archive",
               "kicker": "過去レース",
               "sourceUrl": "https://www.jra.go.jp/JRADB/accessD.html?CNAME=pw01dde1006202604080320260926/21",
-              "sourceLabel": "JRA公式 出馬表"
+              "sourceLabel": "JRA公式 出馬表",
+              "statusMessage": ""
             },
             {
               "key": "2026-09-26-nakayama-4",
+              "title": "清秋ジャンプステークス",
+              "date": "2026-09-26",
               "venue": "中山",
               "raceNo": 4,
-              "title": "清秋ジャンプステークス",
               "grade": "OP",
-              "surface": "芝",
+              "surface": "障",
               "distance": 3210,
               "direction": "",
               "courseDetail": "",
@@ -530,13 +585,15 @@
               "status": "archive",
               "kicker": "過去レース",
               "sourceUrl": "https://www.jra.go.jp/JRADB/accessD.html?CNAME=pw01dde1006202604080420260926/D6",
-              "sourceLabel": "JRA公式 出馬表"
+              "sourceLabel": "JRA公式 出馬表",
+              "statusMessage": ""
             },
             {
               "key": "2026-09-26-nakayama-5",
+              "title": "メイクデビュー中山",
+              "date": "2026-09-26",
               "venue": "中山",
               "raceNo": 5,
-              "title": "メイクデビュー中山",
               "grade": "新馬",
               "surface": "芝",
               "distance": 1800,
@@ -548,13 +605,15 @@
               "status": "archive",
               "kicker": "過去レース",
               "sourceUrl": "https://www.jra.go.jp/JRADB/accessD.html?CNAME=pw01dde1006202604080520260926/8B",
-              "sourceLabel": "JRA公式 出馬表"
+              "sourceLabel": "JRA公式 出馬表",
+              "statusMessage": ""
             },
             {
               "key": "2026-09-26-nakayama-6",
+              "title": "3歳以上1勝クラス",
+              "date": "2026-09-26",
               "venue": "中山",
               "raceNo": 6,
-              "title": "3歳以上1勝クラス",
               "grade": "1勝",
               "surface": "ダ",
               "distance": 1800,
@@ -566,13 +625,15 @@
               "status": "archive",
               "kicker": "過去レース",
               "sourceUrl": "https://www.jra.go.jp/JRADB/accessD.html?CNAME=pw01dde1006202604080620260926/40",
-              "sourceLabel": "JRA公式 出馬表"
+              "sourceLabel": "JRA公式 出馬表",
+              "statusMessage": ""
             },
             {
               "key": "2026-09-26-nakayama-7",
+              "title": "3歳以上1勝クラス",
+              "date": "2026-09-26",
               "venue": "中山",
               "raceNo": 7,
-              "title": "3歳以上1勝クラス",
               "grade": "1勝",
               "surface": "芝",
               "distance": 2000,
@@ -584,13 +645,15 @@
               "status": "archive",
               "kicker": "過去レース",
               "sourceUrl": "https://www.jra.go.jp/JRADB/accessD.html?CNAME=pw01dde1006202604080720260926/F5",
-              "sourceLabel": "JRA公式 出馬表"
+              "sourceLabel": "JRA公式 出馬表",
+              "statusMessage": ""
             },
             {
               "key": "2026-09-26-nakayama-8",
+              "title": "3歳以上1勝クラス",
+              "date": "2026-09-26",
               "venue": "中山",
               "raceNo": 8,
-              "title": "3歳以上1勝クラス",
               "grade": "1勝",
               "surface": "ダ",
               "distance": 1200,
@@ -602,13 +665,15 @@
               "status": "archive",
               "kicker": "過去レース",
               "sourceUrl": "https://www.jra.go.jp/JRADB/accessD.html?CNAME=pw01dde1006202604080820260926/AA",
-              "sourceLabel": "JRA公式 出馬表"
+              "sourceLabel": "JRA公式 出馬表",
+              "statusMessage": ""
             },
             {
               "key": "2026-09-26-nakayama-9",
+              "title": "芙蓉ステークス",
+              "date": "2026-09-26",
               "venue": "中山",
               "raceNo": 9,
-              "title": "芙蓉ステークス",
               "grade": "OP",
               "surface": "芝",
               "distance": 2000,
@@ -620,13 +685,15 @@
               "status": "archive",
               "kicker": "過去レース",
               "sourceUrl": "https://www.jra.go.jp/JRADB/accessD.html?CNAME=pw01dde1006202604080920260926/5F",
-              "sourceLabel": "JRA公式 出馬表"
+              "sourceLabel": "JRA公式 出馬表",
+              "statusMessage": ""
             },
             {
               "key": "2026-09-26-nakayama-10",
+              "title": "勝浦特別",
+              "date": "2026-09-26",
               "venue": "中山",
               "raceNo": 10,
-              "title": "勝浦特別",
               "grade": "2勝",
               "surface": "芝",
               "distance": 1200,
@@ -638,13 +705,15 @@
               "status": "archive",
               "kicker": "過去レース",
               "sourceUrl": "https://www.jra.go.jp/JRADB/accessD.html?CNAME=pw01dde1006202604081020260926/54",
-              "sourceLabel": "JRA公式 出馬表"
+              "sourceLabel": "JRA公式 出馬表",
+              "statusMessage": ""
             },
             {
               "key": "2026-09-26-nakayama-11",
+              "title": "秋風ステークス",
+              "date": "2026-09-26",
               "venue": "中山",
               "raceNo": 11,
-              "title": "秋風ステークス",
               "grade": "3勝",
               "surface": "芝",
               "distance": 1600,
@@ -656,13 +725,15 @@
               "status": "archive",
               "kicker": "過去レース",
               "sourceUrl": "https://www.jra.go.jp/JRADB/accessD.html?CNAME=pw01dde1006202604081120260926/09",
-              "sourceLabel": "JRA公式 出馬表"
+              "sourceLabel": "JRA公式 出馬表",
+              "statusMessage": ""
             },
             {
               "key": "2026-09-26-nakayama-12",
+              "title": "3歳以上2勝クラス",
+              "date": "2026-09-26",
               "venue": "中山",
               "raceNo": 12,
-              "title": "3歳以上2勝クラス",
               "grade": "2勝",
               "surface": "ダ",
               "distance": 1200,
@@ -674,7 +745,8 @@
               "status": "archive",
               "kicker": "過去レース",
               "sourceUrl": "https://www.jra.go.jp/JRADB/accessD.html?CNAME=pw01dde1006202604081220260926/BE",
-              "sourceLabel": "JRA公式 出馬表"
+              "sourceLabel": "JRA公式 出馬表",
+              "statusMessage": ""
             }
           ]
         },
@@ -684,9 +756,10 @@
           "races": [
             {
               "key": "2026-09-26-hanshin-1",
+              "title": "2歳未勝利",
+              "date": "2026-09-26",
               "venue": "阪神",
               "raceNo": 1,
-              "title": "2歳未勝利",
               "grade": "未勝利",
               "surface": "ダ",
               "distance": 1400,
@@ -698,13 +771,15 @@
               "status": "archive",
               "kicker": "過去レース",
               "sourceUrl": "https://www.jra.go.jp/JRADB/accessD.html?CNAME=pw01dde1009202604080120260926/95",
-              "sourceLabel": "JRA公式 出馬表"
+              "sourceLabel": "JRA公式 出馬表",
+              "statusMessage": ""
             },
             {
               "key": "2026-09-26-hanshin-2",
+              "title": "2歳未勝利",
+              "date": "2026-09-26",
               "venue": "阪神",
               "raceNo": 2,
-              "title": "2歳未勝利",
               "grade": "未勝利",
               "surface": "ダ",
               "distance": 1800,
@@ -716,13 +791,15 @@
               "status": "archive",
               "kicker": "過去レース",
               "sourceUrl": "https://www.jra.go.jp/JRADB/accessD.html?CNAME=pw01dde1009202604080220260926/4A",
-              "sourceLabel": "JRA公式 出馬表"
+              "sourceLabel": "JRA公式 出馬表",
+              "statusMessage": ""
             },
             {
               "key": "2026-09-26-hanshin-3",
+              "title": "2歳未勝利",
+              "date": "2026-09-26",
               "venue": "阪神",
               "raceNo": 3,
-              "title": "2歳未勝利",
               "grade": "未勝利",
               "surface": "芝",
               "distance": 1400,
@@ -734,13 +811,15 @@
               "status": "archive",
               "kicker": "過去レース",
               "sourceUrl": "https://www.jra.go.jp/JRADB/accessD.html?CNAME=pw01dde1009202604080320260926/FF",
-              "sourceLabel": "JRA公式 出馬表"
+              "sourceLabel": "JRA公式 出馬表",
+              "statusMessage": ""
             },
             {
               "key": "2026-09-26-hanshin-4",
+              "title": "メイクデビュー阪神",
+              "date": "2026-09-26",
               "venue": "阪神",
               "raceNo": 4,
-              "title": "メイクデビュー阪神",
               "grade": "新馬",
               "surface": "芝",
               "distance": 1600,
@@ -752,13 +831,15 @@
               "status": "archive",
               "kicker": "過去レース",
               "sourceUrl": "https://www.jra.go.jp/JRADB/accessD.html?CNAME=pw01dde1009202604080420260926/B4",
-              "sourceLabel": "JRA公式 出馬表"
+              "sourceLabel": "JRA公式 出馬表",
+              "statusMessage": ""
             },
             {
               "key": "2026-09-26-hanshin-5",
+              "title": "メイクデビュー阪神",
+              "date": "2026-09-26",
               "venue": "阪神",
               "raceNo": 5,
-              "title": "メイクデビュー阪神",
               "grade": "新馬",
               "surface": "芝",
               "distance": 2000,
@@ -770,13 +851,15 @@
               "status": "archive",
               "kicker": "過去レース",
               "sourceUrl": "https://www.jra.go.jp/JRADB/accessD.html?CNAME=pw01dde1009202604080520260926/69",
-              "sourceLabel": "JRA公式 出馬表"
+              "sourceLabel": "JRA公式 出馬表",
+              "statusMessage": ""
             },
             {
               "key": "2026-09-26-hanshin-6",
+              "title": "3歳以上1勝クラス",
+              "date": "2026-09-26",
               "venue": "阪神",
               "raceNo": 6,
-              "title": "3歳以上1勝クラス",
               "grade": "1勝",
               "surface": "ダ",
               "distance": 1800,
@@ -788,13 +871,15 @@
               "status": "archive",
               "kicker": "過去レース",
               "sourceUrl": "https://www.jra.go.jp/JRADB/accessD.html?CNAME=pw01dde1009202604080620260926/1E",
-              "sourceLabel": "JRA公式 出馬表"
+              "sourceLabel": "JRA公式 出馬表",
+              "statusMessage": ""
             },
             {
               "key": "2026-09-26-hanshin-7",
+              "title": "3歳以上1勝クラス",
+              "date": "2026-09-26",
               "venue": "阪神",
               "raceNo": 7,
-              "title": "3歳以上1勝クラス",
               "grade": "1勝",
               "surface": "芝",
               "distance": 1600,
@@ -806,13 +891,15 @@
               "status": "archive",
               "kicker": "過去レース",
               "sourceUrl": "https://www.jra.go.jp/JRADB/accessD.html?CNAME=pw01dde1009202604080720260926/D3",
-              "sourceLabel": "JRA公式 出馬表"
+              "sourceLabel": "JRA公式 出馬表",
+              "statusMessage": ""
             },
             {
               "key": "2026-09-26-hanshin-8",
+              "title": "3歳以上1勝クラス",
+              "date": "2026-09-26",
               "venue": "阪神",
               "raceNo": 8,
-              "title": "3歳以上1勝クラス",
               "grade": "1勝",
               "surface": "芝",
               "distance": 2200,
@@ -824,13 +911,15 @@
               "status": "archive",
               "kicker": "過去レース",
               "sourceUrl": "https://www.jra.go.jp/JRADB/accessD.html?CNAME=pw01dde1009202604080820260926/88",
-              "sourceLabel": "JRA公式 出馬表"
+              "sourceLabel": "JRA公式 出馬表",
+              "statusMessage": ""
             },
             {
               "key": "2026-09-26-hanshin-9",
+              "title": "ヤマボウシ賞",
+              "date": "2026-09-26",
               "venue": "阪神",
               "raceNo": 9,
-              "title": "ヤマボウシ賞",
               "grade": "1勝",
               "surface": "ダ",
               "distance": 1400,
@@ -842,13 +931,15 @@
               "status": "archive",
               "kicker": "過去レース",
               "sourceUrl": "https://www.jra.go.jp/JRADB/accessD.html?CNAME=pw01dde1009202604080920260926/3D",
-              "sourceLabel": "JRA公式 出馬表"
+              "sourceLabel": "JRA公式 出馬表",
+              "statusMessage": ""
             },
             {
               "key": "2026-09-26-hanshin-10",
+              "title": "野分特別",
+              "date": "2026-09-26",
               "venue": "阪神",
               "raceNo": 10,
-              "title": "野分特別",
               "grade": "2勝",
               "surface": "芝",
               "distance": 1600,
@@ -860,14 +951,16 @@
               "status": "archive",
               "kicker": "過去レース",
               "sourceUrl": "https://www.jra.go.jp/JRADB/accessD.html?CNAME=pw01dde1009202604081020260926/32",
-              "sourceLabel": "JRA公式 出馬表"
+              "sourceLabel": "JRA公式 出馬表",
+              "statusMessage": ""
             },
             {
               "key": "2026-09-26-hanshin-11",
+              "title": "第30回シリウスステークス",
+              "date": "2026-09-26",
               "venue": "阪神",
               "raceNo": 11,
-              "title": "第30回シリウスステークス",
-              "grade": "OP",
+              "grade": "GⅢ",
               "surface": "ダ",
               "distance": 2000,
               "direction": "右",
@@ -878,13 +971,15 @@
               "status": "archive",
               "kicker": "過去レース",
               "sourceUrl": "https://www.jra.go.jp/JRADB/accessD.html?CNAME=pw01dde1009202604081120260926/E7",
-              "sourceLabel": "JRA公式 出馬表"
+              "sourceLabel": "JRA公式 出馬表",
+              "statusMessage": ""
             },
             {
               "key": "2026-09-26-hanshin-12",
+              "title": "3歳以上2勝クラス",
+              "date": "2026-09-26",
               "venue": "阪神",
               "raceNo": 12,
-              "title": "3歳以上2勝クラス",
               "grade": "2勝",
               "surface": "ダ",
               "distance": 1200,
@@ -896,7 +991,8 @@
               "status": "archive",
               "kicker": "過去レース",
               "sourceUrl": "https://www.jra.go.jp/JRADB/accessD.html?CNAME=pw01dde1009202604081220260926/9C",
-              "sourceLabel": "JRA公式 出馬表"
+              "sourceLabel": "JRA公式 出馬表",
+              "statusMessage": ""
             }
           ]
         }
