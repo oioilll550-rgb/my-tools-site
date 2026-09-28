@@ -7,44 +7,26 @@
 <title>競馬・出走馬実力比較 | べんりちゃん、微力ながら</title>
 <meta name="description" content="JRA出馬表のレーティング・近4走・騎手継続性・血統・コース・馬場適性から、出走馬を同じ基準で比較します。">
 <meta name="robots" content="index,follow">
-<link rel="stylesheet" href="../../assets/css/style.css?v=20260928-18">
+<link rel="stylesheet" href="../../assets/css/style.css?v=20260928-19">
 </head>
 <body class="horse-racing-theme">
 <header><div class="header-inner"><div class="site-title"><a href="../../">べんりちゃん、微力ながら</a></div>
 <nav aria-label="メインナビゲーション"><a href="../../#purposes">目的から探す</a><a href="../../public/">公共施設</a><a href="../../restaurants/">飲食店</a><a href="../../privacy.html">プライバシー</a></nav></div></header>
 <main class="race-analysis-page">
-<section class="card race-hero race-page-hero">
+<section class="card race-hero race-page-hero race-detail-hero">
 <img class="race-page-hero-image" src="../../assets/images/horse-racing-hero.jpg?v=20260928-16" alt="" aria-hidden="true">
 <div class="race-page-hero-overlay"><div class="race-page-hero-content race-page-hero-content-wide">
-<p class="breadcrumb"><a href="../../">TOP</a> / <a href="../">趣味</a> / <a href="./">競馬</a> / <a href="comparison.html">実力比較</a> / <span id="raceBreadcrumbTail">次回開催日の分析</span></p>
-<p><a href="comparison.html">実力比較TOP</a> ｜ <a href="next.html">次回開催日</a> ｜ <a href="archive.html">過去2開催日分</a></p>
-<span class="race-kicker" id="raceKicker">次回開催日の分析</span>
-<h1 id="raceTitle">出走馬 実力比較</h1>
-<p class="lead" id="raceLead">JRA出馬表の情報から、各馬を同じ計算式で比較します。</p>
-<div class="race-meta" id="raceMeta"></div>
-<p class="race-source-line">参考：<a id="raceSource" href="https://jra.jp/JRADB/accessD.html?CNAME=pw01dde1006202604091120260927/39" target="_blank" rel="noopener noreferrer"><span id="raceSourceLabel">JRA公式</span></a></p>
-<p id="racePolicyNote" class="race-disclaimer"></p>
+<nav class="race-detail-back-nav" aria-label="レース一覧へ戻る">
+<a id="raceBackLink" class="race-detail-back" href="next.html">← 次回開催日の全レース</a>
+</nav>
+<h1 id="raceTitle">レース分析</h1>
+<div class="race-meta race-meta-compact" id="raceMeta"></div>
+<p class="race-source-line">JRA：<a id="raceSource" href="#" target="_blank" rel="noopener noreferrer"><span id="raceSourceLabel">公式情報</span></a></p>
 </div></div>
 </section>
 
 <section class="card">
-<h2>比較指数の計算方法</h2>
-<p>オッズ・人気とレース結果は指数に入れません。JRA出馬表にあるプレレーティング・近4走・騎手・血統を中心に、当日のコースと馬場条件への適合を加えます。</p>
-<div class="race-method-grid race-method-grid-eight">
-<div class="race-method-item"><strong>基礎能力 25%</strong><span>プレレーティング中心。未掲載時は近走レーティングで補完。</span></div>
-<div class="race-method-item"><strong>近走内容 20%</strong><span>近4走の着順を頭数補正し、直近ほど重く評価。</span></div>
-<div class="race-method-item"><strong>距離適性 15%</strong><span id="distanceMethodText">今回の距離に近い近走ほど重く評価します。</span></div>
-<div class="race-method-item"><strong>コース適性 10%</strong><span id="courseMethodText">今回と同じ競馬場・芝ダ・距離条件の実績を評価します。</span></div>
-<div class="race-method-item"><strong>馬場適性 10%</strong><span id="goingMethodText">今回の馬場状態に近い実績を評価します。</span></div>
-<div class="race-method-item"><strong>騎手相性 10%</strong><span>現在の騎手が近4走で騎乗した回数と、その時の着順内容。</span></div>
-<div class="race-method-item"><strong>血統距離適性 5%</strong><span id="pedigreeMethodText">父・母父の簡易距離タイプを今回の距離に合わせて評価します。</span></div>
-<div class="race-method-item"><strong>格 5%</strong><span>近4走で経験したGⅠ・GⅡ・GⅢ等のレベル。</span></div>
-</div>
-<p class="race-disclaimer">血統指数は産駒統計ではなく、父・母父の一般的な距離タイプを当サイト独自の簡易辞書にした試験値です。今後、正規の種牡馬成績データを利用できる場合は置き換えます。</p>
-</section>
-
-<section class="card">
-<div class="tools-heading-row"><h2>指数上位</h2><span class="tools-count">計算式による比較</span></div>
+<div class="tools-heading-row"><h2>指数上位</h2></div>
 <div id="raceTopSummary" class="race-top-summary"><p class="notice">データを読み込んでいます…</p></div>
 </section>
 
@@ -80,14 +62,9 @@
 </div>
 </section>
 
-<section class="card">
-<h2>このページについて</h2>
-<p id="raceAboutText">JRA公式出馬表を参考データとして使った試作版です。父・母父、騎手、近4走も参照し、レースごとの競馬場・芝ダート・距離・馬場状態に合わせて指数を切り替えます。レース結果の着順・タイムは指数に使いません。</p>
-<p class="race-disclaimer">表示する指数は当サイト独自の比較計算であり、JRAの公式評価・予想ではありません。指数が高い馬の好走や的中を保証しません。馬券購入は20歳以上が対象です。</p>
-</section>
 </main>
 <footer><div class="footer-inner"><span>© <span data-current-year>2026</span> べんりちゃん、微力ながら</span><span><a href="../../privacy.html">プライバシーポリシー</a></span></div></footer>
 <script src="../../assets/js/site.js?v=20260928-10"></script>
-<script src="../../assets/js/horse-racing-analysis.js?v=20260928-5"></script>
+<script src="../../assets/js/horse-racing-analysis.js?v=20260928-19"></script>
 </body>
 </html>
