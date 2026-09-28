@@ -1,0 +1,58 @@
+name: Update previous weekend horse racing archive
+
+on:
+  workflow_dispatch:
+    inputs:
+      as_of:
+        description: "Optional JST date for backfill/testing (YYYY-MM-DD)"
+        required: false
+        type: string
+  schedule:
+    # Sunday 15:30 UTC = Monday 00:30 JST.
+    - cron: "30 15 * * 0"
+  push:
+    branches: [main]
+    paths:
+      - "scripts/update_horse_racing_archive.py"
+      - ".github/workflows/update-horse-racing-archive.yml"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: horse-racing-archive-update
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      HORSE_RACING_AS_OF: ${{ inputs.as_of }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install parser dependencies
+        run: pip install --disable-pip-version-check requests==2.32.3 beautifulsoup4==4.12.3
+
+      - name: Build previous-weekend archive from JRA
+        run: python scripts/update_horse_racing_archive.py
+
+      - name: Commit archive when changed
+        run: |
+          git add -A --             assets/data/horse-racing-past-schedule.json             ':(glob)assets/data/horse-racing-past-analysis-*.json'
+
+          if git diff --cached --quiet; then
+            echo "No horse-racing archive changes"
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Update previous weekend horse racing archive"
+          git pull --rebase origin main
+          git push
