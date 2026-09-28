@@ -2,14 +2,15 @@ document.addEventListener("DOMContentLoaded", async () => {
   const tableBody = document.getElementById("raceTableBody");
   if (!tableBody) return;
 
-  const raceKey = new URLSearchParams(location.search).get("race") || "next";
+  const requestedRaceKey = new URLSearchParams(location.search).get("race") || "2026-10-03-tokyo-1";
+  const nextRacePattern = /^2026-10-03-(tokyo|kyoto)-([1-9]|1[0-2])$/;
+  const isNextRace = requestedRaceKey === "next" || nextRacePattern.test(requestedRaceKey);
+  const raceKey = requestedRaceKey === "next" ? "2026-10-03-tokyo-1" : requestedRaceKey;
   const raceDataMap = {
-    next: "../../assets/data/horse-racing-next-2026-10-03-tokyo-r1.json",
     "2026-09-27": "../../assets/data/horse-racing-2026-09-27-nakayama-r1.json",
     "2026-09-26": "../../assets/data/horse-racing-2026-09-26-nakayama-r1.json"
   };
-  const DATA_URL = raceDataMap[raceKey] || raceDataMap.next;
-  const isArchive = raceKey !== "next";
+  const isArchive = !isNextRace;
   const gradeScore = {
     "GⅠ": 100, "JpnⅠ": 95, "GⅡ": 85, "JpnⅡ": 82,
     "GⅢ": 75, "JpnⅢ": 72, "L": 65, "OP": 60, "3勝": 50
@@ -188,7 +189,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       currentRace.date.replaceAll("-", "/"),
       currentRace.venue + currentRace.raceNo + "R",
       currentRace.grade,
-      currentRace.surface + currentRace.distance + "m",
+      currentRace.surface + currentRace.distance + "m" + (currentRace.courseDetail ? " " + currentRace.courseDetail : ""),
       currentRace.direction,
       currentRace.postTime ? "発走 " + currentRace.postTime : "",
       "馬場 " + (currentRace.going || "未設定")
@@ -409,9 +410,40 @@ document.addEventListener("DOMContentLoaded", async () => {
   }
 
   try {
-    const res = await fetch(DATA_URL, {cache: "no-store"});
-    if (!res.ok) throw new Error("race data");
-    const data = await res.json();
+    let data;
+
+    if (isNextRace) {
+      const scheduleRes = await fetch("../../assets/data/horse-racing-next-schedule.json", {cache: "no-store"});
+      if (!scheduleRes.ok) throw new Error("next schedule");
+      const schedule = await scheduleRes.json();
+      const selectedRace = schedule.venues
+        .flatMap((venue) => venue.races || [])
+        .find((item) => item.key === raceKey);
+
+      if (!selectedRace) throw new Error("race not found");
+
+      if (selectedRace.dataUrl) {
+        const detailRes = await fetch(selectedRace.dataUrl, {cache: "no-store"});
+        if (!detailRes.ok) throw new Error("race detail");
+        data = await detailRes.json();
+      } else {
+        data = {
+          race: {
+            ...selectedRace,
+            date: schedule.date,
+            sourceUrl: selectedRace.sourceUrl || schedule.sourceUrl
+          },
+          horses: []
+        };
+      }
+    } else {
+      const dataUrl = raceDataMap[raceKey];
+      if (!dataUrl) throw new Error("race data");
+      const res = await fetch(dataUrl, {cache: "no-store"});
+      if (!res.ok) throw new Error("race data");
+      data = await res.json();
+    }
+
     race = data.race;
     renderMeta(race);
     scored = Array.isArray(data.horses) ? data.horses.map((horse) => calculate(horse, race)) : [];
