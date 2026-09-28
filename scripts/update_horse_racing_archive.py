@@ -161,7 +161,7 @@ def month_check_digit(year: int, month: int) -> str:
 
 def result_meetings_for_month(year: int, month: int) -> list[str]:
     cd = month_check_digit(year, month)
-    cname = f"pw01skl1{year:04d}{month:02d}/{cd}"
+    cname = f"pw01skl10{year:04d}{month:02d}/{cd}"
     soup = jra_post(RESULT_ENDPOINT, cname)
     return extract_cnames(str(soup), "pw01srl")
 
