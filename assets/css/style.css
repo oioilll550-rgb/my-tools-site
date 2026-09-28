@@ -3298,7 +3298,8 @@ body.horse-racing-theme .card {
 
 /* library reference materials */
 .library-reference-grid {
-  grid-template-columns: minmax(0, 380px);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  max-width: 780px;
 }
 
 .library-reference-item img {
