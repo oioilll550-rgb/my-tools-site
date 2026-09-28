@@ -161,9 +161,21 @@ def month_check_digit(year: int, month: int) -> str:
 
 def result_meetings_for_month(year: int, month: int) -> list[str]:
     cd = month_check_digit(year, month)
-    cname = f"pw01skl10{year:04d}{month:02d}/{cd}"
-    soup = jra_post(RESULT_ENDPOINT, cname)
-    return extract_cnames(str(soup), "pw01srl")
+    candidates = [
+        f"pw01skl10{year:04d}{month:02d}/{cd}",
+        f"pw01skl00{year:04d}{month:02d}/{cd}",
+    ]
+    errors = []
+    for cname in candidates:
+        try:
+            soup = jra_post(RESULT_ENDPOINT, cname, attempts=1)
+            meetings = extract_cnames(str(soup), "pw01srl")
+            if meetings:
+                return meetings
+            errors.append(f"{cname}: no meeting links")
+        except Exception as exc:
+            errors.append(f"{cname}: {exc}")
+    raise RuntimeError("JRA monthly result search failed: " + " | ".join(errors))
 
 
 def parse_meeting_cname(cname: str) -> dict | None:
