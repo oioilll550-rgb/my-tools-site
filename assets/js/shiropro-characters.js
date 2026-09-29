@@ -193,6 +193,42 @@ document.addEventListener("DOMContentLoaded", async () => {
     });
   }
 
+  function classifyFormationSkill(skill) {
+    const text = String(skill && skill.effect || "").replace(/\s+/g, " ").trim();
+    if (!text) {
+      return { kinds: [], isBuff: false, isDebuff: false };
+    }
+
+    const debuffPatterns = [
+      /(?:敵|兜)[^。]{0,120}?(?:低下|減少|延長)/,
+      /(?:敵|兜)[^。]{0,120}?被ダメージ[^。]{0,40}?上昇/
+    ];
+
+    const buffPatterns = [
+      /(?:部隊|城娘|味方|自身|伏兵|蔵|殿|城|［[^］]+］|\[[^\]]+\])[^。]{0,140}?(?:上昇|増加|短縮|軽減|回復|加算|無効|大破しない|大破せず|大破扱いにならない|狙われにくく|狙われない|無視|倍|代わりに受ける)/,
+      /(?:巨大化気|計略消費気|消費気)[^。]{0,50}?(?:短縮|軽減)/,
+      /(?:敵撃破時|撃破時|撃破獲得気)[^。]{0,50}?(?:獲得気|気)[^。]{0,30}?増加/,
+      /(?:攻撃時|与ダメージ)[^。]{0,60}?耐久[^。]{0,30}?回復/,
+      /(?:足止め数|攻撃対象)[^。]{0,40}?増加/,
+      /耐久が\s*0[^。]{0,50}?(?:大破しない|大破せず|大破扱いにならない)/
+    ];
+
+    const isDebuff = debuffPatterns.some((pattern) => pattern.test(text));
+    const isBuff = buffPatterns.some((pattern) => pattern.test(text));
+    const kinds = [];
+    if (isBuff) kinds.push("buff");
+    if (isDebuff) kinds.push("debuff");
+
+    return { kinds, isBuff, isDebuff };
+  }
+
+  function formationSkillAnalysis(row) {
+    if (!row.formationSkillAnalysis) {
+      row.formationSkillAnalysis = classifyFormationSkill(row.formationSkill);
+    }
+    return row.formationSkillAnalysis;
+  }
+
   function filteredRows() {
     const keyword = normalize(searchInput.value);
     const rarity = raritySelect.value;
@@ -212,8 +248,12 @@ document.addEventListener("DOMContentLoaded", async () => {
       if (onlyBookmarked && !bookmarks.has(rowId(row))) return false;
       if (onlyFormationSkill && !(row.formationSkill && row.formationSkill.effect)) return false;
       if (onlyHeldSkill && !(row.heldSkill && row.heldSkill.effect)) return false;
-      if (onlyBuff && !(Array.isArray(row.buffs) && row.buffs.length)) return false;
-      if (onlyDebuff && !(Array.isArray(row.debuffs) && row.debuffs.length)) return false;
+
+      const formationAnalysis = formationSkillAnalysis(row);
+      const hasBuff = (Array.isArray(row.buffs) && row.buffs.length) || formationAnalysis.isBuff;
+      const hasDebuff = (Array.isArray(row.debuffs) && row.debuffs.length) || formationAnalysis.isDebuff;
+      if (onlyBuff && !hasBuff) return false;
+      if (onlyDebuff && !hasDebuff) return false;
       return true;
     });
 
@@ -317,9 +357,79 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     detailPanel.hidden = false;
     if (detailTitle) detailTitle.textContent = row.name;
-    if (detailBody) {
-      detailBody.textContent = "キャラクター詳細表示用エリア";
+    if (!detailBody) return;
+
+    detailBody.innerHTML = "";
+
+    const section = document.createElement("section");
+    section.className = "shiropro-detail-formation";
+
+    const heading = document.createElement("h4");
+    heading.textContent = "編成特技";
+    section.appendChild(heading);
+
+    const skill = row.formationSkill;
+    if (!skill || !skill.effect) {
+      const empty = document.createElement("p");
+      empty.className = "shiropro-detail-empty";
+      empty.textContent = "編成特技はありません。";
+      section.appendChild(empty);
+      detailBody.appendChild(section);
+      return;
     }
+
+    const skillHead = document.createElement("div");
+    skillHead.className = "shiropro-detail-skill-head";
+
+    if (skill.stage && skill.stage !== "無印") {
+      const stage = document.createElement("span");
+      stage.className = "shiropro-skill-stage";
+      stage.textContent = skill.stage;
+      skillHead.appendChild(stage);
+    }
+
+    if (skill.name) {
+      const name = document.createElement("strong");
+      name.textContent = skill.name;
+      skillHead.appendChild(name);
+    }
+
+    const effect = document.createElement("p");
+    effect.className = "shiropro-detail-skill-effect";
+    effect.textContent = skill.effect;
+
+    const analysis = formationSkillAnalysis(row);
+    const classification = document.createElement("div");
+    classification.className = "shiropro-detail-classification";
+
+    const classificationLabel = document.createElement("span");
+    classificationLabel.className = "shiropro-detail-classification-label";
+    classificationLabel.textContent = "分類";
+    classification.appendChild(classificationLabel);
+
+    if (analysis.isBuff) {
+      const buff = document.createElement("span");
+      buff.className = "shiropro-effect-tag is-buff";
+      buff.textContent = "バフ";
+      classification.appendChild(buff);
+    }
+
+    if (analysis.isDebuff) {
+      const debuff = document.createElement("span");
+      debuff.className = "shiropro-effect-tag is-debuff";
+      debuff.textContent = "デバフ";
+      classification.appendChild(debuff);
+    }
+
+    if (!analysis.kinds.length) {
+      const other = document.createElement("span");
+      other.className = "shiropro-effect-tag";
+      other.textContent = "未分類";
+      classification.appendChild(other);
+    }
+
+    section.append(skillHead, effect, classification);
+    detailBody.appendChild(section);
   }
 
   function selectCharacter(id) {
@@ -595,6 +705,9 @@ document.addEventListener("DOMContentLoaded", async () => {
     const data = await response.json();
 
     characters = Array.isArray(data.characters) ? data.characters : [];
+    characters.forEach((row) => {
+      row.formationSkillAnalysis = classifyFormationSkill(row.formationSkill);
+    });
     fillFilters();
 
     if (sourceLink && data.source) sourceLink.href = data.source;
