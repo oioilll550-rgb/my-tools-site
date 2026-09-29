@@ -69,8 +69,12 @@ document.addEventListener("DOMContentLoaded", async () => {
     const bv = b[key];
 
     if (key === "rarity" || key === "basicCost" || key === "no") {
-      const an = Number.isFinite(Number(av)) ? Number(av) : Number.POSITIVE_INFINITY;
-      const bn = Number.isFinite(Number(bv)) ? Number(bv) : Number.POSITIVE_INFINITY;
+      const an = av === null || av === "" || av === undefined
+        ? Number.POSITIVE_INFINITY
+        : Number(av);
+      const bn = bv === null || bv === "" || bv === undefined
+        ? Number.POSITIVE_INFINITY
+        : Number(bv);
       return an - bn;
     }
 
