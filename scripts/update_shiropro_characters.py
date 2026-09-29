@@ -79,6 +79,181 @@ STANDARD_WEAPONS = {
 
 STAGE_RANK = {"無印": 0, "改壱": 1, "改弐": 2}
 
+KNOWN_KAI2_NAMES = set([
+    "霞城",
+    "青葉城",
+    "仙台城",
+    "千代城",
+    "月山城",
+    "長篠城",
+    "飯沼城",
+    "鳥羽城",
+    "月山富田城",
+    "許昌城",
+    "ヴァルトブルク城",
+    "ウォリック城",
+    "マルクスブルク城",
+    "淀城",
+    "日暮城",
+    "原城",
+    "志自岐原城",
+    "虎臥城",
+    "胆沢城",
+    "新宮城",
+    "島原城",
+    "木幡山伏見城",
+    "モン・サン＝ミッシェル",
+    "立花山城",
+    "秋田城",
+    "志波城",
+    "多賀城",
+    "徳丹城",
+    "柳川城",
+    "大坂城",
+    "小峯城",
+    "水府城",
+    "扇城",
+    "置塩城",
+    "中津城",
+    "山科本願寺",
+    "尾山御坊",
+    "彦根城",
+    "ダノター城",
+    "聚楽城",
+    "リーズ城",
+    "駿府城",
+    "小谷城",
+    "高崎城",
+    "石垣山城",
+    "五稜郭",
+    "亀田御役所土塁",
+    "二本松城",
+    "七飯台場",
+    "龍岡城",
+    "品川台場",
+    "四稜郭",
+    "久慈城",
+    "金ヶ崎城",
+    "津留賀城",
+    "成都城",
+    "吉野ヶ里",
+    "伊豆下田城",
+    "平遥古城",
+    "箕輪城",
+    "柳生城",
+    "菖蒲城",
+    "苗木城",
+    "本庄城",
+    "烏城",
+    "コンシェルジュリー",
+    "ブラン城",
+    "鶴島城",
+    "松本城",
+    "徳島城",
+    "深志城",
+    "与板城",
+    "浦添城",
+    "今川館",
+    "二条亭",
+    "鎌倉城",
+    "千代田城",
+    "松江城",
+    "小田原城",
+    "二条城",
+    "井伊谷城",
+    "備中松山城",
+    "江戸氏館",
+    "七尾城",
+    "多聞山城",
+    "久留米城",
+    "笹原城",
+    "脇本城",
+    "勝瑞城",
+    "シャンボール城",
+    "シェーンブルン宮殿",
+    "石山御坊",
+    "丸亀城",
+    "観音寺城",
+    "伊勢長島城",
+    "錦城",
+    "金亀城",
+    "エディンバラ城",
+    "竹田城",
+    "信貴山城",
+    "安平古堡",
+    "大聖寺城",
+    "引田城",
+    "江戸城",
+    "ウィンザー城",
+    "琉球御城",
+    "万里の長城",
+    "首里城",
+    "モーリッツブルク城",
+    "洛陽城",
+    "甘崎城",
+    "山形城",
+    "一乗谷城",
+    "美作一ノ瀬城",
+    "福岡城",
+    "滝山城",
+    "坂戸城",
+    "ペテルゴフ宮殿",
+    "安平城",
+    "躑躅ヶ崎館",
+    "高天神城",
+    "ユクエピラチャシ",
+    "萩城",
+    "三木城",
+    "鹿児島城",
+    "聚楽第",
+    "弘前城",
+    "高岡城",
+    "鳥取城",
+    "福山館",
+    "那古野城",
+    "柳之丸",
+    "亀居城",
+    "岩櫃城",
+    "大仏城",
+    "桑名城",
+    "大多喜城",
+    "小田喜城",
+    "平安京",
+    "佐和山城",
+    "名胡桃城",
+    "鹿野城",
+    "日之嶽城",
+    "名古屋城",
+    "城塞都市アビラ",
+    "津山城",
+    "フランケンシュタイン城",
+    "城塞都市カルカソンヌ",
+    "ハーレック城",
+    "マルボルク城",
+    "コッヘム・ライヒスブルク城",
+    "ノイシュヴァンシュタイン城",
+    "シノン城",
+    "カーナーヴォン城",
+    "コンウィ城",
+    "金鯱城",
+    "宇和島城",
+    "板島丸串城",
+    "平城京",
+    "指月伏見城",
+    "新田金山城",
+    "延岡城",
+    "高島城",
+    "プラハ城",
+    "ウチヒサル城",
+    "ユッセ城",
+    "ペーナ宮殿",
+    "スフォルツェスコ城",
+    "アイリーン・ドナン城",
+    "大宰府",
+    "大野城",
+    "白石城"
+])
+
 
 def clean(value: str) -> str:
     return re.sub(r"\s+", " ", value or "").strip()
@@ -524,41 +699,44 @@ def keep_max_stage_effects(entries: list[dict]) -> list[dict]:
     return list(merged.values())
 
 
-def parse_kai2_names(character_names: list[str]) -> set[str]:
-    soup = fetch_soup(KAI2_URL)
-    names_by_length = sorted(character_names, key=len, reverse=True)
-    found: set[str] = set()
+def parse_kai2_names(
+    character_names: list[str],
+    existing: dict[str, dict],
+) -> set[str]:
+    valid_names = set(character_names)
+    found = set(KNOWN_KAI2_NAMES) & valid_names
 
-    candidates = []
-    date_pattern = re.compile(
-        r"\d{4}/\d{2}/\d{2}\s*(?:\[|［)改弐(?:\]|］)実装"
-    )
+    # Preserve every previously confirmed 改弐 character.
+    for row in existing.values():
+        if row.get("maxUpgrade") == "改弐" and row.get("name") in valid_names:
+            found.add(row["name"])
 
-    for table in soup.find_all("table"):
-        text = clean(table.get_text(" ", strip=True))
-        if date_pattern.search(text):
-            candidates.append((len(text), table))
-
-    if not candidates:
-        raise RuntimeError("改弐 implementation table not found")
-
-    table = max(candidates, key=lambda item: item[0])[1]
-
-    for cell in table.find_all("td"):
-        text = clean(cell.get_text(" ", strip=True))
-        if not text:
-            continue
-
-        occupied: list[tuple[int, int]] = []
-        for name in names_by_length:
-            start = text.find(name)
-            if start < 0:
-                continue
-            end = start + len(name)
-            if any(not (end <= s or start >= e) for s, e in occupied):
-                continue
-            occupied.append((start, end))
-            found.add(name)
+    # The full-character page reliably exposes the latest "改弐追加" block even
+    # when the dedicated 改弐 list is not returned to GitHub Actions.
+    try:
+        soup = fetch_soup(LIST_URL)
+        marker = next(
+            (
+                strong for strong in soup.find_all("strong")
+                if clean(strong.get_text(" ", strip=True)) == "改弐追加"
+            ),
+            None,
+        )
+        if marker and marker.parent:
+            text = clean(marker.parent.get_text(" ", strip=True))
+            names_by_length = sorted(character_names, key=len, reverse=True)
+            occupied: list[tuple[int, int]] = []
+            for name in names_by_length:
+                start = text.find(name)
+                if start < 0:
+                    continue
+                end = start + len(name)
+                if any(not (end <= s or start >= e) for s, e in occupied):
+                    continue
+                occupied.append((start, end))
+                found.add(name)
+    except Exception as exc:
+        print(f"warning: latest 改弐追加 block unavailable: {exc}")
 
     return found
 
@@ -741,7 +919,7 @@ def main() -> None:
         ]
 
     print("Reading 改弐 implementation list...")
-    kai2_names = parse_kai2_names(names)
+    kai2_names = parse_kai2_names(names, existing)
     print(f"改弐 characters matched: {len(kai2_names)}")
 
     by_id = {str(row["id"]): row for row in characters}
