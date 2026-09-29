@@ -3556,6 +3556,11 @@ body.horse-racing-theme .card {
   background: #8a5a2b;
 }
 
+.shiropro-attribute-badge.attr-water {
+  background: #8ed8f8;
+  color: #14394d;
+}
+
 .shiropro-attribute-badge.attr-hell {
   background: #6b3fa0;
 }
