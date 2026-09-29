@@ -3876,3 +3876,81 @@ body.horse-racing-theme .card {
     grid-column: 1 / -1;
   }
 }
+
+
+/* Shiropro 12-row viewport and character detail frame */
+.shiropro-table-wrap {
+  max-height: 390px;
+}
+
+.shiropro-table tbody tr[data-character-id] {
+  cursor: pointer;
+}
+
+.shiropro-table tbody tr[data-character-id]:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: -2px;
+}
+
+.shiropro-table tbody tr.is-selected td:not(.shiropro-name-cell) {
+  background: #eef5ff;
+}
+
+.shiropro-table tbody tr.is-selected td.shiropro-name-cell {
+  box-shadow: inset 0 0 0 2px var(--accent);
+}
+
+.shiropro-character-detail {
+  min-height: 230px;
+  margin-top: 14px;
+  overflow: hidden;
+  border: 1px solid #d5dde7;
+  border-radius: 10px;
+  background: #fff;
+}
+
+.shiropro-character-detail[hidden] {
+  display: none;
+}
+
+.shiropro-character-detail-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 12px;
+  border-bottom: 1px solid #e2e7ed;
+  background: #f7f9fb;
+}
+
+.shiropro-character-detail-head h3 {
+  margin: 0;
+  font-size: 14px;
+}
+
+.shiropro-character-detail-head span {
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.shiropro-character-detail-body {
+  min-height: 180px;
+  padding: 16px;
+  color: var(--muted);
+  font-size: 11px;
+}
+
+@media (max-width: 560px) {
+  .shiropro-table-wrap {
+    max-height: 390px;
+  }
+
+  .shiropro-character-detail {
+    min-height: 200px;
+  }
+
+  .shiropro-character-detail-body {
+    min-height: 150px;
+  }
+}
