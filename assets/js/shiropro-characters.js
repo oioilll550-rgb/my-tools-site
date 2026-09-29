@@ -229,6 +229,75 @@ document.addEventListener("DOMContentLoaded", async () => {
     return row.formationSkillAnalysis;
   }
 
+  function formationEffectSegments(skill) {
+    const text = String(skill && skill.effect || "").replace(/\s+/g, " ").trim();
+    if (!text) return [];
+
+    const rawSegments = text
+      .split(/(?<=[。])/)
+      .flatMap((sentence) => sentence.split(/(?<=、)|(?<=，)|(?<=,)/))
+      .map((part) => part.trim())
+      .filter(Boolean);
+
+    const segments = [];
+    let carryPrefix = "";
+
+    rawSegments.forEach((raw) => {
+      let part = raw.replace(/[、，,。]+$/, "").trim();
+      if (!part) return;
+
+      const analysis = classifyFormationSkill({ effect: part });
+
+      if (!analysis.isBuff && !analysis.isDebuff) {
+        carryPrefix += (carryPrefix ? "、" : "") + part;
+        return;
+      }
+
+      const content = carryPrefix ? carryPrefix + "、" + part : part;
+      carryPrefix = "";
+
+      segments.push({
+        content,
+        isBuff: analysis.isBuff,
+        isDebuff: analysis.isDebuff
+      });
+    });
+
+    if (carryPrefix) {
+      const overall = classifyFormationSkill(skill);
+      segments.push({
+        content: carryPrefix,
+        isBuff: overall.isBuff,
+        isDebuff: overall.isDebuff
+      });
+    }
+
+    if (!segments.length) {
+      const overall = classifyFormationSkill(skill);
+      segments.push({
+        content: text,
+        isBuff: overall.isBuff,
+        isDebuff: overall.isDebuff
+      });
+    }
+
+    const merged = [];
+    segments.forEach((segment) => {
+      const previous = merged[merged.length - 1];
+      if (
+        previous &&
+        previous.isBuff === segment.isBuff &&
+        previous.isDebuff === segment.isDebuff
+      ) {
+        previous.content += "、" + segment.content;
+      } else {
+        merged.push({ ...segment });
+      }
+    });
+
+    return merged;
+  }
+
   function filteredRows() {
     const keyword = normalize(searchInput.value);
     const rarity = raritySelect.value;
@@ -378,57 +447,56 @@ document.addEventListener("DOMContentLoaded", async () => {
       return;
     }
 
-    const skillHead = document.createElement("div");
-    skillHead.className = "shiropro-detail-skill-head";
-
     if (skill.stage && skill.stage !== "無印") {
+      const stageRow = document.createElement("div");
+      stageRow.className = "shiropro-detail-stage-row";
       const stage = document.createElement("span");
       stage.className = "shiropro-skill-stage";
       stage.textContent = skill.stage;
-      skillHead.appendChild(stage);
+      stageRow.appendChild(stage);
+      section.appendChild(stageRow);
     }
 
-    if (skill.name) {
-      const name = document.createElement("strong");
-      name.textContent = skill.name;
-      skillHead.appendChild(name);
-    }
+    const effectList = document.createElement("div");
+    effectList.className = "shiropro-detail-effect-list";
 
-    const effect = document.createElement("p");
-    effect.className = "shiropro-detail-skill-effect";
-    effect.textContent = skill.effect;
+    formationEffectSegments(skill).forEach((segment) => {
+      const rowElement = document.createElement("div");
+      rowElement.className = "shiropro-detail-effect-row";
 
-    const analysis = formationSkillAnalysis(row);
-    const classification = document.createElement("div");
-    classification.className = "shiropro-detail-classification";
+      const tags = document.createElement("div");
+      tags.className = "shiropro-detail-effect-tags";
 
-    const classificationLabel = document.createElement("span");
-    classificationLabel.className = "shiropro-detail-classification-label";
-    classificationLabel.textContent = "分類";
-    classification.appendChild(classificationLabel);
+      if (segment.isBuff) {
+        const buff = document.createElement("span");
+        buff.className = "shiropro-effect-tag is-buff";
+        buff.textContent = "○バフ";
+        tags.appendChild(buff);
+      }
 
-    if (analysis.isBuff) {
-      const buff = document.createElement("span");
-      buff.className = "shiropro-effect-tag is-buff";
-      buff.textContent = "バフ";
-      classification.appendChild(buff);
-    }
+      if (segment.isDebuff) {
+        const debuff = document.createElement("span");
+        debuff.className = "shiropro-effect-tag is-debuff";
+        debuff.textContent = "○デバフ";
+        tags.appendChild(debuff);
+      }
 
-    if (analysis.isDebuff) {
-      const debuff = document.createElement("span");
-      debuff.className = "shiropro-effect-tag is-debuff";
-      debuff.textContent = "デバフ";
-      classification.appendChild(debuff);
-    }
+      if (!segment.isBuff && !segment.isDebuff) {
+        const other = document.createElement("span");
+        other.className = "shiropro-effect-tag";
+        other.textContent = "○その他";
+        tags.appendChild(other);
+      }
 
-    if (!analysis.kinds.length) {
-      const other = document.createElement("span");
-      other.className = "shiropro-effect-tag";
-      other.textContent = "未分類";
-      classification.appendChild(other);
-    }
+      const content = document.createElement("p");
+      content.className = "shiropro-detail-skill-effect";
+      content.textContent = segment.content;
 
-    section.append(skillHead, effect, classification);
+      rowElement.append(tags, content);
+      effectList.appendChild(rowElement);
+    });
+
+    section.appendChild(effectList);
     detailBody.appendChild(section);
   }
 
