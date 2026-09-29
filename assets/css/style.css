@@ -3954,3 +3954,76 @@ body.horse-racing-theme .card {
     min-height: 150px;
   }
 }
+
+
+/* Shiropro formation-skill detail */
+.shiropro-detail-formation h4 {
+  margin: 0 0 10px;
+  color: var(--text);
+  font-size: 13px;
+}
+
+.shiropro-detail-skill-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 7px;
+}
+
+.shiropro-detail-skill-head strong {
+  color: var(--text);
+  font-size: 13px;
+}
+
+.shiropro-detail-skill-effect {
+  margin: 0;
+  color: #3f4c5a;
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+.shiropro-detail-classification {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  margin-top: 12px;
+}
+
+.shiropro-detail-classification-label {
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.shiropro-effect-tag {
+  display: inline-flex;
+  align-items: center;
+  min-height: 24px;
+  padding: 3px 8px;
+  border: 1px solid #d7dde5;
+  border-radius: 999px;
+  background: #f7f9fb;
+  color: #596675;
+  font-size: 10px;
+  font-weight: 800;
+}
+
+.shiropro-effect-tag.is-buff {
+  border-color: #b9d6c5;
+  background: #eef8f2;
+  color: #25623d;
+}
+
+.shiropro-effect-tag.is-debuff {
+  border-color: #e2c0c0;
+  background: #fff2f2;
+  color: #9a3b3b;
+}
+
+.shiropro-detail-empty {
+  margin: 0;
+  color: var(--muted);
+  font-size: 11px;
+}
