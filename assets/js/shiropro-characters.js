@@ -44,10 +44,28 @@ document.addEventListener("DOMContentLoaded", async () => {
     return String(row.id || row.no || row.name);
   }
 
+  const standardWeapons = new Set([
+    "刀", "槍", "槌", "盾", "拳", "鎌", "戦棍", "双剣", "ランス",
+    "弓", "石弓", "鉄砲", "大砲", "歌舞", "法術", "鈴", "杖", "祓串",
+    "本", "投剣", "鞭", "陣貝", "軍船", "茶器", "その他",
+    "刀/鉄砲", "鞭/双剣", "ランス/大砲", "戦棍/槌", "鎌/槍"
+  ]);
+
+  function normalizeWeapon(value) {
+    const weapon = String(value || "").trim();
+    if (!weapon) return "";
+    return standardWeapons.has(weapon) ? weapon : "その他";
+  }
+
+  function normalizeAttribute(value) {
+    const attribute = String(value || "").trim();
+    return attribute === "地" ? "地獄" : attribute;
+  }
+
   function splitAttributes(row) {
     const raw = String(row.attribute || "").trim();
     if (!raw) return ["", ""];
-    const parts = raw.split("/").map((value) => value.trim()).filter(Boolean);
+    const parts = raw.split("/").map((value) => normalizeAttribute(value)).filter(Boolean);
     return [parts[0] || "", parts[1] || ""];
   }
 
@@ -65,8 +83,9 @@ document.addEventListener("DOMContentLoaded", async () => {
   function fillFilters() {
     const rarities = [...new Set(characters.map((row) => row.rarity).filter(Number.isFinite))]
       .sort((a, b) => b - a);
-    const weapons = [...new Set(characters.map((row) => row.weapon).filter(Boolean))]
-      .sort((a, b) => a.localeCompare(b, "ja"));
+    const weapons = [...new Set(
+      characters.map((row) => normalizeWeapon(row.weapon)).filter(Boolean)
+    )].sort((a, b) => a.localeCompare(b, "ja"));
     const attributes = [...new Set(
       characters.flatMap((row) => splitAttributes(row)).filter(Boolean)
     )].sort((a, b) => a.localeCompare(b, "ja"));
@@ -81,12 +100,16 @@ document.addEventListener("DOMContentLoaded", async () => {
       ? attributeValue(a, 0)
       : key === "attribute2"
         ? attributeValue(a, 1)
-        : a[key];
+        : key === "weapon"
+          ? normalizeWeapon(a.weapon)
+          : a[key];
     const bv = key === "attribute1"
       ? attributeValue(b, 0)
       : key === "attribute2"
         ? attributeValue(b, 1)
-        : b[key];
+        : key === "weapon"
+          ? normalizeWeapon(b.weapon)
+          : b[key];
 
     if (key === "rarity" || key === "basicCost" || key === "no") {
       const an = av === null || av === "" || av === undefined
@@ -114,7 +137,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     const rows = characters.filter((row) => {
       if (keyword && !normalize(row.name).includes(keyword)) return false;
       if (rarity && String(row.rarity) !== rarity) return false;
-      if (weapon && row.weapon !== weapon) return false;
+      if (weapon && normalizeWeapon(row.weapon) !== weapon) return false;
       if (attribute && !splitAttributes(row).includes(attribute)) return false;
       if (onlyBookmarked && !bookmarks.has(rowId(row))) return false;
       return true;
@@ -184,7 +207,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       rarityCell.textContent = "★" + row.rarity;
 
       const weaponCell = document.createElement("td");
-      weaponCell.textContent = row.weapon || "—";
+      weaponCell.textContent = normalizeWeapon(row.weapon) || "—";
 
       const [attribute1, attribute2] = splitAttributes(row);
       const attribute1Cell = document.createElement("td");
