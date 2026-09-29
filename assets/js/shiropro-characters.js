@@ -431,7 +431,9 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
 
     detailPanel.hidden = false;
-    if (detailTitle) detailTitle.textContent = row.name;
+    if (detailTitle) {
+      detailTitle.textContent = row.name + (row.maxUpgrade ? "　" + row.maxUpgrade : "");
+    }
     if (!detailBody) return;
 
     detailBody.innerHTML = "";
@@ -451,16 +453,6 @@ document.addEventListener("DOMContentLoaded", async () => {
       section.appendChild(empty);
       detailBody.appendChild(section);
       return;
-    }
-
-    if (skill.stage && skill.stage !== "無印") {
-      const stageRow = document.createElement("div");
-      stageRow.className = "shiropro-detail-stage-row";
-      const stage = document.createElement("span");
-      stage.className = "shiropro-skill-stage";
-      stage.textContent = skill.stage;
-      stageRow.appendChild(stage);
-      section.appendChild(stageRow);
     }
 
     const effectList = document.createElement("div");
@@ -487,11 +479,14 @@ document.addEventListener("DOMContentLoaded", async () => {
       effectList.appendChild(rowElement);
     }
 
-    formationEffectSegments(skill).forEach((segment) => {
-      if (segment.isBuff) appendEffectRow("buff", segment.content);
-      if (segment.isDebuff) appendEffectRow("debuff", segment.content);
-      if (!segment.isBuff && !segment.isDebuff) appendEffectRow("other", segment.content);
-    });
+    const effectSegments = formationEffectSegments(skill);
+    const buffSegments = effectSegments.filter((segment) => segment.isBuff);
+    const debuffSegments = effectSegments.filter((segment) => segment.isDebuff);
+    const otherSegments = effectSegments.filter((segment) => !segment.isBuff && !segment.isDebuff);
+
+    buffSegments.forEach((segment) => appendEffectRow("buff", segment.content));
+    debuffSegments.forEach((segment) => appendEffectRow("debuff", segment.content));
+    otherSegments.forEach((segment) => appendEffectRow("other", segment.content));
 
     section.appendChild(effectList);
     detailBody.appendChild(section);
