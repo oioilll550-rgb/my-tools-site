@@ -9,6 +9,8 @@ document.addEventListener("DOMContentLoaded", async () => {
   const bookmarkOnly = document.getElementById("shiroproBookmarkOnly");
   const formationOnly = document.getElementById("shiroproFormationOnly");
   const heldOnly = document.getElementById("shiroproHeldOnly");
+  const buffOnly = document.getElementById("shiroproBuffOnly");
+  const debuffOnly = document.getElementById("shiroproDebuffOnly");
   const resetButton = document.getElementById("shiroproReset");
   const countLabel = document.getElementById("shiroproCharacterCount");
   const updatedLabel = document.getElementById("shiroproUpdated");
@@ -195,6 +197,8 @@ document.addEventListener("DOMContentLoaded", async () => {
     const onlyBookmarked = bookmarkOnly.checked;
     const onlyFormationSkill = formationOnly.checked;
     const onlyHeldSkill = heldOnly.checked;
+    const onlyBuff = buffOnly.checked;
+    const onlyDebuff = debuffOnly.checked;
 
     const rows = characters.filter((row) => {
       if (keyword && !normalize(row.name).includes(keyword)) return false;
@@ -204,6 +208,8 @@ document.addEventListener("DOMContentLoaded", async () => {
       if (onlyBookmarked && !bookmarks.has(rowId(row))) return false;
       if (onlyFormationSkill && !(row.formationSkill && row.formationSkill.effect)) return false;
       if (onlyHeldSkill && !(row.heldSkill && row.heldSkill.effect)) return false;
+      if (onlyBuff && !(Array.isArray(row.buffs) && row.buffs.length)) return false;
+      if (onlyDebuff && !(Array.isArray(row.debuffs) && row.debuffs.length)) return false;
       return true;
     });
 
@@ -473,7 +479,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     render();
   });
 
-  [searchInput, raritySelect, weaponSelect, attributeSelect, bookmarkOnly, formationOnly, heldOnly].forEach((element) => {
+  [searchInput, raritySelect, weaponSelect, attributeSelect, bookmarkOnly, formationOnly, heldOnly, buffOnly, debuffOnly].forEach((element) => {
     element.addEventListener(element === searchInput ? "input" : "change", render);
   });
 
@@ -485,6 +491,8 @@ document.addEventListener("DOMContentLoaded", async () => {
     bookmarkOnly.checked = false;
     formationOnly.checked = false;
     heldOnly.checked = false;
+    buffOnly.checked = false;
+    debuffOnly.checked = false;
     sortKey = "no";
     sortDirection = "asc";
     render();
