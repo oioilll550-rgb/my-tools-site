@@ -203,17 +203,26 @@ def parse_skill_page(url: str, character_names: list[str]) -> dict[str, dict]:
                 continue
 
             texts = [clean(cell.get_text(" ", strip=True)) for cell in cells]
-            character_text = texts[-1]
-            effect = texts[-2]
-            skill_name = texts[-3]
+
+            char_index = None
+            found = []
+            for index in range(len(texts) - 1, 1, -1):
+                candidate = names_in_cell(texts[index], names_by_length)
+                if candidate:
+                    char_index = index
+                    found = candidate
+                    break
+
+            if char_index is None or char_index < 2:
+                continue
+
+            character_text = texts[char_index]
+            effect = texts[char_index - 1]
+            skill_name = texts[char_index - 2]
 
             if not effect or effect == "効果" or not character_text:
                 continue
             if skill_name in {"", "効果", "城娘"}:
-                continue
-
-            found = names_in_cell(character_text, names_by_length)
-            if not found:
                 continue
 
             for name, stage, rank in found:
@@ -263,11 +272,11 @@ def parse_individual_max_skills(row: dict) -> tuple[str, dict | None, dict | Non
         candidates = []
         for table in soup.find_all("table"):
             text = clean(table.get_text(" ", strip=True))
-            if "図鑑No." in text and "合戦" in text and ("編成特技" in text or "所持特技" in text):
+            if "図鑑No." in text and "合戦" in text:
                 candidates.append((len(text), table))
 
         if not candidates:
-            return str(row["id"]), None, None, "summary table not found"
+            return str(row["id"]), None, None, None
 
         table = min(candidates, key=lambda item: item[0])[1]
         best = {"formation": None, "held": None}
