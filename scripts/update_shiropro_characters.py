@@ -12,6 +12,7 @@ over 改壱, and 改壱 is preferred over the base form.
 
 from __future__ import annotations
 
+import concurrent.futures
 import json
 import re
 import time
@@ -30,6 +31,7 @@ BASE = "https://scre.swiki.jp/"
 LIST_URL = "https://scre.swiki.jp/index.php?%E5%85%A8%E5%9F%8E%E5%A8%98%E4%B8%80%E8%A6%A7"
 FORMATION_URL = "https://scre.swiki.jp/index.php?%E7%B7%A8%E6%88%90%E7%89%B9%E6%8A%80"
 HELD_URL = "https://scre.swiki.jp/index.php?%E6%89%80%E6%8C%81%E7%89%B9%E6%8A%80"
+KAI2_URL = "https://scre.swiki.jp/index.php?%E5%9F%8E%E5%A8%98%E4%B8%80%E8%A6%A7%2F%E6%94%B9%E5%BC%90"
 
 HEADERS = {
     "User-Agent": (
@@ -80,6 +82,20 @@ def fetch_soup(url: str, attempts: int = 4) -> BeautifulSoup:
             if attempt + 1 < attempts:
                 time.sleep(1.2 * (attempt + 1))
     raise RuntimeError(f"Failed to fetch {url}: {last_error}")
+
+
+def load_existing() -> dict[str, dict]:
+    if not OUT.exists():
+        return {}
+    try:
+        data = json.loads(OUT.read_text(encoding="utf-8"))
+    except (json.JSONDecodeError, UnicodeDecodeError):
+        return {}
+    return {
+        str(row.get("id") or row.get("name")): row
+        for row in data.get("characters", [])
+        if isinstance(row, dict) and (row.get("id") or row.get("name"))
+    }
 
 
 def character_url(cell, name: str) -> str:
@@ -214,7 +230,106 @@ def parse_skill_page(url: str, character_names: list[str]) -> dict[str, dict]:
     return result
 
 
+def parse_kai2_names(character_names: list[str]) -> set[str]:
+    soup = fetch_soup(KAI2_URL)
+    names_by_length = sorted(character_names, key=len, reverse=True)
+    found: set[str] = set()
+
+    for table in soup.find_all("table"):
+        table_text = clean(table.get_text(" ", strip=True))
+        if "改弐" not in table_text:
+            continue
+        for cell in table.find_all("td"):
+            text = clean(cell.get_text(" ", strip=True))
+            if not text:
+                continue
+            occupied: list[tuple[int, int]] = []
+            for name in names_by_length:
+                start = text.find(name)
+                if start < 0:
+                    continue
+                end = start + len(name)
+                if any(not (end <= s or start >= e) for s, e in occupied):
+                    continue
+                occupied.append((start, end))
+                found.add(name)
+
+    return found
+
+
+def parse_individual_max_skills(row: dict) -> tuple[str, dict | None, dict | None, str | None]:
+    try:
+        soup = fetch_soup(row["wikiUrl"])
+        candidates = []
+        for table in soup.find_all("table"):
+            text = clean(table.get_text(" ", strip=True))
+            if "図鑑No." in text and "合戦" in text and ("編成特技" in text or "所持特技" in text):
+                candidates.append((len(text), table))
+
+        if not candidates:
+            return str(row["id"]), None, None, "summary table not found"
+
+        table = min(candidates, key=lambda item: item[0])[1]
+        best = {"formation": None, "held": None}
+        current_section = None
+
+        section_headers = {
+            "特技", "編成特技", "所持特技", "大破特技", "特殊攻撃",
+            "特殊能力", "計略", "図鑑文章", "武器切替",
+        }
+
+        for tr in table.find_all("tr"):
+            cells = tr.find_all(["td", "th"], recursive=False)
+            if not cells:
+                continue
+            texts = [clean(cell.get_text(" ", strip=True)) for cell in cells]
+            first = texts[0] if texts else ""
+
+            header_match = next((h for h in section_headers if first == h), None)
+            if header_match:
+                if header_match == "編成特技":
+                    current_section = "formation"
+                elif header_match == "所持特技":
+                    current_section = "held"
+                else:
+                    current_section = None
+                continue
+
+            if current_section not in {"formation", "held"} or len(texts) < 2:
+                continue
+
+            stage = "無印"
+            rank = 0
+            if "改弐" in first:
+                stage, rank = "改弐", 2
+            elif "改壱" in first:
+                stage, rank = "改壱", 1
+            elif "無印" in first:
+                stage, rank = "無印", 0
+            else:
+                continue
+
+            effect = texts[1]
+            if not effect or effect == "なし":
+                continue
+
+            skill_name = first.split("/", 1)[1].strip() if "/" in first else ""
+            skill_name = re.sub(r"^\s*\[?改[壱弐]\]?\s*", "", skill_name).strip()
+            skill_name = skill_name or current_section
+
+            candidate = {"name": skill_name, "effect": effect, "stage": stage}
+            previous = best[current_section]
+            previous_rank = STAGE_RANK.get(previous.get("stage", "無印"), -1) if previous else -1
+            if rank >= previous_rank:
+                best[current_section] = candidate
+
+        return str(row["id"]), best["formation"], best["held"], None
+    except Exception as exc:
+        return str(row["id"]), None, None, str(exc)
+
+
 def main() -> None:
+    existing = load_existing()
     characters = parse_full_list()
     names = [row["name"] for row in characters]
 
@@ -230,6 +345,52 @@ def main() -> None:
     for row in characters:
         row["formationSkill"] = formation.get(row["name"])
         row["heldSkill"] = held.get(row["name"])
+        row["maxUpgrade"] = None
+
+    print("Reading 改弐 implementation list...")
+    kai2_names = parse_kai2_names(names)
+    print(f"改弐 characters matched: {len(kai2_names)}")
+
+    by_id = {str(row["id"]): row for row in characters}
+    pending = []
+
+    for row in characters:
+        if row["name"] not in kai2_names:
+            continue
+        row["maxUpgrade"] = "改弐"
+
+        old = existing.get(str(row["id"])) or existing.get(row["name"])
+        if old and old.get("maxUpgrade") == "改弐":
+            old_formation = old.get("formationSkill")
+            old_held = old.get("heldSkill")
+
+            # Prefer an aggregate-page 改弐 entry when available; otherwise keep
+            # the previously verified individual-page result.
+            if not row["formationSkill"] or row["formationSkill"].get("stage") != "改弐":
+                row["formationSkill"] = old_formation
+            if not row["heldSkill"] or row["heldSkill"].get("stage") != "改弐":
+                row["heldSkill"] = old_held
+        else:
+            pending.append(row)
+
+    if pending:
+        print(f"Checking individual pages for max 改弐 skills: {len(pending)}")
+        with concurrent.futures.ThreadPoolExecutor(max_workers=5) as executor:
+            futures = [executor.submit(parse_individual_max_skills, row) for row in pending]
+            done = 0
+            for future in concurrent.futures.as_completed(futures):
+                char_id, formation_skill, held_skill, error = future.result()
+                done += 1
+                row = by_id.get(char_id)
+                if row:
+                    if formation_skill:
+                        row["formationSkill"] = formation_skill
+                    if held_skill:
+                        row["heldSkill"] = held_skill
+                if done % 25 == 0 or done == len(pending):
+                    print(f"  改弐 pages: {done}/{len(pending)}")
+                if error:
+                    print(f"  warning {char_id}: {error}")
 
     characters.sort(key=lambda row: (
         row["no"] is None,
@@ -249,6 +410,7 @@ def main() -> None:
         "skillSources": {
             "formation": FORMATION_URL,
             "held": HELD_URL,
+            "kai2": KAI2_URL,
         },
         "updatedAtJst": datetime.now(ZoneInfo("Asia/Tokyo")).isoformat(timespec="seconds"),
         "count": len(characters),
