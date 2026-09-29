@@ -3526,3 +3526,46 @@ body.horse-racing-theme .card {
     max-height: 68vh;
   }
 }
+
+
+/* Shiropro attribute colors */
+.shiropro-attribute-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 42px;
+  padding: 3px 8px;
+  border-radius: 999px;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 800;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+
+.shiropro-attribute-badge.attr-flat {
+  background: #1f5f3f;
+}
+
+.shiropro-attribute-badge.attr-flat-hill {
+  background: #7fbf3f;
+  color: #17320d;
+}
+
+.shiropro-attribute-badge.attr-mountain {
+  background: #8a5a2b;
+}
+
+.shiropro-attribute-badge.attr-hell {
+  background: #6b3fa0;
+}
+
+.shiropro-attribute-badge.attr-none {
+  background: #a7adb4;
+  color: #27313b;
+}
+
+.shiropro-attribute-badge.attr-other {
+  background: #e88bb5;
+  color: #4a1730;
+}
