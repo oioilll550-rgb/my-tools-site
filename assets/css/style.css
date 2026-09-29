@@ -4027,3 +4027,48 @@ body.horse-racing-theme .card {
   color: var(--muted);
   font-size: 11px;
 }
+
+
+/* Shiropro formation detail: tagged effect rows */
+.shiropro-detail-effect-list {
+  display: grid;
+  gap: 8px;
+}
+
+.shiropro-detail-effect-row {
+  display: grid;
+  grid-template-columns: 92px minmax(0, 1fr);
+  align-items: start;
+  gap: 10px;
+}
+
+.shiropro-detail-effect-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  min-width: 0;
+}
+
+.shiropro-detail-effect-row .shiropro-effect-tag {
+  justify-content: center;
+  min-width: 78px;
+}
+
+.shiropro-detail-effect-row .shiropro-detail-skill-effect {
+  padding-top: 2px;
+}
+
+.shiropro-detail-stage-row {
+  margin-bottom: 8px;
+}
+
+@media (max-width: 560px) {
+  .shiropro-detail-effect-row {
+    grid-template-columns: 82px minmax(0, 1fr);
+    gap: 7px;
+  }
+
+  .shiropro-detail-effect-row .shiropro-effect-tag {
+    min-width: 70px;
+  }
+}
