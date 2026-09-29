@@ -1,0 +1,59 @@
+name: Update Shiropro character list
+
+on:
+  workflow_dispatch:
+    inputs:
+      refresh_costs:
+        description: "Re-fetch basic deployment cost for all characters"
+        required: false
+        type: boolean
+        default: false
+  schedule:
+    # 21:10 UTC = 06:10 JST. Normal runs reuse existing deployment costs.
+    - cron: "10 21 * * *"
+  push:
+    branches: [main]
+    paths:
+      - "scripts/update_shiropro_characters.py"
+      - ".github/workflows/update-shiropro-characters.yml"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: shiropro-character-data
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      SHIROPRO_REFRESH_COSTS: ${{ inputs.refresh_costs == true && '1' || '0' }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install parser dependencies
+        run: pip install --disable-pip-version-check requests==2.32.3 beautifulsoup4==4.12.3
+
+      - name: Build character dataset
+        run: python scripts/update_shiropro_characters.py
+
+      - name: Commit data when changed
+        run: |
+          git add assets/data/shiropro-characters.json
+
+          if git diff --cached --quiet; then
+            echo "No Shiropro character data changes"
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Update Shiropro character data"
+          git pull --rebase origin main
+          git push
