@@ -87,6 +87,39 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
   }
 
+  function attributeColor(value) {
+    switch (value) {
+      case "平": return "#1f5f3f";
+      case "平山": return "#7fbf3f";
+      case "山": return "#8a5a2b";
+      case "水": return "#8ed8f8";
+      case "地獄": return "#6b3fa0";
+      case "無": return "#a7adb4";
+      default: return "#e88bb5";
+    }
+  }
+
+  function setNameAttributeBackground(cell, row) {
+    const [attribute1, attribute2] = splitAttributes(row);
+    const color1 = attributeColor(attribute1 || "その他");
+
+    cell.classList.add("shiropro-name-cell");
+    cell.dataset.attribute1 = attribute1 || "";
+    cell.dataset.attribute2 = attribute2 || "";
+
+    if (attribute2) {
+      const color2 = attributeColor(attribute2);
+      cell.style.background =
+        "linear-gradient(90deg," +
+        color1 + " 0%," +
+        color1 + " 50%," +
+        color2 + " 50%," +
+        color2 + " 100%)";
+    } else {
+      cell.style.background = color1;
+    }
+  }
+
   function setAttributeBadge(cell, value) {
     if (!value) {
       cell.textContent = "";
@@ -357,7 +390,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     if (!rows.length) {
       const tr = document.createElement("tr");
       const td = document.createElement("td");
-      td.colSpan = 8;
+      td.colSpan = 6;
       td.className = "shiropro-empty";
       td.textContent = "条件に一致するキャラクターがありません。";
       tr.appendChild(td);
@@ -388,14 +421,8 @@ document.addEventListener("DOMContentLoaded", async () => {
       const weaponCell = document.createElement("td");
       weaponCell.textContent = normalizeWeapon(row.weapon) || "—";
 
-      const [attribute1, attribute2] = splitAttributes(row);
-      const attribute1Cell = document.createElement("td");
-      setAttributeBadge(attribute1Cell, attribute1);
-
-      const attribute2Cell = document.createElement("td");
-      setAttributeBadge(attribute2Cell, attribute2);
-
       const nameCell = document.createElement("td");
+      setNameAttributeBackground(nameCell, row);
       const link = document.createElement("a");
       link.href = row.wikiUrl;
       link.target = "_blank";
@@ -413,8 +440,6 @@ document.addEventListener("DOMContentLoaded", async () => {
         bookmarkCell,
         rarityCell,
         weaponCell,
-        attribute1Cell,
-        attribute2Cell,
         nameCell,
         formationCell,
         heldCell
@@ -488,7 +513,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     render();
   } catch (error) {
-    tableBody.innerHTML = '<tr><td colspan="8" class="shiropro-empty">キャラクターデータを読み込めませんでした。</td></tr>';
+    tableBody.innerHTML = '<tr><td colspan="6" class="shiropro-empty">キャラクターデータを読み込めませんでした。</td></tr>';
     if (countLabel) countLabel.textContent = "--";
   }
 });
