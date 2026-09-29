@@ -3474,22 +3474,22 @@ body.horse-racing-theme .card {
 }
 
 .shiropro-table td:nth-child(2),
-.shiropro-table td:nth-child(6) {
+.shiropro-table td:nth-child(7) {
   text-align: center;
   font-variant-numeric: tabular-nums;
 }
 
-.shiropro-table td:nth-child(5) {
+.shiropro-table td:nth-child(6) {
   width: 38%;
   white-space: normal;
 }
 
-.shiropro-table td:nth-child(5) a {
+.shiropro-table td:nth-child(6) a {
   font-weight: 700;
   text-decoration: none;
 }
 
-.shiropro-table td:nth-child(5) a:hover {
+.shiropro-table td:nth-child(6) a:hover {
   text-decoration: underline;
 }
 
