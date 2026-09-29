@@ -992,6 +992,28 @@ def main() -> None:
     buff_count = sum(1 for row in characters if row.get("buffs"))
     debuff_count = sum(1 for row in characters if row.get("debuffs"))
 
+    max_stage_violations = []
+    for row in characters:
+        if row.get("maxUpgrade") != "改弐":
+            continue
+        lower_entries = [
+            entry
+            for entry in [*(row.get("buffs") or []), *(row.get("debuffs") or [])]
+            if entry.get("stage") in {"無印", "改壱"}
+        ]
+        if lower_entries:
+            max_stage_violations.append(row["name"])
+
+    if max_stage_violations:
+        raise RuntimeError(
+            "Validation failed: lower-stage effect data remains for 改弐 characters: "
+            + ", ".join(max_stage_violations[:20])
+        )
+
+    print(f"Buff characters: {buff_count}")
+    print(f"Debuff characters: {debuff_count}")
+    print("Max-upgrade effect validation: OK")
+
     if formation_count < 100:
         raise RuntimeError(f"Validation failed: too few formation skills ({formation_count})")
     if held_count < 50:
