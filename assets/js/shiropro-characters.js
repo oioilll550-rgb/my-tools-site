@@ -44,6 +44,17 @@ document.addEventListener("DOMContentLoaded", async () => {
     return String(row.id || row.no || row.name);
   }
 
+  function splitAttributes(row) {
+    const raw = String(row.attribute || "").trim();
+    if (!raw) return ["", ""];
+    const parts = raw.split("/").map((value) => value.trim()).filter(Boolean);
+    return [parts[0] || "", parts[1] || ""];
+  }
+
+  function attributeValue(row, index) {
+    return splitAttributes(row)[index] || "";
+  }
+
   function addOption(select, value, label = value) {
     const option = document.createElement("option");
     option.value = value;
@@ -56,8 +67,9 @@ document.addEventListener("DOMContentLoaded", async () => {
       .sort((a, b) => b - a);
     const weapons = [...new Set(characters.map((row) => row.weapon).filter(Boolean))]
       .sort((a, b) => a.localeCompare(b, "ja"));
-    const attributes = [...new Set(characters.map((row) => row.attribute).filter(Boolean))]
-      .sort((a, b) => a.localeCompare(b, "ja"));
+    const attributes = [...new Set(
+      characters.flatMap((row) => splitAttributes(row)).filter(Boolean)
+    )].sort((a, b) => a.localeCompare(b, "ja"));
 
     rarities.forEach((value) => addOption(raritySelect, String(value), "★" + value));
     weapons.forEach((value) => addOption(weaponSelect, value));
@@ -65,8 +77,16 @@ document.addEventListener("DOMContentLoaded", async () => {
   }
 
   function compareValues(a, b, key) {
-    const av = a[key];
-    const bv = b[key];
+    const av = key === "attribute1"
+      ? attributeValue(a, 0)
+      : key === "attribute2"
+        ? attributeValue(a, 1)
+        : a[key];
+    const bv = key === "attribute1"
+      ? attributeValue(b, 0)
+      : key === "attribute2"
+        ? attributeValue(b, 1)
+        : b[key];
 
     if (key === "rarity" || key === "basicCost" || key === "no") {
       const an = av === null || av === "" || av === undefined
@@ -95,7 +115,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       if (keyword && !normalize(row.name).includes(keyword)) return false;
       if (rarity && String(row.rarity) !== rarity) return false;
       if (weapon && row.weapon !== weapon) return false;
-      if (attribute && row.attribute !== attribute) return false;
+      if (attribute && !splitAttributes(row).includes(attribute)) return false;
       if (onlyBookmarked && !bookmarks.has(rowId(row))) return false;
       return true;
     });
@@ -135,7 +155,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     if (!rows.length) {
       const tr = document.createElement("tr");
       const td = document.createElement("td");
-      td.colSpan = 6;
+      td.colSpan = 7;
       td.className = "shiropro-empty";
       td.textContent = "条件に一致するキャラクターがありません。";
       tr.appendChild(td);
@@ -157,7 +177,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       check.className = "shiropro-bookmark-check";
       check.checked = bookmarks.has(rowId(row));
       check.dataset.characterId = rowId(row);
-      check.setAttribute("aria-label", row.name + "をブックマーク");
+      check.setAttribute("aria-label", row.name + "をお気に入り登録");
       bookmarkCell.appendChild(check);
 
       const rarityCell = document.createElement("td");
@@ -166,8 +186,12 @@ document.addEventListener("DOMContentLoaded", async () => {
       const weaponCell = document.createElement("td");
       weaponCell.textContent = row.weapon || "—";
 
-      const attributeCell = document.createElement("td");
-      attributeCell.textContent = row.attribute || "—";
+      const [attribute1, attribute2] = splitAttributes(row);
+      const attribute1Cell = document.createElement("td");
+      attribute1Cell.textContent = attribute1 || "—";
+
+      const attribute2Cell = document.createElement("td");
+      attribute2Cell.textContent = attribute2 || "";
 
       const nameCell = document.createElement("td");
       const link = document.createElement("a");
@@ -185,7 +209,8 @@ document.addEventListener("DOMContentLoaded", async () => {
         bookmarkCell,
         rarityCell,
         weaponCell,
-        attributeCell,
+        attribute1Cell,
+        attribute2Cell,
         nameCell,
         costCell
       );
@@ -258,7 +283,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     render();
   } catch (error) {
-    tableBody.innerHTML = '<tr><td colspan="6" class="shiropro-empty">キャラクターデータを読み込めませんでした。</td></tr>';
+    tableBody.innerHTML = '<tr><td colspan="7" class="shiropro-empty">キャラクターデータを読み込めませんでした。</td></tr>';
     if (countLabel) countLabel.textContent = "--";
   }
 });
