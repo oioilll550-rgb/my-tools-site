@@ -7,7 +7,7 @@
 <title>御城プロジェクトRE | ゲーム | べんりちゃん、微力ながら</title>
 <meta name="description" content="御城プロジェクトREの情報を見やすく整理するページです。">
 <meta name="robots" content="index,follow">
-<link rel="stylesheet" href="../../../assets/css/style.css?v=20260929-8">
+<link rel="stylesheet" href="../../../assets/css/style.css?v=20260930-1">
 </head>
 <body>
 <header><div class="header-inner"><div class="site-title"><a href="../../../">べんりちゃん、微力ながら</a></div>
@@ -28,6 +28,16 @@
 <div class="tools-heading-row">
 <h2>キャラクター一覧</h2>
 <span id="shiroproCharacterCount" class="tools-count">読み込み中…</span>
+</div>
+
+<div class="shiropro-bookmark-summary" aria-live="polite">
+<div class="shiropro-bookmark-summary-head">
+<h3>☆所持特技 合算</h3>
+<span id="shiroproBookmarkSummaryCount">☆ 0人</span>
+</div>
+<div id="shiroproBookmarkSummary">
+<p class="notice">一覧で☆を付けると、対象キャラの所持特技をここに合算表示します。</p>
+</div>
 </div>
 
 <div class="shiropro-filter-grid">
@@ -54,11 +64,12 @@
 <th aria-sort="none"><button type="button" data-shiropro-sort="attribute1">属性1 <span class="shiropro-sort-marker" aria-hidden="true"></span></button></th>
 <th aria-sort="none"><button type="button" data-shiropro-sort="attribute2">属性2 <span class="shiropro-sort-marker" aria-hidden="true"></span></button></th>
 <th aria-sort="none"><button type="button" data-shiropro-sort="name">キャラクター名 <span class="shiropro-sort-marker" aria-hidden="true"></span></button></th>
-<th aria-sort="none"><button type="button" data-shiropro-sort="basicCost">基本消費気 <span class="shiropro-sort-marker" aria-hidden="true"></span></button></th>
+<th>編成特技</th>
+<th>所持特技</th>
 </tr>
 </thead>
 <tbody id="shiroproCharacterBody">
-<tr><td colspan="7" class="shiropro-empty">キャラクターデータを読み込んでいます…</td></tr>
+<tr><td colspan="8" class="shiropro-empty">キャラクターデータを読み込んでいます…</td></tr>
 </tbody>
 </table>
 </div>
@@ -66,6 +77,6 @@
 </main>
 <footer><div class="footer-inner"><span>© <span data-current-year>2026</span> べんりちゃん、微力ながら</span></div></footer>
 <script src="../../../assets/js/site.js?v=20260929-4"></script>
-<script src="../../../assets/js/shiropro-characters.js?v=20260929-5"></script>
+<script src="../../../assets/js/shiropro-characters.js?v=20260930-1"></script>
 </body>
 </html>
