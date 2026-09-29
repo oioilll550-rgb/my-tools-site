@@ -107,6 +107,36 @@ def character_url(cell, name: str) -> str:
     return "https://scre.swiki.jp/index.php?" + quote(name, safe="")
 
 
+def split_combined_skill(value: str) -> tuple[dict | None, dict | None]:
+    text = clean(value)
+    if not text:
+        return None, None
+
+    formation = None
+    held = None
+
+    matches = list(re.finditer(r"\[(編成|所持)\]", text))
+    if matches:
+        for index, match in enumerate(matches):
+            kind = match.group(1)
+            start = match.end()
+            end = matches[index + 1].start() if index + 1 < len(matches) else len(text)
+            effect = clean(text[start:end])
+            if not effect:
+                continue
+            skill = {"name": "", "effect": effect, "stage": ""}
+            if kind == "編成":
+                formation = skill
+            else:
+                held = skill
+    else:
+        # A few current-list rows omit the [編成] prefix, but the content is
+        # still the formation effect shown in the all-character table.
+        formation = {"name": "", "effect": text, "stage": ""}
+
+    return formation, held
+
+
 def parse_full_list() -> list[dict]:
     soup = fetch_soup(LIST_URL)
     rows: list[dict] = []
@@ -142,6 +172,9 @@ def parse_full_list() -> list[dict]:
                 continue
             seen.add(char_id)
 
+            combined = clean(cells[7].get_text(" ", strip=True)) if len(cells) > 7 else ""
+            baseline_formation, baseline_held = split_combined_skill(combined)
+
             rows.append({
                 "id": char_id,
                 "no": int(no) if no else None,
@@ -149,8 +182,8 @@ def parse_full_list() -> list[dict]:
                 "weapon": weapon,
                 "attribute": attribute,
                 "name": name,
-                "formationSkill": None,
-                "heldSkill": None,
+                "formationSkill": baseline_formation,
+                "heldSkill": baseline_held,
                 "wikiUrl": character_url(cells[1], name),
             })
 
@@ -352,8 +385,10 @@ def main() -> None:
     print(f"Possession skills matched: {len(held)}")
 
     for row in characters:
-        row["formationSkill"] = formation.get(row["name"])
-        row["heldSkill"] = held.get(row["name"])
+        if formation.get(row["name"]):
+            row["formationSkill"] = formation[row["name"]]
+        if held.get(row["name"]):
+            row["heldSkill"] = held[row["name"]]
         row["maxUpgrade"] = None
 
     print("Reading 改弐 implementation list...")
@@ -409,10 +444,14 @@ def main() -> None:
 
     if len(characters) < 500:
         raise RuntimeError("Validation failed: too few characters")
-    if len(formation) < 100:
-        raise RuntimeError(f"Validation failed: too few formation skills ({len(formation)})")
-    if len(held) < 50:
-        raise RuntimeError(f"Validation failed: too few possession skills ({len(held)})")
+
+    formation_count = sum(1 for row in characters if row.get("formationSkill"))
+    held_count = sum(1 for row in characters if row.get("heldSkill"))
+
+    if formation_count < 100:
+        raise RuntimeError(f"Validation failed: too few formation skills ({formation_count})")
+    if held_count < 50:
+        raise RuntimeError(f"Validation failed: too few possession skills ({held_count})")
 
     payload = {
         "source": LIST_URL,
@@ -423,8 +462,8 @@ def main() -> None:
         },
         "updatedAtJst": datetime.now(ZoneInfo("Asia/Tokyo")).isoformat(timespec="seconds"),
         "count": len(characters),
-        "formationSkillCount": len(formation),
-        "heldSkillCount": len(held),
+        "formationSkillCount": formation_count,
+        "heldSkillCount": held_count,
         "characters": characters,
     }
 
