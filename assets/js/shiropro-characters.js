@@ -7,6 +7,8 @@ document.addEventListener("DOMContentLoaded", async () => {
   const weaponSelect = document.getElementById("shiroproWeapon");
   const attributeSelect = document.getElementById("shiroproAttribute");
   const bookmarkOnly = document.getElementById("shiroproBookmarkOnly");
+  const formationOnly = document.getElementById("shiroproFormationOnly");
+  const heldOnly = document.getElementById("shiroproHeldOnly");
   const resetButton = document.getElementById("shiroproReset");
   const countLabel = document.getElementById("shiroproCharacterCount");
   const updatedLabel = document.getElementById("shiroproUpdated");
@@ -191,6 +193,8 @@ document.addEventListener("DOMContentLoaded", async () => {
     const weapon = weaponSelect.value;
     const attribute = attributeSelect.value;
     const onlyBookmarked = bookmarkOnly.checked;
+    const onlyFormationSkill = formationOnly.checked;
+    const onlyHeldSkill = heldOnly.checked;
 
     const rows = characters.filter((row) => {
       if (keyword && !normalize(row.name).includes(keyword)) return false;
@@ -198,6 +202,8 @@ document.addEventListener("DOMContentLoaded", async () => {
       if (weapon && normalizeWeapon(row.weapon) !== weapon) return false;
       if (attribute && !splitAttributes(row).includes(attribute)) return false;
       if (onlyBookmarked && !bookmarks.has(rowId(row))) return false;
+      if (onlyFormationSkill && !(row.formationSkill && row.formationSkill.effect)) return false;
+      if (onlyHeldSkill && !(row.heldSkill && row.heldSkill.effect)) return false;
       return true;
     });
 
@@ -467,7 +473,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     render();
   });
 
-  [searchInput, raritySelect, weaponSelect, attributeSelect, bookmarkOnly].forEach((element) => {
+  [searchInput, raritySelect, weaponSelect, attributeSelect, bookmarkOnly, formationOnly, heldOnly].forEach((element) => {
     element.addEventListener(element === searchInput ? "input" : "change", render);
   });
 
@@ -477,6 +483,8 @@ document.addEventListener("DOMContentLoaded", async () => {
     weaponSelect.value = "";
     attributeSelect.value = "";
     bookmarkOnly.checked = false;
+    formationOnly.checked = false;
+    heldOnly.checked = false;
     sortKey = "no";
     sortDirection = "asc";
     render();
