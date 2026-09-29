@@ -44,6 +44,28 @@ def clean(value: str) -> str:
     return re.sub(r"\s+", " ", value or "").strip()
 
 
+STANDARD_WEAPONS = {
+    "刀", "槍", "槌", "盾", "拳", "鎌", "戦棍", "双剣", "ランス",
+    "弓", "石弓", "鉄砲", "大砲", "歌舞", "法術", "鈴", "杖", "祓串",
+    "本", "投剣", "鞭", "陣貝", "軍船", "茶器", "その他",
+    # Non-collaboration special/dual weapon types used by the game.
+    "刀/鉄砲", "鞭/双剣", "ランス/大砲", "戦棍/槌", "鎌/槍",
+}
+
+
+def normalize_weapon(value: str) -> str:
+    weapon = clean(value)
+    if not weapon:
+        return ""
+    return weapon if weapon in STANDARD_WEAPONS else "その他"
+
+
+def normalize_attribute(value: str) -> str:
+    parts = [clean(part) for part in (value or "").split("/") if clean(part)]
+    parts = ["地獄" if part == "地" else part for part in parts]
+    return "/".join(parts)
+
+
 def fetch_soup(url: str, attempts: int = 4) -> BeautifulSoup:
     last_error = None
     for attempt in range(attempts):
@@ -105,8 +127,8 @@ def parse_full_list() -> list[dict]:
             name = clean(cells[1].get_text(" ", strip=True))
             upgrade = clean(cells[2].get_text(" ", strip=True))
             rarity_text = clean(cells[3].get_text(" ", strip=True))
-            attribute = clean(cells[4].get_text(" ", strip=True))
-            weapon = clean(cells[5].get_text(" ", strip=True))
+            attribute = normalize_attribute(cells[4].get_text(" ", strip=True))
+            weapon = normalize_weapon(cells[5].get_text(" ", strip=True))
 
             if not name or name in {"城娘", "名前"}:
                 continue
