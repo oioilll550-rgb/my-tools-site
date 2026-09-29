@@ -33,6 +33,34 @@ FORMATION_URL = "https://scre.swiki.jp/index.php?%E7%B7%A8%E6%88%90%E7%89%B9%E6%
 HELD_URL = "https://scre.swiki.jp/index.php?%E6%89%80%E6%8C%81%E7%89%B9%E6%8A%80"
 KAI2_URL = "https://scre.swiki.jp/index.php?%E5%9F%8E%E5%A8%98%E4%B8%80%E8%A6%A7%2F%E6%94%B9%E5%BC%90"
 
+EFFECT_SOURCES = {
+    "trait_attack": {
+        "label": "特技",
+        "url": "https://scre.swiki.jp/index.php?%E7%89%B9%E6%8A%80",
+        "defaultKind": "buff",
+    },
+    "trait_defense": {
+        "label": "特技/防御系",
+        "url": "https://scre.swiki.jp/index.php?%E7%89%B9%E6%8A%80%2F%E9%98%B2%E5%BE%A1%E7%B3%BB",
+        "defaultKind": "buff",
+    },
+    "trait_debuff": {
+        "label": "特技/弱体化",
+        "url": "https://scre.swiki.jp/index.php?%E7%89%B9%E6%8A%80%2F%E5%BC%B1%E4%BD%93%E5%8C%96",
+        "defaultKind": "debuff",
+    },
+    "special_attack": {
+        "label": "特殊攻撃",
+        "url": "https://scre.swiki.jp/index.php?%E7%89%B9%E6%AE%8A%E6%94%BB%E6%92%83",
+        "defaultKind": None,
+    },
+    "special_ability": {
+        "label": "特殊能力",
+        "url": "https://scre.swiki.jp/index.php?%E7%89%B9%E6%AE%8A%E8%83%BD%E5%8A%9B",
+        "defaultKind": None,
+    },
+}
+
 HEADERS = {
     "User-Agent": (
         "Mozilla/5.0 (compatible; benrichan-shiropro-list/2.0; "
@@ -184,6 +212,8 @@ def parse_full_list() -> list[dict]:
                 "name": name,
                 "formationSkill": baseline_formation,
                 "heldSkill": baseline_held,
+                "buffs": [],
+                "debuffs": [],
                 "wikiUrl": character_url(cells[1], name),
             })
 
@@ -196,11 +226,13 @@ def stage_from_text(text: str, name: str) -> tuple[str, int]:
     start = text.find(name)
     if start < 0:
         return "無印", 0
+
     tail = text[start + len(name):]
-    match = re.match(r"\s*\[改(壱|弐)\]", tail)
+    match = re.match(r"\s*(?:\[|［)?(改[壱弐])(?:\]|］)?", tail)
     if not match:
         return "無印", 0
-    stage = "改" + match.group(1)
+
+    stage = match.group(1)
     return stage, STAGE_RANK[stage]
 
 
@@ -270,6 +302,204 @@ def parse_skill_page(url: str, character_names: list[str]) -> dict[str, dict]:
                     result[name] = candidate
 
     return result
+
+
+def nearest_heading(table) -> str:
+    heading = table.find_previous(["h2", "h3", "h4"])
+    return clean(heading.get_text(" ", strip=True)) if heading else ""
+
+
+def effect_cell_index(texts: list[str], char_index: int) -> int | None:
+    if char_index <= 0:
+        return None
+
+    keywords = (
+        "攻撃", "防御", "耐久", "射程", "回復", "速度", "隙", "ダメージ",
+        "消費気", "巨大化気", "計略", "敵", "味方", "自身", "城娘", "伏兵",
+        "上昇", "低下", "短縮", "延長", "軽減", "増加", "減少", "無効",
+        "無視", "倍", "秒", "状態",
+    )
+
+    candidates = []
+    for index, text in enumerate(texts[:char_index]):
+        if not text or text in {"効果", "属性", "城娘"}:
+            continue
+        score = sum(1 for word in keywords if word in text)
+        score += min(len(text), 120) / 120
+        if re.fullmatch(r"[★☆]?\d+", text):
+            score -= 10
+        candidates.append((score, len(text), index))
+
+    if not candidates:
+        return None
+    candidates.sort(reverse=True)
+    return candidates[0][2]
+
+
+def ability_name_from_row(texts: list[str], effect_index: int, section: str) -> str:
+    for index in range(effect_index - 1, -1, -1):
+        text = texts[index]
+        if not text or text in {"効果", "属性", "城娘"}:
+            continue
+        if re.fullmatch(r"[★☆]?\d+", text):
+            continue
+        if len(text) > 120:
+            continue
+        return text
+    return section
+
+
+def classify_effect(effect: str, default_kind: str | None) -> list[str]:
+    text = clean(effect)
+    kinds: set[str] = set()
+
+    buff_patterns = (
+        r"(?:自身|味方|城娘|殿|伏兵|部隊|全ての味方|近接|遠隔).*?"
+        r"(?:上昇|増加|短縮|軽減|回復|無効|無視|倍)",
+        r"(?:攻撃|防御|耐久|射程|回復|攻撃速度|与ダメージ|被回復量).*?"
+        r"(?:上昇|増加)",
+        r"(?:計略再使用|初回計略|攻撃後の隙).*?短縮",
+        r"(?:巨大化気|計略消費気|被ダメージ).*?軽減",
+    )
+    debuff_patterns = (
+        r"(?:敵|全ての敵|射程内の敵|攻撃した敵).*?"
+        r"(?:低下|減少|延長|上昇)",
+        r"(?:敵の)?(?:攻撃|防御|射程|移動速度|攻撃速度).*?低下",
+        r"(?:敵の)?被ダメージ.*?上昇",
+        r"(?:敵の)?攻撃後の隙.*?延長",
+    )
+
+    if any(re.search(pattern, text) for pattern in buff_patterns):
+        kinds.add("buff")
+    if any(re.search(pattern, text) for pattern in debuff_patterns):
+        kinds.add("debuff")
+
+    if default_kind and not kinds:
+        kinds.add(default_kind)
+    elif default_kind:
+        kinds.add(default_kind)
+
+    return sorted(kinds)
+
+
+def parse_numeric_modifiers(effect: str) -> list[dict]:
+    text = clean(effect)
+    modifiers = []
+    pattern = re.compile(
+        r"(\d+(?:\.\d+)?)(%|秒)?\s*"
+        r"(上昇|低下|短縮|延長|軽減|増加|減少)"
+    )
+
+    for match in pattern.finditer(text):
+        start = max(0, match.start() - 36)
+        context = text[start:match.start()]
+        context = re.split(r"[。\.、,]", context)[-1].strip()
+        modifiers.append({
+            "context": context,
+            "value": float(match.group(1)) if "." in match.group(1) else int(match.group(1)),
+            "unit": match.group(2) or "",
+            "change": match.group(3),
+        })
+
+    return modifiers
+
+
+def parse_effect_source(
+    source_key: str,
+    source: dict,
+    character_names: list[str],
+) -> dict[str, list[dict]]:
+    soup = fetch_soup(source["url"])
+    names_by_length = sorted(character_names, key=len, reverse=True)
+    result: dict[str, list[dict]] = {}
+
+    for table in soup.find_all("table"):
+        section = nearest_heading(table)
+
+        for tr in table.find_all("tr"):
+            cells = tr.find_all(["td", "th"], recursive=False)
+            if len(cells) < 2:
+                continue
+
+            texts = [clean(cell.get_text(" ", strip=True)) for cell in cells]
+            char_index = None
+            found = []
+
+            for index in range(len(texts) - 1, 0, -1):
+                matches = names_in_cell(texts[index], names_by_length)
+                if matches:
+                    char_index = index
+                    found = matches
+                    break
+
+            if char_index is None:
+                continue
+
+            effect_index = effect_cell_index(texts, char_index)
+            if effect_index is None:
+                continue
+
+            effect = texts[effect_index]
+            if not effect or effect == "効果":
+                continue
+
+            ability_name = ability_name_from_row(texts, effect_index, section)
+            kinds = classify_effect(effect, source.get("defaultKind"))
+            if not kinds:
+                continue
+
+            for name, stage, rank in found:
+                result.setdefault(name, []).append({
+                    "source": source_key,
+                    "sourceLabel": source["label"],
+                    "section": section,
+                    "ability": ability_name,
+                    "effect": effect,
+                    "stage": stage,
+                    "stageRank": rank,
+                    "kinds": kinds,
+                    "modifiers": parse_numeric_modifiers(effect),
+                })
+
+    return result
+
+
+def keep_max_stage_effects(entries: list[dict]) -> list[dict]:
+    # Within the same source/section/ability, retain only the highest upgrade
+    # stage. If 改弐 exists, 改壱/無印 entries for that same ability are removed.
+    grouped: dict[tuple[str, str, str], list[dict]] = {}
+
+    for entry in entries:
+        key = (
+            entry.get("source", ""),
+            entry.get("section", ""),
+            entry.get("ability", ""),
+        )
+        grouped.setdefault(key, []).append(entry)
+
+    kept = []
+    for group in grouped.values():
+        max_rank = max(entry.get("stageRank", 0) for entry in group)
+        for entry in group:
+            if entry.get("stageRank", 0) != max_rank:
+                continue
+            item = dict(entry)
+            item.pop("stageRank", None)
+            kept.append(item)
+
+    # Remove exact duplicates caused by repeated wiki tables/includes.
+    unique = {}
+    for entry in kept:
+        key = (
+            entry.get("source"),
+            entry.get("section"),
+            entry.get("ability"),
+            entry.get("effect"),
+            entry.get("stage"),
+        )
+        unique[key] = entry
+
+    return list(unique.values())
 
 
 def parse_kai2_names(character_names: list[str]) -> set[str]:
@@ -384,12 +614,31 @@ def main() -> None:
     held = parse_skill_page(HELD_URL, names)
     print(f"Possession skills matched: {len(held)}")
 
+    print("Reading buff/debuff source pages...")
+    effects_by_name: dict[str, list[dict]] = {}
+    for source_key, source in EFFECT_SOURCES.items():
+        parsed = parse_effect_source(source_key, source, names)
+        matched = sum(len(entries) for entries in parsed.values())
+        print(f"  {source['label']}: {matched} matched entries")
+        for name, entries in parsed.items():
+            effects_by_name.setdefault(name, []).extend(entries)
+
     for row in characters:
         if formation.get(row["name"]):
             row["formationSkill"] = formation[row["name"]]
         if held.get(row["name"]):
             row["heldSkill"] = held[row["name"]]
         row["maxUpgrade"] = None
+
+        effect_entries = keep_max_stage_effects(effects_by_name.get(row["name"], []))
+        row["buffs"] = [
+            entry for entry in effect_entries
+            if "buff" in entry.get("kinds", [])
+        ]
+        row["debuffs"] = [
+            entry for entry in effect_entries
+            if "debuff" in entry.get("kinds", [])
+        ]
 
     print("Reading 改弐 implementation list...")
     kai2_names = parse_kai2_names(names)
@@ -447,6 +696,8 @@ def main() -> None:
 
     formation_count = sum(1 for row in characters if row.get("formationSkill"))
     held_count = sum(1 for row in characters if row.get("heldSkill"))
+    buff_count = sum(1 for row in characters if row.get("buffs"))
+    debuff_count = sum(1 for row in characters if row.get("debuffs"))
 
     if formation_count < 100:
         raise RuntimeError(f"Validation failed: too few formation skills ({formation_count})")
@@ -459,11 +710,17 @@ def main() -> None:
             "formation": FORMATION_URL,
             "held": HELD_URL,
             "kai2": KAI2_URL,
+            "effects": {
+                key: source["url"]
+                for key, source in EFFECT_SOURCES.items()
+            },
         },
         "updatedAtJst": datetime.now(ZoneInfo("Asia/Tokyo")).isoformat(timespec="seconds"),
         "count": len(characters),
         "formationSkillCount": formation_count,
         "heldSkillCount": held_count,
+        "buffCharacterCount": buff_count,
+        "debuffCharacterCount": debuff_count,
         "characters": characters,
     }
 
