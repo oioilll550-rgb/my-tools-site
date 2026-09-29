@@ -3392,7 +3392,7 @@ body.horse-racing-theme .card {
 
 .shiropro-table {
   width: 100%;
-  min-width: 760px;
+  min-width: 1180px;
   border-collapse: collapse;
   font-size: 12px;
 }
@@ -3473,14 +3473,14 @@ body.horse-racing-theme .card {
   background: #fff9dd;
 }
 
-.shiropro-table td:nth-child(2),
-.shiropro-table td:nth-child(7) {
+.shiropro-table td:nth-child(2) {
   text-align: center;
   font-variant-numeric: tabular-nums;
 }
 
 .shiropro-table td:nth-child(6) {
-  width: 38%;
+  width: 16%;
+  min-width: 180px;
   white-space: normal;
 }
 
@@ -3493,8 +3493,11 @@ body.horse-racing-theme .card {
   text-decoration: underline;
 }
 
-.shiropro-cost {
-  font-weight: 750;
+.shiropro-table td:nth-child(7),
+.shiropro-table td:nth-child(8) {
+  width: 28%;
+  min-width: 280px;
+  white-space: normal;
 }
 
 .shiropro-empty {
@@ -3573,4 +3576,140 @@ body.horse-racing-theme .card {
 .shiropro-attribute-badge.attr-other {
   background: #e88bb5;
   color: #4a1730;
+}
+
+
+/* Shiropro skill columns and bookmark summary */
+.shiropro-bookmark-summary {
+  margin: 14px 0 16px;
+  padding: 14px;
+  border: 1px solid #d9e0e8;
+  border-radius: 10px;
+  background: #fafbfd;
+}
+
+.shiropro-bookmark-summary-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.shiropro-bookmark-summary-head h3 {
+  margin: 0;
+  font-size: 15px;
+}
+
+.shiropro-bookmark-summary-head span {
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 750;
+}
+
+.shiropro-bookmark-total-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+
+.shiropro-bookmark-total {
+  display: inline-flex;
+  align-items: center;
+  min-height: 28px;
+  padding: 5px 9px;
+  border: 1px solid #cfd8e3;
+  border-radius: 999px;
+  background: #fff;
+  color: var(--text);
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.shiropro-bookmark-summary-note {
+  margin: 9px 0 0;
+  color: var(--muted);
+  font-size: 10px;
+}
+
+.shiropro-bookmark-skill-details {
+  margin-top: 10px;
+}
+
+.shiropro-bookmark-skill-details summary {
+  cursor: pointer;
+  color: var(--text);
+  font-size: 11px;
+  font-weight: 750;
+}
+
+.shiropro-bookmark-skill-list {
+  display: grid;
+  gap: 7px;
+  margin-top: 9px;
+}
+
+.shiropro-bookmark-skill-item {
+  display: grid;
+  gap: 3px;
+  padding: 8px 10px;
+  border: 1px solid #e3e8ee;
+  border-radius: 8px;
+  background: #fff;
+}
+
+.shiropro-bookmark-skill-item strong {
+  font-size: 11px;
+}
+
+.shiropro-bookmark-skill-item span {
+  color: #4f5d6c;
+  font-size: 10px;
+  line-height: 1.55;
+}
+
+.shiropro-skill-cell {
+  white-space: normal !important;
+  line-height: 1.45;
+}
+
+.shiropro-skill-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 5px;
+  margin-bottom: 3px;
+}
+
+.shiropro-skill-head strong {
+  font-size: 11px;
+}
+
+.shiropro-skill-stage {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 5px;
+  border-radius: 5px;
+  background: #eef2f6;
+  color: #52606d;
+  font-size: 9px;
+  font-weight: 800;
+}
+
+.shiropro-skill-effect {
+  color: #52606d;
+  font-size: 10px;
+  line-height: 1.5;
+}
+
+@media (max-width: 560px) {
+  .shiropro-bookmark-summary {
+    padding: 12px;
+  }
+
+  .shiropro-bookmark-summary-head {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 4px;
+  }
 }
