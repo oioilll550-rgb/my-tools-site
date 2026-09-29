@@ -7,7 +7,7 @@
 <title>御城プロジェクトRE | ゲーム | べんりちゃん、微力ながら</title>
 <meta name="description" content="御城プロジェクトREの情報を見やすく整理するページです。">
 <meta name="robots" content="index,follow">
-<link rel="stylesheet" href="../../../assets/css/style.css?v=20260930-1">
+<link rel="stylesheet" href="../../../assets/css/style.css?v=20260930-2">
 </head>
 <body>
 <header><div class="header-inner"><div class="site-title"><a href="../../../">べんりちゃん、微力ながら</a></div>
@@ -42,7 +42,7 @@
 
 <div class="shiropro-filter-grid">
 <label class="shiropro-search-field"><span>名前検索</span><input id="shiroproSearch" type="search" placeholder="キャラクター名を入力"></label>
-<label><span>レアリティ</span><select id="shiroproRarity"><option value="">すべて</option></select></label>
+<label><span>レア</span><select id="shiroproRarity"><option value="">すべて</option></select></label>
 <label><span>武器種</span><select id="shiroproWeapon"><option value="">すべて</option></select></label>
 <label><span>属性</span><select id="shiroproAttribute"><option value="">すべて</option></select></label>
 <label class="shiropro-bookmark-filter"><input id="shiroproBookmarkOnly" type="checkbox"><span>☆のみ</span></label>
@@ -59,17 +59,15 @@
 <thead>
 <tr>
 <th class="shiropro-bookmark-head" aria-label="お気に入り">☆</th>
-<th aria-sort="none"><button type="button" data-shiropro-sort="rarity">レアリティ <span class="shiropro-sort-marker" aria-hidden="true"></span></button></th>
-<th aria-sort="none"><button type="button" data-shiropro-sort="weapon">武器種 <span class="shiropro-sort-marker" aria-hidden="true"></span></button></th>
-<th aria-sort="none"><button type="button" data-shiropro-sort="attribute1">属性1 <span class="shiropro-sort-marker" aria-hidden="true"></span></button></th>
-<th aria-sort="none"><button type="button" data-shiropro-sort="attribute2">属性2 <span class="shiropro-sort-marker" aria-hidden="true"></span></button></th>
+<th aria-sort="none"><button type="button" data-shiropro-sort="rarity">レア <span class="shiropro-sort-marker" aria-hidden="true"></span></button></th>
+<th aria-sort="none"><button type="button" data-shiropro-sort="weapon">武器 <span class="shiropro-sort-marker" aria-hidden="true"></span></button></th>
 <th aria-sort="none"><button type="button" data-shiropro-sort="name">キャラクター名 <span class="shiropro-sort-marker" aria-hidden="true"></span></button></th>
 <th>編成特技</th>
 <th>所持特技</th>
 </tr>
 </thead>
 <tbody id="shiroproCharacterBody">
-<tr><td colspan="8" class="shiropro-empty">キャラクターデータを読み込んでいます…</td></tr>
+<tr><td colspan="6" class="shiropro-empty">キャラクターデータを読み込んでいます…</td></tr>
 </tbody>
 </table>
 </div>
@@ -77,6 +75,6 @@
 </main>
 <footer><div class="footer-inner"><span>© <span data-current-year>2026</span> べんりちゃん、微力ながら</span></div></footer>
 <script src="../../../assets/js/site.js?v=20260929-4"></script>
-<script src="../../../assets/js/shiropro-characters.js?v=20260930-1"></script>
+<script src="../../../assets/js/shiropro-characters.js?v=20260930-2"></script>
 </body>
 </html>
