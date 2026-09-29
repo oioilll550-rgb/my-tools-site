@@ -11,6 +11,8 @@ document.addEventListener("DOMContentLoaded", async () => {
   const countLabel = document.getElementById("shiroproCharacterCount");
   const updatedLabel = document.getElementById("shiroproUpdated");
   const sourceLink = document.getElementById("shiroproSource");
+  const bookmarkSummary = document.getElementById("shiroproBookmarkSummary");
+  const bookmarkSummaryCount = document.getElementById("shiroproBookmarkSummaryCount");
 
   const bookmarkKey = "benrichan-shiropro-bookmarks-v1";
   let characters = [];
@@ -32,7 +34,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     try {
       localStorage.setItem(bookmarkKey, JSON.stringify([...bookmarks]));
     } catch (_) {
-      // The table still works even when browser storage is unavailable.
+      // Browser storage is optional.
     }
   }
 
@@ -134,7 +136,7 @@ document.addEventListener("DOMContentLoaded", async () => {
           ? normalizeWeapon(b.weapon)
           : b[key];
 
-    if (key === "rarity" || key === "basicCost" || key === "no") {
+    if (key === "rarity" || key === "no") {
       const an = av === null || av === "" || av === undefined
         ? Number.POSITIVE_INFINITY
         : Number(av);
@@ -190,6 +192,158 @@ document.addEventListener("DOMContentLoaded", async () => {
     });
   }
 
+  function setSkillCell(cell, skill) {
+    cell.className = "shiropro-skill-cell";
+    if (!skill || !skill.effect) {
+      cell.textContent = "—";
+      return;
+    }
+
+    const head = document.createElement("div");
+    head.className = "shiropro-skill-head";
+
+    if (skill.stage && skill.stage !== "無印") {
+      const stage = document.createElement("span");
+      stage.className = "shiropro-skill-stage";
+      stage.textContent = skill.stage;
+      head.appendChild(stage);
+    }
+
+    if (skill.name) {
+      const name = document.createElement("strong");
+      name.textContent = skill.name;
+      head.appendChild(name);
+    }
+
+    const effect = document.createElement("div");
+    effect.className = "shiropro-skill-effect";
+    effect.textContent = skill.effect;
+
+    cell.append(head, effect);
+  }
+
+  function additiveParts(effectText) {
+    const text = String(effectText || "")
+      .replace(/（[^）]*）/g, "")
+      .replace(/\([^)]*\)/g, "");
+    const parts = [];
+    const pattern = /(.+?)(?:が|を)(\d+(?:\.\d+)?)(%|秒)?(上昇|低下|短縮|延長|増加|軽減)/g;
+    let match;
+
+    while ((match = pattern.exec(text)) !== null) {
+      let target = match[1]
+        .replace(/^.*?所持しているだけで/, "")
+        .replace(/^[、。\s]+/, "")
+        .replace(/^(さらに|また|かつ)/, "")
+        .trim();
+
+      if (!target) continue;
+
+      parts.push({
+        target,
+        value: Number(match[2]),
+        unit: match[3] || "",
+        action: match[4]
+      });
+    }
+
+    return parts;
+  }
+
+  function renderBookmarkSummary() {
+    if (!bookmarkSummary || !bookmarkSummaryCount) return;
+
+    const selected = characters.filter((row) => bookmarks.has(rowId(row)));
+    const withHeld = selected.filter((row) => row.heldSkill && row.heldSkill.effect);
+
+    bookmarkSummaryCount.textContent = "☆ " + selected.length + "人";
+    bookmarkSummary.innerHTML = "";
+
+    if (!selected.length) {
+      const p = document.createElement("p");
+      p.className = "notice";
+      p.textContent = "一覧で☆を付けると、対象キャラの所持特技をここに合算表示します。";
+      bookmarkSummary.appendChild(p);
+      return;
+    }
+
+    if (!withHeld.length) {
+      const p = document.createElement("p");
+      p.className = "notice";
+      p.textContent = "☆を付けたキャラに所持特技はありません。";
+      bookmarkSummary.appendChild(p);
+      return;
+    }
+
+    const totals = new Map();
+
+    withHeld.forEach((row) => {
+      additiveParts(row.heldSkill.effect).forEach((part) => {
+        const key = [part.target, part.unit, part.action].join("|");
+        const current = totals.get(key) || { ...part, value: 0 };
+        current.value += part.value;
+        totals.set(key, current);
+      });
+    });
+
+    const resultBlock = document.createElement("div");
+    resultBlock.className = "shiropro-bookmark-total-list";
+
+    if (totals.size) {
+      [...totals.values()]
+        .sort((a, b) => a.target.localeCompare(b.target, "ja"))
+        .forEach((item) => {
+          const chip = document.createElement("span");
+          chip.className = "shiropro-bookmark-total";
+          const value = Number.isInteger(item.value) ? item.value : Number(item.value.toFixed(2));
+          chip.textContent = item.target + " " + value + item.unit + item.action;
+          resultBlock.appendChild(chip);
+        });
+    } else {
+      const p = document.createElement("p");
+      p.className = "notice";
+      p.textContent = "単純加算できる数値効果はありません。";
+      resultBlock.appendChild(p);
+    }
+
+    bookmarkSummary.appendChild(resultBlock);
+
+    const note = document.createElement("p");
+    note.className = "shiropro-bookmark-summary-note";
+    note.textContent = "同じ表記の数値効果を☆選択分で単純加算しています。";
+    bookmarkSummary.appendChild(note);
+
+    const details = document.createElement("details");
+    details.className = "shiropro-bookmark-skill-details";
+
+    const summary = document.createElement("summary");
+    summary.textContent = "☆キャラの所持特技を見る（" + withHeld.length + "件）";
+    details.appendChild(summary);
+
+    const list = document.createElement("div");
+    list.className = "shiropro-bookmark-skill-list";
+
+    withHeld.forEach((row) => {
+      const item = document.createElement("div");
+      item.className = "shiropro-bookmark-skill-item";
+
+      const title = document.createElement("strong");
+      title.textContent = row.name;
+
+      const body = document.createElement("span");
+      const stage = row.heldSkill.stage && row.heldSkill.stage !== "無印"
+        ? "［" + row.heldSkill.stage + "］ "
+        : "";
+      body.textContent = stage + (row.heldSkill.name ? row.heldSkill.name + "： " : "") + row.heldSkill.effect;
+
+      item.append(title, body);
+      list.appendChild(item);
+    });
+
+    details.appendChild(list);
+    bookmarkSummary.appendChild(details);
+  }
+
   function render() {
     const rows = filteredRows();
     tableBody.innerHTML = "";
@@ -198,10 +352,12 @@ document.addEventListener("DOMContentLoaded", async () => {
       countLabel.textContent = "表示 " + rows.length + " / " + characters.length;
     }
 
+    renderBookmarkSummary();
+
     if (!rows.length) {
       const tr = document.createElement("tr");
       const td = document.createElement("td");
-      td.colSpan = 7;
+      td.colSpan = 8;
       td.className = "shiropro-empty";
       td.textContent = "条件に一致するキャラクターがありません。";
       tr.appendChild(td);
@@ -234,7 +390,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
       const [attribute1, attribute2] = splitAttributes(row);
       const attribute1Cell = document.createElement("td");
-      setAttributeBadge(attribute1Cell, attribute1 || "—");
+      setAttributeBadge(attribute1Cell, attribute1);
 
       const attribute2Cell = document.createElement("td");
       setAttributeBadge(attribute2Cell, attribute2);
@@ -247,9 +403,11 @@ document.addEventListener("DOMContentLoaded", async () => {
       link.textContent = row.name;
       nameCell.appendChild(link);
 
-      const costCell = document.createElement("td");
-      costCell.className = "shiropro-cost";
-      costCell.textContent = Number.isFinite(row.basicCost) ? String(row.basicCost) : "—";
+      const formationCell = document.createElement("td");
+      setSkillCell(formationCell, row.formationSkill);
+
+      const heldCell = document.createElement("td");
+      setSkillCell(heldCell, row.heldSkill);
 
       tr.append(
         bookmarkCell,
@@ -258,7 +416,8 @@ document.addEventListener("DOMContentLoaded", async () => {
         attribute1Cell,
         attribute2Cell,
         nameCell,
-        costCell
+        formationCell,
+        heldCell
       );
       fragment.appendChild(tr);
     });
@@ -329,7 +488,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     render();
   } catch (error) {
-    tableBody.innerHTML = '<tr><td colspan="7" class="shiropro-empty">キャラクターデータを読み込めませんでした。</td></tr>';
+    tableBody.innerHTML = '<tr><td colspan="8" class="shiropro-empty">キャラクターデータを読み込めませんでした。</td></tr>';
     if (countLabel) countLabel.textContent = "--";
   }
 });
