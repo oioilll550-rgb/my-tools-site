@@ -1,8 +1,8 @@
 {
   "source": "https://scre.swiki.jp/index.php?%E5%85%A8%E5%9F%8E%E5%A8%98%E4%B8%80%E8%A6%A7",
-  "updatedAtJst": "2026-09-29T23:40:37+09:00",
+  "updatedAtJst": "2026-09-29T23:43:16+09:00",
   "count": 1149,
-  "missingBasicCostCount": 64,
+  "missingBasicCostCount": 62,
   "characters": [
     {
       "id": "0001",
@@ -5996,7 +5996,7 @@
       "weapon": "盾",
       "attribute": "平山",
       "name": "ハーレック城",
-      "basicCost": null,
+      "basicCost": 12,
       "upgrade": "壱",
       "trait": "自身の防御が25%上昇。全ての[アイアンリング]の防御が100上昇、足止め数が1増加、射程内の敵の被ダメージが25%上昇",
       "heldOrFormation": null,
@@ -15221,7 +15221,7 @@
       "weapon": "ランス",
       "attribute": "平山",
       "name": "聖杯城コルベニック",
-      "basicCost": null,
+      "basicCost": 11,
       "upgrade": "壱",
       "trait": "自身の計略の回復量と特殊攻撃ゲージ蓄積量が1.5倍 計略再使用時間が10秒短縮。全城娘の耐久が2000上昇 全近接城娘の耐久と攻撃が25%上昇(効果重複)",
       "heldOrFormation": null,
