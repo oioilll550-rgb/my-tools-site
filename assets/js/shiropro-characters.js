@@ -73,6 +73,28 @@ document.addEventListener("DOMContentLoaded", async () => {
     return splitAttributes(row)[index] || "";
   }
 
+  function attributeClass(value) {
+    switch (value) {
+      case "平": return "attr-flat";
+      case "平山": return "attr-flat-hill";
+      case "山": return "attr-mountain";
+      case "地獄": return "attr-hell";
+      case "無": return "attr-none";
+      default: return "attr-other";
+    }
+  }
+
+  function setAttributeBadge(cell, value) {
+    if (!value) {
+      cell.textContent = "";
+      return;
+    }
+    const badge = document.createElement("span");
+    badge.className = "shiropro-attribute-badge " + attributeClass(value);
+    badge.textContent = value;
+    cell.appendChild(badge);
+  }
+
   function addOption(select, value, label = value) {
     const option = document.createElement("option");
     option.value = value;
@@ -211,10 +233,10 @@ document.addEventListener("DOMContentLoaded", async () => {
 
       const [attribute1, attribute2] = splitAttributes(row);
       const attribute1Cell = document.createElement("td");
-      attribute1Cell.textContent = attribute1 || "—";
+      setAttributeBadge(attribute1Cell, attribute1 || "—");
 
       const attribute2Cell = document.createElement("td");
-      attribute2Cell.textContent = attribute2 || "";
+      setAttributeBadge(attribute2Cell, attribute2);
 
       const nameCell = document.createElement("td");
       const link = document.createElement("a");
