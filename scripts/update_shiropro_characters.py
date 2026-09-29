@@ -529,20 +529,20 @@ def parse_kai2_names(character_names: list[str]) -> set[str]:
     names_by_length = sorted(character_names, key=len, reverse=True)
     found: set[str] = set()
 
-    heading = next(
-        (
-            node for node in soup.find_all("h2")
-            if "改弐" in clean(node.get_text(" ", strip=True))
-            and "城娘一覧" in clean(node.get_text(" ", strip=True))
-        ),
-        None,
+    candidates = []
+    date_pattern = re.compile(
+        r"\d{4}/\d{2}/\d{2}\s*(?:\[|［)改弐(?:\]|］)実装"
     )
-    if heading is None:
-        raise RuntimeError("改弐 list heading not found")
 
-    table = heading.find_next("table")
-    if table is None:
-        raise RuntimeError("改弐 list table not found")
+    for table in soup.find_all("table"):
+        text = clean(table.get_text(" ", strip=True))
+        if date_pattern.search(text):
+            candidates.append((len(text), table))
+
+    if not candidates:
+        raise RuntimeError("改弐 implementation table not found")
+
+    table = max(candidates, key=lambda item: item[0])[1]
 
     for cell in table.find_all("td"):
         text = clean(cell.get_text(" ", strip=True))
