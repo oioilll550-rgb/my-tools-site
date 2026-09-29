@@ -29,7 +29,7 @@ OUT = ROOT / "assets" / "data" / "shiropro-characters.json"
 LIST_URL = "https://scre.swiki.jp/index.php?%E5%85%A8%E5%9F%8E%E5%A8%98%E4%B8%80%E8%A6%A7"
 BASE = "https://scre.swiki.jp/"
 REFRESH_COSTS = os.environ.get("SHIROPRO_REFRESH_COSTS", "") == "1"
-MAX_WORKERS = 6
+MAX_WORKERS = 4
 
 HEADERS = {
     "User-Agent": (
@@ -48,7 +48,7 @@ def fetch_soup(url: str, attempts: int = 3) -> BeautifulSoup:
     last_error = None
     for attempt in range(attempts):
         try:
-            response = requests.get(url, headers=HEADERS, timeout=35)
+            response = requests.get(url, headers=HEADERS, timeout=20)
             response.raise_for_status()
             response.encoding = response.apparent_encoding or response.encoding or "utf-8"
             return BeautifulSoup(response.text, "html.parser")
