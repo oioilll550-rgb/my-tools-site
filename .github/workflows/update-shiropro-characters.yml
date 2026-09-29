@@ -2,14 +2,8 @@ name: Update Shiropro character list
 
 on:
   workflow_dispatch:
-    inputs:
-      refresh_costs:
-        description: "Re-fetch basic deployment cost for all characters"
-        required: false
-        type: boolean
-        default: false
   schedule:
-    # 21:10 UTC = 06:10 JST. Normal runs reuse existing deployment costs.
+    # 21:10 UTC = 06:10 JST.
     - cron: "10 21 * * *"
   push:
     branches: [main]
@@ -27,9 +21,7 @@ concurrency:
 jobs:
   update:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
-    env:
-      SHIROPRO_REFRESH_COSTS: ${{ inputs.refresh_costs == true && '1' || '0' }}
+    timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
 
