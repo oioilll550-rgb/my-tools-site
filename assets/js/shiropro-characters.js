@@ -200,7 +200,8 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
 
     const debuffPatterns = [
-      /(?:敵|兜)[^。]{0,120}?(?:低下|減少|延長)/,
+      /(?:全ての敵|全敵|射程内の敵|射程外の敵|全ての妖怪|全ての海洋兜|全ての兜)[^。]{0,140}?(?:低下|減少|延長|被ダメージ[^。]{0,40}?上昇)/,
+      /(?:敵|兜)[^。]{0,120}?(?:攻撃|防御|射程|移動速度|攻撃速度|与ダメージ|回復|耐久)[^。]{0,80}?(?:低下|減少|延長)/,
       /(?:敵|兜)[^。]{0,120}?被ダメージ[^。]{0,40}?上昇/
     ];
 
@@ -233,7 +234,12 @@ document.addEventListener("DOMContentLoaded", async () => {
     const text = String(skill && skill.effect || "").replace(/\s+/g, " ").trim();
     if (!text) return [];
 
-    const rawSegments = text
+    const preparedText = text.replace(
+      /\s+(?=(?:全ての敵|全敵|全ての妖怪|全ての海洋兜|全ての兜|射程内の敵|射程外の敵|「[^」]+」状態の敵|［[^］]+］状態の敵|\[[^\]]+\]状態の敵))/g,
+      "。"
+    );
+
+    const rawSegments = preparedText
       .split(/(?<=[。])/)
       .flatMap((sentence) => sentence.split(/(?<=、)|(?<=，)|(?<=,)/))
       .map((part) => part.trim())
@@ -460,40 +466,31 @@ document.addEventListener("DOMContentLoaded", async () => {
     const effectList = document.createElement("div");
     effectList.className = "shiropro-detail-effect-list";
 
-    formationEffectSegments(skill).forEach((segment) => {
+    function appendEffectRow(kind, contentText) {
       const rowElement = document.createElement("div");
       rowElement.className = "shiropro-detail-effect-row";
 
       const tags = document.createElement("div");
       tags.className = "shiropro-detail-effect-tags";
 
-      if (segment.isBuff) {
-        const buff = document.createElement("span");
-        buff.className = "shiropro-effect-tag is-buff";
-        buff.textContent = "○バフ";
-        tags.appendChild(buff);
-      }
-
-      if (segment.isDebuff) {
-        const debuff = document.createElement("span");
-        debuff.className = "shiropro-effect-tag is-debuff";
-        debuff.textContent = "○デバフ";
-        tags.appendChild(debuff);
-      }
-
-      if (!segment.isBuff && !segment.isDebuff) {
-        const other = document.createElement("span");
-        other.className = "shiropro-effect-tag";
-        other.textContent = "○その他";
-        tags.appendChild(other);
-      }
+      const tag = document.createElement("span");
+      tag.className = "shiropro-effect-tag" +
+        (kind === "buff" ? " is-buff" : kind === "debuff" ? " is-debuff" : "");
+      tag.textContent = kind === "buff" ? "バフ" : kind === "debuff" ? "デバフ" : "その他";
+      tags.appendChild(tag);
 
       const content = document.createElement("p");
       content.className = "shiropro-detail-skill-effect";
-      content.textContent = segment.content;
+      content.textContent = contentText;
 
       rowElement.append(tags, content);
       effectList.appendChild(rowElement);
+    }
+
+    formationEffectSegments(skill).forEach((segment) => {
+      if (segment.isBuff) appendEffectRow("buff", segment.content);
+      if (segment.isDebuff) appendEffectRow("debuff", segment.content);
+      if (!segment.isBuff && !segment.isDebuff) appendEffectRow("other", segment.content);
     });
 
     section.appendChild(effectList);
