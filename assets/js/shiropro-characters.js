@@ -78,6 +78,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       case "平": return "attr-flat";
       case "平山": return "attr-flat-hill";
       case "山": return "attr-mountain";
+      case "水": return "attr-water";
       case "地獄": return "attr-hell";
       case "無": return "attr-none";
       default: return "attr-other";
