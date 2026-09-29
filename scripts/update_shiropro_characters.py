@@ -465,41 +465,63 @@ def parse_effect_source(
 
 
 def keep_max_stage_effects(entries: list[dict]) -> list[dict]:
-    # Within the same source/section/ability, retain only the highest upgrade
-    # stage. If 改弐 exists, 改壱/無印 entries for that same ability are removed.
-    grouped: dict[tuple[str, str, str], list[dict]] = {}
+    # The same reverse-lookup row is often included on multiple wiki pages.
+    # Group by ability identity across sources and retain only the highest stage.
+    grouped: dict[tuple[str, str], list[dict]] = {}
 
     for entry in entries:
         key = (
-            entry.get("source", ""),
             entry.get("section", ""),
             entry.get("ability", ""),
         )
         grouped.setdefault(key, []).append(entry)
 
-    kept = []
+    stage_kept = []
     for group in grouped.values():
         max_rank = max(entry.get("stageRank", 0) for entry in group)
-        for entry in group:
-            if entry.get("stageRank", 0) != max_rank:
-                continue
-            item = dict(entry)
-            item.pop("stageRank", None)
-            kept.append(item)
-
-    # Remove exact duplicates caused by repeated wiki tables/includes.
-    unique = {}
-    for entry in kept:
-        key = (
-            entry.get("source"),
-            entry.get("section"),
-            entry.get("ability"),
-            entry.get("effect"),
-            entry.get("stage"),
+        stage_kept.extend(
+            entry for entry in group
+            if entry.get("stageRank", 0) == max_rank
         )
-        unique[key] = entry
 
-    return list(unique.values())
+    # Merge exact duplicate effects across source pages and union their kind/source
+    # metadata. This keeps the client JSON substantially smaller.
+    merged: dict[tuple[str, str, str, str], dict] = {}
+
+    for entry in stage_kept:
+        key = (
+            entry.get("section", ""),
+            entry.get("ability", ""),
+            entry.get("effect", ""),
+            entry.get("stage", ""),
+        )
+        if key not in merged:
+            item = {
+                "section": entry.get("section", ""),
+                "ability": entry.get("ability", ""),
+                "effect": entry.get("effect", ""),
+                "stage": entry.get("stage", "無印"),
+                "kinds": list(entry.get("kinds", [])),
+                "modifiers": entry.get("modifiers", []),
+                "sources": [{
+                    "key": entry.get("source", ""),
+                    "label": entry.get("sourceLabel", ""),
+                }],
+            }
+            merged[key] = item
+        else:
+            item = merged[key]
+            item["kinds"] = sorted(
+                set(item.get("kinds", [])) | set(entry.get("kinds", []))
+            )
+            source_item = {
+                "key": entry.get("source", ""),
+                "label": entry.get("sourceLabel", ""),
+            }
+            if source_item not in item["sources"]:
+                item["sources"].append(source_item)
+
+    return list(merged.values())
 
 
 def parse_kai2_names(character_names: list[str]) -> set[str]:
@@ -507,71 +529,92 @@ def parse_kai2_names(character_names: list[str]) -> set[str]:
     names_by_length = sorted(character_names, key=len, reverse=True)
     found: set[str] = set()
 
-    for table in soup.find_all("table"):
-        table_text = clean(table.get_text(" ", strip=True))
-        if "改弐" not in table_text:
+    heading = next(
+        (
+            node for node in soup.find_all("h2")
+            if "改弐" in clean(node.get_text(" ", strip=True))
+            and "城娘一覧" in clean(node.get_text(" ", strip=True))
+        ),
+        None,
+    )
+    if heading is None:
+        raise RuntimeError("改弐 list heading not found")
+
+    table = heading.find_next("table")
+    if table is None:
+        raise RuntimeError("改弐 list table not found")
+
+    for cell in table.find_all("td"):
+        text = clean(cell.get_text(" ", strip=True))
+        if not text:
             continue
-        for cell in table.find_all("td"):
-            text = clean(cell.get_text(" ", strip=True))
-            if not text:
+
+        occupied: list[tuple[int, int]] = []
+        for name in names_by_length:
+            start = text.find(name)
+            if start < 0:
                 continue
-            occupied: list[tuple[int, int]] = []
-            for name in names_by_length:
-                start = text.find(name)
-                if start < 0:
-                    continue
-                end = start + len(name)
-                if any(not (end <= s or start >= e) for s, e in occupied):
-                    continue
-                occupied.append((start, end))
-                found.add(name)
+            end = start + len(name)
+            if any(not (end <= s or start >= e) for s, e in occupied):
+                continue
+            occupied.append((start, end))
+            found.add(name)
 
     return found
 
 
-def parse_individual_max_skills(row: dict) -> tuple[str, dict | None, dict | None, str | None]:
+def parse_individual_max_skills(
+    row: dict,
+) -> tuple[str, dict | None, dict | None, list[dict], str | None]:
     try:
         soup = fetch_soup(row["wikiUrl"])
         candidates = []
+
         for table in soup.find_all("table"):
             text = clean(table.get_text(" ", strip=True))
             if "図鑑No." in text and "合戦" in text:
                 candidates.append((len(text), table))
 
         if not candidates:
-            return str(row["id"]), None, None, None
+            return str(row["id"]), None, None, [], None
 
         table = min(candidates, key=lambda item: item[0])[1]
-        best = {"formation": None, "held": None}
+        best = {
+            "formation": None,
+            "held": None,
+            "trait": None,
+            "special_attack": None,
+            "special_ability": None,
+        }
         current_section = None
 
-        section_headers = {
-            "特技", "編成特技", "所持特技", "大破特技", "特殊攻撃",
-            "特殊能力", "計略", "図鑑文章", "武器切替",
+        section_map = {
+            "編成特技": "formation",
+            "所持特技": "held",
+            "特技": "trait",
+            "特殊攻撃": "special_attack",
+            "特殊能力": "special_ability",
+        }
+        section_headers = set(section_map) | {
+            "大破特技", "計略", "図鑑文章", "武器切替",
         }
 
         for tr in table.find_all("tr"):
             cells = tr.find_all(["td", "th"], recursive=False)
             if not cells:
                 continue
+
             texts = [clean(cell.get_text(" ", strip=True)) for cell in cells]
             first = texts[0] if texts else ""
 
             header_match = next((h for h in section_headers if first == h), None)
             if header_match:
-                if header_match == "編成特技":
-                    current_section = "formation"
-                elif header_match == "所持特技":
-                    current_section = "held"
-                else:
-                    current_section = None
+                current_section = section_map.get(header_match)
                 continue
 
-            if current_section not in {"formation", "held"} or len(texts) < 2:
+            if current_section not in best or len(texts) < 2:
                 continue
 
-            stage = "無印"
-            rank = 0
             if "改弐" in first:
                 stage, rank = "改弐", 2
             elif "改壱" in first:
@@ -589,15 +632,72 @@ def parse_individual_max_skills(row: dict) -> tuple[str, dict | None, dict | Non
             skill_name = re.sub(r"^\s*\[?改[壱弐]\]?\s*", "", skill_name).strip()
             skill_name = skill_name or current_section
 
-            candidate = {"name": skill_name, "effect": effect, "stage": stage}
+            candidate = {
+                "name": skill_name,
+                "effect": effect,
+                "stage": stage,
+                "_rank": rank,
+            }
             previous = best[current_section]
-            previous_rank = STAGE_RANK.get(previous.get("stage", "無印"), -1) if previous else -1
+            previous_rank = previous.get("_rank", -1) if previous else -1
             if rank >= previous_rank:
                 best[current_section] = candidate
 
-        return str(row["id"]), best["formation"], best["held"], None
+        def effective_skill(value: dict | None) -> dict | None:
+            if not value:
+                return None
+            original_stage = value.get("stage", "無印")
+            result = {
+                "name": value.get("name", ""),
+                "effect": value.get("effect", ""),
+                "stage": "改弐",
+            }
+            if original_stage != "改弐":
+                result["inheritedFrom"] = original_stage
+            return result
+
+        max_effects = []
+        effect_section_labels = {
+            "trait": "特技",
+            "special_attack": "特殊攻撃",
+            "special_ability": "特殊能力",
+        }
+
+        for key, label in effect_section_labels.items():
+            value = best.get(key)
+            if not value:
+                continue
+
+            effect = value.get("effect", "")
+            kinds = classify_effect(effect, None)
+            if not kinds:
+                continue
+
+            entry = {
+                "section": label,
+                "ability": value.get("name", ""),
+                "effect": effect,
+                "stage": "改弐",
+                "kinds": kinds,
+                "modifiers": parse_numeric_modifiers(effect),
+                "sources": [{
+                    "key": "individual_max",
+                    "label": "個別ページ（最大改築確認）",
+                }],
+            }
+            if value.get("stage") != "改弐":
+                entry["inheritedFrom"] = value.get("stage", "無印")
+            max_effects.append(entry)
+
+        return (
+            str(row["id"]),
+            effective_skill(best["formation"]),
+            effective_skill(best["held"]),
+            max_effects,
+            None,
+        )
     except Exception as exc:
-        return str(row["id"]), None, None, str(exc)
+        return str(row["id"]), None, None, [], str(exc)
 
 
 def main() -> None:
@@ -653,18 +753,26 @@ def main() -> None:
         row["maxUpgrade"] = "改弐"
 
         old = existing.get(str(row["id"])) or existing.get(row["name"])
-        if old and old.get("maxUpgrade") == "改弐":
-            old_formation = old.get("formationSkill")
-            old_held = old.get("heldSkill")
-
-            # Prefer an aggregate-page 改弐 entry when available; otherwise keep
-            # the previously verified individual-page result.
-            if not row["formationSkill"] or row["formationSkill"].get("stage") != "改弐":
-                row["formationSkill"] = old_formation
-            if not row["heldSkill"] or row["heldSkill"].get("stage") != "改弐":
-                row["heldSkill"] = old_held
+        if old and old.get("maxUpgrade") == "改弐" and old.get("maxEffectsVerified"):
+            row["formationSkill"] = old.get("formationSkill")
+            row["heldSkill"] = old.get("heldSkill")
+            row["buffs"] = old.get("buffs", [])
+            row["debuffs"] = old.get("debuffs", [])
+            row["maxEffectsVerified"] = True
         else:
+            # Lower-stage reverse-lookup rows are not retained for 改弐
+            # characters. The effective maximum-state values are rebuilt from
+            # the individual page below.
+            row["formationSkill"] = None
+            row["heldSkill"] = None
+            row["buffs"] = []
+            row["debuffs"] = []
+            row["maxEffectsVerified"] = False
             pending.append(row)
+
+    for row in characters:
+        if row["name"] not in kai2_names:
+            row["maxEffectsVerified"] = False
 
     if pending:
         print(f"Checking individual pages for max 改弐 skills: {len(pending)}")
@@ -672,14 +780,21 @@ def main() -> None:
             futures = [executor.submit(parse_individual_max_skills, row) for row in pending]
             done = 0
             for future in concurrent.futures.as_completed(futures):
-                char_id, formation_skill, held_skill, error = future.result()
+                char_id, formation_skill, held_skill, max_effects, error = future.result()
                 done += 1
                 row = by_id.get(char_id)
                 if row:
-                    if formation_skill:
-                        row["formationSkill"] = formation_skill
-                    if held_skill:
-                        row["heldSkill"] = held_skill
+                    row["formationSkill"] = formation_skill
+                    row["heldSkill"] = held_skill
+                    row["buffs"] = [
+                        entry for entry in max_effects
+                        if "buff" in entry.get("kinds", [])
+                    ]
+                    row["debuffs"] = [
+                        entry for entry in max_effects
+                        if "debuff" in entry.get("kinds", [])
+                    ]
+                    row["maxEffectsVerified"] = True
                 if done % 25 == 0 or done == len(pending):
                     print(f"  改弐 pages: {done}/{len(pending)}")
                 if error:
@@ -727,7 +842,7 @@ def main() -> None:
     OUT.parent.mkdir(parents=True, exist_ok=True)
     tmp = OUT.with_suffix(".json.tmp")
     tmp.write_text(
-        json.dumps(payload, ensure_ascii=False, indent=2) + "\n",
+        json.dumps(payload, ensure_ascii=False, separators=(",", ":")) + "\n",
         encoding="utf-8",
     )
     tmp.replace(OUT)
