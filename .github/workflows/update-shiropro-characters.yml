@@ -37,6 +37,10 @@ jobs:
 
       - name: Commit data when changed
         run: |
+          cp assets/data/shiropro-characters.json /tmp/shiropro-characters.json
+          git fetch origin main
+          git reset --hard origin/main
+          cp /tmp/shiropro-characters.json assets/data/shiropro-characters.json
           git add assets/data/shiropro-characters.json
 
           if git diff --cached --quiet; then
@@ -47,5 +51,4 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git commit -m "Update Shiropro character data"
-          git pull --rebase origin main
           git push
