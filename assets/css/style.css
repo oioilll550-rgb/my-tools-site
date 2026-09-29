@@ -3839,3 +3839,40 @@ body.horse-racing-theme .card {
     min-width: 820px;
   }
 }
+
+
+/* Shiropro skill-presence filters */
+.shiropro-filter-grid {
+  grid-template-columns: minmax(180px, 1.4fr) repeat(3, minmax(105px, .8fr));
+}
+
+.shiropro-filter-grid .shiropro-bookmark-filter {
+  min-height: 34px;
+  padding: 5px 8px;
+  font-size: 11px;
+}
+
+.shiropro-filter-grid button {
+  min-height: 34px;
+  padding: 5px 9px;
+}
+
+@media (max-width: 920px) {
+  .shiropro-filter-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .shiropro-search-field {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 620px) {
+  .shiropro-filter-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .shiropro-search-field {
+    grid-column: 1 / -1;
+  }
+}
