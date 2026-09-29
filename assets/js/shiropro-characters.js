@@ -17,11 +17,15 @@ document.addEventListener("DOMContentLoaded", async () => {
   const sourceLink = document.getElementById("shiroproSource");
   const bookmarkSummary = document.getElementById("shiroproBookmarkSummary");
   const bookmarkSummaryCount = document.getElementById("shiroproBookmarkSummaryCount");
+  const detailPanel = document.getElementById("shiroproCharacterDetail");
+  const detailTitle = document.getElementById("shiroproCharacterDetailTitle");
+  const detailBody = document.getElementById("shiroproCharacterDetailBody");
 
   const bookmarkKey = "benrichan-shiropro-bookmarks-v1";
   let characters = [];
   let sortKey = "no";
   let sortDirection = "asc";
+  let selectedCharacterId = "";
 
   function loadBookmarks() {
     try {
@@ -295,6 +299,39 @@ document.addEventListener("DOMContentLoaded", async () => {
     return parts;
   }
 
+  const maxOnlyHeldSkillTargetPattern = /(獲得金|要石|経験値|殿EXP|城娘EXP|合戦時EXP)/i;
+
+  function heldSkillAggregationMode(part) {
+    const target = String(part && part.target || "");
+    return maxOnlyHeldSkillTargetPattern.test(target) ? "max" : "sum";
+  }
+
+  function renderCharacterDetail() {
+    if (!detailPanel) return;
+
+    const row = characters.find((item) => rowId(item) === selectedCharacterId);
+    if (!row) {
+      detailPanel.hidden = true;
+      return;
+    }
+
+    detailPanel.hidden = false;
+    if (detailTitle) detailTitle.textContent = row.name;
+    if (detailBody) {
+      detailBody.textContent = "キャラクター詳細表示用エリア";
+    }
+  }
+
+  function selectCharacter(id) {
+    selectedCharacterId = String(id || "");
+    tableBody.querySelectorAll("tr[data-character-id]").forEach((tr) => {
+      const selected = tr.dataset.characterId === selectedCharacterId;
+      tr.classList.toggle("is-selected", selected);
+      tr.setAttribute("aria-selected", selected ? "true" : "false");
+    });
+    renderCharacterDetail();
+  }
+
   function renderBookmarkSummary() {
     if (!bookmarkSummary || !bookmarkSummaryCount) return;
 
@@ -325,9 +362,19 @@ document.addEventListener("DOMContentLoaded", async () => {
     withHeld.forEach((row) => {
       additiveParts(row.heldSkill.effect).forEach((part) => {
         const key = [part.target, part.unit, part.action].join("|");
-        const current = totals.get(key) || { ...part, value: 0 };
-        current.value += part.value;
-        totals.set(key, current);
+        const aggregationMode = heldSkillAggregationMode(part);
+        const current = totals.get(key);
+
+        if (!current) {
+          totals.set(key, { ...part, value: part.value, aggregationMode });
+          return;
+        }
+
+        if (aggregationMode === "max") {
+          current.value = Math.max(current.value, part.value);
+        } else {
+          current.value += part.value;
+        }
       });
     });
 
@@ -355,7 +402,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     const note = document.createElement("p");
     note.className = "shiropro-bookmark-summary-note";
-    note.textContent = "同じ表記の数値効果を☆選択分で単純加算しています。";
+    note.textContent = "獲得金・要石・経験値など戦闘外の同種効果は最大値、それ以外の同じ表記の数値効果は☆選択分で合算しています。";
     bookmarkSummary.appendChild(note);
 
     const details = document.createElement("details");
@@ -408,6 +455,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       tr.appendChild(td);
       tableBody.appendChild(tr);
       updateSortHeaders();
+      renderCharacterDetail();
       return;
     }
 
@@ -415,7 +463,12 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     rows.forEach((row) => {
       const tr = document.createElement("tr");
-      if (bookmarks.has(rowId(row))) tr.classList.add("is-bookmarked");
+      const id = rowId(row);
+      tr.dataset.characterId = id;
+      tr.tabIndex = 0;
+      tr.setAttribute("aria-selected", id === selectedCharacterId ? "true" : "false");
+      if (bookmarks.has(id)) tr.classList.add("is-bookmarked");
+      if (id === selectedCharacterId) tr.classList.add("is-selected");
 
       const bookmarkCell = document.createElement("td");
       bookmarkCell.className = "shiropro-bookmark-cell";
@@ -461,7 +514,30 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     tableBody.appendChild(fragment);
     updateSortHeaders();
+    renderCharacterDetail();
   }
+
+  tableBody.addEventListener("click", (event) => {
+    const target = event.target;
+    if (!(target instanceof Element)) return;
+    if (target.closest("input, a, button, select, label")) return;
+
+    const row = target.closest("tr[data-character-id]");
+    if (!row) return;
+    selectCharacter(row.dataset.characterId);
+  });
+
+  tableBody.addEventListener("keydown", (event) => {
+    if (event.key !== "Enter" && event.key !== " ") return;
+    const target = event.target;
+    if (!(target instanceof Element)) return;
+    if (target.closest("input, a, button, select, label")) return;
+
+    const row = target.closest("tr[data-character-id]");
+    if (!row) return;
+    event.preventDefault();
+    selectCharacter(row.dataset.characterId);
+  });
 
   tableBody.addEventListener("change", (event) => {
     const target = event.target;
