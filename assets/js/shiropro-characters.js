@@ -344,14 +344,23 @@ document.addEventListener("DOMContentLoaded", async () => {
       ...(Array.isArray(row.debuffs) ? row.debuffs : [])
     ];
 
-    const traitItems = combined.filter((item) => {
+    let traitItems = combined.filter((item) => {
       if (!item || !item.effect) return false;
       if (String(item.effect).length > 900) return false;
       const sourceKeys = Array.isArray(item.sources)
         ? item.sources.map((source) => String(source && source.key || ""))
         : [];
-      return item.section === "特技" || sourceKeys.some((key) => /^trait_/.test(key) || key === "individual_max");
+      return item.section === "特技" || sourceKeys.some((key) => /^trait_/.test(key));
     });
+
+    const maxStage = detailMaxUpgrade(row);
+    const maxStageItems = traitItems.filter((item) => (item.stage || "無印") === maxStage);
+    if (maxStageItems.length) {
+      traitItems = maxStageItems;
+    } else if (traitItems.length) {
+      const highestRank = Math.max(...traitItems.map((item) => upgradeRank(item.stage)));
+      traitItems = traitItems.filter((item) => upgradeRank(item.stage) === highestRank);
+    }
 
     const byEffect = new Map();
     traitItems.forEach((item) => {
