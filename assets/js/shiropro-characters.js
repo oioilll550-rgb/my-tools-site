@@ -395,24 +395,27 @@ document.addEventListener("DOMContentLoaded", async () => {
     const weapon = normalizeWeapon(row.weapon);
 
     if (!["本", "歌舞"].includes(weapon)) return content;
-    if (!/巨大化する度に/.test(source)) return content;
+    // Only the effect explicitly described as "巨大化する度に" is accumulated.
+    // Other effects in the same trait, including "最大化時", stay at x1.
+    if (!/巨大化する度に/.test(content)) return content;
     if (/(?:最大化時|最大巨大化時)/.test(content)) return content;
 
     const multiplier = maxGiantizeCount(row);
     if (multiplier <= 1) return content;
 
-    return content.replace(/\d+(?:\.\d+)?%?/g, (token, offset, fullText) => {
-      const suffix = fullText.slice(offset + token.length, offset + token.length + 5);
-      if (/^(?:秒|秒間|体|回|以上|以下|未満|倍)/.test(suffix)) return token;
+    return content.replace(
+      /(\d+(?:\.\d+)?)(%?)(?=\s*(?:上昇|増加|短縮|軽減|回復))/g,
+      (_, numberText, unit) => {
+        const numeric = Number(numberText);
+        if (!Number.isFinite(numeric)) return numberText + unit;
 
-      const hasPercent = token.endsWith("%");
-      const numeric = Number(hasPercent ? token.slice(0, -1) : token);
-      if (!Number.isFinite(numeric)) return token;
-
-      const scaled = numeric * multiplier;
-      const value = Number.isInteger(scaled) ? String(scaled) : String(Number(scaled.toFixed(2)));
-      return value + (hasPercent ? "%" : "");
-    });
+        const scaled = numeric * multiplier;
+        const value = Number.isInteger(scaled)
+          ? String(scaled)
+          : String(Number(scaled.toFixed(2)));
+        return value + unit;
+      }
+    );
   }
 
   function traitEffects(row) {
@@ -599,7 +602,8 @@ document.addEventListener("DOMContentLoaded", async () => {
     detailPanel.hidden = false;
     if (detailTitle) {
       const maxUpgrade = detailMaxUpgrade(row);
-      detailTitle.textContent = row.name + (maxUpgrade ? "　" + maxUpgrade : "");
+      const upgradeLabel = maxUpgrade && maxUpgrade !== "無印" ? "　" + maxUpgrade : "";
+      detailTitle.textContent = row.name + upgradeLabel;
     }
     if (!detailBody) return;
 
