@@ -529,6 +529,35 @@ document.addEventListener("DOMContentLoaded", async () => {
     return /(?:敵|兜|妖怪|城娘|味方|自身|伏兵|蔵|殿|水城|軍船|平城|山城|平山城|地獄城|全\[|全［|全ての|射程内|射程外)/.test(value);
   }
 
+  function firstTraitPropertyMatch(text) {
+    const value = String(text || "");
+    const properties = traitPropertyPatternSource.split("|");
+    let best = null;
+
+    properties.forEach((property) => {
+      let startAt = 0;
+      while (startAt < value.length) {
+        const index = value.indexOf(property, startAt);
+        if (index < 0) break;
+
+        if (property === "射程") {
+          const next = value.slice(index + property.length, index + property.length + 1);
+          if (next === "内" || next === "外") {
+            startAt = index + property.length;
+            continue;
+          }
+        }
+
+        if (!best || index < best.index || (index === best.index && property.length > best.property.length)) {
+          best = { index, property };
+        }
+        break;
+      }
+    });
+
+    return best;
+  }
+
   function prepareTraitChunks(body) {
     const prop = traitPropertyPatternSource;
     return String(body || "")
@@ -594,7 +623,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         let chunk = rawChunk.replace(/^[、。\s]+|[、。\s]+$/g, "").trim();
         if (!chunk) return;
 
-        const propertyMatch = chunk.match(new RegExp(traitPropertyPatternSource));
+        const propertyMatch = firstTraitPropertyMatch(chunk);
         if (!propertyMatch || propertyMatch.index === undefined) {
           parsed.push({
             raw: chunk,
