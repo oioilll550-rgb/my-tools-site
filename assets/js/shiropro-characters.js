@@ -606,6 +606,160 @@ document.addEventListener("DOMContentLoaded", async () => {
     );
   }
 
+  const traitAtomicTargetNames = [
+    "初回計略使用までの時間",
+    "計略再使用までの時間",
+    "計略再使用時間",
+    "計略使用までの時間",
+    "特殊攻撃ゲージ蓄積量",
+    "攻撃後の隙",
+    "敵撃破時の獲得気",
+    "撃破獲得気",
+    "計略のダメージ",
+    "計略ダメージ",
+    "受けるダメージ",
+    "与えるダメージ",
+    "移動速度",
+    "攻撃速度",
+    "与ダメージ",
+    "被ダメージ",
+    "与ダメ",
+    "被ダメ",
+    "与回復量",
+    "被回復量",
+    "計略消費気",
+    "巨大化気",
+    "足止め数",
+    "攻撃対象",
+    "直撃ボーナス",
+    "自然増加量",
+    "耐久",
+    "攻撃",
+    "防御",
+    "射程",
+    "回復"
+  ];
+
+  function traitAtomicScopeBlocks(body) {
+    let text = String(body || "")
+      .replace(/自身の攻撃の(?=\\d)/g, "__SELF_ATTACK__")
+      .replace(/\\s+/g, " ")
+      .trim();
+
+    const scopePattern =
+      /(射程内(?:の)?(?:敵|城娘|味方|近接城娘|遠隔城娘)|射程外(?:の)?(?:敵|城娘|味方|近接城娘|遠隔城娘)|全ての敵|全敵|全ての城娘|全城娘|自身の伏兵|自身)/g;
+    const matches = [...text.matchAll(scopePattern)];
+
+    if (!matches.length) {
+      return [{
+        scope: "",
+        body: text.replace(/__SELF_ATTACK__/g, "自身の攻撃の")
+      }];
+    }
+
+    const blocks = [];
+    if (matches[0].index > 0) {
+      const leading = text.slice(0, matches[0].index).trim();
+      if (leading) {
+        blocks.push({
+          scope: "",
+          body: leading.replace(/__SELF_ATTACK__/g, "自身の攻撃の")
+        });
+      }
+    }
+
+    matches.forEach((match, index) => {
+      const blockStart = match.index + match[0].length;
+      const blockEnd = index + 1 < matches.length ? matches[index + 1].index : text.length;
+      const blockBody = text.slice(blockStart, blockEnd).trim();
+      if (!blockBody) return;
+
+      blocks.push({
+        scope: normalizeTraitScope(match[0]),
+        body: blockBody.replace(/__SELF_ATTACK__/g, "自身の攻撃の")
+      });
+    });
+
+    return blocks;
+  }
+
+  function traitAtomicPairRegex() {
+    const targetSource = traitAtomicTargetNames
+      .slice()
+      .sort((a, b) => b.length - a.length)
+      .map((value) => value.replace(/[.*+?^\${}()|[\\]\\\\]/g, "\\\\$&"))
+      .join("|");
+
+    return new RegExp(
+      "((?:(?:" + targetSource + ")(?:\\\\s*(?:と|/|・)\\\\s*(?:" + targetSource + "))*)|(?:[^、，,\\\\s]{1,22}の(?:" + targetSource + ")))" +
+      "\\\\s*(?:が|を|は)?\\\\s*" +
+      "((?:自身の攻撃の\\\\d+(?:\\\\.\\\\d+)?%の値と)?\\\\d+(?:\\\\.\\\\d+)?%?(?:\\\\s*と\\\\s*\\\\d+(?:\\\\.\\\\d+)?%?)?)",
+      "g"
+    );
+  }
+
+  function normalizeTraitAtomicTarget(target) {
+    return String(target || "")
+      .replace(/^の/, "")
+      .replace(/被ダメ$/, "被ダメージ")
+      .replace(/与ダメ$/, "与ダメージ")
+      .replace(/\\s+/g, "")
+      .trim();
+  }
+
+  function traitAtomicActionRows(segmentText, action, overlap) {
+    let segment = String(segmentText || "")
+      .replace(/^[、，,。\\s]+/, "")
+      .replace(/^の/, "")
+      .trim();
+
+    const rows = [];
+    const pairRegex = traitAtomicPairRegex();
+    let match;
+
+    while ((match = pairRegex.exec(segment)) !== null) {
+      const rawTarget = normalizeTraitAtomicTarget(match[1]);
+      const valueText = String(match[2] || "").replace(/\\s+/g, "");
+
+      const targets = rawTarget
+        .split(/\\s*(?:と|\\/|・)\\s*/)
+        .map((target) => normalizeTraitAtomicTarget(target))
+        .filter(Boolean);
+
+      targets.forEach((target) => {
+        rows.push({
+          target,
+          valueText,
+          action,
+          overlap
+        });
+      });
+    }
+
+    const remainder = segment
+      .replace(pairRegex, "")
+      .replace(/[、，,。\\s]+/g, "")
+      .trim();
+
+    return { rows, remainder };
+  }
+
+  function formatTraitAtomicContent(cadence, scope, target, valueText, action, overlap) {
+    const normalizedScope = normalizeTraitScope(scope);
+    const scopePrefix = normalizedScope
+      ? normalizedScope + (target.startsWith("の") ? "" : "の")
+      : "";
+
+    return (
+      (cadence || "") +
+      scopePrefix +
+      normalizeTraitAtomicTarget(target) +
+      valueText +
+      action +
+      (overlap ? "(効果重複)" : "")
+    ).replace(/\\s+/g, " ").trim();
+  }
+
   function traitAtomicRows(effectText, row) {
     const weapon = normalizeWeapon(row.weapon);
     if (!cumulativeTraitWeapons.has(weapon)) {
@@ -614,79 +768,93 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     const atomicRows = [];
 
-    splitTraitCadenceBlocks(effectText).forEach((block) => {
-      const chunks = prepareTraitChunks(block.body);
-      const parsed = [];
-      let currentScope = "";
+    splitTraitCadenceBlocks(effectText).forEach((cadenceBlock) => {
+      traitAtomicScopeBlocks(cadenceBlock.body).forEach((scopeBlock) => {
+        const body = String(scopeBlock.body || "").trim();
+        if (!body) return;
 
-      chunks.forEach((rawChunk) => {
-        let chunk = rawChunk.replace(/^[、。\s]+|[、。\s]+$/g, "").trim();
-        if (!chunk) return;
+        const actionRegex = /(上昇|低下|短縮|軽減|増加|減少|延長)/g;
+        let previousEnd = 0;
+        let match;
 
-        const propertyMatch = firstTraitPropertyMatch(chunk);
-        if (!propertyMatch || propertyMatch.index === undefined) {
-          parsed.push({
-            raw: chunk,
-            scope: currentScope,
-            payload: chunk,
-            action: "",
-            uncertain: true
-          });
-          return;
-        }
+        while ((match = actionRegex.exec(body)) !== null) {
+          const segmentText = body.slice(previousEnd, match.index);
+          const afterAction = body.slice(actionRegex.lastIndex);
+          const overlapMatch = afterAction.match(/^\\s*\\(効果\\s*重複\\s*\\)/);
+          const overlap = Boolean(overlapMatch);
 
-        const prefix = chunk.slice(0, propertyMatch.index).trim();
-        if (prefix && traitScopeLooksExplicit(prefix)) {
-          currentScope = normalizeTraitScope(prefix);
-          chunk = chunk.slice(propertyMatch.index).trim();
-        }
-
-        const actionInfo = traitActionInfo(chunk);
-        parsed.push({
-          raw: rawChunk,
-          scope: currentScope,
-          payload: chunk,
-          action: actionInfo.action,
-          uncertain: false
-        });
-      });
-
-      // Shared terminal actions are propagated backwards only inside the same target scope.
-      for (let i = parsed.length - 2; i >= 0; i -= 1) {
-        if (parsed[i].action) continue;
-        for (let j = i + 1; j < parsed.length; j += 1) {
-          if (parsed[j].scope !== parsed[i].scope) break;
-          if (parsed[j].action) {
-            parsed[i].action = parsed[j].action;
-            break;
+          if (overlapMatch) {
+            actionRegex.lastIndex += overlapMatch[0].length;
           }
+
+          const parsed = traitAtomicActionRows(segmentText, match[1], overlap);
+
+          if (parsed.rows.length) {
+            parsed.rows.forEach((parsedRow) => {
+              const content = formatTraitAtomicContent(
+                cadenceBlock.cadence,
+                scopeBlock.scope,
+                parsedRow.target,
+                parsedRow.valueText,
+                parsedRow.action,
+                parsedRow.overlap
+              );
+              const analysis = classifyEffectText(content);
+              atomicRows.push({
+                content,
+                isBuff: analysis.isBuff,
+                isDebuff: analysis.isDebuff,
+                uncertain: false
+              });
+            });
+
+            if (parsed.remainder) {
+              const fallbackContent = (
+                (cadenceBlock.cadence || "") +
+                (scopeBlock.scope || "") +
+                parsed.remainder +
+                match[1] +
+                (overlap ? "(効果重複)" : "")
+              ).replace(/\\s+/g, " ").trim();
+              const fallbackAnalysis = classifyEffectText(fallbackContent);
+              atomicRows.push({
+                content: fallbackContent,
+                isBuff: fallbackAnalysis.isBuff,
+                isDebuff: fallbackAnalysis.isDebuff,
+                uncertain: true
+              });
+            }
+          } else {
+            const fallbackContent = (
+              (cadenceBlock.cadence || "") +
+              (scopeBlock.scope || "") +
+              segmentText +
+              match[1] +
+              (overlap ? "(効果重複)" : "")
+            ).replace(/\\s+/g, " ").trim();
+            const fallbackAnalysis = classifyEffectText(fallbackContent);
+            atomicRows.push({
+              content: fallbackContent,
+              isBuff: fallbackAnalysis.isBuff,
+              isDebuff: fallbackAnalysis.isDebuff,
+              uncertain: true
+            });
+          }
+
+          previousEnd = actionRegex.lastIndex;
         }
-      }
 
-      parsed.forEach((item) => {
-        const cadence = block.cadence;
-        const basePrefix = (cadence || "") + (item.scope || "");
-        let payload = String(item.payload || "").trim();
+        const tail = body
+          .slice(previousEnd)
+          .replace(/^[、，,。\\s]+|[、，,。\\s]+$/g, "")
+          .trim();
 
-        const annotationMatches = payload.match(/[（(][^）)]*(?:重複|効果)[^）)]*[）)]/g) || [];
-        const annotation = annotationMatches.join("");
-        annotationMatches.forEach((match) => {
-          payload = payload.replace(match, "").trim();
-        });
-
-        const action = item.action;
-        if (action && action !== "倍") {
-          payload = payload.replace(
-            new RegExp("(上昇|低下|短縮|軽減|増加|減少|延長|回復|無視)(?:し|する)?\\s*$"),
-            ""
-          ).trim();
-        } else if (action === "倍") {
-          payload = payload.replace(/倍\s*$/, "").trim();
-        }
-
-        const valueMatch = traitValueMatch(payload, action);
-        if (!action || !valueMatch || valueMatch.index === undefined) {
-          const content = ((basePrefix || "") + item.raw).replace(/\s+/g, " ").trim();
+        if (tail) {
+          const content = (
+            (cadenceBlock.cadence || "") +
+            (scopeBlock.scope || "") +
+            tail
+          ).replace(/\\s+/g, " ").trim();
           const analysis = classifyEffectText(content);
           atomicRows.push({
             content,
@@ -694,53 +862,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             isDebuff: analysis.isDebuff,
             uncertain: true
           });
-          return;
         }
-
-        const value = valueMatch[1].replace(/\s+/g, "");
-        let propertyText = payload.slice(0, valueMatch.index).trim();
-        const particleMatch = propertyText.match(/(が|を|は)$/);
-        const particle = particleMatch ? particleMatch[1] : "";
-        if (particle) propertyText = propertyText.slice(0, -1).trim();
-
-        const properties = propertyText
-          .split(/\s*(?:と|\/)\s*/)
-          .map((part) => part.trim())
-          .filter(Boolean);
-
-        const recognizedProperty = new RegExp("^(?:" + traitPropertyPatternSource + ")$");
-        if (!properties.length || properties.some((property) => !recognizedProperty.test(property))) {
-          const content = ((basePrefix || "") + item.raw).replace(/\s+/g, " ").trim();
-          const analysis = classifyEffectText(content);
-          atomicRows.push({
-            content,
-            isBuff: analysis.isBuff,
-            isDebuff: analysis.isDebuff,
-            uncertain: true
-          });
-          return;
-        }
-
-        properties.forEach((property) => {
-          const normalizedProperty =
-            property === "被ダメ" ? "被ダメージ" :
-            property === "与ダメ" ? "与ダメージ" :
-            property;
-          const content =
-            basePrefix +
-            normalizedProperty +
-            particle +
-            value +
-            (action === "倍" ? "倍" : action) +
-            annotation;
-          const analysis = classifyEffectText(content);
-          atomicRows.push({
-            content,
-            isBuff: analysis.isBuff,
-            isDebuff: analysis.isDebuff,
-            uncertain: false
-          });
-        });
       });
     });
 
@@ -748,7 +870,20 @@ document.addEventListener("DOMContentLoaded", async () => {
       return effectSegments(effectText).map((segment) => ({ ...segment, uncertain: true }));
     }
 
-    return atomicRows;
+    const unique = [];
+    const seen = new Set();
+    atomicRows.forEach((rowItem) => {
+      const key = [
+        rowItem.content.replace(/\\s+/g, ""),
+        rowItem.isBuff ? "b" : "",
+        rowItem.isDebuff ? "d" : ""
+      ].join("|");
+      if (seen.has(key)) return;
+      seen.add(key);
+      unique.push(rowItem);
+    });
+
+    return unique;
   }
 
   function upgradeRank(stage) {
