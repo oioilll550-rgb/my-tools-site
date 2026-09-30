@@ -446,6 +446,282 @@ document.addEventListener("DOMContentLoaded", async () => {
     return effectSegments(skill && skill.effect);
   }
 
+  const cumulativeTraitWeapons = new Set(["本", "歌舞", "鈴"]);
+  const traitPropertyPatternSource = [
+    "敵撃破時の獲得気",
+    "撃破獲得気",
+    "初回計略使用までの時間",
+    "計略再使用までの時間",
+    "計略再使用時間",
+    "計略使用までの時間",
+    "攻撃後の隙",
+    "特殊攻撃ゲージ蓄積量",
+    "被回復量",
+    "与回復量",
+    "移動速度",
+    "攻撃速度",
+    "被ダメージ",
+    "被ダメ",
+    "与ダメージ",
+    "与ダメ",
+    "計略消費気",
+    "巨大化気",
+    "足止め数",
+    "攻撃対象",
+    "直撃ボーナス",
+    "耐久",
+    "攻撃",
+    "防御",
+    "射程",
+    "回復"
+  ].join("|");
+
+  function canonicalTraitCadence(value) {
+    if (value === "巨大化毎に") return "巨大化する度に";
+    return value;
+  }
+
+  function splitTraitCadenceBlocks(effectText) {
+    const text = String(effectText || "").replace(/\s+/g, " ").trim();
+    if (!text) return [];
+
+    const markerPattern = /(【配置】|巨大化する度に|巨大化毎に|最大巨大化時|最大化時|巨大化時|特殊能力中|計略中)/g;
+    const matches = [...text.matchAll(markerPattern)];
+
+    if (!matches.length) {
+      return [{ cadence: "", body: text }];
+    }
+
+    const blocks = [];
+    if (matches[0].index > 0) {
+      const leading = text.slice(0, matches[0].index).replace(/^[、。\s]+|[、。\s]+$/g, "");
+      if (leading) blocks.push({ cadence: "", body: leading });
+    }
+
+    matches.forEach((match, index) => {
+      const start = match.index + match[0].length;
+      const end = index + 1 < matches.length ? matches[index + 1].index : text.length;
+      const body = text.slice(start, end).replace(/^[、。\s]+|[、。\s]+$/g, "");
+      if (body) {
+        blocks.push({
+          cadence: canonicalTraitCadence(match[0]),
+          body
+        });
+      }
+    });
+
+    return blocks;
+  }
+
+  function normalizeTraitScope(scope) {
+    return String(scope || "")
+      .replace(/射程内敵/g, "射程内の敵")
+      .replace(/射程外敵/g, "射程外の敵")
+      .replace(/射程内城娘/g, "射程内の城娘")
+      .replace(/射程外城娘/g, "射程外の城娘")
+      .replace(/射程内味方/g, "射程内の味方")
+      .replace(/射程外味方/g, "射程外の味方")
+      .replace(/\s+/g, "");
+  }
+
+  function traitScopeLooksExplicit(prefix) {
+    const value = String(prefix || "");
+    return /(?:敵|兜|妖怪|城娘|味方|自身|伏兵|蔵|殿|水城|軍船|平城|山城|平山城|地獄城|全\[|全［|全ての|射程内|射程外)/.test(value);
+  }
+
+  function prepareTraitChunks(body) {
+    const prop = traitPropertyPatternSource;
+    return String(body || "")
+      .replace(/[。]+/g, "、")
+      .replace(
+        new RegExp(
+          "(\\d+(?:\\.\\d+)?%?(?:\\s*と\\s*\\d+(?:\\.\\d+)?%?)?)\\s+(?=(?:" +
+            prop +
+            ")(?:が|を|は|\\s))",
+          "g"
+        ),
+        "$1、"
+      )
+      .replace(
+        new RegExp(
+          "(上昇|低下|短縮|軽減|増加|減少|延長|回復|無視)(?:し|する)?\\s+(?=(?:" +
+            prop +
+            "|射程内|射程外|全ての|全敵|自身|殿と|全\\[|全［))",
+          "g"
+        ),
+        "$1、"
+      )
+      .split(/[、，,]+/)
+      .map((part) => part.trim())
+      .filter(Boolean);
+  }
+
+  function traitActionInfo(text) {
+    const matches = [...String(text || "").matchAll(/(上昇|低下|短縮|軽減|増加|減少|延長|回復|無視)(?:し|する)?/g)];
+    if (!matches.length) {
+      const multiple = String(text || "").match(/(\d+(?:\.\d+)?)\s*倍(?:$|[（(])/);
+      if (multiple) return { action: "倍", index: multiple.index + multiple[1].length };
+      return { action: "", index: -1 };
+    }
+    const match = matches[matches.length - 1];
+    return { action: match[1], index: match.index };
+  }
+
+  function traitValueMatch(text, action) {
+    const valueText = String(text || "").trim();
+    if (action === "倍") {
+      return valueText.match(/(\d+(?:\.\d+)?)$/);
+    }
+    return valueText.match(
+      /((?:自身の攻撃の|与ダメージの|与ダメの)?\d+(?:\.\d+)?%?(?:の値)?(?:\s*と\s*\d+(?:\.\d+)?%?)?)$/
+    );
+  }
+
+  function traitAtomicRows(effectText, row) {
+    const weapon = normalizeWeapon(row.weapon);
+    if (!cumulativeTraitWeapons.has(weapon)) {
+      return effectSegments(effectText).map((segment) => ({ ...segment, uncertain: false }));
+    }
+
+    const atomicRows = [];
+
+    splitTraitCadenceBlocks(effectText).forEach((block) => {
+      const chunks = prepareTraitChunks(block.body);
+      const parsed = [];
+      let currentScope = "";
+
+      chunks.forEach((rawChunk) => {
+        let chunk = rawChunk.replace(/^[、。\s]+|[、。\s]+$/g, "").trim();
+        if (!chunk) return;
+
+        const propertyMatch = chunk.match(new RegExp(traitPropertyPatternSource));
+        if (!propertyMatch || propertyMatch.index === undefined) {
+          parsed.push({
+            raw: chunk,
+            scope: currentScope,
+            payload: chunk,
+            action: "",
+            uncertain: true
+          });
+          return;
+        }
+
+        const prefix = chunk.slice(0, propertyMatch.index).trim();
+        if (prefix && traitScopeLooksExplicit(prefix)) {
+          currentScope = normalizeTraitScope(prefix);
+          chunk = chunk.slice(propertyMatch.index).trim();
+        }
+
+        const actionInfo = traitActionInfo(chunk);
+        parsed.push({
+          raw: rawChunk,
+          scope: currentScope,
+          payload: chunk,
+          action: actionInfo.action,
+          uncertain: false
+        });
+      });
+
+      // Shared terminal actions are propagated backwards only inside the same target scope.
+      for (let i = parsed.length - 2; i >= 0; i -= 1) {
+        if (parsed[i].action) continue;
+        for (let j = i + 1; j < parsed.length; j += 1) {
+          if (parsed[j].scope !== parsed[i].scope) break;
+          if (parsed[j].action) {
+            parsed[i].action = parsed[j].action;
+            break;
+          }
+        }
+      }
+
+      parsed.forEach((item) => {
+        const cadence = block.cadence;
+        const basePrefix = (cadence || "") + (item.scope || "");
+        let payload = String(item.payload || "").trim();
+
+        const annotationMatches = payload.match(/[（(][^）)]*(?:重複|効果)[^）)]*[）)]/g) || [];
+        const annotation = annotationMatches.join("");
+        annotationMatches.forEach((match) => {
+          payload = payload.replace(match, "").trim();
+        });
+
+        const action = item.action;
+        if (action && action !== "倍") {
+          payload = payload.replace(
+            new RegExp("(上昇|低下|短縮|軽減|増加|減少|延長|回復|無視)(?:し|する)?\\s*$"),
+            ""
+          ).trim();
+        } else if (action === "倍") {
+          payload = payload.replace(/倍\s*$/, "").trim();
+        }
+
+        const valueMatch = traitValueMatch(payload, action);
+        if (!action || !valueMatch || valueMatch.index === undefined) {
+          const content = ((basePrefix || "") + item.raw).replace(/\s+/g, " ").trim();
+          const analysis = classifyEffectText(content);
+          atomicRows.push({
+            content,
+            isBuff: analysis.isBuff,
+            isDebuff: analysis.isDebuff,
+            uncertain: true
+          });
+          return;
+        }
+
+        const value = valueMatch[1].replace(/\s+/g, "");
+        let propertyText = payload.slice(0, valueMatch.index).trim();
+        const particleMatch = propertyText.match(/(が|を|は)$/);
+        const particle = particleMatch ? particleMatch[1] : "";
+        if (particle) propertyText = propertyText.slice(0, -1).trim();
+
+        const properties = propertyText
+          .split(/\s*(?:と|\/)\s*/)
+          .map((part) => part.trim())
+          .filter(Boolean);
+
+        const recognizedProperty = new RegExp("^(?:" + traitPropertyPatternSource + ")$");
+        if (!properties.length || properties.some((property) => !recognizedProperty.test(property))) {
+          const content = ((basePrefix || "") + item.raw).replace(/\s+/g, " ").trim();
+          const analysis = classifyEffectText(content);
+          atomicRows.push({
+            content,
+            isBuff: analysis.isBuff,
+            isDebuff: analysis.isDebuff,
+            uncertain: true
+          });
+          return;
+        }
+
+        properties.forEach((property) => {
+          const normalizedProperty =
+            property === "被ダメ" ? "被ダメージ" :
+            property === "与ダメ" ? "与ダメージ" :
+            property;
+          const content =
+            basePrefix +
+            normalizedProperty +
+            particle +
+            value +
+            (action === "倍" ? "倍" : action) +
+            annotation;
+          const analysis = classifyEffectText(content);
+          atomicRows.push({
+            content,
+            isBuff: analysis.isBuff,
+            isDebuff: analysis.isDebuff,
+            uncertain: false
+          });
+        });
+      });
+    });
+
+    if (!atomicRows.length) {
+      return effectSegments(effectText).map((segment) => ({ ...segment, uncertain: true }));
+    }
+
+    return atomicRows;
+  }
+
   function upgradeRank(stage) {
     if (stage === "改弐") return 2;
     if (stage === "改壱") return 1;
@@ -750,7 +1026,11 @@ document.addEventListener("DOMContentLoaded", async () => {
 
       effectEntries.forEach((entry) => {
         const effectText = typeof entry === "string" ? entry : String(entry && entry.effect || "");
-        effectSegments(effectText).forEach((segment) => {
+        const segments = options.decomposeCumulativeTraits
+          ? traitAtomicRows(effectText, row)
+          : effectSegments(effectText);
+
+        segments.forEach((segment) => {
           if (segment.isBuff) {
             buffRows.push(
               options.scaleGiantizeBuffs
@@ -784,7 +1064,10 @@ document.addEventListener("DOMContentLoaded", async () => {
       "特技",
       traits,
       "分類対象の特技はありません。",
-      { scaleGiantizeBuffs: true }
+      {
+        scaleGiantizeBuffs: true,
+        decomposeCumulativeTraits: true
+      }
     );
   }
 
