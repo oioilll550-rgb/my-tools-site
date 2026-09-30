@@ -193,40 +193,53 @@ document.addEventListener("DOMContentLoaded", async () => {
     });
   }
 
-  function classifyFormationSkill(skill) {
-    const text = String(skill && skill.effect || "").replace(/\s+/g, " ").trim();
-    if (!text) {
-      return { kinds: [], isBuff: false, isDebuff: false };
-    }
+  function classifyEffectText(effectText) {
+    const text = String(effectText || "").replace(/\s+/g, " ").trim();
+    if (!text) return { kinds: [], isBuff: false, isDebuff: false };
+
+    const enemyContext = /(?:全ての敵|全敵|射程内の敵|射程外の敵|状態の敵|全ての妖怪|全ての海洋兜|全ての兜|敵の|敵が|兜の|妖怪の)/.test(text);
+    const enemyBenefitContext = /(?:敵撃破|敵を撃破|撃破時|敵の防御を[^。]{0,40}?無視|敵に与えるダメージ)/.test(text);
 
     const debuffPatterns = [
-      /(?:全ての敵|全敵|射程内の敵|射程外の敵|全ての妖怪|全ての海洋兜|全ての兜)[^。]{0,140}?(?:低下|減少|延長|被ダメージ[^。]{0,40}?上昇)/,
-      /(?:敵|兜)[^。]{0,120}?(?:攻撃|防御|射程|移動速度|攻撃速度|与ダメージ|回復|耐久)[^。]{0,80}?(?:低下|減少|延長)/,
-      /(?:敵|兜)[^。]{0,120}?被ダメージ[^。]{0,40}?上昇/
+      /(?:敵|兜|妖怪)[^。]{0,160}?(?:低下|減少|延長)/,
+      /(?:敵|兜|妖怪)[^。]{0,160}?被ダメージ[^。]{0,50}?上昇/,
+      /(?:全ての敵|全敵|射程内の敵|射程外の敵|状態の敵)[^。]{0,160}?(?:弱化|低下効果[^。]{0,40}?上昇)/
     ];
 
     const buffPatterns = [
-      /(?:部隊|城娘|味方|自身|伏兵|蔵|殿|城|［[^］]+］|\[[^\]]+\])[^。]{0,140}?(?:上昇|増加|短縮|軽減|回復|加算|無効|大破しない|大破せず|大破扱いにならない|狙われにくく|狙われない|無視|倍|代わりに受ける)/,
-      /(?:巨大化気|計略消費気|消費気)[^。]{0,50}?(?:短縮|軽減)/,
-      /(?:敵撃破時|撃破時|撃破獲得気)[^。]{0,50}?(?:獲得気|気)[^。]{0,30}?増加/,
-      /(?:攻撃時|与ダメージ)[^。]{0,60}?耐久[^。]{0,30}?回復/,
-      /(?:足止め数|攻撃対象)[^。]{0,40}?増加/,
-      /耐久が\s*0[^。]{0,50}?(?:大破しない|大破せず|大破扱いにならない)/
+      /(?:部隊|城娘|味方|自身|伏兵|蔵|殿|城|［[^］]+］|\[[^\]]+\])[^。]{0,180}?(?:上昇|増加|短縮|軽減|回復|加算|無効|大破しない|大破せず|大破扱いにならない|狙われにくく|狙われない|無視|倍|代わりに受ける)/,
+      /(?:巨大化気|計略消費気|消費気)[^。]{0,60}?(?:短縮|軽減)/,
+      /(?:敵撃破時|撃破時|撃破獲得気)[^。]{0,60}?(?:獲得気|気)[^。]{0,40}?増加/,
+      /(?:攻撃時|与ダメージ)[^。]{0,70}?耐久[^。]{0,40}?回復/,
+      /(?:足止め数|攻撃対象)[^。]{0,50}?増加/,
+      /耐久が\s*0[^。]{0,60}?(?:大破しない|大破せず|大破扱いにならない)/
     ];
 
-    const hasEnemyContext = /(?:敵|兜|妖怪)/.test(text);
-    const continuationBuffPattern =
-      /(?:耐久|攻撃|防御|射程|回復|攻撃速度|被回復量|与回復量|与ダメージ|直撃ボーナス|足止め数|攻撃対象|特殊攻撃ゲージ蓄積量)(?:が|を)?[^。]{0,45}?(?:上昇|増加|短縮|軽減|回復|加算|倍|無視)/;
+    let isDebuff = debuffPatterns.some((pattern) => pattern.test(text));
+    let isBuff = buffPatterns.some((pattern) => pattern.test(text));
 
-    const isDebuff = debuffPatterns.some((pattern) => pattern.test(text));
-    const isBuff =
-      buffPatterns.some((pattern) => pattern.test(text)) ||
-      (!hasEnemyContext && continuationBuffPattern.test(text));
+    // Comma-split fragments often omit the ally subject, e.g. "攻撃が1.1倍".
+    // Treat positive standalone effects as buffs unless they clearly target enemies.
+    if (!isBuff && (!enemyContext || enemyBenefitContext)) {
+      if (/(?:上昇|増加|短縮|軽減|回復|加算|無効|大破しない|大破せず|大破扱いにならない|狙われにくく|狙われない|防御を\d+(?:\.\d+)?%無視|\d+(?:\.\d+)?倍)/.test(text)) {
+        isBuff = true;
+      }
+    }
+
+    // Enemy-targeted negative context should preferentially be treated as a debuff.
+    if (enemyContext && !enemyBenefitContext && /(?:低下|減少|延長|被ダメージ[^。]{0,50}?上昇)/.test(text)) {
+      isDebuff = true;
+      if (!/(?:自身|味方|城娘|部隊|伏兵|蔵|殿)/.test(text)) isBuff = false;
+    }
+
     const kinds = [];
     if (isBuff) kinds.push("buff");
     if (isDebuff) kinds.push("debuff");
-
     return { kinds, isBuff, isDebuff };
+  }
+
+  function classifyFormationSkill(skill) {
+    return classifyEffectText(skill && skill.effect);
   }
 
   function formationSkillAnalysis(row) {
@@ -236,29 +249,31 @@ document.addEventListener("DOMContentLoaded", async () => {
     return row.formationSkillAnalysis;
   }
 
-  function formationEffectSegments(skill) {
-    const text = String(skill && skill.effect || "").replace(/\s+/g, " ").trim();
+  function effectSegments(effectText) {
+    const text = String(effectText || "").replace(/\s+/g, " ").trim();
     if (!text) return [];
 
-    const preparedText = text.replace(
-      /\s+(?=(?:全ての敵|全敵|全ての妖怪|全ての海洋兜|全ての兜|射程内の敵|射程外の敵|「[^」]+」状態の敵|［[^］]+］状態の敵|\[[^\]]+\]状態の敵))/g,
-      "。"
-    );
+    const preparedText = text
+      .replace(
+        /\s+(?=(?:全ての敵|全敵|全ての妖怪|全ての海洋兜|全ての兜|射程内の敵|射程外の敵|「[^」]+」状態の敵|［[^］]+］状態の敵|\[[^\]]+\]状態の敵))/g,
+        "。"
+      )
+      .replace(
+        /、(?=(?:全ての敵|全敵|全ての妖怪|全ての海洋兜|全ての兜|射程内の敵|射程外の敵))/g,
+        "。"
+      );
 
     const rawSegments = preparedText
       .split(/(?<=[。])/)
       .flatMap((sentence) => sentence.split(/(?<=、)|(?<=，)|(?<=,)/))
-      .map((part) => part.trim())
+      .map((part) => part.replace(/[、，,。]+$/, "").trim())
       .filter(Boolean);
 
     const segments = [];
     let carryPrefix = "";
 
-    rawSegments.forEach((raw) => {
-      let part = raw.replace(/[、，,。]+$/, "").trim();
-      if (!part) return;
-
-      const analysis = classifyFormationSkill({ effect: part });
+    rawSegments.forEach((part) => {
+      const analysis = classifyEffectText(part);
 
       if (!analysis.isBuff && !analysis.isDebuff) {
         carryPrefix += (carryPrefix ? "、" : "") + part;
@@ -267,47 +282,106 @@ document.addEventListener("DOMContentLoaded", async () => {
 
       const content = carryPrefix ? carryPrefix + "、" + part : part;
       carryPrefix = "";
+      const combinedAnalysis = classifyEffectText(content);
 
       segments.push({
         content,
-        isBuff: analysis.isBuff,
-        isDebuff: analysis.isDebuff
+        isBuff: combinedAnalysis.isBuff,
+        isDebuff: combinedAnalysis.isDebuff
       });
     });
 
     if (carryPrefix) {
-      const overall = classifyFormationSkill(skill);
+      const analysis = classifyEffectText(carryPrefix);
       segments.push({
         content: carryPrefix,
-        isBuff: overall.isBuff,
-        isDebuff: overall.isDebuff
+        isBuff: analysis.isBuff,
+        isDebuff: analysis.isDebuff
       });
     }
 
     if (!segments.length) {
-      const overall = classifyFormationSkill(skill);
+      const analysis = classifyEffectText(text);
       segments.push({
         content: text,
-        isBuff: overall.isBuff,
-        isDebuff: overall.isDebuff
+        isBuff: analysis.isBuff,
+        isDebuff: analysis.isDebuff
       });
     }
 
-    const merged = [];
-    segments.forEach((segment) => {
-      const previous = merged[merged.length - 1];
-      if (
-        previous &&
-        previous.isBuff === segment.isBuff &&
-        previous.isDebuff === segment.isDebuff
-      ) {
-        previous.content += "、" + segment.content;
-      } else {
-        merged.push({ ...segment });
+    return segments;
+  }
+
+  function formationEffectSegments(skill) {
+    return effectSegments(skill && skill.effect);
+  }
+
+  function upgradeRank(stage) {
+    if (stage === "改弐") return 2;
+    if (stage === "改壱") return 1;
+    return 0;
+  }
+
+  function detailMaxUpgrade(row) {
+    const stages = [
+      row.maxUpgrade,
+      row.formationSkill && row.formationSkill.stage,
+      row.heldSkill && row.heldSkill.stage,
+      ...(Array.isArray(row.buffs) ? row.buffs.map((item) => item.stage) : []),
+      ...(Array.isArray(row.debuffs) ? row.debuffs.map((item) => item.stage) : [])
+    ].filter(Boolean);
+
+    let best = "無印";
+    stages.forEach((stage) => {
+      if (upgradeRank(stage) > upgradeRank(best)) best = stage;
+    });
+    return best;
+  }
+
+  function traitEffects(row) {
+    const combined = [
+      ...(Array.isArray(row.buffs) ? row.buffs : []),
+      ...(Array.isArray(row.debuffs) ? row.debuffs : [])
+    ];
+
+    const traitItems = combined.filter((item) => {
+      if (!item || !item.effect) return false;
+      if (String(item.effect).length > 900) return false;
+      const sourceKeys = Array.isArray(item.sources)
+        ? item.sources.map((source) => String(source && source.key || ""))
+        : [];
+      return item.section === "特技" || sourceKeys.some((key) => /^trait_/.test(key) || key === "individual_max");
+    });
+
+    const byEffect = new Map();
+    traitItems.forEach((item) => {
+      const normalizedEffect = String(item.effect)
+        .replace(/\s+/g, "")
+        .replace(/[、，,。]/g, "")
+        .trim();
+      if (!normalizedEffect) return;
+
+      const current = byEffect.get(normalizedEffect);
+      if (!current || upgradeRank(item.stage) > upgradeRank(current.stage)) {
+        byEffect.set(normalizedEffect, item);
+      } else if (current && Array.isArray(item.sources) && item.sources.some((source) => source && source.key === "individual_max")) {
+        byEffect.set(normalizedEffect, item);
       }
     });
 
-    return merged;
+    // Different scrape sources may differ only by whitespace around numbers.
+    const compact = [];
+    [...byEffect.values()].forEach((item) => {
+      const signature = String(item.effect)
+        .replace(/\s+/g, "")
+        .replace(/[、，,。]/g, "")
+        .replace(/[０-９]/g, (char) => String.fromCharCode(char.charCodeAt(0) - 0xFEE0));
+      if (!compact.some((existing) => existing.signature === signature)) {
+        compact.push({ signature, item });
+      }
+    });
+
+    return compact.map((entry) => entry.item);
   }
 
   function filteredRows() {
@@ -438,33 +512,14 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     detailPanel.hidden = false;
     if (detailTitle) {
-      detailTitle.textContent = row.name + (row.maxUpgrade ? "　" + row.maxUpgrade : "");
+      const maxUpgrade = detailMaxUpgrade(row);
+      detailTitle.textContent = row.name + (maxUpgrade ? "　" + maxUpgrade : "");
     }
     if (!detailBody) return;
 
     detailBody.innerHTML = "";
 
-    const section = document.createElement("section");
-    section.className = "shiropro-detail-formation";
-
-    const heading = document.createElement("h4");
-    heading.textContent = "編成特技";
-    section.appendChild(heading);
-
-    const skill = row.formationSkill;
-    if (!skill || !skill.effect) {
-      const empty = document.createElement("p");
-      empty.className = "shiropro-detail-empty";
-      empty.textContent = "編成特技はありません。";
-      section.appendChild(empty);
-      detailBody.appendChild(section);
-      return;
-    }
-
-    const effectList = document.createElement("div");
-    effectList.className = "shiropro-detail-effect-list";
-
-    function appendEffectRow(kind, contentText) {
+    function appendEffectRow(list, kind, contentText) {
       const rowElement = document.createElement("div");
       rowElement.className = "shiropro-detail-effect-row";
 
@@ -482,20 +537,61 @@ document.addEventListener("DOMContentLoaded", async () => {
       content.textContent = contentText;
 
       rowElement.append(tags, content);
-      effectList.appendChild(rowElement);
+      list.appendChild(rowElement);
     }
 
-    const effectSegments = formationEffectSegments(skill);
-    const buffSegments = effectSegments.filter((segment) => segment.isBuff);
-    const debuffSegments = effectSegments.filter((segment) => segment.isDebuff);
-    const otherSegments = effectSegments.filter((segment) => !segment.isBuff && !segment.isDebuff);
+    function renderClassifiedSection(titleText, effectTexts, emptyText) {
+      const section = document.createElement("section");
+      section.className = "shiropro-detail-formation";
 
-    buffSegments.forEach((segment) => appendEffectRow("buff", segment.content));
-    debuffSegments.forEach((segment) => appendEffectRow("debuff", segment.content));
-    otherSegments.forEach((segment) => appendEffectRow("other", segment.content));
+      const heading = document.createElement("h4");
+      heading.textContent = titleText;
+      section.appendChild(heading);
 
-    section.appendChild(effectList);
-    detailBody.appendChild(section);
+      if (!effectTexts.length) {
+        const empty = document.createElement("p");
+        empty.className = "shiropro-detail-empty";
+        empty.textContent = emptyText;
+        section.appendChild(empty);
+        detailBody.appendChild(section);
+        return;
+      }
+
+      const effectList = document.createElement("div");
+      effectList.className = "shiropro-detail-effect-list";
+
+      const buffRows = [];
+      const debuffRows = [];
+      const otherRows = [];
+
+      effectTexts.forEach((effectText) => {
+        effectSegments(effectText).forEach((segment) => {
+          if (segment.isBuff) buffRows.push(segment.content);
+          if (segment.isDebuff) debuffRows.push(segment.content);
+          if (!segment.isBuff && !segment.isDebuff) otherRows.push(segment.content);
+        });
+      });
+
+      const unique = (items) => [...new Set(items.map((item) => item.trim()).filter(Boolean))];
+      unique(buffRows).forEach((content) => appendEffectRow(effectList, "buff", content));
+      unique(debuffRows).forEach((content) => appendEffectRow(effectList, "debuff", content));
+      unique(otherRows).forEach((content) => appendEffectRow(effectList, "other", content));
+
+      section.appendChild(effectList);
+      detailBody.appendChild(section);
+    }
+
+    const formationEffects = row.formationSkill && row.formationSkill.effect
+      ? [row.formationSkill.effect]
+      : [];
+    renderClassifiedSection("編成特技", formationEffects, "編成特技はありません。");
+
+    const traits = traitEffects(row);
+    renderClassifiedSection(
+      "特技",
+      traits.map((item) => item.effect),
+      "分類対象の特技はありません。"
+    );
   }
 
   function selectCharacter(id) {
