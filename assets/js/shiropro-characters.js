@@ -214,8 +214,14 @@ document.addEventListener("DOMContentLoaded", async () => {
       /耐久が\s*0[^。]{0,50}?(?:大破しない|大破せず|大破扱いにならない)/
     ];
 
+    const hasEnemyContext = /(?:敵|兜|妖怪)/.test(text);
+    const continuationBuffPattern =
+      /(?:耐久|攻撃|防御|射程|回復|攻撃速度|被回復量|与回復量|与ダメージ|直撃ボーナス|足止め数|攻撃対象|特殊攻撃ゲージ蓄積量)(?:が|を)?[^。]{0,45}?(?:上昇|増加|短縮|軽減|回復|加算|倍|無視)/;
+
     const isDebuff = debuffPatterns.some((pattern) => pattern.test(text));
-    const isBuff = buffPatterns.some((pattern) => pattern.test(text));
+    const isBuff =
+      buffPatterns.some((pattern) => pattern.test(text)) ||
+      (!hasEnemyContext && continuationBuffPattern.test(text));
     const kinds = [];
     if (isBuff) kinds.push("buff");
     if (isDebuff) kinds.push("debuff");
