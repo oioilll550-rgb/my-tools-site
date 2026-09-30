@@ -275,9 +275,103 @@ document.addEventListener("DOMContentLoaded", async () => {
     return row.formationSkillAnalysis;
   }
 
+  function normalizeAtomicEffectSpacing(text) {
+    return String(text || "")
+      .replace(/\s+/g, " ")
+      .replace(/\s*%\s*/g, "%")
+      .replace(/([一-龯ぁ-んァ-ヶー])\s+(?=\d)/g, "$1")
+      .replace(/\s+(?=(?:低下|上昇|延長|短縮|増加|減少|軽減))/g, "")
+      .replace(/\(\s*/g, "(")
+      .replace(/\s*\)/g, ")")
+      .trim();
+  }
+
+  function splitCompoundEnemyClause(clause) {
+    const clean = normalizeAtomicEffectSpacing(clause);
+    const match = clean.match(
+      /^(.+?)(?:が|を)?(\d+(?:\.\d+)?%?)(低下|上昇|延長|短縮|増加|減少|軽減)(.*)$/
+    );
+    if (!match) return [clean];
+
+    const lhs = match[1].trim();
+    const value = match[2];
+    const action = match[3];
+    const suffix = match[4] || "";
+    const atomicStats = new Set([
+      "耐久", "攻撃", "防御", "射程", "移動速度", "攻撃速度", "回復",
+      "与ダメージ", "被ダメージ", "攻撃後の隙", "計略再使用時間",
+      "初回計略使用までの時間", "被回復量", "与回復量"
+    ]);
+
+    const fields = lhs
+      .split(/と|\//)
+      .map((value) => value.trim())
+      .filter(Boolean);
+
+    if (fields.length < 2 || !fields.every((value) => atomicStats.has(value))) {
+      return [clean];
+    }
+
+    return fields.map((field) => field + value + action + suffix);
+  }
+
+  function enemyScopedAtomicSegments(effectText) {
+    const text = normalizeAtomicEffectSpacing(effectText);
+    if (!text) return null;
+
+    const triggerMatch = text.match(
+      /^(?:巨大化する度に|巨大化毎に|最大化時|最大巨大化時|配置中、?|合戦中、?)/
+    );
+    const trigger = triggerMatch ? triggerMatch[0] : "";
+    const body = triggerMatch ? text.slice(trigger.length).trim() : text;
+
+    const scopePattern =
+      /射程内の敵の|射程外の敵の|全ての敵の|全敵の|全ての妖怪の|全ての海洋兜の|全ての兜の/g;
+    const scopeMatches = [...body.matchAll(scopePattern)];
+
+    // Use this stricter parser only when the effect starts with an enemy scope.
+    // Mixed ally/enemy effects continue through the generic parser below.
+    if (!scopeMatches.length || scopeMatches[0].index !== 0) return null;
+
+    const atomic = [];
+
+    scopeMatches.forEach((scopeMatch, index) => {
+      const scope = scopeMatch[0];
+      const blockStart = scopeMatch.index + scope.length;
+      const blockEnd = index + 1 < scopeMatches.length
+        ? scopeMatches[index + 1].index
+        : body.length;
+
+      const block = body
+        .slice(blockStart, blockEnd)
+        .replace(/^[、，,。\s]+|[、，,。\s]+$/g, "");
+
+      block
+        .split(/[、，,。]+/)
+        .map((part) => part.trim())
+        .filter(Boolean)
+        .forEach((part) => {
+          splitCompoundEnemyClause(part).forEach((clause) => {
+            const content = trigger + scope + clause;
+            const analysis = classifyEffectText(content, "enemy");
+            atomic.push({
+              content,
+              isBuff: analysis.isBuff,
+              isDebuff: analysis.isDebuff
+            });
+          });
+        });
+    });
+
+    return atomic.length ? atomic : null;
+  }
+
   function effectSegments(effectText) {
     const text = String(effectText || "").replace(/\s+/g, " ").trim();
     if (!text) return [];
+
+    const atomicEnemySegments = enemyScopedAtomicSegments(text);
+    if (atomicEnemySegments) return atomicEnemySegments;
 
     const preparedText = text
       .replace(
