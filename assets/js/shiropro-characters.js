@@ -642,8 +642,8 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   function traitAtomicScopeBlocks(body) {
     let text = String(body || "")
-      .replace(/自身の攻撃の(?=\\d)/g, "__SELF_ATTACK__")
-      .replace(/\\s+/g, " ")
+      .replace(/自身の攻撃の(?=\d)/g, "__SELF_ATTACK__")
+      .replace(/\s+/g, " ")
       .trim();
 
     const scopePattern =
@@ -687,13 +687,13 @@ document.addEventListener("DOMContentLoaded", async () => {
     const targetSource = traitAtomicTargetNames
       .slice()
       .sort((a, b) => b.length - a.length)
-      .map((value) => value.replace(/[.*+?^\${}()|[\\]\\\\]/g, "\\\\$&"))
+      .map((value) => value.replace(/[-/\\^$*+?.()|[\]{}]/g, "\\$&"))
       .join("|");
 
     return new RegExp(
-      "((?:(?:" + targetSource + ")(?:\\\\s*(?:と|/|・)\\\\s*(?:" + targetSource + "))*)|(?:[^、，,\\\\s]{1,22}の(?:" + targetSource + ")))" +
-      "\\\\s*(?:が|を|は)?\\\\s*" +
-      "((?:自身の攻撃の\\\\d+(?:\\\\.\\\\d+)?%の値と)?\\\\d+(?:\\\\.\\\\d+)?%?(?:\\\\s*と\\\\s*\\\\d+(?:\\\\.\\\\d+)?%?)?)",
+      "((?:(?:" + targetSource + ")(?:\\s*(?:と|/|・)\\s*(?:" + targetSource + "))*)|(?:[^、，,\\s]{1,22}の(?:" + targetSource + ")))" +
+      "\\s*(?:が|を|は)?\\s*" +
+      "((?:自身の攻撃の\\d+(?:\\.\\d+)?%の値と)?\\d+(?:\\.\\d+)?%?(?:\\s*と\\s*\\d+(?:\\.\\d+)?%?)?)",
       "g"
     );
   }
@@ -703,13 +703,13 @@ document.addEventListener("DOMContentLoaded", async () => {
       .replace(/^の/, "")
       .replace(/被ダメ$/, "被ダメージ")
       .replace(/与ダメ$/, "与ダメージ")
-      .replace(/\\s+/g, "")
+      .replace(/\s+/g, "")
       .trim();
   }
 
   function traitAtomicActionRows(segmentText, action, overlap) {
     let segment = String(segmentText || "")
-      .replace(/^[、，,。\\s]+/, "")
+      .replace(/^[、，,。\s]+/, "")
       .replace(/^の/, "")
       .trim();
 
@@ -719,10 +719,10 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     while ((match = pairRegex.exec(segment)) !== null) {
       const rawTarget = normalizeTraitAtomicTarget(match[1]);
-      const valueText = String(match[2] || "").replace(/\\s+/g, "");
+      const valueText = String(match[2] || "").replace(/\s+/g, "");
 
       const targets = rawTarget
-        .split(/\\s*(?:と|\\/|・)\\s*/)
+        .split(/\s*(?:と|\/|・)\s*/)
         .map((target) => normalizeTraitAtomicTarget(target))
         .filter(Boolean);
 
@@ -738,7 +738,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     const remainder = segment
       .replace(pairRegex, "")
-      .replace(/[、，,。\\s]+/g, "")
+      .replace(/[、，,。\s]+/g, "")
       .trim();
 
     return { rows, remainder };
@@ -757,7 +757,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       valueText +
       action +
       (overlap ? "(効果重複)" : "")
-    ).replace(/\\s+/g, " ").trim();
+    ).replace(/\s+/g, " ").trim();
   }
 
   function traitAtomicRows(effectText, row) {
@@ -780,7 +780,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         while ((match = actionRegex.exec(body)) !== null) {
           const segmentText = body.slice(previousEnd, match.index);
           const afterAction = body.slice(actionRegex.lastIndex);
-          const overlapMatch = afterAction.match(/^\\s*\\(効果\\s*重複\\s*\\)/);
+          const overlapMatch = afterAction.match(/^\s*\(効果\s*重複\s*\)/);
           const overlap = Boolean(overlapMatch);
 
           if (overlapMatch) {
@@ -815,7 +815,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                 parsed.remainder +
                 match[1] +
                 (overlap ? "(効果重複)" : "")
-              ).replace(/\\s+/g, " ").trim();
+              ).replace(/\s+/g, " ").trim();
               const fallbackAnalysis = classifyEffectText(fallbackContent);
               atomicRows.push({
                 content: fallbackContent,
@@ -831,7 +831,7 @@ document.addEventListener("DOMContentLoaded", async () => {
               segmentText +
               match[1] +
               (overlap ? "(効果重複)" : "")
-            ).replace(/\\s+/g, " ").trim();
+            ).replace(/\s+/g, " ").trim();
             const fallbackAnalysis = classifyEffectText(fallbackContent);
             atomicRows.push({
               content: fallbackContent,
@@ -846,7 +846,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
         const tail = body
           .slice(previousEnd)
-          .replace(/^[、，,。\\s]+|[、，,。\\s]+$/g, "")
+          .replace(/^[、，,。\s]+|[、，,。\s]+$/g, "")
           .trim();
 
         if (tail) {
@@ -854,7 +854,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             (cadenceBlock.cadence || "") +
             (scopeBlock.scope || "") +
             tail
-          ).replace(/\\s+/g, " ").trim();
+          ).replace(/\s+/g, " ").trim();
           const analysis = classifyEffectText(content);
           atomicRows.push({
             content,
@@ -874,7 +874,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     const seen = new Set();
     atomicRows.forEach((rowItem) => {
       const key = [
-        rowItem.content.replace(/\\s+/g, ""),
+        rowItem.content.replace(/\s+/g, ""),
         rowItem.isBuff ? "b" : "",
         rowItem.isDebuff ? "d" : ""
       ].join("|");
