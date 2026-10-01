@@ -1,8 +1,8 @@
 {
   "area": "越谷市",
-  "updatedAt": "2026-09-27",
+  "updatedAt": "2026-10-02",
   "purpose": "新規OPEN候補の軽量自動探索。候補は確認前のため、そのまま本番店舗一覧には掲載しない。",
-  "candidateCount": 15,
+  "candidateCount": 16,
   "sourceCount": 3,
   "candidates": [
     {
@@ -25,6 +25,17 @@
       "sourceName": "新越谷VARIE お知らせ",
       "sourceUrl": "https://www.tobu-varie.com/shinkoshi/news/2416/",
       "discoveredAt": "2026-09-27",
+      "status": "candidate"
+    },
+    {
+      "id": "3074a40859dd0863",
+      "name": "酒と創菜Tam.",
+      "headline": "【越谷市】南越谷に「酒と創菜Tam.」が10月1日オープン！ 創作料理を楽しめる新たな居酒屋",
+      "openingDateHint": "2026-10-01",
+      "sourceId": "goguynet-koshigaya-openclose",
+      "sourceName": "号外NET 越谷市 開店/閉店",
+      "sourceUrl": "https://koshigaya.goguynet.jp/2026/10/01/tam/",
+      "discoveredAt": "2026-10-02",
       "status": "candidate"
     },
     {
