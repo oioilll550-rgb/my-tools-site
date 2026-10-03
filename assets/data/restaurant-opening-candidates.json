@@ -1,8 +1,8 @@
 {
   "area": "越谷市",
-  "updatedAt": "2026-10-02",
+  "updatedAt": "2026-10-04",
   "purpose": "新規OPEN候補の軽量自動探索。候補は確認前のため、そのまま本番店舗一覧には掲載しない。",
-  "candidateCount": 16,
+  "candidateCount": 17,
   "sourceCount": 3,
   "candidates": [
     {
@@ -25,6 +25,17 @@
       "sourceName": "新越谷VARIE お知らせ",
       "sourceUrl": "https://www.tobu-varie.com/shinkoshi/news/2416/",
       "discoveredAt": "2026-09-27",
+      "status": "candidate"
+    },
+    {
+      "id": "e2808be9ef7d9854",
+      "name": "マシンピラティスRintosull",
+      "headline": "【越谷市】レイクタウンmoriに「マシンピラティスRintosull」が10月1日オープン！ LAVA運営の新スタジオ",
+      "openingDateHint": "2026-10-01",
+      "sourceId": "goguynet-koshigaya-openclose",
+      "sourceName": "号外NET 越谷市 開店/閉店",
+      "sourceUrl": "https://koshigaya.goguynet.jp/2026/10/04/rintosull/",
+      "discoveredAt": "2026-10-04",
       "status": "candidate"
     },
     {
