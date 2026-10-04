@@ -1,8 +1,8 @@
 {
   "area": "越谷市",
-  "updatedAt": "2026-10-04",
+  "updatedAt": "2026-10-05",
   "purpose": "新規OPEN候補の軽量自動探索。候補は確認前のため、そのまま本番店舗一覧には掲載しない。",
-  "candidateCount": 17,
+  "candidateCount": 18,
   "sourceCount": 3,
   "candidates": [
     {
@@ -14,6 +14,17 @@
       "sourceName": "号外NET 越谷市 開店/閉店",
       "sourceUrl": "https://koshigaya.goguynet.jp/2026/09/14/yamaokaya-koshigayafukuroyama-3/",
       "discoveredAt": "2026-09-27",
+      "status": "candidate"
+    },
+    {
+      "id": "860a89051d72685a",
+      "name": "カンナムキンパ",
+      "headline": "【越谷市】新越谷ヴァリエに韓国惣菜専門店「カンナムキンパ」が10月8日オープンへ",
+      "openingDateHint": "2026-10-08",
+      "sourceId": "goguynet-koshigaya-openclose",
+      "sourceName": "号外NET 越谷市 開店/閉店",
+      "sourceUrl": "https://koshigaya.goguynet.jp/2026/10/05/gangnamkimpa/",
+      "discoveredAt": "2026-10-05",
       "status": "candidate"
     },
     {
