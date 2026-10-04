@@ -1,0 +1,5995 @@
+{
+  "analyses": {
+    "2026-10-04-tokyo-1": {
+      "race": {
+        "key": "2026-10-04-tokyo-1",
+        "title": "2歳未勝利",
+        "date": "2026-10-04",
+        "venue": "東京",
+        "raceNo": 1,
+        "grade": "未勝利",
+        "surface": "芝",
+        "distance": 1800,
+        "direction": "左",
+        "courseDetail": "",
+        "postTime": "10:05",
+        "going": "良",
+        "weather": "曇",
+        "status": "archive",
+        "kicker": "過去レース",
+        "sourceUrl": "https://www.jra.go.jp/JRADB/accessD.html?CNAME=pw01dde1005202604020120261004/52",
+        "sourceLabel": "JRA公式 出馬表",
+        "statusMessage": ""
+      },
+      "horses": [
+        {
+          "number": 1,
+          "name": "オシゴリ",
+          "sexAge": "牝2",
+          "jockey": "内田 博幸",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "ロジャーバローズ",
+            "damsire": "キングカメハメハ"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 2,
+          "name": "セールデュクール",
+          "sexAge": "牝2",
+          "jockey": "木幡 巧也",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "ベンバトル",
+            "damsire": "リーチザクラウン"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 3,
+          "name": "ダノンダックス",
+          "sexAge": "牡2",
+          "jockey": "C.ルメール",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "サートゥルナーリア",
+            "damsire": "All American"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 4,
+          "name": "コンフィアル",
+          "sexAge": "牡2",
+          "jockey": "田辺 裕信",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "ダノンキングリー",
+            "damsire": "Wootton Bassett"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 5,
+          "name": "バーチディダーマ",
+          "sexAge": "牝2",
+          "jockey": "原田 和真",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "マインドユアビスケッツ",
+            "damsire": "フレンチデピュティ"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 6,
+          "name": "ユイノヘラクレス",
+          "sexAge": "牡2",
+          "jockey": "木幡 初也",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "ホークビル",
+            "damsire": "エイシンサンディ"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 7,
+          "name": "ゴクラクチョウカ",
+          "sexAge": "牝2",
+          "jockey": "石神 深道",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "チュウワウィザード",
+            "damsire": "スズカマンボ"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 8,
+          "name": "ブラックナザレ",
+          "sexAge": "牡2",
+          "jockey": "嶋田 純次",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "キセキ",
+            "damsire": "マツリダゴッホ"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 9,
+          "name": "コスモグリュー",
+          "sexAge": "牝2",
+          "jockey": "柴田 大知",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "ベンバトル",
+            "damsire": "トーセンホマレボシ"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 10,
+          "name": "ミスティビーコン",
+          "sexAge": "牡2",
+          "jockey": "佐々木 大輔",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "ダノンキングリー",
+            "damsire": "ハービンジャー"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 11,
+          "name": "エピックジャーニー",
+          "sexAge": "牡2",
+          "jockey": "荻野 極",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "エフフォーリア",
+            "damsire": "ロードカナロア"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 12,
+          "name": "イニシャルポイント",
+          "sexAge": "牝2",
+          "jockey": "丹内 祐次",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "Flightline",
+            "damsire": "Malibu Moon"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        }
+      ]
+    },
+    "2026-10-04-tokyo-2": {
+      "race": {
+        "key": "2026-10-04-tokyo-2",
+        "title": "2歳未勝利",
+        "date": "2026-10-04",
+        "venue": "東京",
+        "raceNo": 2,
+        "grade": "未勝利",
+        "surface": "芝",
+        "distance": 1400,
+        "direction": "左",
+        "courseDetail": "",
+        "postTime": "10:35",
+        "going": "良",
+        "weather": "曇",
+        "status": "archive",
+        "kicker": "過去レース",
+        "sourceUrl": "https://www.jra.go.jp/JRADB/accessD.html?CNAME=pw01dde1005202604020220261004/07",
+        "sourceLabel": "JRA公式 出馬表",
+        "statusMessage": ""
+      },
+      "horses": [
+        {
+          "number": 1,
+          "name": "ヨドノプレミアム",
+          "sexAge": "牡2",
+          "jockey": "佐々木 大輔",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "ダノンプレミアム",
+            "damsire": "グラスワンダー"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 2,
+          "name": "クリガーレ",
+          "sexAge": "牡2",
+          "jockey": "丸田 恭介",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "ニューイヤーズデイ",
+            "damsire": "スペシャルウィーク"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 3,
+          "name": "ニシノアナベル",
+          "sexAge": "牝2",
+          "jockey": "内田 博幸",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "オメガパフューム",
+            "damsire": "クロフネ"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 4,
+          "name": "ウィルレーヴィア",
+          "sexAge": "牡2",
+          "jockey": "石田 拓郎",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "トーセンレーヴ",
+            "damsire": "ゴールドシップ"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 5,
+          "name": "セイウンイーリス",
+          "sexAge": "牝2",
+          "jockey": "幸 英明",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "リーチザクラウン",
+            "damsire": "Sidney's Candy"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 6,
+          "name": "ワイズジュエル",
+          "sexAge": "牝2",
+          "jockey": "長浜 鴻緒",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "ミッキーアイル",
+            "damsire": "メイショウサムソン"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 7,
+          "name": "コックニー",
+          "sexAge": "牡2",
+          "jockey": "丹内 祐次",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "タワーオブロンドン",
+            "damsire": "Doyen"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 8,
+          "name": "クールボビー",
+          "sexAge": "牡2",
+          "jockey": "津村 明秀",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "シャンハイボビー",
+            "damsire": "ケイムホーム"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 9,
+          "name": "ピクシーブラスト",
+          "sexAge": "牝2",
+          "jockey": "菊沢 一樹",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "シスキン",
+            "damsire": "ハーツクライ"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 10,
+          "name": "エーアイクワイ",
+          "sexAge": "牡2",
+          "jockey": "横山 琉人",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "ビッグアーサー",
+            "damsire": "ハーツクライ"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 11,
+          "name": "ビップラージャ",
+          "sexAge": "牡2",
+          "jockey": "戸崎 圭太",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "グレーターロンドン",
+            "damsire": "ホワイトマズル"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 12,
+          "name": "アテナプロマコス",
+          "sexAge": "牝2",
+          "jockey": "岩田 康誠",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "ジャスタウェイ",
+            "damsire": "Dubawi"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 13,
+          "name": "タワーウマザンマイ",
+          "sexAge": "牡2",
+          "jockey": "原 優介",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "タワーオブロンドン",
+            "damsire": "ダイワメジャー"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 14,
+          "name": "クラウンロムパイア",
+          "sexAge": "牡2",
+          "jockey": "木幡 育也",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "レッドファルクス",
+            "damsire": "タートルボウル"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 15,
+          "name": "アイビークロノス",
+          "sexAge": "牡2",
+          "jockey": "木幡 巧也",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "Drain the Clock",
+            "damsire": "Macho Uno"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 16,
+          "name": "ディスペアーホープ",
+          "sexAge": "牡2",
+          "jockey": "田辺 裕信",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "ステルヴィオ",
+            "damsire": "ステイゴールド"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        }
+      ]
+    },
+    "2026-10-04-tokyo-3": {
+      "race": {
+        "key": "2026-10-04-tokyo-3",
+        "title": "11時05分",
+        "date": "2026-10-04",
+        "venue": "東京",
+        "raceNo": 3,
+        "grade": "新馬",
+        "surface": "ダ",
+        "distance": 1600,
+        "direction": "左",
+        "courseDetail": "",
+        "postTime": "11:05",
+        "going": "良",
+        "weather": "曇",
+        "status": "archive",
+        "kicker": "過去レース",
+        "sourceUrl": "https://www.jra.go.jp/JRADB/accessD.html?CNAME=pw01dde1005202604020320261004/BC",
+        "sourceLabel": "JRA公式 出馬表",
+        "statusMessage": ""
+      },
+      "horses": [
+        {
+          "number": 1,
+          "name": "ジーティーカグラ",
+          "sexAge": "牡2",
+          "jockey": "岩田 康誠",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "ルヴァンスレーヴ",
+            "damsire": "ゴールドアリュール"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 2,
+          "name": "コールレスポンス",
+          "sexAge": "牡2",
+          "jockey": "野中 悠太郎",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "ミッキーアイル",
+            "damsire": "ダンカーク"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 3,
+          "name": "コールドアズアイス",
+          "sexAge": "牡2",
+          "jockey": "武藤 雅",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "サンダースノー",
+            "damsire": "アドマイヤムーン"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 4,
+          "name": "オーケーグラン",
+          "sexAge": "牡2",
+          "jockey": "横山 琉人",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "マインドユアビスケッツ",
+            "damsire": "フジキセキ"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 5,
+          "name": "アルヴィットーリア",
+          "sexAge": "牡2",
+          "jockey": "石田 拓郎",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "アルクトス",
+            "damsire": "ディープブリランテ"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 6,
+          "name": "フェデュデスタン",
+          "sexAge": "牡2",
+          "jockey": "上里 直汰",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "チュウワウィザード",
+            "damsire": "ヴィクトワールピサ"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 7,
+          "name": "マックスプロックス",
+          "sexAge": "牡2",
+          "jockey": "長浜 鴻緒",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "マインドユアビスケッツ",
+            "damsire": "ステイゴールド"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 8,
+          "name": "タイザンフクン",
+          "sexAge": "牡2",
+          "jockey": "C.ルメール",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "ナダル",
+            "damsire": "ネオユニヴァース"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 9,
+          "name": "ヴェントセラーレ",
+          "sexAge": "牡2",
+          "jockey": "津村 明秀",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "ルヴァンスレーヴ",
+            "damsire": "オルフェーヴル"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 10,
+          "name": "エコロゴッド",
+          "sexAge": "牡2",
+          "jockey": "菊沢 一樹",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "American Pharoah",
+            "damsire": "Munnings"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 11,
+          "name": "サラサハヤブサ",
+          "sexAge": "牝2",
+          "jockey": "横山 典弘",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "シニスターミニスター",
+            "damsire": "Medaglia d'Oro"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 12,
+          "name": "ピュアティアラ",
+          "sexAge": "牝2",
+          "jockey": "木幡 巧也",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "シニスターミニスター",
+            "damsire": "ゴールドアリュール"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 13,
+          "name": "シンボリサーブル",
+          "sexAge": "牡2",
+          "jockey": "大野 拓弥",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "マジェスティックウォリアー",
+            "damsire": "サクラバクシンオー"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 14,
+          "name": "ワイドヴァラー",
+          "sexAge": "牡2",
+          "jockey": "戸崎 圭太",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "Yaupon",
+            "damsire": "Into Mischief"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 15,
+          "name": "ドーリック",
+          "sexAge": "牡2",
+          "jockey": "荻野 極",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "マインドユアビスケッツ",
+            "damsire": "ゴールドアリュール"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 16,
+          "name": "アストロカノン",
+          "sexAge": "牡2",
+          "jockey": "佐々木 大輔",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "アルクトス",
+            "damsire": "フォーティナイナーズサン"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        }
+      ]
+    },
+    "2026-10-04-tokyo-4": {
+      "race": {
+        "key": "2026-10-04-tokyo-4",
+        "title": "障害3歳以上未勝利",
+        "date": "2026-10-04",
+        "venue": "東京",
+        "raceNo": 4,
+        "grade": "1勝",
+        "surface": "障",
+        "distance": 3000,
+        "direction": "",
+        "courseDetail": "",
+        "postTime": "11:35",
+        "going": "良",
+        "weather": "曇",
+        "status": "archive",
+        "kicker": "過去レース",
+        "sourceUrl": "https://www.jra.go.jp/JRADB/accessD.html?CNAME=pw01dde1005202604020420261004/71",
+        "sourceLabel": "JRA公式 出馬表",
+        "statusMessage": ""
+      },
+      "horses": [
+        {
+          "number": 1,
+          "name": "ジェロニモス",
+          "sexAge": "牡5",
+          "jockey": "難波 剛健",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "ルーラーシップ",
+            "damsire": "タートルボウル"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 2,
+          "name": "エンジョイドライブ",
+          "sexAge": "牡4",
+          "jockey": "小野寺 祐太",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "フォーウィールドライブ",
+            "damsire": "キャプテンスティーヴ"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 3,
+          "name": "アップストローク",
+          "sexAge": "せん7",
+          "jockey": "草野 太郎",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "ディーマジェスティ",
+            "damsire": "Unbridled's Song"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 4,
+          "name": "ナスノソナタ",
+          "sexAge": "牡4",
+          "jockey": "水沼 元輝",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "レイデオロ",
+            "damsire": "ハーツクライ"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 5,
+          "name": "ヴェストラン",
+          "sexAge": "牡5",
+          "jockey": "小坂 忠士",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "レインボーライン",
+            "damsire": "ジャングルポケット"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 6,
+          "name": "アンノウンウォリア",
+          "sexAge": "牡7",
+          "jockey": "黒岩 悠",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "マジェスティックウォリアー",
+            "damsire": "ハーツクライ"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 7,
+          "name": "コブラ",
+          "sexAge": "牡7",
+          "jockey": "坂口 智康",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "ダノンレジェンド",
+            "damsire": "ダンスインザダーク"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 8,
+          "name": "グランナヴィール",
+          "sexAge": "牡5",
+          "jockey": "上野 翔",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "ゴールドシップ",
+            "damsire": "クロフネ"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 9,
+          "name": "キャプテンシー",
+          "sexAge": "せん5",
+          "jockey": "中村 将之",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "モーリス",
+            "damsire": "ステイゴールド"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 10,
+          "name": "ヒロノゴウカイ",
+          "sexAge": "牡7",
+          "jockey": "江田 勇亮",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "ダノンレジェンド",
+            "damsire": "ゴールドアリュール"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 11,
+          "name": "フラムリンガム",
+          "sexAge": "せん5",
+          "jockey": "伴 啓太",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "ダイワメジャー",
+            "damsire": "フレンチデピュティ"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 12,
+          "name": "ジュリアスローズ",
+          "sexAge": "牝5",
+          "jockey": "大江原 圭",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "エピファネイア",
+            "damsire": "コロナドズクエスト"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 13,
+          "name": "タガノバルコス",
+          "sexAge": "牡7",
+          "jockey": "高田 潤",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "キタサンブラック",
+            "damsire": "キングカメハメハ"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 14,
+          "name": "ルクスマーベリック",
+          "sexAge": "せん5",
+          "jockey": "小林 凌大",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "エピファネイア",
+            "damsire": "ステイゴールド"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        }
+      ]
+    },
+    "2026-10-04-tokyo-5": {
+      "race": {
+        "key": "2026-10-04-tokyo-5",
+        "title": "12時25分",
+        "date": "2026-10-04",
+        "venue": "東京",
+        "raceNo": 5,
+        "grade": "新馬",
+        "surface": "芝",
+        "distance": 2000,
+        "direction": "左",
+        "courseDetail": "",
+        "postTime": "12:25",
+        "going": "良",
+        "weather": "曇",
+        "status": "archive",
+        "kicker": "過去レース",
+        "sourceUrl": "https://www.jra.go.jp/JRADB/accessD.html?CNAME=pw01dde1005202604020520261004/26",
+        "sourceLabel": "JRA公式 出馬表",
+        "statusMessage": ""
+      },
+      "horses": [
+        {
+          "number": 1,
+          "name": "シダス",
+          "sexAge": "牡2",
+          "jockey": "横山 琉人",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "ワールドプレミア",
+            "damsire": "ルーラーシップ"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 2,
+          "name": "リントヴルム",
+          "sexAge": "牡2",
+          "jockey": "C.ルメール",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "ロードカナロア",
+            "damsire": "Mizzen Mast"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 3,
+          "name": "ロジヴィジョン",
+          "sexAge": "牝2",
+          "jockey": "西村 淳也",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "シルバーステート",
+            "damsire": "Pollard's Vision"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 4,
+          "name": "サトノラディアント",
+          "sexAge": "牡2",
+          "jockey": "戸崎 圭太",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "サトノダイヤモンド",
+            "damsire": "Galileo"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 5,
+          "name": "シャインシュネル",
+          "sexAge": "牡2",
+          "jockey": "石橋 脩",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "レイデオロ",
+            "damsire": "クロフネ"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 6,
+          "name": "シルバータイガー",
+          "sexAge": "牡2",
+          "jockey": "大野 拓弥",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "ワールドプレミア",
+            "damsire": "ディープスカイ"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 7,
+          "name": "シルヴァノーブル",
+          "sexAge": "牡2",
+          "jockey": "横山 典弘",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "シルバーステート",
+            "damsire": "ウォーエンブレム"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 8,
+          "name": "スズノハヤブサ",
+          "sexAge": "牡2",
+          "jockey": "横山 武史",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "アルアイン",
+            "damsire": "Tapit"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 9,
+          "name": "エメラルドプレミア",
+          "sexAge": "牡2",
+          "jockey": "佐々木 大輔",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "ワールドプレミア",
+            "damsire": "バゴ"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 11,
+          "name": "ピエナモルタル",
+          "sexAge": "牡2",
+          "jockey": "原田 和真",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "ブリックスアンドモルタル",
+            "damsire": "エイシンフラッシュ"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 12,
+          "name": "ランパディアス",
+          "sexAge": "牡2",
+          "jockey": "坂井 瑠星",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "キタサンブラック",
+            "damsire": "キングカメハメハ"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        }
+      ]
+    },
+    "2026-10-04-tokyo-6": {
+      "race": {
+        "key": "2026-10-04-tokyo-6",
+        "title": "12時55分",
+        "date": "2026-10-04",
+        "venue": "東京",
+        "raceNo": 6,
+        "grade": "新馬",
+        "surface": "芝",
+        "distance": 1600,
+        "direction": "左",
+        "courseDetail": "",
+        "postTime": "12:55",
+        "going": "良",
+        "weather": "曇",
+        "status": "archive",
+        "kicker": "過去レース",
+        "sourceUrl": "https://www.jra.go.jp/JRADB/accessD.html?CNAME=pw01dde1005202604020620261004/DB",
+        "sourceLabel": "JRA公式 出馬表",
+        "statusMessage": ""
+      },
+      "horses": [
+        {
+          "number": 1,
+          "name": "サンデー",
+          "sexAge": "牝2",
+          "jockey": "津村 明秀",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "モーリス",
+            "damsire": "アドマイヤムーン"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 2,
+          "name": "ゴールドパーティー",
+          "sexAge": "牝2",
+          "jockey": "野中 悠太郎",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "ゴールドアクター",
+            "damsire": "フジキセキ"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 3,
+          "name": "ドンタククイーン",
+          "sexAge": "牝2",
+          "jockey": "丸田 恭介",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "ハイランドリール",
+            "damsire": "サクラプレジデント"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 4,
+          "name": "ヘヴンリーワールド",
+          "sexAge": "牝2",
+          "jockey": "丹内 祐次",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "ワールドプレミア",
+            "damsire": "ヨハネスブルグ"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 5,
+          "name": "ジョーティス",
+          "sexAge": "牝2",
+          "jockey": "C.ルメール",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "モーリス",
+            "damsire": "キングカメハメハ"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 6,
+          "name": "レンミッキ",
+          "sexAge": "牝2",
+          "jockey": "柴田 大知",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "ウインブライト",
+            "damsire": "ヤマニンセラフィム"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 7,
+          "name": "ランプリサージュ",
+          "sexAge": "牝2",
+          "jockey": "田辺 裕信",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "キタサンブラック",
+            "damsire": "キングカメハメハ"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 8,
+          "name": "リリーリリー",
+          "sexAge": "牝2",
+          "jockey": "小林 脩斗",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "アドマイヤマーズ",
+            "damsire": "Mikki Isle"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 9,
+          "name": "ウィレマイト",
+          "sexAge": "牝2",
+          "jockey": "坂井 瑠星",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "マインドユアビスケッツ",
+            "damsire": "ダイワメジャー"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 10,
+          "name": "シドニーハーバー",
+          "sexAge": "牝2",
+          "jockey": "荻野 極",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "タワーオブロンドン",
+            "damsire": "オルフェーヴル"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 11,
+          "name": "リプレイハズシ",
+          "sexAge": "牝2",
+          "jockey": "小林 美駒",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "サトノクラウン",
+            "damsire": "アドマイヤムーン"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 12,
+          "name": "ディアム",
+          "sexAge": "牝2",
+          "jockey": "横山 武史",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "エフフォーリア",
+            "damsire": "モーリス"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 13,
+          "name": "ニシノメガミサマ",
+          "sexAge": "牝2",
+          "jockey": "武藤 雅",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "サリオス",
+            "damsire": "オペラハウス"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 14,
+          "name": "ルージュクエーサー",
+          "sexAge": "牝2",
+          "jockey": "佐々木 大輔",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "ブリックスアンドモルタル",
+            "damsire": "ディープインパクト"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        }
+      ]
+    },
+    "2026-10-04-tokyo-7": {
+      "race": {
+        "key": "2026-10-04-tokyo-7",
+        "title": "3歳以上1勝クラス",
+        "date": "2026-10-04",
+        "venue": "東京",
+        "raceNo": 7,
+        "grade": "1勝",
+        "surface": "ダ",
+        "distance": 1400,
+        "direction": "左",
+        "courseDetail": "",
+        "postTime": "13:25",
+        "going": "良",
+        "weather": "曇",
+        "status": "archive",
+        "kicker": "過去レース",
+        "sourceUrl": "https://www.jra.go.jp/JRADB/accessD.html?CNAME=pw01dde1005202604020720261004/90",
+        "sourceLabel": "JRA公式 出馬表",
+        "statusMessage": ""
+      },
+      "horses": [
+        {
+          "number": 1,
+          "name": "シュガーハイ",
+          "sexAge": "牡4",
+          "jockey": "上里 直汰",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "リオンディーズ",
+            "damsire": "A.P. Indy"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 2,
+          "name": "フクシマブリルハム",
+          "sexAge": "牡3",
+          "jockey": "横山 琉人",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "ドレフォン",
+            "damsire": "Henrythenavigator"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 3,
+          "name": "パータリプトラ",
+          "sexAge": "せん3",
+          "jockey": "幸 英明",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "アメリカンペイトリオット",
+            "damsire": "マンハッタンカフェ"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 4,
+          "name": "シンガソング",
+          "sexAge": "牝4",
+          "jockey": "松岡 正海",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "ファインニードル",
+            "damsire": "クロフネ"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 5,
+          "name": "セブンメデュラス",
+          "sexAge": "せん4",
+          "jockey": "C.ルメール",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "ドレフォン",
+            "damsire": "モーリス"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 6,
+          "name": "タイセイモノリス",
+          "sexAge": "牡3",
+          "jockey": "長浜 鴻緒",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "ゴールドドリーム",
+            "damsire": "マイネルラヴ"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 7,
+          "name": "イサチルシーキング",
+          "sexAge": "牡3",
+          "jockey": "大野 拓弥",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "アメリカンペイトリオット",
+            "damsire": "More Than Ready"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 8,
+          "name": "アバレリュウ",
+          "sexAge": "牡4",
+          "jockey": "野中 悠太郎",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "マクフィ",
+            "damsire": "サウスヴィグラス"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 9,
+          "name": "サルファー",
+          "sexAge": "せん4",
+          "jockey": "佐々木 大輔",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "パイロ",
+            "damsire": "ハードスパン"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 10,
+          "name": "ヘルヴェティオス",
+          "sexAge": "牡4",
+          "jockey": "坂井 瑠星",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "ドレフォン",
+            "damsire": "ディープインパクト"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 11,
+          "name": "レピュニット",
+          "sexAge": "牡3",
+          "jockey": "荻野 極",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "モズアスコット",
+            "damsire": "フジキセキ"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 12,
+          "name": "ソードマスター",
+          "sexAge": "牡4",
+          "jockey": "M.ミシェル",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "エピファネイア",
+            "damsire": "キングカメハメハ"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 13,
+          "name": "ペロ",
+          "sexAge": "牡5",
+          "jockey": "丸山 元気",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "シルバーステート",
+            "damsire": "Red Ransom"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 14,
+          "name": "リドルトリガー",
+          "sexAge": "牝4",
+          "jockey": "田辺 裕信",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "American Pharoah",
+            "damsire": "Invincible Spirit"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 15,
+          "name": "ブリックンクリック",
+          "sexAge": "せん4",
+          "jockey": "津村 明秀",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "ブリックスアンドモルタル",
+            "damsire": "トワイニング"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 16,
+          "name": "ヴァルボナ",
+          "sexAge": "牡3",
+          "jockey": "内田 博幸",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "ミッキーアイル",
+            "damsire": "Teofilo"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        }
+      ]
+    },
+    "2026-10-04-tokyo-8": {
+      "race": {
+        "key": "2026-10-04-tokyo-8",
+        "title": "3歳以上1勝クラス",
+        "date": "2026-10-04",
+        "venue": "東京",
+        "raceNo": 8,
+        "grade": "1勝",
+        "surface": "芝",
+        "distance": 1800,
+        "direction": "左",
+        "courseDetail": "",
+        "postTime": "14:01",
+        "going": "良",
+        "weather": "曇",
+        "status": "archive",
+        "kicker": "過去レース",
+        "sourceUrl": "https://www.jra.go.jp/JRADB/accessD.html?CNAME=pw01dde1005202604020820261004/45",
+        "sourceLabel": "JRA公式 出馬表",
+        "statusMessage": ""
+      },
+      "horses": [
+        {
+          "number": 1,
+          "name": "ルージュリリック",
+          "sexAge": "牝3",
+          "jockey": "佐々木 大輔",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "ポエティックフレア",
+            "damsire": "ディープインパクト"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 2,
+          "name": "ディヒターリーベ",
+          "sexAge": "牝4",
+          "jockey": "長浜 鴻緒",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "サートゥルナーリア",
+            "damsire": "ハーツクライ"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 3,
+          "name": "ティラーノ",
+          "sexAge": "牡3",
+          "jockey": "原 優介",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "ゴールドシップ",
+            "damsire": "バトルプラン"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 4,
+          "name": "フレンドモナコ",
+          "sexAge": "牡3",
+          "jockey": "水沼 元輝",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "ビーチパトロール",
+            "damsire": "アグネスデジタル"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 5,
+          "name": "テンレディーゴー",
+          "sexAge": "牡3",
+          "jockey": "丹内 祐次",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "デクラレーションオブウォー",
+            "damsire": "エピファネイア"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 6,
+          "name": "デリュージョン",
+          "sexAge": "牡4",
+          "jockey": "松若 風馬",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "レッドベルジュール",
+            "damsire": "ルーラーシップ"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 7,
+          "name": "ディバインウインド",
+          "sexAge": "牡3",
+          "jockey": "西村 淳也",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "スワーヴリチャード",
+            "damsire": "キンシャサノキセキ"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 8,
+          "name": "フリーヤ",
+          "sexAge": "牝3",
+          "jockey": "横山 武史",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "ベンバトル",
+            "damsire": "ハーツクライ"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 9,
+          "name": "モントゥリエ",
+          "sexAge": "牝3",
+          "jockey": "坂井 瑠星",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "サートゥルナーリア",
+            "damsire": "ディープインパクト"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 10,
+          "name": "ウインファヴォリ",
+          "sexAge": "せん4",
+          "jockey": "原田 和真",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "リオンディーズ",
+            "damsire": "ステイゴールド"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 11,
+          "name": "ヤエギリ",
+          "sexAge": "牝4",
+          "jockey": "津村 明秀",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "Gun Runner",
+            "damsire": "Empire Maker"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 12,
+          "name": "ソラネルマン",
+          "sexAge": "牡3",
+          "jockey": "C.ルメール",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "フィエールマン",
+            "damsire": "キングカメハメハ"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 13,
+          "name": "ハルノアメ",
+          "sexAge": "牡3",
+          "jockey": "佐藤 翔馬",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "ダノンバラード",
+            "damsire": "トーセンブライト"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 14,
+          "name": "ガールネクストドア",
+          "sexAge": "牝4",
+          "jockey": "嶋田 純次",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "カリフォルニアクローム",
+            "damsire": "ネオユニヴァース"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 15,
+          "name": "ショウナンダイン",
+          "sexAge": "せん3",
+          "jockey": "石橋 脩",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "サートゥルナーリア",
+            "damsire": "Northern Afleet"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 16,
+          "name": "オメガディコン",
+          "sexAge": "牡3",
+          "jockey": "岩田 康誠",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "ポエティックフレア",
+            "damsire": "ハービンジャー"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 17,
+          "name": "エナジーショット",
+          "sexAge": "牝4",
+          "jockey": "横山 琉人",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "サンダースノー",
+            "damsire": "スペシャルウィーク"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        }
+      ]
+    },
+    "2026-10-04-tokyo-9": {
+      "race": {
+        "key": "2026-10-04-tokyo-9",
+        "title": "tvk賞",
+        "date": "2026-10-04",
+        "venue": "東京",
+        "raceNo": 9,
+        "grade": "2勝",
+        "surface": "芝",
+        "distance": 1400,
+        "direction": "左",
+        "courseDetail": "",
+        "postTime": "14:35",
+        "going": "良",
+        "weather": "曇",
+        "status": "archive",
+        "kicker": "過去レース",
+        "sourceUrl": "https://www.jra.go.jp/JRADB/accessD.html?CNAME=pw01dde1005202604020920261004/FA",
+        "sourceLabel": "JRA公式 出馬表",
+        "statusMessage": ""
+      },
+      "horses": [
+        {
+          "number": 1,
+          "name": "ララバニュルス",
+          "sexAge": "牡4",
+          "jockey": "藤懸 貴志",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "モーリス",
+            "damsire": "タイキシャトル"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 2,
+          "name": "レイユール",
+          "sexAge": "牝4",
+          "jockey": "長浜 鴻緒",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "キズナ",
+            "damsire": "キングカメハメハ"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 3,
+          "name": "イヌボウノウタゴエ",
+          "sexAge": "牝3",
+          "jockey": "横山 武史",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "シスキン",
+            "damsire": "Frankel"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 4,
+          "name": "ルージュブリッツ",
+          "sexAge": "牝3",
+          "jockey": "荻野 極",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "エイシンフラッシュ",
+            "damsire": "ディープインパクト"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 5,
+          "name": "サーナーティオン",
+          "sexAge": "牡5",
+          "jockey": "戸崎 圭太",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "サンダースノー",
+            "damsire": "サクラバクシンオー"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 6,
+          "name": "エイヨーアメジスト",
+          "sexAge": "牝4",
+          "jockey": "幸 英明",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "アレスバローズ",
+            "damsire": "タートルボウル"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 7,
+          "name": "セルズパワー",
+          "sexAge": "牡4",
+          "jockey": "岩田 康誠",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "サトノアラジン",
+            "damsire": "ジャングルポケット"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 8,
+          "name": "メイケイバートン",
+          "sexAge": "牡7",
+          "jockey": "三浦 皇成",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "ミッキーアイル",
+            "damsire": "ジャングルポケット"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 9,
+          "name": "フェルミアーク",
+          "sexAge": "牝3",
+          "jockey": "坂井 瑠星",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "サートゥルナーリア",
+            "damsire": "アグネスタキオン"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 10,
+          "name": "スペルーチェ",
+          "sexAge": "牡3",
+          "jockey": "C.ルメール",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "レイデオロ",
+            "damsire": "アグネスタキオン"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 11,
+          "name": "ウフドゥウフ",
+          "sexAge": "牡4",
+          "jockey": "田辺 裕信",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "エピファネイア",
+            "damsire": "Alphabet Soup"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 12,
+          "name": "ハルオーブ",
+          "sexAge": "牡6",
+          "jockey": "石神 深道",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "ディーマジェスティ",
+            "damsire": "ファルブラヴ"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 13,
+          "name": "ハクサンイーグル",
+          "sexAge": "牡5",
+          "jockey": "佐々木 大輔",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "ハクサンムーン",
+            "damsire": "デュランダル"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 14,
+          "name": "カガラプンツェル",
+          "sexAge": "牝3",
+          "jockey": "原田 和真",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "タワーオブロンドン",
+            "damsire": "ダイワメジャー"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 15,
+          "name": "ラパンチュール",
+          "sexAge": "牝4",
+          "jockey": "丹内 祐次",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "タワーオブロンドン",
+            "damsire": "スピルバーグ"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        }
+      ]
+    },
+    "2026-10-04-tokyo-10": {
+      "race": {
+        "key": "2026-10-04-tokyo-10",
+        "title": "赤富士ステークス",
+        "date": "2026-10-04",
+        "venue": "東京",
+        "raceNo": 10,
+        "grade": "3勝",
+        "surface": "ダ",
+        "distance": 1600,
+        "direction": "左",
+        "courseDetail": "",
+        "postTime": "15:10",
+        "going": "良",
+        "weather": "曇",
+        "status": "archive",
+        "kicker": "過去レース",
+        "sourceUrl": "https://www.jra.go.jp/JRADB/accessD.html?CNAME=pw01dde1005202604021020261004/EF",
+        "sourceLabel": "JRA公式 出馬表",
+        "statusMessage": ""
+      },
+      "horses": [
+        {
+          "number": 1,
+          "name": "ターコイズフリンジ",
+          "sexAge": "せん5",
+          "jockey": "坂井 瑠星",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "ブラックタイド",
+            "damsire": "Malibu Moon"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 2,
+          "name": "リネアグローリア",
+          "sexAge": "牡5",
+          "jockey": "松若 風馬",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "モーニン",
+            "damsire": "サンデーサイレンス"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 3,
+          "name": "ブレトワルダ",
+          "sexAge": "せん4",
+          "jockey": "津村 明秀",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "マジェスティックウォリアー",
+            "damsire": "ハーツクライ"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 4,
+          "name": "アラレタバシル",
+          "sexAge": "牡5",
+          "jockey": "丸山 元気",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "ケープブランコ",
+            "damsire": "デュランダル"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 5,
+          "name": "オンザムービー",
+          "sexAge": "牡3",
+          "jockey": "横山 典弘",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "サンダースノー",
+            "damsire": "リアルインパクト"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 6,
+          "name": "クールブロン",
+          "sexAge": "牡6",
+          "jockey": "三浦 皇成",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "ドレフォン",
+            "damsire": "ダイワメジャー"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 7,
+          "name": "チュウワチーフ",
+          "sexAge": "牡4",
+          "jockey": "西村 淳也",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "Tom's d'Etat",
+            "damsire": "Overanalyze"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 8,
+          "name": "ルグランヴァン",
+          "sexAge": "牡4",
+          "jockey": "原 優介",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "ルヴァンスレーヴ",
+            "damsire": "フジキセキ"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 9,
+          "name": "ブロッケンボウ",
+          "sexAge": "牡5",
+          "jockey": "木幡 育也",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "タリスマニック",
+            "damsire": "ゼンノロブロイ"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 10,
+          "name": "トクシーカイザー",
+          "sexAge": "牡6",
+          "jockey": "菊沢 一樹",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "キンシャサノキセキ",
+            "damsire": "キングカメハメハ"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 11,
+          "name": "チギリ",
+          "sexAge": "牝4",
+          "jockey": "M.ミシェル",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "レッドファルクス",
+            "damsire": "フジキセキ"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 12,
+          "name": "ジョディーズマロン",
+          "sexAge": "牡8",
+          "jockey": "戸崎 圭太",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "ディスクリートキャット",
+            "damsire": "サムライハート"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 13,
+          "name": "スニーカースキル",
+          "sexAge": "牝4",
+          "jockey": "荻野 極",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "キズナ",
+            "damsire": "Istan"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 14,
+          "name": "エイブラムス",
+          "sexAge": "牡5",
+          "jockey": "木幡 巧也",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "フリオーソ",
+            "damsire": "サウスヴィグラス"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 15,
+          "name": "サトミノエンジェル",
+          "sexAge": "牡4",
+          "jockey": "横山 武史",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "マインドユアビスケッツ",
+            "damsire": "ディープインパクト"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 16,
+          "name": "トウカイポワール",
+          "sexAge": "牝5",
+          "jockey": "佐々木 大輔",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "ヘニーヒューズ",
+            "damsire": "ダイワメジャー"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        }
+      ]
+    },
+    "2026-10-04-tokyo-11": {
+      "race": {
+        "key": "2026-10-04-tokyo-11",
+        "title": "15時45分",
+        "date": "2026-10-04",
+        "venue": "東京",
+        "raceNo": 11,
+        "grade": "OP",
+        "surface": "芝",
+        "distance": 1800,
+        "direction": "左",
+        "courseDetail": "",
+        "postTime": "15:45",
+        "going": "良",
+        "weather": "曇",
+        "status": "archive",
+        "kicker": "過去レース",
+        "sourceUrl": "https://www.jra.go.jp/JRADB/accessD.html?CNAME=pw01dde1005202604021120261004/A4",
+        "sourceLabel": "JRA公式 出馬表",
+        "statusMessage": ""
+      },
+      "horses": [
+        {
+          "number": 1,
+          "name": "セイウンハーデス",
+          "sexAge": "牡7",
+          "jockey": "幸 英明",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "シルバーステート",
+            "damsire": "マンハッタンカフェ"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 2,
+          "name": "リアライズシリウス",
+          "sexAge": "牡3",
+          "jockey": "津村 明秀",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "ポエティックフレア",
+            "damsire": "ステイゴールド"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 3,
+          "name": "レディネス",
+          "sexAge": "牡4",
+          "jockey": "横山 典弘",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "スワーヴリチャード",
+            "damsire": "Shamardal"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 4,
+          "name": "サトノシャイニング",
+          "sexAge": "牡4",
+          "jockey": "西村 淳也",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "キズナ",
+            "damsire": "Star Dabbler"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 5,
+          "name": "クルゼイロドスル",
+          "sexAge": "牡6",
+          "jockey": "荻野 極",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "ファインニードル",
+            "damsire": "アルカセット"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 6,
+          "name": "ライヒスアドラー",
+          "sexAge": "牡3",
+          "jockey": "佐々木 大輔",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "シスキン",
+            "damsire": "ハーツクライ"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 7,
+          "name": "ロングラン",
+          "sexAge": "せん8",
+          "jockey": "菊沢 一樹",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "ヴィクトワールピサ",
+            "damsire": "Kendargent"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 8,
+          "name": "ビーアストニッシド",
+          "sexAge": "牡7",
+          "jockey": "原 優介",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "アメリカンペイトリオット",
+            "damsire": "ネオユニヴァース"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 9,
+          "name": "ドラゴンブースト",
+          "sexAge": "牡4",
+          "jockey": "丹内 祐次",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "スクリーンヒーロー",
+            "damsire": "エンパイアメーカー"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 10,
+          "name": "エルトンバローズ",
+          "sexAge": "牡6",
+          "jockey": "松若 風馬",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "ディープブリランテ",
+            "damsire": "ブライアンズタイム"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 11,
+          "name": "ランスオブカオス",
+          "sexAge": "牡4",
+          "jockey": "横山 武史",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "シルバーステート",
+            "damsire": "ローエングリン"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 12,
+          "name": "レガーロデルシエロ",
+          "sexAge": "牡5",
+          "jockey": "戸崎 圭太",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "ロードカナロア",
+            "damsire": "マンハッタンカフェ"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 13,
+          "name": "ホウオウビスケッツ",
+          "sexAge": "牡6",
+          "jockey": "岩田 康誠",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "マインドユアビスケッツ",
+            "damsire": "ルーラーシップ"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 14,
+          "name": "レイニング",
+          "sexAge": "牡4",
+          "jockey": "C.ルメール",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "サートゥルナーリア",
+            "damsire": "ディープインパクト"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 15,
+          "name": "シャンパンカラー",
+          "sexAge": "牡6",
+          "jockey": "内田 博幸",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "ドゥラメンテ",
+            "damsire": "Reckless Abandon"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 16,
+          "name": "アドマイヤクワッズ",
+          "sexAge": "牡3",
+          "jockey": "坂井 瑠星",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "リアルスティール",
+            "damsire": "Zoffany"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 17,
+          "name": "ダノンエアズロック",
+          "sexAge": "牡5",
+          "jockey": "田辺 裕信",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "モーリス",
+            "damsire": "Fastnet Rock"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        }
+      ]
+    },
+    "2026-10-04-tokyo-12": {
+      "race": {
+        "key": "2026-10-04-tokyo-12",
+        "title": "3歳以上2勝クラス",
+        "date": "2026-10-04",
+        "venue": "東京",
+        "raceNo": 12,
+        "grade": "2勝",
+        "surface": "ダ",
+        "distance": 1600,
+        "direction": "左",
+        "courseDetail": "",
+        "postTime": "16:30",
+        "going": "良",
+        "weather": "曇",
+        "status": "archive",
+        "kicker": "過去レース",
+        "sourceUrl": "https://www.jra.go.jp/JRADB/accessD.html?CNAME=pw01dde1005202604021220261004/59",
+        "sourceLabel": "JRA公式 出馬表",
+        "statusMessage": ""
+      },
+      "horses": [
+        {
+          "number": 1,
+          "name": "ジオパーククラウン",
+          "sexAge": "牡6",
+          "jockey": "長浜 鴻緒",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "サトノクラウン",
+            "damsire": "バトルプラン"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 2,
+          "name": "グレイスザクラウン",
+          "sexAge": "せん4",
+          "jockey": "木幡 巧也",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "リーチザクラウン",
+            "damsire": "Kitten's Joy"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 3,
+          "name": "ナイトスラッガー",
+          "sexAge": "牡5",
+          "jockey": "田辺 裕信",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "ルーラーシップ",
+            "damsire": "フジキセキ"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 4,
+          "name": "レッドベルダンス",
+          "sexAge": "牡4",
+          "jockey": "嶋田 純次",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "レイデオロ",
+            "damsire": "Union Rags"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 5,
+          "name": "カゼノタカトシ",
+          "sexAge": "牡4",
+          "jockey": "戸崎 圭太",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "レイデオロ",
+            "damsire": "ヤマニンセラフィム"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 6,
+          "name": "タマモカンパネラ",
+          "sexAge": "牝4",
+          "jockey": "佐藤 翔馬",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "ナダル",
+            "damsire": "ハーツクライ"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 7,
+          "name": "ザーフィル",
+          "sexAge": "牡3",
+          "jockey": "C.ルメール",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "Ghaiyyath",
+            "damsire": "Tamayuz"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 8,
+          "name": "ミクストベリーズ",
+          "sexAge": "牡4",
+          "jockey": "菊沢 一樹",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "Iffraaj",
+            "damsire": "Kodiac"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 9,
+          "name": "ライジンマル",
+          "sexAge": "せん5",
+          "jockey": "木幡 初也",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "アジアエクスプレス",
+            "damsire": "スペシャルウィーク"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 10,
+          "name": "パイシャオピン",
+          "sexAge": "牝4",
+          "jockey": "横山 武史",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "ホッコータルマエ",
+            "damsire": "フレンチデピュティ"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 11,
+          "name": "サンカルミア",
+          "sexAge": "牡5",
+          "jockey": "坂井 瑠星",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "ロージズインメイ",
+            "damsire": "ブラックタイド"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 12,
+          "name": "カロローザ",
+          "sexAge": "牝4",
+          "jockey": "幸 英明",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "ナダル",
+            "damsire": "ドリームジャーニー"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 13,
+          "name": "ロケットパンチ",
+          "sexAge": "せん3",
+          "jockey": "武藤 雅",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "ナダル",
+            "damsire": "ロードカナロア"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 14,
+          "name": "ライフゲート",
+          "sexAge": "せん4",
+          "jockey": "丹内 祐次",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "マインドユアビスケッツ",
+            "damsire": "セイントアレックス"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 15,
+          "name": "ノアヴィヴァーチェ",
+          "sexAge": "牡4",
+          "jockey": "菅原 隆一",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "モーニン",
+            "damsire": "ハービンジャー"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 16,
+          "name": "ファイアマン",
+          "sexAge": "牡3",
+          "jockey": "原 優介",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "ディスクリートキャット",
+            "damsire": "パイロ"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        }
+      ]
+    },
+    "2026-10-04-kyoto-1": {
+      "race": {
+        "key": "2026-10-04-kyoto-1",
+        "title": "2歳未勝利",
+        "date": "2026-10-04",
+        "venue": "京都",
+        "raceNo": 1,
+        "grade": "未勝利",
+        "surface": "ダ",
+        "distance": 1800,
+        "direction": "右",
+        "courseDetail": "",
+        "postTime": "09:50",
+        "going": "良",
+        "weather": null,
+        "status": "archive",
+        "kicker": "過去レース",
+        "sourceUrl": "https://www.jra.go.jp/JRADB/accessD.html?CNAME=pw01dde1008202604020120261004/30",
+        "sourceLabel": "JRA公式 出馬表",
+        "statusMessage": ""
+      },
+      "horses": [
+        {
+          "number": 1,
+          "name": "マーズエクレール",
+          "sexAge": "牡2",
+          "jockey": "鮫島 克駿",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "アドマイヤマーズ",
+            "damsire": "モーリス"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 2,
+          "name": "ベンゲル",
+          "sexAge": "牡2",
+          "jockey": "池添 謙一",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "クリソベリル",
+            "damsire": "サウスヴィグラス"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 3,
+          "name": "プリメラエストレラ",
+          "sexAge": "牡2",
+          "jockey": "北村 友一",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "ジャンダルム",
+            "damsire": "エンパイアメーカー"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 4,
+          "name": "マーノマエストロ",
+          "sexAge": "牡2",
+          "jockey": "田山 旺佑",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "ブリックスアンドモルタル",
+            "damsire": "Quality Road"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 5,
+          "name": "ロードフェルム",
+          "sexAge": "牡2",
+          "jockey": "横山 和生",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "スワーヴリチャード",
+            "damsire": "ロードカナロア"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 6,
+          "name": "タガノフリアン",
+          "sexAge": "牡2",
+          "jockey": "角田 大和",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "アニマルキングダム",
+            "damsire": "ドゥラメンテ"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 7,
+          "name": "ボードゥロレーヌ",
+          "sexAge": "牡2",
+          "jockey": "吉村 誠之助",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "クリソベリル",
+            "damsire": "ダイワメジャー"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 8,
+          "name": "ジュンヴァグネル",
+          "sexAge": "牡2",
+          "jockey": "斎藤 新",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "ジャスタウェイ",
+            "damsire": "ディープインパクト"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        }
+      ]
+    },
+    "2026-10-04-kyoto-2": {
+      "race": {
+        "key": "2026-10-04-kyoto-2",
+        "title": "2歳未勝利",
+        "date": "2026-10-04",
+        "venue": "京都",
+        "raceNo": 2,
+        "grade": "未勝利",
+        "surface": "芝",
+        "distance": 1600,
+        "direction": "右",
+        "courseDetail": "",
+        "postTime": "10:20",
+        "going": "良",
+        "weather": null,
+        "status": "archive",
+        "kicker": "過去レース",
+        "sourceUrl": "https://www.jra.go.jp/JRADB/accessD.html?CNAME=pw01dde1008202604020220261004/E5",
+        "sourceLabel": "JRA公式 出馬表",
+        "statusMessage": ""
+      },
+      "horses": [
+        {
+          "number": 1,
+          "name": "レインボースター",
+          "sexAge": "牝2",
+          "jockey": "吉村 誠之助",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "キズナ",
+            "damsire": "ブライアンズタイム"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 2,
+          "name": "アイルエクラ",
+          "sexAge": "牡2",
+          "jockey": "田山 旺佑",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "クリソベリル",
+            "damsire": "ステイゴールド"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 3,
+          "name": "ブロッサムスピア",
+          "sexAge": "牡2",
+          "jockey": "M.デムーロ",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "リアルスティール",
+            "damsire": "Orpen"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 4,
+          "name": "キシゲヒーロー",
+          "sexAge": "牡2",
+          "jockey": "角田 大和",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "アドマイヤマーズ",
+            "damsire": "アドマイヤムーン"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 5,
+          "name": "テムスピード",
+          "sexAge": "牡2",
+          "jockey": "河原田 菜々",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "ステルヴィオ",
+            "damsire": "アドマイヤムーン"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 6,
+          "name": "ジョン",
+          "sexAge": "牡2",
+          "jockey": "小崎 綾也",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "ミッキーアイル",
+            "damsire": "Bodemeister"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 7,
+          "name": "ジャンゴッド",
+          "sexAge": "牡2",
+          "jockey": "川田 将雅",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "キタサンブラック",
+            "damsire": "Exceed And Excel"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 8,
+          "name": "レイクイーン",
+          "sexAge": "牝2",
+          "jockey": "松山 弘平",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "グレーターロンドン",
+            "damsire": "キングカメハメハ"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 9,
+          "name": "ラッキーハナコ",
+          "sexAge": "牝2",
+          "jockey": "鮫島 克駿",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "バンドワゴン",
+            "damsire": "ブラックタイド"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        }
+      ]
+    },
+    "2026-10-04-kyoto-3": {
+      "race": {
+        "key": "2026-10-04-kyoto-3",
+        "title": "10時50分",
+        "date": "2026-10-04",
+        "venue": "京都",
+        "raceNo": 3,
+        "grade": "新馬",
+        "surface": "ダ",
+        "distance": 1400,
+        "direction": "右",
+        "courseDetail": "",
+        "postTime": "10:50",
+        "going": "良",
+        "weather": null,
+        "status": "archive",
+        "kicker": "過去レース",
+        "sourceUrl": "https://www.jra.go.jp/JRADB/accessD.html?CNAME=pw01dde1008202604020320261004/9A",
+        "sourceLabel": "JRA公式 出馬表",
+        "statusMessage": ""
+      },
+      "horses": [
+        {
+          "number": 1,
+          "name": "ミホマル",
+          "sexAge": "牡2",
+          "jockey": "横山 和生",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "グレーターロンドン",
+            "damsire": "シニスターミニスター"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 2,
+          "name": "ダイヴ",
+          "sexAge": "牡2",
+          "jockey": "角田 大和",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "インディチャンプ",
+            "damsire": "クロフネ"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 3,
+          "name": "リアルハーン",
+          "sexAge": "牡2",
+          "jockey": "酒井 学",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "ヴァンゴッホ",
+            "damsire": "アグネスタキオン"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 4,
+          "name": "マカロンボイス",
+          "sexAge": "牝2",
+          "jockey": "吉村 誠之助",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "フィレンツェファイア",
+            "damsire": "チーフベアハート"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 5,
+          "name": "インユアスカイ",
+          "sexAge": "牡2",
+          "jockey": "北村 友一",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "ドレフォン",
+            "damsire": "エピファネイア"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 6,
+          "name": "スリーオブスペイズ",
+          "sexAge": "牡2",
+          "jockey": "田山 旺佑",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "Tacitus",
+            "damsire": "Despite the Odds"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 7,
+          "name": "オージーブラック",
+          "sexAge": "牝2",
+          "jockey": "古川 吉洋",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "シャンハイボビー",
+            "damsire": "スペシャルウィーク"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 8,
+          "name": "マンノエンプレス",
+          "sexAge": "牝2",
+          "jockey": "菱田 裕二",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "ロジャーバローズ",
+            "damsire": "トウカイテイオー"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 9,
+          "name": "アップルペアー",
+          "sexAge": "牝2",
+          "jockey": "河原田 菜々",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "スマートファルコン",
+            "damsire": "タイムパラドックス"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 10,
+          "name": "ランスオブナイト",
+          "sexAge": "牡2",
+          "jockey": "太宰 啓介",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "シャンハイボビー",
+            "damsire": "ヘニーヒューズ"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 11,
+          "name": "エリーマイラヴ",
+          "sexAge": "牝2",
+          "jockey": "鮫島 克駿",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "Army Mule",
+            "damsire": "Sky Kingdom"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 12,
+          "name": "フェイマスウルフ",
+          "sexAge": "牡2",
+          "jockey": "秋山 稔樹",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "シャンハイボビー",
+            "damsire": "パイロ"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 13,
+          "name": "アマリス",
+          "sexAge": "牝2",
+          "jockey": "M.デムーロ",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "アジアエクスプレス",
+            "damsire": "ディープインパクト"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 14,
+          "name": "タガノゲイル",
+          "sexAge": "牡2",
+          "jockey": "田口 貫太",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "ミスチヴィアスアレックス",
+            "damsire": "エンパイアメーカー"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 15,
+          "name": "ラムネ",
+          "sexAge": "牝2",
+          "jockey": "松山 弘平",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "シニスターミニスター",
+            "damsire": "スウェプトオーヴァーボード"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 16,
+          "name": "ギニー",
+          "sexAge": "牡2",
+          "jockey": "国分 優作",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "チュウワウィザード",
+            "damsire": "ゴールドアリュール"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        }
+      ]
+    },
+    "2026-10-04-kyoto-4": {
+      "race": {
+        "key": "2026-10-04-kyoto-4",
+        "title": "11時20分",
+        "date": "2026-10-04",
+        "venue": "京都",
+        "raceNo": 4,
+        "grade": "新馬",
+        "surface": "芝",
+        "distance": 1400,
+        "direction": "右",
+        "courseDetail": "",
+        "postTime": "11:20",
+        "going": "良",
+        "weather": null,
+        "status": "archive",
+        "kicker": "過去レース",
+        "sourceUrl": "https://www.jra.go.jp/JRADB/accessD.html?CNAME=pw01dde1008202604020420261004/4F",
+        "sourceLabel": "JRA公式 出馬表",
+        "statusMessage": ""
+      },
+      "horses": [
+        {
+          "number": 1,
+          "name": "ワンダープレマ",
+          "sexAge": "牝2",
+          "jockey": "太宰 啓介",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "ヘンリーバローズ",
+            "damsire": "Tapit"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 2,
+          "name": "バードギール",
+          "sexAge": "牝2",
+          "jockey": "松山 弘平",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "タワーオブロンドン",
+            "damsire": "Hat Trick"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 3,
+          "name": "スイートリディア",
+          "sexAge": "牝2",
+          "jockey": "北村 友一",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "アドマイヤマーズ",
+            "damsire": "ハービンジャー"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 4,
+          "name": "ルシオラ",
+          "sexAge": "牝2",
+          "jockey": "吉村 誠之助",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "ジャスタウェイ",
+            "damsire": "アドマイヤムーン"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 5,
+          "name": "ブライトスクリプト",
+          "sexAge": "牝2",
+          "jockey": "池添 謙一",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "サートゥルナーリア",
+            "damsire": "Mr Speaker"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 6,
+          "name": "テイケイモエ",
+          "sexAge": "牝2",
+          "jockey": "田口 貫太",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "シャンハイボビー",
+            "damsire": "キングカメハメハ"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 7,
+          "name": "リリックラヴ",
+          "sexAge": "牝2",
+          "jockey": "今村 聖奈",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "ロードカナロア",
+            "damsire": "Dansili"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 8,
+          "name": "ワンダールカ",
+          "sexAge": "牝2",
+          "jockey": "川又 賢治",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "モーリス",
+            "damsire": "ディープインパクト"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 9,
+          "name": "イグナイトフィール",
+          "sexAge": "牝2",
+          "jockey": "田山 旺佑",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "Life Is Good",
+            "damsire": "Constitution"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 10,
+          "name": "シュネルマリス",
+          "sexAge": "牝2",
+          "jockey": "古川 吉洋",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "カラヴァッジオ",
+            "damsire": "Distorted Humor"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 11,
+          "name": "ルージュプリメーロ",
+          "sexAge": "牝2",
+          "jockey": "吉田 隼人",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "コントレイル",
+            "damsire": "Siyouni"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 12,
+          "name": "サウンドアミューズ",
+          "sexAge": "牝2",
+          "jockey": "河原田 菜々",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "シルバーステート",
+            "damsire": "Nathaniel"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 13,
+          "name": "ルーディン",
+          "sexAge": "牝2",
+          "jockey": "角田 大和",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "ステルヴィオ",
+            "damsire": "ディープインパクト"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 14,
+          "name": "ジャヤ",
+          "sexAge": "牝2",
+          "jockey": "斎藤 新",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "ダノンスマッシュ",
+            "damsire": "ディープインパクト"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 15,
+          "name": "アマスペラーレ",
+          "sexAge": "牝2",
+          "jockey": "酒井 学",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "キズナ",
+            "damsire": "ハイアーゲーム"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 16,
+          "name": "ヘヴンインザレイン",
+          "sexAge": "牝2",
+          "jockey": "川田 将雅",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "サートゥルナーリア",
+            "damsire": "Union Rags"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        }
+      ]
+    },
+    "2026-10-04-kyoto-5": {
+      "race": {
+        "key": "2026-10-04-kyoto-5",
+        "title": "12時10分",
+        "date": "2026-10-04",
+        "venue": "京都",
+        "raceNo": 5,
+        "grade": "新馬",
+        "surface": "芝",
+        "distance": 2000,
+        "direction": "右",
+        "courseDetail": "",
+        "postTime": "12:10",
+        "going": "良",
+        "weather": "雨",
+        "status": "archive",
+        "kicker": "過去レース",
+        "sourceUrl": "https://www.jra.go.jp/JRADB/accessD.html?CNAME=pw01dde1008202604020520261004/04",
+        "sourceLabel": "JRA公式 出馬表",
+        "statusMessage": ""
+      },
+      "horses": [
+        {
+          "number": 1,
+          "name": "クラウンソクラテス",
+          "sexAge": "牡2",
+          "jockey": "角田 大和",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "ルーラーシップ",
+            "damsire": "モーリス"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 2,
+          "name": "アンバーライト",
+          "sexAge": "牡2",
+          "jockey": "田山 旺佑",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "エイシンフラッシュ",
+            "damsire": "Danehill Dancer"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 3,
+          "name": "ジュンキング",
+          "sexAge": "牡2",
+          "jockey": "川田 将雅",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "キタサンブラック",
+            "damsire": "Noble Mission"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 4,
+          "name": "オミゴト",
+          "sexAge": "牡2",
+          "jockey": "池添 謙一",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "ロジャーバローズ",
+            "damsire": "アルデバラン2"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 5,
+          "name": "アスクハイタッチ",
+          "sexAge": "牡2",
+          "jockey": "西塚 洸二",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "サートゥルナーリア",
+            "damsire": "Forestry"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 6,
+          "name": "ジーティーギャング",
+          "sexAge": "牡2",
+          "jockey": "松山 弘平",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "キタサンブラック",
+            "damsire": "Soldier Hollow"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 7,
+          "name": "シュテルンライト",
+          "sexAge": "牡2",
+          "jockey": "小崎 綾也",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "レイデオロ",
+            "damsire": "ハービンジャー"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 8,
+          "name": "トロカアニマダ",
+          "sexAge": "牡2",
+          "jockey": "国分 恭介",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "ベンバトル",
+            "damsire": "ゴールドシップ"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 9,
+          "name": "ピュティアス",
+          "sexAge": "牡2",
+          "jockey": "北村 友一",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "ルーラーシップ",
+            "damsire": "スペシャルウィーク"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 10,
+          "name": "ザキノシュガー",
+          "sexAge": "牡2",
+          "jockey": "鮫島 克駿",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "エフフォーリア",
+            "damsire": "Indygo Shiner"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 11,
+          "name": "ジワールドコア",
+          "sexAge": "牡2",
+          "jockey": "吉村 誠之助",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "オルフェーヴル",
+            "damsire": "Mr. Greeley"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 12,
+          "name": "タナオルフォーリア",
+          "sexAge": "牡2",
+          "jockey": "田口 貫太",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "エフフォーリア",
+            "damsire": "オルフェーヴル"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        }
+      ]
+    },
+    "2026-10-04-kyoto-6": {
+      "race": {
+        "key": "2026-10-04-kyoto-6",
+        "title": "3歳以上1勝クラス",
+        "date": "2026-10-04",
+        "venue": "京都",
+        "raceNo": 6,
+        "grade": "1勝",
+        "surface": "ダ",
+        "distance": 1800,
+        "direction": "右",
+        "courseDetail": "",
+        "postTime": "12:40",
+        "going": "良",
+        "weather": "雨",
+        "status": "archive",
+        "kicker": "過去レース",
+        "sourceUrl": "https://www.jra.go.jp/JRADB/accessD.html?CNAME=pw01dde1008202604020620261004/B9",
+        "sourceLabel": "JRA公式 出馬表",
+        "statusMessage": ""
+      },
+      "horses": [
+        {
+          "number": 1,
+          "name": "タイセイリアル",
+          "sexAge": "牡5",
+          "jockey": "古川 奈穂",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "Arrogate",
+            "damsire": "Kitten's Joy"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 2,
+          "name": "エアアルチーナ",
+          "sexAge": "牝3",
+          "jockey": "松山 弘平",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "Gun Runner",
+            "damsire": "Empire Maker"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 3,
+          "name": "メイショウソウテン",
+          "sexAge": "牡3",
+          "jockey": "田口 貫太",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "ブリックスアンドモルタル",
+            "damsire": "マンハッタンカフェ"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 4,
+          "name": "ブームバップビート",
+          "sexAge": "牡3",
+          "jockey": "小沢 大仁",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "Into Mischief",
+            "damsire": "Curlin"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 5,
+          "name": "エチゴドラゴン",
+          "sexAge": "牡3",
+          "jockey": "荻野 琢真",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "リアルスティール",
+            "damsire": "Milt's Overture"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 6,
+          "name": "ビナハイバン",
+          "sexAge": "牡3",
+          "jockey": "松本 大輝",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "コパノリッキー",
+            "damsire": "シニスターミニスター"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 7,
+          "name": "メイショウカスガイ",
+          "sexAge": "牡4",
+          "jockey": "古川 吉洋",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "マジェスティックウォリアー",
+            "damsire": "ウォーエンブレム"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 8,
+          "name": "テスタヴェローチェ",
+          "sexAge": "牡3",
+          "jockey": "田山 旺佑",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "マテラスカイ",
+            "damsire": "ジャスタウェイ"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 9,
+          "name": "インディゴ",
+          "sexAge": "せん4",
+          "jockey": "富田 暁",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "Tiz the Law",
+            "damsire": "Union Rags"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 10,
+          "name": "テイエムスターラン",
+          "sexAge": "牡3",
+          "jockey": "高倉 稜",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "シニスターミニスター",
+            "damsire": "サウスヴィグラス"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 11,
+          "name": "ビゾー",
+          "sexAge": "せん4",
+          "jockey": "M.デムーロ",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "サートゥルナーリア",
+            "damsire": "ハーツクライ"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 12,
+          "name": "マーゴットバディ",
+          "sexAge": "せん3",
+          "jockey": "鮫島 克駿",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "レイデオロ",
+            "damsire": "Dansili"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 13,
+          "name": "ホウオウストライク",
+          "sexAge": "牡3",
+          "jockey": "吉村 誠之助",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "Good Magic",
+            "damsire": "Flatter"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 14,
+          "name": "ゴンタ",
+          "sexAge": "牡3",
+          "jockey": "小崎 綾也",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "ホッコータルマエ",
+            "damsire": "ゴールドアリュール"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 15,
+          "name": "サントルドパリ",
+          "sexAge": "牡3",
+          "jockey": "角田 大和",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "シスキン",
+            "damsire": "ハーツクライ"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 16,
+          "name": "シャインベック",
+          "sexAge": "せん4",
+          "jockey": "亀田 温心",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "エピファネイア",
+            "damsire": "Smart Strike"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        }
+      ]
+    },
+    "2026-10-04-kyoto-7": {
+      "race": {
+        "key": "2026-10-04-kyoto-7",
+        "title": "3歳以上1勝クラス",
+        "date": "2026-10-04",
+        "venue": "京都",
+        "raceNo": 7,
+        "grade": "1勝",
+        "surface": "芝",
+        "distance": 1200,
+        "direction": "右",
+        "courseDetail": "",
+        "postTime": "13:10",
+        "going": "良",
+        "weather": "雨",
+        "status": "archive",
+        "kicker": "過去レース",
+        "sourceUrl": "https://www.jra.go.jp/JRADB/accessD.html?CNAME=pw01dde1008202604020720261004/6E",
+        "sourceLabel": "JRA公式 出馬表",
+        "statusMessage": ""
+      },
+      "horses": [
+        {
+          "number": 1,
+          "name": "ニシノトリビュート",
+          "sexAge": "牡3",
+          "jockey": "M.デムーロ",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "モーリス",
+            "damsire": "Royal Applause"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 2,
+          "name": "グロリアスマーチ",
+          "sexAge": "牡3",
+          "jockey": "鮫島 克駿",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "モーリス",
+            "damsire": "アグネスタキオン"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 3,
+          "name": "ミトノリン",
+          "sexAge": "牝3",
+          "jockey": "斎藤 新",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "アメリカンペイトリオット",
+            "damsire": "ディープインパクト"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 4,
+          "name": "マウンテンバローズ",
+          "sexAge": "牡3",
+          "jockey": "川田 将雅",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "キタサンブラック",
+            "damsire": "War Front"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 5,
+          "name": "ダイイズキャスト",
+          "sexAge": "牡3",
+          "jockey": "田山 旺佑",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "Blame",
+            "damsire": "Tiznow"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 6,
+          "name": "ブルズアイプリンス",
+          "sexAge": "牡3",
+          "jockey": "松本 大輝",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "フィエールマン",
+            "damsire": "エピファネイア"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 7,
+          "name": "リアルアルバ",
+          "sexAge": "牡3",
+          "jockey": "西塚 洸二",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "マテラスカイ",
+            "damsire": "スペシャルウィーク"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 8,
+          "name": "ペルフェツィオーネ",
+          "sexAge": "牡5",
+          "jockey": "田口 貫太",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "ルーラーシップ",
+            "damsire": "チチカステナンゴ"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 9,
+          "name": "ベルサ",
+          "sexAge": "牝4",
+          "jockey": "今村 聖奈",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "マクフィ",
+            "damsire": "ディープインパクト"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 10,
+          "name": "ラインピクシー",
+          "sexAge": "牝4",
+          "jockey": "角田 大和",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "サトノダイヤモンド",
+            "damsire": "ブラックホーク"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 11,
+          "name": "ホーリーステップ",
+          "sexAge": "牝3",
+          "jockey": "森田 誠也",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "ダノンキングリー",
+            "damsire": "Cape Cross"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 12,
+          "name": "アーリントンロウ",
+          "sexAge": "牡4",
+          "jockey": "国分 優作",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "タワーオブロンドン",
+            "damsire": "マーベラスサンデー"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 13,
+          "name": "ラブアイミー",
+          "sexAge": "牝4",
+          "jockey": "小崎 綾也",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "サンダースノー",
+            "damsire": "ショウナンカンプ"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 14,
+          "name": "ムーンリットアイル",
+          "sexAge": "牝3",
+          "jockey": "松山 弘平",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "ミッキーアイル",
+            "damsire": "Nayef"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 15,
+          "name": "アルサック",
+          "sexAge": "牝3",
+          "jockey": "北村 友一",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "シルバーステート",
+            "damsire": "キングカメハメハ"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 16,
+          "name": "ブルーレース",
+          "sexAge": "牝4",
+          "jockey": "吉村 誠之助",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "モズアスコット",
+            "damsire": "フジキセキ"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 17,
+          "name": "ソリスディエス",
+          "sexAge": "牡4",
+          "jockey": "富田 暁",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "キタサンブラック",
+            "damsire": "ヴィクトワールピサ"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 18,
+          "name": "グリフォン",
+          "sexAge": "牝4",
+          "jockey": "柴田 裕一郎",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "サートゥルナーリア",
+            "damsire": "ハービンジャー"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        }
+      ]
+    },
+    "2026-10-04-kyoto-8": {
+      "race": {
+        "key": "2026-10-04-kyoto-8",
+        "title": "3歳以上2勝クラス",
+        "date": "2026-10-04",
+        "venue": "京都",
+        "raceNo": 8,
+        "grade": "2勝",
+        "surface": "ダ",
+        "distance": 1400,
+        "direction": "右",
+        "courseDetail": "",
+        "postTime": "13:40",
+        "going": "稍重",
+        "weather": "雨",
+        "status": "archive",
+        "kicker": "過去レース",
+        "sourceUrl": "https://www.jra.go.jp/JRADB/accessD.html?CNAME=pw01dde1008202604020820261004/23",
+        "sourceLabel": "JRA公式 出馬表",
+        "statusMessage": ""
+      },
+      "horses": [
+        {
+          "number": 1,
+          "name": "ライトオブヌカタ",
+          "sexAge": "牡3",
+          "jockey": "富田 暁",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "City of Light",
+            "damsire": "War Front"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 2,
+          "name": "アメリカンポリス",
+          "sexAge": "牡4",
+          "jockey": "鮫島 克駿",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "Into Mischief",
+            "damsire": "Bernardini"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 3,
+          "name": "ポッドドンナー",
+          "sexAge": "牡4",
+          "jockey": "吉村 誠之助",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "サートゥルナーリア",
+            "damsire": "Charm Spirit"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 4,
+          "name": "サヨノジャンボリー",
+          "sexAge": "牡4",
+          "jockey": "吉田 隼人",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "モーニン",
+            "damsire": "キングカメハメハ"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 5,
+          "name": "オセアエクスプレス",
+          "sexAge": "牡5",
+          "jockey": "古川 吉洋",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "アジアエクスプレス",
+            "damsire": "クロフネ"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 6,
+          "name": "ジューンアゲイン",
+          "sexAge": "牡3",
+          "jockey": "田山 旺佑",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "リオンディーズ",
+            "damsire": "マンハッタンカフェ"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 7,
+          "name": "エコロボルト",
+          "sexAge": "せん3",
+          "jockey": "松本 大輝",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "Practical Joke",
+            "damsire": "Scat Daddy"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 8,
+          "name": "メモリーグラス",
+          "sexAge": "牡6",
+          "jockey": "小崎 綾也",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "イスラボニータ",
+            "damsire": "ナカヤマフェスタ"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 9,
+          "name": "キタノライブリー",
+          "sexAge": "牝4",
+          "jockey": "田口 貫太",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "アジアエクスプレス",
+            "damsire": "ステイゴールド"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 10,
+          "name": "ザックザク",
+          "sexAge": "牡4",
+          "jockey": "北村 友一",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "フォーウィールドライブ",
+            "damsire": "ジェイドロバリー"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 11,
+          "name": "デアプリームス",
+          "sexAge": "牝3",
+          "jockey": "池添 謙一",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "Knicks Go",
+            "damsire": "Majestic Warrior"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 12,
+          "name": "モンシェリ",
+          "sexAge": "牝5",
+          "jockey": "秋山 稔樹",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "マクフィ",
+            "damsire": "エスポワールシチー"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 13,
+          "name": "フェスティヴドレス",
+          "sexAge": "牝3",
+          "jockey": "菱田 裕二",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "パイロ",
+            "damsire": "コマンズ"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 14,
+          "name": "ランスオブセヘル",
+          "sexAge": "牝5",
+          "jockey": "斎藤 新",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "サトノアラジン",
+            "damsire": "Alhaarth"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 15,
+          "name": "バックトゥザライト",
+          "sexAge": "牡6",
+          "jockey": "西塚 洸二",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "シニスターミニスター",
+            "damsire": "ハービンジャー"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 16,
+          "name": "マキシマムビスタ",
+          "sexAge": "牝4",
+          "jockey": "森田 誠也",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "ヘニーヒューズ",
+            "damsire": "スズカマンボ"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        }
+      ]
+    },
+    "2026-10-04-kyoto-9": {
+      "race": {
+        "key": "2026-10-04-kyoto-9",
+        "title": "大原ステークス",
+        "date": "2026-10-04",
+        "venue": "京都",
+        "raceNo": 9,
+        "grade": "3勝",
+        "surface": "芝",
+        "distance": 2000,
+        "direction": "右",
+        "courseDetail": "",
+        "postTime": "14:15",
+        "going": "稍重",
+        "weather": "雨",
+        "status": "archive",
+        "kicker": "過去レース",
+        "sourceUrl": "https://www.jra.go.jp/JRADB/accessD.html?CNAME=pw01dde1008202604020920261004/D8",
+        "sourceLabel": "JRA公式 出馬表",
+        "statusMessage": ""
+      },
+      "horses": [
+        {
+          "number": 1,
+          "name": "ホウオウアートマン",
+          "sexAge": "牡4",
+          "jockey": "吉田 豊",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "ドゥラメンテ",
+            "damsire": "Street Sense"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 2,
+          "name": "ナムラフッカー",
+          "sexAge": "牡5",
+          "jockey": "菱田 裕二",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "スワーヴリチャード",
+            "damsire": "ルーラーシップ"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 3,
+          "name": "レディーミコノス",
+          "sexAge": "牝4",
+          "jockey": "田山 旺佑",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "Le Havre",
+            "damsire": "Motivator"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 4,
+          "name": "チェルノボーグ",
+          "sexAge": "せん7",
+          "jockey": "西塚 洸二",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "ディープインパクト",
+            "damsire": "Ghostzapper"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 5,
+          "name": "キュクヌス",
+          "sexAge": "牝5",
+          "jockey": "吉村 誠之助",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "Saxon Warrior",
+            "damsire": "Giant's Causeway"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 6,
+          "name": "キントリヒ",
+          "sexAge": "牡7",
+          "jockey": "田口 貫太",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "ゴールドシップ",
+            "damsire": "ボストンハーバー"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 7,
+          "name": "カリーニョ",
+          "sexAge": "牡5",
+          "jockey": "川田 将雅",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "ドゥラメンテ",
+            "damsire": "ハービンジャー"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 8,
+          "name": "ヴィスマール",
+          "sexAge": "牡5",
+          "jockey": "小沢 大仁",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "ブリックスアンドモルタル",
+            "damsire": "ディープインパクト"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 9,
+          "name": "ホウオウスーペリア",
+          "sexAge": "牡6",
+          "jockey": "高杉 吏麒",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "スクリーンヒーロー",
+            "damsire": "Shamardal"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 10,
+          "name": "スズカダブル",
+          "sexAge": "牡6",
+          "jockey": "鮫島 克駿",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "バゴ",
+            "damsire": "ジャイアントレッカー"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 11,
+          "name": "ローベルクランツ",
+          "sexAge": "牡3",
+          "jockey": "北村 友一",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "サトノダイヤモンド",
+            "damsire": "キングカメハメハ"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 12,
+          "name": "ファームツエンティ",
+          "sexAge": "せん6",
+          "jockey": "酒井 学",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "キズナ",
+            "damsire": "ブライアンズタイム"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 13,
+          "name": "リーティアコナル",
+          "sexAge": "牡4",
+          "jockey": "小崎 綾也",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "Kingman",
+            "damsire": "English Channel"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 14,
+          "name": "ミュージシャン",
+          "sexAge": "牡4",
+          "jockey": "松山 弘平",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "ブリックスアンドモルタル",
+            "damsire": "ディープインパクト"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 15,
+          "name": "ミスタージーティー",
+          "sexAge": "牡5",
+          "jockey": "斎藤 新",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "ドゥラメンテ",
+            "damsire": "Sadler's Wells"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 16,
+          "name": "オールセインツ",
+          "sexAge": "せん5",
+          "jockey": "富田 暁",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "キズナ",
+            "damsire": "ルーラーシップ"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 17,
+          "name": "シンゼンカガ",
+          "sexAge": "牡4",
+          "jockey": "吉田 隼人",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "トーセンラー",
+            "damsire": "Smart Strike"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 18,
+          "name": "ロードフィレール",
+          "sexAge": "牡3",
+          "jockey": "横山 和生",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "キズナ",
+            "damsire": "オルフェーヴル"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        }
+      ]
+    },
+    "2026-10-04-kyoto-10": {
+      "race": {
+        "key": "2026-10-04-kyoto-10",
+        "title": "藤森ステークス",
+        "date": "2026-10-04",
+        "venue": "京都",
+        "raceNo": 10,
+        "grade": "OP",
+        "surface": "ダ",
+        "distance": 1200,
+        "direction": "右",
+        "courseDetail": "",
+        "postTime": "14:50",
+        "going": "稍重",
+        "weather": "雨",
+        "status": "archive",
+        "kicker": "過去レース",
+        "sourceUrl": "https://www.jra.go.jp/JRADB/accessD.html?CNAME=pw01dde1008202604021020261004/CD",
+        "sourceLabel": "JRA公式 出馬表",
+        "statusMessage": ""
+      },
+      "horses": [
+        {
+          "number": 1,
+          "name": "ロードラディウス",
+          "sexAge": "牡6",
+          "jockey": "吉村 誠之助",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "ドレフォン",
+            "damsire": "Frankel"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 2,
+          "name": "グッジョブ",
+          "sexAge": "牡6",
+          "jockey": "M.デムーロ",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "ベストウォーリア",
+            "damsire": "ネオユニヴァース"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 3,
+          "name": "アガシ",
+          "sexAge": "せん5",
+          "jockey": "田口 貫太",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "エピファネイア",
+            "damsire": "クロフネ"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 4,
+          "name": "ロードアウォード",
+          "sexAge": "せん6",
+          "jockey": "横山 和生",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "ロードカナロア",
+            "damsire": "Dubawi"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 5,
+          "name": "ロードフロンティア",
+          "sexAge": "牡5",
+          "jockey": "川須 栄彦",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "ロードカナロア",
+            "damsire": "Distorted Humor"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 6,
+          "name": "ペプチドヤマト",
+          "sexAge": "牡7",
+          "jockey": "高倉 稜",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "ドレフォン",
+            "damsire": "コロナドズクエスト"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 7,
+          "name": "メイショウホウレン",
+          "sexAge": "牡5",
+          "jockey": "浜中 俊",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "エスポワールシチー",
+            "damsire": "ハードスパン"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 8,
+          "name": "コンクイスタ",
+          "sexAge": "せん6",
+          "jockey": "北村 友一",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "ロードカナロア",
+            "damsire": "Pivotal"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 9,
+          "name": "エンヤラヴフェイス",
+          "sexAge": "牡5",
+          "jockey": "松山 弘平",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "エイシンヒカリ",
+            "damsire": "Devil's Bag"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 10,
+          "name": "スマートフォルス",
+          "sexAge": "牡6",
+          "jockey": "鮫島 克駿",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "シニスターミニスター",
+            "damsire": "ロードカナロア"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 11,
+          "name": "ケイアイアニラ",
+          "sexAge": "牡6",
+          "jockey": "高杉 吏麒",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "パイロ",
+            "damsire": "キングカメハメハ"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 12,
+          "name": "サトノカルナバル",
+          "sexAge": "牡4",
+          "jockey": "菱田 裕二",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "キタサンブラック",
+            "damsire": "Numerous"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 13,
+          "name": "ドンレパルス",
+          "sexAge": "牡7",
+          "jockey": "田山 旺佑",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "ディスクリートキャット",
+            "damsire": "サウスヴィグラス"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 14,
+          "name": "ゼットエール",
+          "sexAge": "牡4",
+          "jockey": "松本 大輝",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "サンダースノー",
+            "damsire": "バゴ"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 15,
+          "name": "ルージュラナキラ",
+          "sexAge": "牝4",
+          "jockey": "斎藤 新",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "アドマイヤマーズ",
+            "damsire": "カジノドライヴ"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 16,
+          "name": "エコロエイト",
+          "sexAge": "牡5",
+          "jockey": "江田 照男",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "Take Charge Indy",
+            "damsire": "Speightstown"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        }
+      ]
+    },
+    "2026-10-04-kyoto-11": {
+      "race": {
+        "key": "2026-10-04-kyoto-11",
+        "title": "京都大賞典",
+        "date": "2026-10-04",
+        "venue": "京都",
+        "raceNo": 11,
+        "grade": "GⅡ",
+        "surface": "芝",
+        "distance": 2400,
+        "direction": "右",
+        "courseDetail": "外",
+        "postTime": "15:30",
+        "going": "稍重",
+        "weather": "雨",
+        "status": "archive",
+        "kicker": "過去レース",
+        "sourceUrl": "https://www.jra.go.jp/JRADB/accessD.html?CNAME=pw01dde1008202604021120261004/82",
+        "sourceLabel": "JRA公式 出馬表",
+        "statusMessage": ""
+      },
+      "horses": [
+        {
+          "number": 1,
+          "name": "ウエストナウ",
+          "sexAge": "牡5",
+          "jockey": "横山 和生",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "キズナ",
+            "damsire": "Frankel"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 2,
+          "name": "ヴェルテンベルク",
+          "sexAge": "牡6",
+          "jockey": "古川 吉洋",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "キタサンブラック",
+            "damsire": "フレンチデピュティ"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 3,
+          "name": "ディープモンスター",
+          "sexAge": "牡8",
+          "jockey": "浜中 俊",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "ディープインパクト",
+            "damsire": "Bellamy Road"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 4,
+          "name": "ヘデントール",
+          "sexAge": "牡5",
+          "jockey": "吉田 隼人",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "ルーラーシップ",
+            "damsire": "ステイゴールド"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 5,
+          "name": "ヴェルミセル",
+          "sexAge": "牝6",
+          "jockey": "川又 賢治",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "ゴールドシップ",
+            "damsire": "コンデュイット"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 6,
+          "name": "アクアヴァーナル",
+          "sexAge": "牝5",
+          "jockey": "松山 弘平",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "エピファネイア",
+            "damsire": "ディープインパクト"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 7,
+          "name": "リビアングラス",
+          "sexAge": "牡6",
+          "jockey": "小沢 大仁",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "キズナ",
+            "damsire": "Curlin"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 8,
+          "name": "ミクニインスパイア",
+          "sexAge": "牡4",
+          "jockey": "M.デムーロ",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "アドマイヤマーズ",
+            "damsire": "ティンバーカントリー"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 9,
+          "name": "ミステリーウェイ",
+          "sexAge": "せん8",
+          "jockey": "松本 大輝",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "ジャスタウェイ",
+            "damsire": "High Chaparral"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 10,
+          "name": "マイネルエンペラー",
+          "sexAge": "牡6",
+          "jockey": "吉村 誠之助",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "ゴールドシップ",
+            "damsire": "ロージズインメイ"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 11,
+          "name": "ファミリータイム",
+          "sexAge": "牡5",
+          "jockey": "鮫島 克駿",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "リアルスティール",
+            "damsire": "Galileo"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 12,
+          "name": "エコロディノス",
+          "sexAge": "牡4",
+          "jockey": "田口 貫太",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "キタサンブラック",
+            "damsire": "Generous"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 13,
+          "name": "サフィラ",
+          "sexAge": "牝5",
+          "jockey": "北村 友一",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "ハーツクライ",
+            "damsire": "Lomitas"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 14,
+          "name": "サヴォーナ",
+          "sexAge": "牡6",
+          "jockey": "斎藤 新",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "キズナ",
+            "damsire": "スニッツェル"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 15,
+          "name": "メイショウブレゲ",
+          "sexAge": "牡7",
+          "jockey": "酒井 学",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "ゴールドシップ",
+            "damsire": "パイロ"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 16,
+          "name": "ショウナンラプンタ",
+          "sexAge": "牡5",
+          "jockey": "池添 謙一",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "キズナ",
+            "damsire": "Zensational"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 17,
+          "name": "キングスコール",
+          "sexAge": "牡4",
+          "jockey": "吉田 豊",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "ドゥラメンテ",
+            "damsire": "Frankel"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 18,
+          "name": "ダノンシーマ",
+          "sexAge": "牡4",
+          "jockey": "川田 将雅",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "キタサンブラック",
+            "damsire": "Include"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        }
+      ]
+    },
+    "2026-10-04-kyoto-12": {
+      "race": {
+        "key": "2026-10-04-kyoto-12",
+        "title": "3歳以上2勝クラス",
+        "date": "2026-10-04",
+        "venue": "京都",
+        "raceNo": 12,
+        "grade": "2勝",
+        "surface": "芝",
+        "distance": 1200,
+        "direction": "右",
+        "courseDetail": "",
+        "postTime": "16:10",
+        "going": "稍重",
+        "weather": "雨",
+        "status": "archive",
+        "kicker": "過去レース",
+        "sourceUrl": "https://www.jra.go.jp/JRADB/accessD.html?CNAME=pw01dde1008202604021220261004/37",
+        "sourceLabel": "JRA公式 出馬表",
+        "statusMessage": ""
+      },
+      "horses": [
+        {
+          "number": 1,
+          "name": "ファイツオン",
+          "sexAge": "牡5",
+          "jockey": "吉田 隼人",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "アルアイン",
+            "damsire": "サクラバクシンオー"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 2,
+          "name": "スイミーユニバンス",
+          "sexAge": "牝6",
+          "jockey": "浜中 俊",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "ドゥラメンテ",
+            "damsire": "Aldebaran"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 3,
+          "name": "ジュルナール",
+          "sexAge": "牝4",
+          "jockey": "池添 謙一",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "ロードカナロア",
+            "damsire": "Singspiel"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 4,
+          "name": "ガラベイヤ",
+          "sexAge": "牝3",
+          "jockey": "横山 和生",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "アルアイン",
+            "damsire": "Dubawi"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 5,
+          "name": "モンサンゴールデン",
+          "sexAge": "牡3",
+          "jockey": "柴田 裕一郎",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "シルバーステート",
+            "damsire": "Bertolini"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 6,
+          "name": "サンライズプルート",
+          "sexAge": "牡6",
+          "jockey": "吉村 誠之助",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "リオンディーズ",
+            "damsire": "ディープインパクト"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 7,
+          "name": "ロードトレゾール",
+          "sexAge": "牡5",
+          "jockey": "河原田 菜々",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "ロードカナロア",
+            "damsire": "Sea The Stars"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 8,
+          "name": "バシレウスシチー",
+          "sexAge": "牡7",
+          "jockey": "菱田 裕二",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "ビッグアーサー",
+            "damsire": "ディープインパクト"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 9,
+          "name": "トップアタック",
+          "sexAge": "牡3",
+          "jockey": "小沢 大仁",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "サトノダイヤモンド",
+            "damsire": "ロードカナロア"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 10,
+          "name": "メイショウゴールド",
+          "sexAge": "牡4",
+          "jockey": "酒井 学",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "カリフォルニアクローム",
+            "damsire": "メイショウサムソン"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 11,
+          "name": "アイニードユー",
+          "sexAge": "牝3",
+          "jockey": "川田 将雅",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "ファインニードル",
+            "damsire": "ハードスパン"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 12,
+          "name": "サクセスカラー",
+          "sexAge": "牝5",
+          "jockey": "吉田 豊",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "ロジャーバローズ",
+            "damsire": "Frankel"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 13,
+          "name": "グッドピース",
+          "sexAge": "牡3",
+          "jockey": "鮫島 克駿",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "Kingman",
+            "damsire": "Medaglia d'Oro"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 14,
+          "name": "マーゴットミスト",
+          "sexAge": "牡3",
+          "jockey": "田口 貫太",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "ビッグアーサー",
+            "damsire": "スウェプトオーヴァーボード"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 15,
+          "name": "マイネルラッシュ",
+          "sexAge": "牡6",
+          "jockey": "国分 恭介",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "ダイワメジャー",
+            "damsire": "バゴ"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 16,
+          "name": "スネーフリンガ",
+          "sexAge": "牝4",
+          "jockey": "松山 弘平",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "サンダースノー",
+            "damsire": "デュランダル"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 17,
+          "name": "タマカヅラ",
+          "sexAge": "牝4",
+          "jockey": "斎藤 新",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "フィエールマン",
+            "damsire": "ダイワメジャー"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        },
+        {
+          "number": 18,
+          "name": "ルージュサウダージ",
+          "sexAge": "牝3",
+          "jockey": "角田 大和",
+          "preRating": null,
+          "runs": [],
+          "pedigree": {
+            "sire": "フィレンツェファイア",
+            "damsire": "ロードカナロア"
+          },
+          "sameJockeyRunIndexes": [],
+          "courseEvidence": [],
+          "goingEvidence": []
+        }
+      ]
+    }
+  }
+}
