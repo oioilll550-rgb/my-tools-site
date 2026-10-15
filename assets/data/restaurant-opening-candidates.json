@@ -1,8 +1,8 @@
 {
   "area": "越谷市",
-  "updatedAt": "2026-10-14",
+  "updatedAt": "2026-10-16",
   "purpose": "新規OPEN候補の軽量自動探索。候補は確認前のため、そのまま本番店舗一覧には掲載しない。",
-  "candidateCount": 21,
+  "candidateCount": 22,
   "sourceCount": 3,
   "candidates": [
     {
@@ -168,6 +168,17 @@
       "sourceName": "イオンレイクタウンmori NEW SHOP",
       "sourceUrl": "https://www.aeon-laketown.jp/mori/special/newshop/",
       "discoveredAt": "2026-09-27",
+      "status": "candidate"
+    },
+    {
+      "id": "7aa762dd387bca76",
+      "name": "パンダ麻辣湯",
+      "headline": "【越谷市】今度は北越谷に！市内3店舗目となる「パンダ麻辣湯」がオープン予定です",
+      "openingDateHint": "",
+      "sourceId": "goguynet-koshigaya-openclose",
+      "sourceName": "号外NET 越谷市 開店/閉店",
+      "sourceUrl": "https://koshigaya.goguynet.jp/2026/10/16/pandamalatang-3/",
+      "discoveredAt": "2026-10-16",
       "status": "candidate"
     },
     {
