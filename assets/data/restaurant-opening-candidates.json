@@ -1,10 +1,21 @@
 {
   "area": "越谷市",
-  "updatedAt": "2026-10-16",
+  "updatedAt": "2026-10-17",
   "purpose": "新規OPEN候補の軽量自動探索。候補は確認前のため、そのまま本番店舗一覧には掲載しない。",
-  "candidateCount": 22,
+  "candidateCount": 23,
   "sourceCount": 3,
   "candidates": [
+    {
+      "id": "8f72a4754c73fde5",
+      "name": "ドラッグストアコスモス 大袋店",
+      "headline": "【越谷市】10月24日オープン予定！大竹に「ドラッグストアコスモス 大袋店」が誕生します",
+      "openingDateHint": "2026-10-24",
+      "sourceId": "goguynet-koshigaya-openclose",
+      "sourceName": "号外NET 越谷市 開店/閉店",
+      "sourceUrl": "https://koshigaya.goguynet.jp/2026/10/17/kosumosuoobukuro/",
+      "discoveredAt": "2026-10-17",
+      "status": "candidate"
+    },
     {
       "id": "1ffa8a1487b7acae",
       "name": "袋山に",
