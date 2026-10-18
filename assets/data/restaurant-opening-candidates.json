@@ -1,8 +1,8 @@
 {
   "area": "越谷市",
-  "updatedAt": "2026-10-17",
+  "updatedAt": "2026-10-19",
   "purpose": "新規OPEN候補の軽量自動探索。候補は確認前のため、そのまま本番店舗一覧には掲載しない。",
-  "candidateCount": 23,
+  "candidateCount": 24,
   "sourceCount": 3,
   "candidates": [
     {
@@ -179,6 +179,17 @@
       "sourceName": "イオンレイクタウンmori NEW SHOP",
       "sourceUrl": "https://www.aeon-laketown.jp/mori/special/newshop/",
       "discoveredAt": "2026-09-27",
+      "status": "candidate"
+    },
+    {
+      "id": "dc0a7589f7b98b77",
+      "name": "あんこのごほうび",
+      "headline": "【越谷市】どら焼き専門店「あんこのごほうび」がオープン。初日は30分で完売",
+      "openingDateHint": "",
+      "sourceId": "goguynet-koshigaya-openclose",
+      "sourceName": "号外NET 越谷市 開店/閉店",
+      "sourceUrl": "https://koshigaya.goguynet.jp/2026/10/18/ankonogohoubi/",
+      "discoveredAt": "2026-10-19",
       "status": "candidate"
     },
     {
