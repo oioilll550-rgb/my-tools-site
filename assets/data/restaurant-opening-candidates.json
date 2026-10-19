@@ -1,10 +1,21 @@
 {
   "area": "越谷市",
-  "updatedAt": "2026-10-19",
+  "updatedAt": "2026-10-20",
   "purpose": "新規OPEN候補の軽量自動探索。候補は確認前のため、そのまま本番店舗一覧には掲載しない。",
-  "candidateCount": 24,
+  "candidateCount": 25,
   "sourceCount": 3,
   "candidates": [
+    {
+      "id": "6a056b5c7a3b6802",
+      "name": "Watts",
+      "headline": "【越谷市】続報！トライアルマート跡地に「ビッグ・エー」が10月31日オープン予定！「Watts」の看板も",
+      "openingDateHint": "2026-10-31",
+      "sourceId": "goguynet-koshigaya-openclose",
+      "sourceName": "号外NET 越谷市 開店/閉店",
+      "sourceUrl": "https://koshigaya.goguynet.jp/2026/10/19/biga-higashiosawa/",
+      "discoveredAt": "2026-10-20",
+      "status": "candidate"
+    },
     {
       "id": "8f72a4754c73fde5",
       "name": "ドラッグストアコスモス 大袋店",
