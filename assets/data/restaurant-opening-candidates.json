@@ -1,8 +1,8 @@
 {
   "area": "越谷市",
-  "updatedAt": "2026-10-27",
+  "updatedAt": "2026-11-02",
   "purpose": "新規OPEN候補の軽量自動探索。候補は確認前のため、そのまま本番店舗一覧には掲載しない。",
-  "candidateCount": 27,
+  "candidateCount": 28,
   "sourceCount": 3,
   "candidates": [
     {
@@ -190,6 +190,17 @@
       "sourceName": "イオンレイクタウンmori NEW SHOP",
       "sourceUrl": "https://www.aeon-laketown.jp/mori/special/newshop/",
       "discoveredAt": "2026-09-27",
+      "status": "candidate"
+    },
+    {
+      "id": "63ff063e86066b43",
+      "name": "居酒屋 えんどれす",
+      "headline": "【越谷市】カラオケも楽しめる！せんげん台駅前に「居酒屋 えんどれす」がオープンしています。",
+      "openingDateHint": "",
+      "sourceId": "goguynet-koshigaya-openclose",
+      "sourceName": "号外NET 越谷市 開店/閉店",
+      "sourceUrl": "https://koshigaya.goguynet.jp/2026/11/02/endless/",
+      "discoveredAt": "2026-11-02",
       "status": "candidate"
     },
     {
