@@ -1,8 +1,8 @@
 {
   "area": "越谷市",
-  "updatedAt": "2026-11-04",
+  "updatedAt": "2026-11-09",
   "purpose": "新規OPEN候補の軽量自動探索。候補は確認前のため、そのまま本番店舗一覧には掲載しない。",
-  "candidateCount": 29,
+  "candidateCount": 30,
   "sourceCount": 3,
   "candidates": [
     {
@@ -190,6 +190,17 @@
       "sourceName": "イオンレイクタウンmori NEW SHOP",
       "sourceUrl": "https://www.aeon-laketown.jp/mori/special/newshop/",
       "discoveredAt": "2026-09-27",
+      "status": "candidate"
+    },
+    {
+      "id": "3e834e0f2dad1d50",
+      "name": "現在プレオープン中でお得に楽しめます",
+      "headline": "【越谷市】越谷駅コロラド跡地に地鶏を使った焼鳥屋が。現在プレオープン中でお得に楽しめます",
+      "openingDateHint": "",
+      "sourceId": "goguynet-koshigaya-openclose",
+      "sourceName": "号外NET 越谷市 開店/閉店",
+      "sourceUrl": "https://koshigaya.goguynet.jp/2026/11/08/torizen/",
+      "discoveredAt": "2026-11-09",
       "status": "candidate"
     },
     {
