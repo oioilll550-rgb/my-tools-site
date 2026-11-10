@@ -1,10 +1,21 @@
 {
   "area": "越谷市",
-  "updatedAt": "2026-11-09",
+  "updatedAt": "2026-11-10",
   "purpose": "新規OPEN候補の軽量自動探索。候補は確認前のため、そのまま本番店舗一覧には掲載しない。",
-  "candidateCount": 30,
+  "candidateCount": 31,
   "sourceCount": 3,
   "candidates": [
+    {
+      "id": "5e5b7ecde99db27a",
+      "name": "PISOLA",
+      "headline": "【越谷市】11月18日オープン予定！リゾートイタリアン「PISOLA」の現在の様子を見てきました",
+      "openingDateHint": "2026-11-18",
+      "sourceId": "goguynet-koshigaya-openclose",
+      "sourceName": "号外NET 越谷市 開店/閉店",
+      "sourceUrl": "https://koshigaya.goguynet.jp/2026/11/09/pisola-2/",
+      "discoveredAt": "2026-11-10",
+      "status": "candidate"
+    },
     {
       "id": "6a056b5c7a3b6802",
       "name": "Watts",
