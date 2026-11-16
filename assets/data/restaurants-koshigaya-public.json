@@ -1,17 +1,17 @@
 {
   "area": "越谷市",
-  "generatedAt": "2026-10-16T10:32:33+09:00",
-  "officialPermitCount": 2525,
-  "count": 2367,
+  "generatedAt": "2026-11-16T11:54:27+09:00",
+  "officialPermitCount": 2557,
+  "count": 2396,
   "countsByConfidence": {
     "confirmed": 35,
-    "high": 1274,
-    "medium": 1058,
-    "excluded": 183
+    "high": 1291,
+    "medium": 1070,
+    "excluded": 184
   },
   "excludedByReason": {
     "convenience": 111,
-    "education": 27,
+    "education": 28,
     "internal-foodservice": 11,
     "medical": 12,
     "care-welfare": 22
@@ -455,21 +455,22 @@
       "openingDate": ""
     },
     {
-      "id": "yudetaro-gamo",
-      "name": "ゆで太郎 もつ次郎 越谷蒲生店",
-      "address": "埼玉県越谷市蒲生西町1-5-16",
-      "permitDate": "",
-      "sourceUrl": "https://yudetaro.jp/area/koshigaya/",
+      "id": "official-893eaca2cc4e7f",
+      "name": "ゆで太郎もつ次郎越谷蒲生店",
+      "address": "埼玉県越谷市蒲生西町１－５－１６",
+      "permitDate": "2026-09-16",
+      "sourceUrl": "https://www.city.koshigaya.saitama.jp/kurashi_shisei/fukushi/hokenjo/shokuhin/files/r8.sep.syokuhin.xls",
       "confidence": "confirmed",
-      "classificationReason": "curated-only",
+      "classificationReason": "curated",
       "tags": [
-        "japanese",
-        "solo",
         "cheap",
-        "lunch"
+        "japanese",
+        "lunch",
+        "solo"
       ],
       "curated": true,
-      "openingDate": "2026-09-18"
+      "openingDate": "2026-09-18",
+      "curatedSourceUrl": "https://yudetaro.jp/area/koshigaya/"
     },
     {
       "id": "sukibara",
@@ -1641,8 +1642,8 @@
       "id": "official-fd50627bdde473",
       "name": "蕎麦いまゐ 越谷レイクタウン店",
       "address": "埼玉県越谷市レイクタウン３－１－１ レイクタウンｍｏｒｉ",
-      "permitDate": "2020-10-09",
-      "sourceUrl": "https://www.city.koshigaya.saitama.jp/kurashi_shisei/fukushi/hokenjo/shokuhin/files/r8.3.31koukai.xls",
+      "permitDate": "2026-09-24",
+      "sourceUrl": "https://www.city.koshigaya.saitama.jp/kurashi_shisei/fukushi/hokenjo/shokuhin/files/r8.sep.syokuhin.xls",
       "confidence": "high",
       "classificationReason": "name-cue",
       "tags": [
@@ -1830,6 +1831,19 @@
       "confidence": "high",
       "classificationReason": "name-cue",
       "tags": [],
+      "curated": false
+    },
+    {
+      "id": "official-f853ae8aad76dc",
+      "name": "がってん寿司ＦＯＯＤＣＯＵＲＴ レイクタウンｋａｚｅ店",
+      "address": "埼玉県越谷市レイクタウン４－２－２ １階１７３区画",
+      "permitDate": "2026-10-22",
+      "sourceUrl": "https://www.city.koshigaya.saitama.jp/kurashi_shisei/fukushi/hokenjo/shokuhin/files/r8.oct.syokuhin.xls",
+      "confidence": "high",
+      "classificationReason": "name-cue",
+      "tags": [
+        "sushi"
+      ],
       "curated": false
     },
     {
@@ -2199,6 +2213,19 @@
       "curated": false
     },
     {
+      "id": "official-07c32fa75256be",
+      "name": "生パスタ専門店スパラ＆ＯＮＥ ＳＬＩＣＥ ＰＩＺＺＡイオンレイクタウンｋａｚｅ店",
+      "address": "埼玉県越谷市レイクタウン４－２－２ イオンレイクタウンｋａｚｅ １階フードコート",
+      "permitDate": "2026-09-24",
+      "sourceUrl": "https://www.city.koshigaya.saitama.jp/kurashi_shisei/fukushi/hokenjo/shokuhin/files/r8.sep.syokuhin.xls",
+      "confidence": "high",
+      "classificationReason": "name-cue",
+      "tags": [
+        "italian"
+      ],
+      "curated": false
+    },
+    {
       "id": "official-dee4d55d3c931d",
       "name": "ＤｅＡｇｏｓｔｉｎｉＣａｆｅ Ｐｒｏｄｕｃｅｄ ｂｙ ＣＲＯＣＥ＆Ｃｏ．",
       "address": "埼玉県越谷市レイクタウン４－２－２ イオンレイクタウンＫａｚｅ ２０２",
@@ -2227,9 +2254,9 @@
     {
       "id": "official-9d4d20c03f424d",
       "name": "アフタヌーンティー・ティールーム イオンレイクタウンｋａｚｅ",
-      "address": "埼玉県越谷市レイクタウン４－２－２ イオンレイクタウンｋａｚｅ２階",
-      "permitDate": "2020-10-12",
-      "sourceUrl": "https://www.city.koshigaya.saitama.jp/kurashi_shisei/fukushi/hokenjo/shokuhin/files/r8.3.31koukai.xls",
+      "address": "埼玉県越谷市レイクタウン４－２－２ イオンレイクタウンｋａｚｅ ２階",
+      "permitDate": "2026-10-22",
+      "sourceUrl": "https://www.city.koshigaya.saitama.jp/kurashi_shisei/fukushi/hokenjo/shokuhin/files/r8.oct.syokuhin.xls",
       "confidence": "high",
       "classificationReason": "location-cue",
       "tags": [],
@@ -2785,8 +2812,8 @@
       "id": "official-017878f9e93e9c",
       "name": "Ｉｔａｌｉａｎ Ｋｉｔｃｈｅｎ ＶＡＮＳＡＮ 越谷レイクタウン南口店",
       "address": "埼玉県越谷市レイクタウン８－１０－８",
-      "permitDate": "2020-09-10",
-      "sourceUrl": "https://www.city.koshigaya.saitama.jp/kurashi_shisei/fukushi/hokenjo/shokuhin/files/r8.3.31koukai.xls",
+      "permitDate": "2026-10-14",
+      "sourceUrl": "https://www.city.koshigaya.saitama.jp/kurashi_shisei/fukushi/hokenjo/shokuhin/files/r8.oct.syokuhin.xls",
       "confidence": "high",
       "classificationReason": "name-cue",
       "tags": [],
@@ -3064,6 +3091,17 @@
       "address": "埼玉県越谷市中町８－１０",
       "permitDate": "2024-10-11",
       "sourceUrl": "https://www.city.koshigaya.saitama.jp/kurashi_shisei/fukushi/hokenjo/shokuhin/files/r8.3.31koukai.xls",
+      "confidence": "high",
+      "classificationReason": "name-cue",
+      "tags": [],
+      "curated": false
+    },
+    {
+      "id": "official-7525e2b9c14126",
+      "name": "株式会社西友 蒲生伊原店",
+      "address": "埼玉県越谷市伊原１－４－１",
+      "permitDate": "2026-09-17",
+      "sourceUrl": "https://www.city.koshigaya.saitama.jp/kurashi_shisei/fukushi/hokenjo/shokuhin/files/r8.sep.syokuhin.xls",
       "confidence": "high",
       "classificationReason": "name-cue",
       "tags": [],
@@ -4279,6 +4317,17 @@
       "curated": false
     },
     {
+      "id": "official-065d737c0b1dd5",
+      "name": "麺処 超幸",
+      "address": "埼玉県越谷市千間台西１－９－５ 古小路ビル１０１",
+      "permitDate": "2026-09-14",
+      "sourceUrl": "https://www.city.koshigaya.saitama.jp/kurashi_shisei/fukushi/hokenjo/shokuhin/files/r8.sep.syokuhin.xls",
+      "confidence": "high",
+      "classificationReason": "name-cue",
+      "tags": [],
+      "curated": false
+    },
+    {
       "id": "official-bc4c98a48f7596",
       "name": "金寿司にぎり亭いはら",
       "address": "埼玉県越谷市千間台西２－１２－２",
@@ -4800,6 +4849,17 @@
       "sourceUrl": "https://www.city.koshigaya.saitama.jp/kurashi_shisei/fukushi/hokenjo/shokuhin/files/r8.3.31koukai.xls",
       "confidence": "high",
       "classificationReason": "location-cue",
+      "tags": [],
+      "curated": false
+    },
+    {
+      "id": "official-f4bf18c609eff0",
+      "name": "カンナムキンパ 新越谷ヴァリエ店",
+      "address": "埼玉県越谷市南越谷１－１１－４ 新越谷ヴァリエ１階",
+      "permitDate": "2026-10-07",
+      "sourceUrl": "https://www.city.koshigaya.saitama.jp/kurashi_shisei/fukushi/hokenjo/shokuhin/files/r8.oct.syokuhin.xls",
+      "confidence": "high",
+      "classificationReason": "name-cue",
       "tags": [],
       "curated": false
     },
@@ -5527,6 +5587,17 @@
       "curated": false
     },
     {
+      "id": "official-e4758857f53211",
+      "name": "大衆居酒屋 てるてるぼうず 南越谷本店",
+      "address": "埼玉県越谷市南越谷１－２０－１３ 第２ＪＭビル１階",
+      "permitDate": "2026-09-17",
+      "sourceUrl": "https://www.city.koshigaya.saitama.jp/kurashi_shisei/fukushi/hokenjo/shokuhin/files/r8.sep.syokuhin.xls",
+      "confidence": "high",
+      "classificationReason": "name-cue",
+      "tags": [],
+      "curated": false
+    },
+    {
       "id": "official-91218f6f7c761e",
       "name": "溶岩食堂 しんのすけ",
       "address": "埼玉県越谷市南越谷１－２０－１３ 第２ＪＭビル２階",
@@ -5790,6 +5861,17 @@
       "address": "埼玉県越谷市南越谷１－２６－１１",
       "permitDate": "2021-12-27",
       "sourceUrl": "https://www.city.koshigaya.saitama.jp/kurashi_shisei/fukushi/hokenjo/shokuhin/files/r8.3.31koukai.xls",
+      "confidence": "high",
+      "classificationReason": "name-cue",
+      "tags": [],
+      "curated": false
+    },
+    {
+      "id": "official-de9c5cfd2f74cb",
+      "name": "屋台屋 博多劇場 南越谷店",
+      "address": "埼玉県越谷市南越谷１－２６－１２",
+      "permitDate": "2026-09-08",
+      "sourceUrl": "https://www.city.koshigaya.saitama.jp/kurashi_shisei/fukushi/hokenjo/shokuhin/files/r8.sep.syokuhin.xls",
       "confidence": "high",
       "classificationReason": "name-cue",
       "tags": [],
@@ -6244,6 +6326,17 @@
       "curated": false
     },
     {
+      "id": "official-fdcd3bd728ff0d",
+      "name": "Ｂａｒ ＴｉＬＴ",
+      "address": "埼玉県越谷市南越谷２－２－６ 天領第一ビル１０２",
+      "permitDate": "2026-10-22",
+      "sourceUrl": "https://www.city.koshigaya.saitama.jp/kurashi_shisei/fukushi/hokenjo/shokuhin/files/r8.oct.syokuhin.xls",
+      "confidence": "high",
+      "classificationReason": "name-cue",
+      "tags": [],
+      "curated": false
+    },
+    {
       "id": "official-380f2b5e6c46dd",
       "name": "我流炙ダイニング廩ＲＩＮ",
       "address": "埼玉県越谷市南越谷２－３－１９ 三橋第三ビル２階",
@@ -6374,8 +6467,8 @@
       "id": "official-ad0d025706696c",
       "name": "韓国居食屋 閔家",
       "address": "埼玉県越谷市南越谷４－１－１４ 浅野ビル１階",
-      "permitDate": "2020-09-09",
-      "sourceUrl": "https://www.city.koshigaya.saitama.jp/kurashi_shisei/fukushi/hokenjo/shokuhin/files/r8.3.31koukai.xls",
+      "permitDate": "2026-09-24",
+      "sourceUrl": "https://www.city.koshigaya.saitama.jp/kurashi_shisei/fukushi/hokenjo/shokuhin/files/r8.sep.syokuhin.xls",
       "confidence": "high",
       "classificationReason": "name-cue",
       "tags": [],
@@ -6461,6 +6554,19 @@
       "classificationReason": "name-cue",
       "tags": [
         "italian"
+      ],
+      "curated": false
+    },
+    {
+      "id": "official-3664731a87e1eb",
+      "name": "大衆寿司酒場こがね はなれ",
+      "address": "埼玉県越谷市南越谷４－３－１",
+      "permitDate": "2026-10-13",
+      "sourceUrl": "https://www.city.koshigaya.saitama.jp/kurashi_shisei/fukushi/hokenjo/shokuhin/files/r8.oct.syokuhin.xls",
+      "confidence": "high",
+      "classificationReason": "name-cue",
+      "tags": [
+        "sushi"
       ],
       "curated": false
     },
@@ -7207,6 +7313,17 @@
       "curated": false
     },
     {
+      "id": "official-1987a25be43ac6",
+      "name": "麺屋 壱飛",
+      "address": "埼玉県越谷市大字南荻島８４３－３",
+      "permitDate": "2026-10-15",
+      "sourceUrl": "https://www.city.koshigaya.saitama.jp/kurashi_shisei/fukushi/hokenjo/shokuhin/files/r8.oct.syokuhin.xls",
+      "confidence": "high",
+      "classificationReason": "name-cue",
+      "tags": [],
+      "curated": false
+    },
+    {
       "id": "official-dd32e791a042f1",
       "name": "ライズマート アジアンハラルフード＆レストラン",
       "address": "埼玉県越谷市大字南荻島９４７",
@@ -7328,8 +7445,8 @@
       "id": "official-9b9a295333b90d",
       "name": "有限会社 浜丁寿司",
       "address": "埼玉県越谷市大字大房７１６－７",
-      "permitDate": "2020-10-29",
-      "sourceUrl": "https://www.city.koshigaya.saitama.jp/kurashi_shisei/fukushi/hokenjo/shokuhin/files/r8.3.31koukai.xls",
+      "permitDate": "2026-10-22",
+      "sourceUrl": "https://www.city.koshigaya.saitama.jp/kurashi_shisei/fukushi/hokenjo/shokuhin/files/r8.oct.syokuhin.xls",
       "confidence": "high",
       "classificationReason": "name-cue",
       "tags": [
@@ -8415,8 +8532,8 @@
       "id": "official-4555ef0414bc50",
       "name": "中華そば 十目一八食堂",
       "address": "埼玉県越谷市大字袋山１４２０－６",
-      "permitDate": "2020-10-02",
-      "sourceUrl": "https://www.city.koshigaya.saitama.jp/kurashi_shisei/fukushi/hokenjo/shokuhin/files/r8.3.31koukai.xls",
+      "permitDate": "2026-10-19",
+      "sourceUrl": "https://www.city.koshigaya.saitama.jp/kurashi_shisei/fukushi/hokenjo/shokuhin/files/r8.oct.syokuhin.xls",
       "confidence": "high",
       "classificationReason": "name-cue",
       "tags": [
@@ -8701,6 +8818,19 @@
       "confidence": "high",
       "classificationReason": "name-cue",
       "tags": [],
+      "curated": false
+    },
+    {
+      "id": "official-c51d9a4ad2a804",
+      "name": "ラーメン山岡家 越谷袋山店",
+      "address": "埼玉県越谷市大字袋山１７９４－１",
+      "permitDate": "2026-09-17",
+      "sourceUrl": "https://www.city.koshigaya.saitama.jp/kurashi_shisei/fukushi/hokenjo/shokuhin/files/r8.sep.syokuhin.xls",
+      "confidence": "high",
+      "classificationReason": "name-cue",
+      "tags": [
+        "ramen"
+      ],
       "curated": false
     },
     {
@@ -9064,8 +9194,8 @@
       "id": "official-e82891b86b399c",
       "name": "イタリア酒蔵 酒Ｂａｒ",
       "address": "埼玉県越谷市大沢３－１８－１６",
-      "permitDate": "2020-10-08",
-      "sourceUrl": "https://www.city.koshigaya.saitama.jp/kurashi_shisei/fukushi/hokenjo/shokuhin/files/r8.3.31koukai.xls",
+      "permitDate": "2026-10-13",
+      "sourceUrl": "https://www.city.koshigaya.saitama.jp/kurashi_shisei/fukushi/hokenjo/shokuhin/files/r8.oct.syokuhin.xls",
       "confidence": "high",
       "classificationReason": "name-cue",
       "tags": [
@@ -9099,8 +9229,8 @@
       "id": "official-124829dabe6f7a",
       "name": "中華料理 一休",
       "address": "埼玉県越谷市大沢３－２１－２６",
-      "permitDate": "2020-09-30",
-      "sourceUrl": "https://www.city.koshigaya.saitama.jp/kurashi_shisei/fukushi/hokenjo/shokuhin/files/r8.3.31koukai.xls",
+      "permitDate": "2026-09-14",
+      "sourceUrl": "https://www.city.koshigaya.saitama.jp/kurashi_shisei/fukushi/hokenjo/shokuhin/files/r8.sep.syokuhin.xls",
       "confidence": "high",
       "classificationReason": "name-cue",
       "tags": [],
@@ -9474,8 +9604,8 @@
       "id": "official-524c8f0c57b4b9",
       "name": "小僧寿し 宮本町店",
       "address": "埼玉県越谷市宮本町２－２４６－２",
-      "permitDate": "2020-10-05",
-      "sourceUrl": "https://www.city.koshigaya.saitama.jp/kurashi_shisei/fukushi/hokenjo/shokuhin/files/r8.3.31koukai.xls",
+      "permitDate": "2026-10-13",
+      "sourceUrl": "https://www.city.koshigaya.saitama.jp/kurashi_shisei/fukushi/hokenjo/shokuhin/files/r8.oct.syokuhin.xls",
       "confidence": "high",
       "classificationReason": "name-cue",
       "tags": [],
@@ -9603,8 +9733,8 @@
       "id": "official-2d7f305bf7f5e3",
       "name": "寿司割烹 やよい",
       "address": "埼玉県越谷市川柳町１－２５９－４",
-      "permitDate": "2020-10-13",
-      "sourceUrl": "https://www.city.koshigaya.saitama.jp/kurashi_shisei/fukushi/hokenjo/shokuhin/files/r8.3.31koukai.xls",
+      "permitDate": "2026-10-19",
+      "sourceUrl": "https://www.city.koshigaya.saitama.jp/kurashi_shisei/fukushi/hokenjo/shokuhin/files/r8.oct.syokuhin.xls",
       "confidence": "high",
       "classificationReason": "name-cue",
       "tags": [
@@ -9757,6 +9887,17 @@
       "tags": [
         "italian"
       ],
+      "curated": false
+    },
+    {
+      "id": "official-4ad5defc7afe25",
+      "name": "カキガヤ かきバルＰａｒｔ２",
+      "address": "埼玉県越谷市弥生町１１－２ Ｙコート１階Ｃ",
+      "permitDate": "2026-10-09",
+      "sourceUrl": "https://www.city.koshigaya.saitama.jp/kurashi_shisei/fukushi/hokenjo/shokuhin/files/r8.oct.syokuhin.xls",
+      "confidence": "high",
+      "classificationReason": "name-cue",
+      "tags": [],
       "curated": false
     },
     {
@@ -10589,6 +10730,19 @@
       "curated": false
     },
     {
+      "id": "official-e0ca45198f23e6",
+      "name": "ビストロ 北越谷店",
+      "address": "埼玉県越谷市東大沢５－１６－５",
+      "permitDate": "2026-10-22",
+      "sourceUrl": "https://www.city.koshigaya.saitama.jp/kurashi_shisei/fukushi/hokenjo/shokuhin/files/r8.oct.syokuhin.xls",
+      "confidence": "high",
+      "classificationReason": "name-cue",
+      "tags": [
+        "italian"
+      ],
+      "curated": false
+    },
+    {
       "id": "official-82df2f5c88be1f",
       "name": "ビストロ 北越谷支店",
       "address": "埼玉県越谷市東大沢５－１６－５",
@@ -10787,6 +10941,17 @@
       "tags": [
         "cafe"
       ],
+      "curated": false
+    },
+    {
+      "id": "official-e9c2dafca94131",
+      "name": "ＰＩＳＯＬＡ 東越谷店",
+      "address": "埼玉県越谷市東越谷３－１７－２０",
+      "permitDate": "2026-10-28",
+      "sourceUrl": "https://www.city.koshigaya.saitama.jp/kurashi_shisei/fukushi/hokenjo/shokuhin/files/r8.oct.syokuhin.xls",
+      "confidence": "high",
+      "classificationReason": "name-cue",
+      "tags": [],
       "curated": false
     },
     {
@@ -12905,6 +13070,17 @@
       "curated": false
     },
     {
+      "id": "official-5f6e938ec2fc6a",
+      "name": "スナック カルミア",
+      "address": "埼玉県越谷市蒲生西町２－１－２７ ＫＯ‘Ｚ－ＴＲＥ ３階",
+      "permitDate": "2026-10-19",
+      "sourceUrl": "https://www.city.koshigaya.saitama.jp/kurashi_shisei/fukushi/hokenjo/shokuhin/files/r8.oct.syokuhin.xls",
+      "confidence": "high",
+      "classificationReason": "name-cue",
+      "tags": [],
+      "curated": false
+    },
+    {
       "id": "official-241c912edb672f",
       "name": "カラオケＣａｆｅ ＴＯＰ",
       "address": "埼玉県越谷市蒲生西町２－１－２７ オレンジボートビル３階",
@@ -13358,8 +13534,8 @@
       "id": "official-66d0f1f3281457",
       "name": "Ａｓｉａｎ Ｄｉｎｉｎｇ Ｒｅｓｔａｕｒａｎｔ ＰＯＲＩＢＡＲ",
       "address": "埼玉県越谷市赤山町１－８８－６",
-      "permitDate": "2020-10-14",
-      "sourceUrl": "https://www.city.koshigaya.saitama.jp/kurashi_shisei/fukushi/hokenjo/shokuhin/files/r8.3.31koukai.xls",
+      "permitDate": "2026-09-29",
+      "sourceUrl": "https://www.city.koshigaya.saitama.jp/kurashi_shisei/fukushi/hokenjo/shokuhin/files/r8.sep.syokuhin.xls",
       "confidence": "high",
       "classificationReason": "name-cue",
       "tags": [],
@@ -13833,8 +14009,8 @@
       "id": "official-cb8beb1cfdcae9",
       "name": "Ｂａｒ Ｅｓｃｏｖｅｄｏ",
       "address": "埼玉県越谷市越ヶ谷１－１５－９ 広栄ビル２階Ｅ号室",
-      "permitDate": "2020-10-30",
-      "sourceUrl": "https://www.city.koshigaya.saitama.jp/kurashi_shisei/fukushi/hokenjo/shokuhin/files/r8.3.31koukai.xls",
+      "permitDate": "2026-10-13",
+      "sourceUrl": "https://www.city.koshigaya.saitama.jp/kurashi_shisei/fukushi/hokenjo/shokuhin/files/r8.oct.syokuhin.xls",
       "confidence": "high",
       "classificationReason": "name-cue",
       "tags": [],
@@ -14176,6 +14352,17 @@
       "curated": false
     },
     {
+      "id": "official-d3b0338feed9d2",
+      "name": "２ＵＰ ＫＩＴＣＨＥＮ",
+      "address": "市内一円",
+      "permitDate": "2026-10-28",
+      "sourceUrl": "https://www.city.koshigaya.saitama.jp/kurashi_shisei/fukushi/hokenjo/shokuhin/files/r8.oct.syokuhin.xls",
+      "confidence": "high",
+      "classificationReason": "name-cue",
+      "tags": [],
+      "curated": false
+    },
+    {
       "id": "official-aa1188ecd18c17",
       "name": "３８ＣＡＦＥ／ＴｈｉｒｔｙＥｉｇｈｔＣａｆé",
       "address": "市内一円",
@@ -14301,6 +14488,19 @@
       "address": "市内一円",
       "permitDate": "2022-01-13",
       "sourceUrl": "https://www.city.koshigaya.saitama.jp/kurashi_shisei/fukushi/hokenjo/shokuhin/files/r8.3.31koukai.xls",
+      "confidence": "high",
+      "classificationReason": "name-cue",
+      "tags": [
+        "cafe"
+      ],
+      "curated": false
+    },
+    {
+      "id": "official-2080d7c259ab41",
+      "name": "ＣＡＦＥ Ｕ－５",
+      "address": "市内一円",
+      "permitDate": "2026-10-14",
+      "sourceUrl": "https://www.city.koshigaya.saitama.jp/kurashi_shisei/fukushi/hokenjo/shokuhin/files/r8.oct.syokuhin.xls",
       "confidence": "high",
       "classificationReason": "name-cue",
       "tags": [
@@ -15637,8 +15837,8 @@
       "id": "official-abc1e870d935ef",
       "name": "花び",
       "address": "埼玉県越谷市北越谷２－２４－１３ 好心荘１０１",
-      "permitDate": "2020-08-27",
-      "sourceUrl": "https://www.city.koshigaya.saitama.jp/kurashi_shisei/fukushi/hokenjo/shokuhin/files/r8.3.31koukai.xls",
+      "permitDate": "2026-09-14",
+      "sourceUrl": "https://www.city.koshigaya.saitama.jp/kurashi_shisei/fukushi/hokenjo/shokuhin/files/r8.sep.syokuhin.xls",
       "confidence": "medium",
       "classificationReason": "permit-only",
       "tags": [],
@@ -16041,6 +16241,17 @@
       "curated": false
     },
     {
+      "id": "official-de4c8a8605ecdd",
+      "name": "美時音ｖｉｓｉｏｎ",
+      "address": "埼玉県越谷市千間台東１－１９－８",
+      "permitDate": "2026-10-07",
+      "sourceUrl": "https://www.city.koshigaya.saitama.jp/kurashi_shisei/fukushi/hokenjo/shokuhin/files/r8.oct.syokuhin.xls",
+      "confidence": "medium",
+      "classificationReason": "permit-only",
+      "tags": [],
+      "curated": false
+    },
+    {
       "id": "official-bdc08b89f65c00",
       "name": "輪",
       "address": "埼玉県越谷市千間台東１－２２－１",
@@ -16257,8 +16468,8 @@
       "id": "official-68a5d21c40571f",
       "name": "やぶ栄",
       "address": "埼玉県越谷市千間台東４－３－１",
-      "permitDate": "2020-10-16",
-      "sourceUrl": "https://www.city.koshigaya.saitama.jp/kurashi_shisei/fukushi/hokenjo/shokuhin/files/r8.3.31koukai.xls",
+      "permitDate": "2026-10-19",
+      "sourceUrl": "https://www.city.koshigaya.saitama.jp/kurashi_shisei/fukushi/hokenjo/shokuhin/files/r8.oct.syokuhin.xls",
       "confidence": "medium",
       "classificationReason": "permit-only",
       "tags": [],
@@ -16848,6 +17059,17 @@
       "curated": false
     },
     {
+      "id": "official-a923fcd719286f",
+      "name": "酒と創菜 Ｔａｍ．",
+      "address": "埼玉県越谷市南越谷１－１－５２ 寿第二ビル１０１号室",
+      "permitDate": "2026-09-08",
+      "sourceUrl": "https://www.city.koshigaya.saitama.jp/kurashi_shisei/fukushi/hokenjo/shokuhin/files/r8.sep.syokuhin.xls",
+      "confidence": "medium",
+      "classificationReason": "permit-only",
+      "tags": [],
+      "curated": false
+    },
+    {
       "id": "official-72f5ac921f0099",
       "name": "南越谷ｓｕｓｈｉ ｗｏｒｋｓ",
       "address": "埼玉県越谷市南越谷１－１－６４",
@@ -17115,8 +17337,8 @@
       "id": "official-2a2c3d76ad4a6e",
       "name": "Ｎｅｗ Ｃｌｕｂ Ｔｒｕｅ",
       "address": "埼玉県越谷市南越谷１－２０－５ サンライズビル南越谷３階",
-      "permitDate": "2020-10-21",
-      "sourceUrl": "https://www.city.koshigaya.saitama.jp/kurashi_shisei/fukushi/hokenjo/shokuhin/files/r8.3.31koukai.xls",
+      "permitDate": "2026-10-07",
+      "sourceUrl": "https://www.city.koshigaya.saitama.jp/kurashi_shisei/fukushi/hokenjo/shokuhin/files/r8.oct.syokuhin.xls",
       "confidence": "medium",
       "classificationReason": "permit-only",
       "tags": [],
@@ -17704,8 +17926,8 @@
       "id": "official-7473a702af8dd4",
       "name": "ＧＲＡＴＯ",
       "address": "埼玉県越谷市南越谷４－１１－６ 北栄ハイツ１０１号",
-      "permitDate": "2020-09-28",
-      "sourceUrl": "https://www.city.koshigaya.saitama.jp/kurashi_shisei/fukushi/hokenjo/shokuhin/files/r8.3.31koukai.xls",
+      "permitDate": "2026-10-01",
+      "sourceUrl": "https://www.city.koshigaya.saitama.jp/kurashi_shisei/fukushi/hokenjo/shokuhin/files/r8.oct.syokuhin.xls",
       "confidence": "medium",
       "classificationReason": "permit-only",
       "tags": [],
@@ -18559,6 +18781,17 @@
       "curated": false
     },
     {
+      "id": "official-26be7a1a2671da",
+      "name": "恋油",
+      "address": "埼玉県越谷市大字下間久里３９０－５",
+      "permitDate": "2026-10-28",
+      "sourceUrl": "https://www.city.koshigaya.saitama.jp/kurashi_shisei/fukushi/hokenjo/shokuhin/files/r8.oct.syokuhin.xls",
+      "confidence": "medium",
+      "classificationReason": "permit-only",
+      "tags": [],
+      "curated": false
+    },
+    {
       "id": "official-df26e7621d1d3f",
       "name": "大安",
       "address": "埼玉県越谷市大字下間久里５０８－１ １階",
@@ -18914,8 +19147,8 @@
       "id": "official-d35b535752f643",
       "name": "酒処 木蓮",
       "address": "埼玉県越谷市大字大林４４６－７",
-      "permitDate": "2020-09-23",
-      "sourceUrl": "https://www.city.koshigaya.saitama.jp/kurashi_shisei/fukushi/hokenjo/shokuhin/files/r8.3.31koukai.xls",
+      "permitDate": "2026-09-14",
+      "sourceUrl": "https://www.city.koshigaya.saitama.jp/kurashi_shisei/fukushi/hokenjo/shokuhin/files/r8.sep.syokuhin.xls",
       "confidence": "medium",
       "classificationReason": "permit-only",
       "tags": [],
@@ -19081,8 +19314,8 @@
       "id": "official-ccd8a0030f6c85",
       "name": "道の途中",
       "address": "埼玉県越谷市大字大里６１７－４",
-      "permitDate": "2020-09-23",
-      "sourceUrl": "https://www.city.koshigaya.saitama.jp/kurashi_shisei/fukushi/hokenjo/shokuhin/files/r8.3.31koukai.xls",
+      "permitDate": "2026-09-14",
+      "sourceUrl": "https://www.city.koshigaya.saitama.jp/kurashi_shisei/fukushi/hokenjo/shokuhin/files/r8.sep.syokuhin.xls",
       "confidence": "medium",
       "classificationReason": "permit-only",
       "tags": [],
@@ -19470,8 +19703,8 @@
       "id": "official-4953a8b5cf7f2c",
       "name": "ホテル ニュー岬",
       "address": "埼玉県越谷市大字砂原１４９１",
-      "permitDate": "2020-08-18",
-      "sourceUrl": "https://www.city.koshigaya.saitama.jp/kurashi_shisei/fukushi/hokenjo/shokuhin/files/r8.3.31koukai.xls",
+      "permitDate": "2026-09-29",
+      "sourceUrl": "https://www.city.koshigaya.saitama.jp/kurashi_shisei/fukushi/hokenjo/shokuhin/files/r8.sep.syokuhin.xls",
       "confidence": "medium",
       "classificationReason": "permit-only",
       "tags": [],
@@ -19821,6 +20054,17 @@
       "curated": false
     },
     {
+      "id": "official-8b2f81a90590e1",
+      "name": "ロマン",
+      "address": "埼玉県越谷市大字袋山１２１６－１",
+      "permitDate": "2026-09-11",
+      "sourceUrl": "https://www.city.koshigaya.saitama.jp/kurashi_shisei/fukushi/hokenjo/shokuhin/files/r8.sep.syokuhin.xls",
+      "confidence": "medium",
+      "classificationReason": "permit-only",
+      "tags": [],
+      "curated": false
+    },
+    {
       "id": "official-bdfc974aa141aa",
       "name": "こりんず",
       "address": "埼玉県越谷市大字袋山１２１６－１９",
@@ -19947,6 +20191,17 @@
       "address": "埼玉県越谷市大字袋山１３７６－３",
       "permitDate": "2023-04-26",
       "sourceUrl": "https://www.city.koshigaya.saitama.jp/kurashi_shisei/fukushi/hokenjo/shokuhin/files/r8.3.31koukai.xls",
+      "confidence": "medium",
+      "classificationReason": "permit-only",
+      "tags": [],
+      "curated": false
+    },
+    {
+      "id": "official-f2f6a926e91171",
+      "name": "福樂麻辣タン",
+      "address": "埼玉県越谷市大字袋山１３８４－７",
+      "permitDate": "2026-10-02",
+      "sourceUrl": "https://www.city.koshigaya.saitama.jp/kurashi_shisei/fukushi/hokenjo/shokuhin/files/r8.oct.syokuhin.xls",
       "confidence": "medium",
       "classificationReason": "permit-only",
       "tags": [],
@@ -20211,8 +20466,8 @@
       "id": "official-25a2eecde0829f",
       "name": "カラオケマンボ",
       "address": "埼玉県越谷市大字袋山１５４５",
-      "permitDate": "2020-09-18",
-      "sourceUrl": "https://www.city.koshigaya.saitama.jp/kurashi_shisei/fukushi/hokenjo/shokuhin/files/r8.3.31koukai.xls",
+      "permitDate": "2026-09-14",
+      "sourceUrl": "https://www.city.koshigaya.saitama.jp/kurashi_shisei/fukushi/hokenjo/shokuhin/files/r8.sep.syokuhin.xls",
       "confidence": "medium",
       "classificationReason": "permit-only",
       "tags": [],
@@ -21664,8 +21919,19 @@
       "id": "official-e175b7672e21ce",
       "name": "やなぎ家",
       "address": "埼玉県越谷市東越谷１０－１６－３",
-      "permitDate": "2020-10-13",
-      "sourceUrl": "https://www.city.koshigaya.saitama.jp/kurashi_shisei/fukushi/hokenjo/shokuhin/files/r8.3.31koukai.xls",
+      "permitDate": "2026-10-19",
+      "sourceUrl": "https://www.city.koshigaya.saitama.jp/kurashi_shisei/fukushi/hokenjo/shokuhin/files/r8.oct.syokuhin.xls",
+      "confidence": "medium",
+      "classificationReason": "permit-only",
+      "tags": [],
+      "curated": false
+    },
+    {
+      "id": "official-7f3cabccf1f48f",
+      "name": "アンバーワークス",
+      "address": "埼玉県越谷市東越谷１０－３２",
+      "permitDate": "2026-09-18",
+      "sourceUrl": "https://www.city.koshigaya.saitama.jp/kurashi_shisei/fukushi/hokenjo/shokuhin/files/r8.sep.syokuhin.xls",
       "confidence": "medium",
       "classificationReason": "permit-only",
       "tags": [],
@@ -21798,8 +22064,8 @@
       "id": "official-c813d7f3552c84",
       "name": "らあめん屋 歩一",
       "address": "埼玉県越谷市東越谷３－５－７",
-      "permitDate": "2020-08-21",
-      "sourceUrl": "https://www.city.koshigaya.saitama.jp/kurashi_shisei/fukushi/hokenjo/shokuhin/files/r8.3.31koukai.xls",
+      "permitDate": "2026-09-08",
+      "sourceUrl": "https://www.city.koshigaya.saitama.jp/kurashi_shisei/fukushi/hokenjo/shokuhin/files/r8.sep.syokuhin.xls",
       "confidence": "medium",
       "classificationReason": "permit-only",
       "tags": [],
@@ -21912,8 +22178,8 @@
       "id": "official-7610b80690853c",
       "name": "中国料理 海華",
       "address": "埼玉県越谷市東越谷８－１２－４",
-      "permitDate": "2020-10-15",
-      "sourceUrl": "https://www.city.koshigaya.saitama.jp/kurashi_shisei/fukushi/hokenjo/shokuhin/files/r8.3.31koukai.xls",
+      "permitDate": "2026-10-19",
+      "sourceUrl": "https://www.city.koshigaya.saitama.jp/kurashi_shisei/fukushi/hokenjo/shokuhin/files/r8.oct.syokuhin.xls",
       "confidence": "medium",
       "classificationReason": "permit-only",
       "tags": [],
@@ -22123,8 +22389,8 @@
       "id": "official-2d1dc2e6969ce8",
       "name": "ペパーミントハウス",
       "address": "埼玉県越谷市瓦曽根３－５－３１",
-      "permitDate": "2020-10-27",
-      "sourceUrl": "https://www.city.koshigaya.saitama.jp/kurashi_shisei/fukushi/hokenjo/shokuhin/files/r8.3.31koukai.xls",
+      "permitDate": "2026-10-13",
+      "sourceUrl": "https://www.city.koshigaya.saitama.jp/kurashi_shisei/fukushi/hokenjo/shokuhin/files/r8.oct.syokuhin.xls",
       "confidence": "medium",
       "classificationReason": "permit-only",
       "tags": [],
@@ -22860,8 +23126,8 @@
       "id": "official-5eda18acc87aaa",
       "name": "花み月",
       "address": "埼玉県越谷市蒲生寿町２０－３ １－５号室",
-      "permitDate": "2020-09-14",
-      "sourceUrl": "https://www.city.koshigaya.saitama.jp/kurashi_shisei/fukushi/hokenjo/shokuhin/files/r8.3.31koukai.xls",
+      "permitDate": "2026-09-29",
+      "sourceUrl": "https://www.city.koshigaya.saitama.jp/kurashi_shisei/fukushi/hokenjo/shokuhin/files/r8.sep.syokuhin.xls",
       "confidence": "medium",
       "classificationReason": "permit-only",
       "tags": [],
@@ -22972,6 +23238,17 @@
       "address": "埼玉県越谷市蒲生旭町１０－２６",
       "permitDate": "2021-05-31",
       "sourceUrl": "https://www.city.koshigaya.saitama.jp/kurashi_shisei/fukushi/hokenjo/shokuhin/files/r8.3.31koukai.xls",
+      "confidence": "medium",
+      "classificationReason": "permit-only",
+      "tags": [],
+      "curated": false
+    },
+    {
+      "id": "official-4c69545e012d71",
+      "name": "トヨミセカイ",
+      "address": "埼玉県越谷市蒲生旭町２－２６",
+      "permitDate": "2026-09-25",
+      "sourceUrl": "https://www.city.koshigaya.saitama.jp/kurashi_shisei/fukushi/hokenjo/shokuhin/files/r8.sep.syokuhin.xls",
       "confidence": "medium",
       "classificationReason": "permit-only",
       "tags": [],
@@ -23258,6 +23535,17 @@
       "address": "埼玉県越谷市蒲生茜町１９－８ 蒲生ビューハイツ１０６",
       "permitDate": "2024-05-15",
       "sourceUrl": "https://www.city.koshigaya.saitama.jp/kurashi_shisei/fukushi/hokenjo/shokuhin/files/r8.3.31koukai.xls",
+      "confidence": "medium",
+      "classificationReason": "permit-only",
+      "tags": [],
+      "curated": false
+    },
+    {
+      "id": "official-aed8f0b2bf26a0",
+      "name": "Ｍ－ｆｌｏｏｒ",
+      "address": "埼玉県越谷市蒲生茜町１９－８ 蒲生ビューハイツ１階 Ｂ号室",
+      "permitDate": "2026-10-14",
+      "sourceUrl": "https://www.city.koshigaya.saitama.jp/kurashi_shisei/fukushi/hokenjo/shokuhin/files/r8.oct.syokuhin.xls",
       "confidence": "medium",
       "classificationReason": "permit-only",
       "tags": [],
@@ -23995,8 +24283,8 @@
       "id": "official-7baebf8201f496",
       "name": "もつ焼 ローカルズ",
       "address": "埼玉県越谷市赤山町１－５４",
-      "permitDate": "2020-10-07",
-      "sourceUrl": "https://www.city.koshigaya.saitama.jp/kurashi_shisei/fukushi/hokenjo/shokuhin/files/r8.3.31koukai.xls",
+      "permitDate": "2026-10-01",
+      "sourceUrl": "https://www.city.koshigaya.saitama.jp/kurashi_shisei/fukushi/hokenjo/shokuhin/files/r8.oct.syokuhin.xls",
       "confidence": "medium",
       "classificationReason": "permit-only",
       "tags": [],
@@ -24019,6 +24307,17 @@
       "address": "埼玉県越谷市赤山町１－６０－４",
       "permitDate": "2021-11-04",
       "sourceUrl": "https://www.city.koshigaya.saitama.jp/kurashi_shisei/fukushi/hokenjo/shokuhin/files/r8.3.31koukai.xls",
+      "confidence": "medium",
+      "classificationReason": "permit-only",
+      "tags": [],
+      "curated": false
+    },
+    {
+      "id": "official-408c7a12aa70ca",
+      "name": "からあげとハイボール 金だるま",
+      "address": "埼玉県越谷市赤山町１－６０－４",
+      "permitDate": "2026-10-08",
+      "sourceUrl": "https://www.city.koshigaya.saitama.jp/kurashi_shisei/fukushi/hokenjo/shokuhin/files/r8.oct.syokuhin.xls",
       "confidence": "medium",
       "classificationReason": "permit-only",
       "tags": [],
@@ -24965,8 +25264,8 @@
       "id": "official-e0c0ff6126cfcc",
       "name": "美豚",
       "address": "埼玉県越谷市越ヶ谷本町５－２９",
-      "permitDate": "2020-10-08",
-      "sourceUrl": "https://www.city.koshigaya.saitama.jp/kurashi_shisei/fukushi/hokenjo/shokuhin/files/r8.3.31koukai.xls",
+      "permitDate": "2026-10-14",
+      "sourceUrl": "https://www.city.koshigaya.saitama.jp/kurashi_shisei/fukushi/hokenjo/shokuhin/files/r8.oct.syokuhin.xls",
       "confidence": "medium",
       "classificationReason": "permit-only",
       "tags": [],
@@ -25857,6 +26156,17 @@
       "curated": false
     },
     {
+      "id": "official-25237ce9b65935",
+      "name": "ＴＨＥ ＨＢＣ",
+      "address": "市内一円",
+      "permitDate": "2026-09-09",
+      "sourceUrl": "https://www.city.koshigaya.saitama.jp/kurashi_shisei/fukushi/hokenjo/shokuhin/files/r8.sep.syokuhin.xls",
+      "confidence": "medium",
+      "classificationReason": "permit-only",
+      "tags": [],
+      "curated": false
+    },
+    {
       "id": "official-8031354265f92b",
       "name": "ＴＨＥ ＯＮＥ",
       "address": "市内一円",
@@ -26335,6 +26645,17 @@
       "address": "市内一円",
       "permitDate": "2026-03-31",
       "sourceUrl": "https://www.city.koshigaya.saitama.jp/kurashi_shisei/fukushi/hokenjo/shokuhin/files/r8.3.31koukai.xls",
+      "confidence": "medium",
+      "classificationReason": "permit-only",
+      "tags": [],
+      "curated": false
+    },
+    {
+      "id": "official-4a639bf172d147",
+      "name": "アリーズケバブ",
+      "address": "市内一円",
+      "permitDate": "2026-10-01",
+      "sourceUrl": "https://www.city.koshigaya.saitama.jp/kurashi_shisei/fukushi/hokenjo/shokuhin/files/r8.oct.syokuhin.xls",
       "confidence": "medium",
       "classificationReason": "permit-only",
       "tags": [],
@@ -27006,6 +27327,17 @@
       "address": "市内一円",
       "permitDate": "2021-07-26",
       "sourceUrl": "https://www.city.koshigaya.saitama.jp/kurashi_shisei/fukushi/hokenjo/shokuhin/files/r8.3.31koukai.xls",
+      "confidence": "medium",
+      "classificationReason": "permit-only",
+      "tags": [],
+      "curated": false
+    },
+    {
+      "id": "official-5d0ff20d814ab0",
+      "name": "肉と１５の夜",
+      "address": "市内一円",
+      "permitDate": "2026-10-26",
+      "sourceUrl": "https://www.city.koshigaya.saitama.jp/kurashi_shisei/fukushi/hokenjo/shokuhin/files/r8.oct.syokuhin.xls",
       "confidence": "medium",
       "classificationReason": "permit-only",
       "tags": [],
