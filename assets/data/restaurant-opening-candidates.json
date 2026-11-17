@@ -1,8 +1,8 @@
 {
   "area": "越谷市",
-  "updatedAt": "2026-11-16",
+  "updatedAt": "2026-11-17",
   "purpose": "新規OPEN候補の軽量自動探索。候補は確認前のため、そのまま本番店舗一覧には掲載しない。",
-  "candidateCount": 33,
+  "candidateCount": 34,
   "sourceCount": 3,
   "candidates": [
     {
@@ -14,6 +14,17 @@
       "sourceName": "号外NET 越谷市 開店/閉店",
       "sourceUrl": "https://koshigaya.goguynet.jp/2026/11/15/yves-rocher/",
       "discoveredAt": "2026-11-15",
+      "status": "candidate"
+    },
+    {
+      "id": "425e9339ed189d8d",
+      "name": "PISOLA東越谷店",
+      "headline": "【越谷市】まるで高級リゾート！11月18日オープン「PISOLA東越谷店」に潜入。充実のランチや無料のお子さまメニューも",
+      "openingDateHint": "2026-11-18",
+      "sourceId": "goguynet-koshigaya-openclose",
+      "sourceName": "号外NET 越谷市 開店/閉店",
+      "sourceUrl": "https://koshigaya.goguynet.jp/2026/11/16/pisola-3/",
+      "discoveredAt": "2026-11-17",
       "status": "candidate"
     },
     {
